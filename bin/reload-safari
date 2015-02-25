@@ -1,0 +1,8 @@
+#!/usr/bin/osascript
+
+-- https://discussions.apple.com/thread/5747713?start=0&tstart=0
+
+tell application "Safari"
+    set docUrl to URL of document 1
+    set URL of document 1 to docUrl
+end
