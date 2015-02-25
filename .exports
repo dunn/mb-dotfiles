@@ -41,7 +41,11 @@ export gempath="$HOME/.gem/ruby/$ruby_version/bin"
 # ====
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
 
-# NVM
+# nvm
 # ===
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+source "$(brew --prefix nvm)/nvm.sh"
+
+# TeX
+# ===
+export BIBINPUTS='/Users/$USER/Dropbox/texmf/bibtex/bib'
