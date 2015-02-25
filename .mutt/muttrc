@@ -9,7 +9,7 @@ source ~/.mutt/gmail
 folder-hook ~/Mail/gmail/* source ~/.mutt/gmail
 folder-hook ~/Mail/umail/* source ~/.mutt/umail
 # List the available mailboxes:
-mailboxes="$HOME/Mail/gmail/" "$HOME/Mail/umail/"
+mailboxes = "$HOME/Mail/gmail/" "$HOME/Mail/umail/"
 
 # https://heipei.net/2009/09/10/mutt-threading-like-a-pro/
 set sort="reverse-date"
