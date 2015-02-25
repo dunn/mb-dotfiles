@@ -1,21 +1,47 @@
-# Make vim the default editor.
-export EDITOR='vim';
+#!/usr/bin/env bash
+
+export EDITOR='emacs';
+
+# Prefer US English and use UTF-8.
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
 
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth';
-
-# Prefer US English and use UTF-8.
-export LANG='en_US.UTF-8';
-export LC_ALL='en_US.UTF-8';
+# Make some commands not show up in history
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
 
 # Highlight section titles in manual pages.
-export LESS_TERMCAP_md="${yellow}";
+SOLAR_BLUE=$(tput setaf 33)
+export LESS_TERMCAP_md="$SOLAR_BLUE";
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
 
 # Always enable colored `grep` output.
 export GREP_OPTIONS='--color=auto';
+
+# EMAIL
+# ====
+export MAILCONF="$HOME/.mutt/"
+export MAIL="$HOME/Mail/"
+GPG_TTY=$(tty)
+export GPG_TTY
+
+# RUBY
+# ====
+export RUBYOPT=rubygems
+ruby_version=$(ruby --version | sed 's:^[^0-9]*\([0-9\.]*\).*:\1:g')
+export gempath="$HOME/.gem/ruby/$ruby_version/bin"
+
+# JAVA
+# ====
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
+
+# NVM
+# ===
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
