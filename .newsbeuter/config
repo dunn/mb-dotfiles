@@ -1,0 +1,41 @@
+auto-reload yes
+reload-time 30
+confirm-exit yes
+error-log "$HOME/.newsbeuter/error.log"
+save-path "$HOME/Dropbox/news/"
+text-width 70
+browser open
+
+bookmark-cmd "$HOME/bin/email-pocket.sh"
+bind-key B bookmark
+
+# mutt-style
+bind-key i quit
+
+# navigation
+bind-key P pageup
+bind-key N pagedown
+bind-key = home
+bind-key + end
+
+# reverse SHIFT key
+unbind-key j
+unbind-key k
+bind-key j next
+bind-key k prev
+unbind-key J
+unbind-key K
+bind-key J next-feed
+bind-key K prev-feed
+
+# In order to use this color scheme, you must first configure
+# your terminal emulator to use the Solarized palette.
+# See <http://ethanschoonover.com/solarized/> for more information.
+
+color background          default   default
+color listnormal          default   default
+color listfocus           color234  color241
+color listnormal_unread   blue      default
+color listfocus_unread    color234  blue
+color info                white     color235
+color article             default   default
