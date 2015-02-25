@@ -25,3 +25,5 @@ Thumbs.db
 
 # machine-specific dotstuff
 .extra
+.mutt/gmail
+.mutt/umail
