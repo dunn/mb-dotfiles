@@ -1,0 +1,62 @@
+\documentclass{gara}
+% this resolves a conlict between AMS packages and mathdesign: http://www.tex.ac.uk/cgi-bin/texfaq2html?label=alreadydef
+\usepackage{savesym}
+\usepackage{amssymb,amsmath}
+% this mirrors the font directory structure: /fonts/opentype/adobe/garamond/ = adobe-garamond
+% You'll also have to get the filenames just right, even if that means pretending Bold is Semibold: http://ctan.mackichan.com/fonts/mathdesign/README
+\usepackage[adobe-garamond]{mathdesign}
+% \usepackage{garamondx}
+\usepackage{anyfontsize}
+% make strikethrough \sout available (~~struckout~~) in markdown; but
+% without [normalem], emphasis is changed to underlines
+\usepackage[normalem]{ulem}
+
+\usepackage{enumitem}
+\usepackage{setspace}
+
+\usepackage{titlesec}
+\titleformat*{\subsubsection}{\itshape}
+\titlelabel{\normalfont\thetitle\quad}
+% \titleformat{\subsubsection}[\itshape]{it}{\normal\thetitle\quad}{}[]
+
+\usepackage{natbib}
+\setcitestyle{aysep={}}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=black,linkcolor=black]{hyperref}
+\usepackage{url}
+
+% https://github.com/kjhealy/pandoc-templates/blob/master/templates/latex.template
+$if(graphics)$
+\usepackage{graphicx}
+% We will generate all images so they have a width \maxwidth. This means
+% that they will get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+$endif$
+
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\strictif}{\mathrel}{symbolsC}{74}
+\DeclareMathSymbol{\boxright}{\mathrel}{symbolsC}{128}
+
+\title{$title$}
+\author{$author$}
+
+$if(date)$
+\date{date}
+$else$
+\date{\today}
+$endif$
+
+\begin{document}
+\maketitle
+
+$body$
+
+\bibliographystyle{chicago}
+\bibliography{everything}
+
+\end{document}
