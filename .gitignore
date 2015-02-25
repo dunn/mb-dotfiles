@@ -1,5 +1,15 @@
-# Compiled Python files
-*.pyc
+# SASS
+*.sass-cache
+
+# emacs
+*~
+\#*\#
+.\#*
+
+# TeX
+*.aux
+*.bbl
+*.blg
 
 # Folder view configuration files
 .DS_Store
