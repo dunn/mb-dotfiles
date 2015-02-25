@@ -100,6 +100,15 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
+(add-hook 'html-mode-hook 'ac-html-enable)
+(add-to-list 'web-mode-ac-sources-alist
+  '("html" . (
+               ;; attribute-value better to be first
+               ac-source-html-attribute-value
+               ac-source-html-tag
+               ac-source-html-attribute)))
+
+
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 (add-hook 'mail-mode-hook 'turn-on-auto-fill)
 
