@@ -1,10 +1,11 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH";
+#!/usr/bin/env bash
+
+export PATH="$HOME/bin:$(brew --prefix go)/libexec/bin:$(brew --prefix homebrew/php/php56)/bin:/usr/local/bin:~/.cabal/bin:$PATH"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.{bash_prompt,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -16,7 +17,7 @@ shopt -s nocaseglob;
 shopt -s histappend;
 
 # Autocorrect typos in path names when using `cd`
-shopt -s cdspell;
+# shopt -s cdspell;
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`

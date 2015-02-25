@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Create a new directory and enter it
-function cdm() {
+cdm() {
 	mkdir -p "$1" && cd "$1";
 }
 
@@ -26,12 +26,12 @@ mhc() {
 }
 
 # Change working directory to the top-most Finder window location
-function cdf() { # short for `cdfinder`
+cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
-function targz() {
+targz() {
 	local tmpFile="${@%/}.tar";
 	tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;
 
@@ -59,7 +59,7 @@ function targz() {
 }
 
 # Determine size of a file or total size of a directory
-function fs() {
+fs() {
 	if du -b /dev/null > /dev/null 2>&1; then
 		local arg=-sbh;
 	else
@@ -73,7 +73,7 @@ function fs() {
 }
 
 # Create a data URL from a file
-function dataurl() {
+dataurl() {
 	local mimeType=$(file -b --mime-type "$1");
 	if [[ $mimeType == text/* ]]; then
 		mimeType="${mimeType};charset=utf-8";
@@ -83,7 +83,7 @@ function dataurl() {
 
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location
-function o() {
+o() {
 	if [ $# -eq 0 ]; then
 		open .;
 	else
