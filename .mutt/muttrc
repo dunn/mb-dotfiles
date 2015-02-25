@@ -68,7 +68,7 @@ color error red default            # Errors
 color hdrdefault default default   # Default header lines
 color indicator color234 color244  # Actual message
 color markers green default        # "+" at beginning of wrapped lines
-color message blue default         # Info messages
+color message white default        # Info messages
 color normal default default       # Normal text
 color quoted color241 default      # Quoted text
 color search green default         # Search matches
