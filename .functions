@@ -17,11 +17,11 @@ eat() {
 
 # brew install pandoc
 mhc() {
-  if [[ ! -f "$1" ]]; then
+  if [[ -f "$1" ]]; then
+    pandoc -f markdown -t html5 --smart "$1" | pbcopy
+  else
     echo "That's not a file."
     exit 1
-  else
-    pandoc -f markdown -t html5 --smart "$1" | pbcopy
   fi
 }
 
