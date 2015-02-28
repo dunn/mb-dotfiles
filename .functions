@@ -25,6 +25,29 @@ mhc() {
   fi
 }
 
+# brew install poppler
+pdfhead() {
+  if [[ "$2" != "" ]]; then
+    head_opt="$1"
+    pdf="$2"
+  else
+    pdf="$1"
+    head_opt="-10"
+  fi
+  pdftotext "$pdf" - | head "$head_opt"
+}
+
+pdftail() {
+  if [[ "$2" != "" ]]; then
+    tail_opt="$1"
+    pdf="$2"
+  else
+    pdf="$1"
+    tail_opt="-10"
+  fi
+  pdftotext "$pdf" - | tail "$tail_opt"
+}
+
 # Change working directory to the top-most Finder window location
 cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
