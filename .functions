@@ -27,7 +27,7 @@ mhc() {
 
 # brew install poppler
 pdfhead() {
-  if [[ "$2" != "" ]]; then
+  if [[ -n "$2" ]]; then
     head_opt="$1"
     pdf="$2"
   else
@@ -38,7 +38,7 @@ pdfhead() {
 }
 
 pdftail() {
-  if [[ "$2" != "" ]]; then
+  if [[ -n "$2" ]]; then
     tail_opt="$1"
     pdf="$2"
   else
