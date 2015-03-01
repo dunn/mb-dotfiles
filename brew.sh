@@ -8,20 +8,15 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-# If it isn't already
-brew install git --with-persistent-https --with-brewed-openssl --with-pcre --with-brewed-curl
+# If it isn't already installed
+brew reinstall git --with-persistent-https --with-brewed-openssl --with-pcre --with-brewed-curl
 brew install hub
 
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
-
-# Install some other useful utilities like `sponge`.
-brew install moreutils
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
-brew install findutils
-# Install GNU `sed`
 brew install gnu-sed
+
 # Install Bash 4.
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
