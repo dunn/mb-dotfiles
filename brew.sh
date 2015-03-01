@@ -24,24 +24,24 @@ brew install bash
 brew install bash-completion
 
 # Install emacs
-brew install emacs --with-x
-brew install aspell --with-lang-en
+brew reinstall emacs --with-x
+brew reinstall aspell --with-lang-en
 
 # Install wget with IRI support.
-brew install wget --with-iri
+brew reinstall wget --with-iri
 
 # Install curl with sftp support, necessary for git-ftp
-brew install curl --with-libssh2 --with-openssl
+brew reinstall curl --with-libssh2 --with-openssl
 
 # Install MAMP stuff
-brew install mysql --enable-local-infile
+brew reinstall mysql --enable-local-infile
 brew tap homebrew/apache
-brew install httpd24 --with-homebrew-openssl
+brew reinstall httpd24 --with-homebrew-openssl
 brew tap homebrew/php
-brew install php56 --with-apache --homebrew-apxs --with-homebrew-openssl --with-homebrew-curl
+brew reinstall php56 --with-apache --homebrew-apxs --with-homebrew-openssl --with-homebrew-curl
 
 # Email
-brew install mutt --with-confirm-attachment-patch --with-gpgme --with-s-lang --with-trash-patch
+brew reinstall mutt --with-confirm-attachment-patch --with-gpgme --with-s-lang --with-trash-patch
 brew install getmail
 brew install msmtp
 brew install gpg-agent
@@ -55,12 +55,12 @@ brew install entr
 brew install gawk
 brew install heroku-toolbelt
 brew install htmlcompressor
-brew install imagemagick --with-x11 --with-webp
+brew reinstall imagemagick --with-x11 --with-webp
 brew install pandoc
 brew install pandoc-citeproc
 brew install pngquant
 brew install pigz
-brew install poppler --with-little-cms2
+brew reinstall poppler --with-little-cms2
 brew install reattach-to-user-namespace
 brew install rename
 brew install ruby
@@ -72,13 +72,9 @@ brew install w3m
 brew install youtube-dl
 brew install zopfli
 
-# Install Node.js. Note: this installs `npm` too, using the recommended
-# installation method.
-brew install node
+# Install Node.js
+brew reinstall node --with-openssl --without-icu4c
 brew install nvm
-
-# Install io.js
-brew install iojs
 
 # Remove outdated versions from the cellar.
 brew cleanup
