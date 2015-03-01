@@ -114,8 +114,6 @@ alias dater='date "+%Y-%m-%d"'
 alias now='date "+%Y-%m-%d-%H%M%S"'
 
 alias plain='pbpaste | pbcopy'
-# because http://thejh.net/misc/website-terminal-copy-paste
-alias pbcheck='echo `pbpaste`'
 # Trim new lines and copy to clipboard
 alias c="tr -d '\n' | pbcopy"
 
