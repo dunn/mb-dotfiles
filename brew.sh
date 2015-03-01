@@ -65,6 +65,7 @@ brew install pandoc
 brew install pandoc-citeproc
 brew install pngquant
 brew install pigz
+brew install poppler --with-little-cms2
 brew install reattach-to-user-namespace
 brew install rename
 brew install ruby
