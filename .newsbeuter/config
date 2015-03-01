@@ -1,12 +1,12 @@
 auto-reload yes
 reload-time 30
 confirm-exit yes
-error-log "$HOME/.newsbeuter/error.log"
-save-path "$HOME/Dropbox/news/"
+error-log ~/.newsbeuter/error.log
+save-path ~/Dropbox/news/
 text-width 70
 browser open
 
-bookmark-cmd "$HOME/bin/email-pocket.sh"
+bookmark-cmd ~/bin/email-pocket.sh
 bind-key B bookmark
 
 # mutt-style
