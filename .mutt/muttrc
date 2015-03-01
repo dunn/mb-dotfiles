@@ -16,8 +16,8 @@ set sort="reverse-date"
 set strict_threads="yes"
 set sort_browser="reverse-date"
 set sort_aux="last-date-received"
-bind index - collapse-thread
-bind index _ collapse-all
+# bind index - collapse-thread
+# bind index _ collapse-all
 
 # http://stevelosh.com/blog/2012/10/the-homely-mutt/
 bind index R group-reply
