@@ -35,7 +35,7 @@ brew install aspell --with-lang-en
 # Install wget with IRI support.
 brew install wget --with-iri
 
-# Install curl with sftp
+# Install curl with sftp support, necessary for git-ftp
 brew install curl --with-libssh2 --with-openssl
 
 # Install MAMP stuff
@@ -49,7 +49,6 @@ brew install php56 --with-apache --homebrew-apxs --with-homebrew-openssl --with-
 brew install mutt --with-confirm-attachment-patch --with-gpgme --with-s-lang --with-trash-patch
 brew install getmail
 brew install msmtp
-brew install gpgme
 brew install gpg-agent
 
 # Install other good shit
