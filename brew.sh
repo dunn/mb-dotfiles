@@ -9,7 +9,7 @@ brew update
 brew upgrade
 
 # If it isn't already
-brew install git
+brew install git --with-persistent-https --with-brewed-openssl --with-pcre --with-brewed-curl
 brew install hub
 
 # Install GNU core utilities (those that come with OS X are outdated).
