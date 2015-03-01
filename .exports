@@ -48,4 +48,4 @@ source "$(brew --prefix nvm)/nvm.sh"
 
 # TeX
 # ===
-export BIBINPUTS='/Users/$USER/Dropbox/texmf/bibtex/bib'
+export BIBINPUTS='$HOME/Dropbox/texmf/bibtex/bib'
