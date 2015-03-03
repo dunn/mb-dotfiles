@@ -64,6 +64,7 @@ brew reinstall poppler --with-little-cms2
 brew install reattach-to-user-namespace
 brew install rename
 brew install ruby
+brew install safe-rm
 brew install src
 brew install surfraw
 brew install tmux
