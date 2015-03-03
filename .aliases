@@ -11,6 +11,7 @@ alias .....="cd ../../../.."
 alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias ds="cd ~/Desktop"
+alias scren="cd ~/Dropbox/Screenshots"
 
 # SYSTEM
 # ======
