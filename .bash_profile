@@ -16,6 +16,10 @@ shopt -s nocaseglob;
 # Append to the Bash history file, rather than overwriting it
 shopt -s histappend;
 
+# https://github.com/bfontaine/Dotfiles/blob/master/.bashrc#L24-L25
+# disable file overwriting with >
+set -C
+
 # Autocorrect typos in path names when using `cd`
 # shopt -s cdspell;
 
