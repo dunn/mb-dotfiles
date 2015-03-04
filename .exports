@@ -34,8 +34,6 @@ export GPG_TTY
 # RUBY
 # ====
 export RUBYOPT=rubygems
-ruby_version=$(ruby --version | sed 's:^[^0-9]*\([0-9\.]*\).*:\1:g')
-export gempath="$HOME/.gem/ruby/$ruby_version/bin"
 
 # JAVA
 # ====
