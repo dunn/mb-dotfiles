@@ -7,20 +7,20 @@ cdm() {
 
 # copy file contents to clipboard
 eat() {
-  if [[ -f "$1" ]]; then
-    pbcopy < "$1"
-  else
+  if [[ ! -f "$1" ]]; then
     echo "Give me a real file to eat."
+    return 1
   fi
+  pbcopy < "$1"
 }
 
 # brew install pandoc
 mhc() {
-  if [[ -f "$1" ]]; then
-    pandoc -f markdown -t html5 --smart "$1" | pbcopy
-  else
+  if [[ ! -f "$1" ]]; then
     echo "That's not a file."
+    return 1
   fi
+  pandoc -f markdown -t html5 --smart "$1" | pbcopy
 }
 
 # Change working directory to the top-most Finder window location
@@ -33,7 +33,7 @@ cdf() { # short for `cdfinder`
 reload-for() {
   if [[ -z "$1" ]]; then
     echo "Error [return-for]: Specify the type(s) of files to watch."
-    return
+    return 1
   fi
   find_func="find $(pwd) -name '*.'$1"
   for ext in "$@"; do
