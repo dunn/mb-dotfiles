@@ -25,6 +25,28 @@ mhc() {
   fi
 }
 
+# Change working directory to the top-most Finder window location
+cdf() { # short for `cdfinder`
+	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
+}
+
+# brew install entr
+# see bin/reload-safari
+reload-for() {
+  if [[ -z "$1" ]]; then
+    echo "Error [return-for]: Specify the type(s) of files to watch."
+    return
+  fi
+  find_func="find $(pwd) -name '*.'$1"
+  for ext in "$@"; do
+    if [[ "$ext" != "$1" ]]; then
+      find_func="$find_func -o -name '*.'$ext";
+    fi
+  done
+  # ¯\_(ツ)_/¯ http://mywiki.wooledge.org/BashFAQ/048
+  eval "$find_func | entr reload-safari"
+}
+
 # brew install poppler
 pdfhead() {
   if [[ -n "$2" ]]; then
@@ -46,11 +68,6 @@ pdftail() {
     tail_opt="-10"
   fi
   pdftotext "$pdf" - | tail "$tail_opt"
-}
-
-# Change working directory to the top-most Finder window location
-cdf() { # short for `cdfinder`
-	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
