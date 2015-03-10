@@ -12,7 +12,7 @@ if (args.length < 4) {
 }
 else {
   var simple = false;
-  if (args[5]) { simple = true; }
+  if (args[5]) simple = true;
 
   // "darth '<<' duckthecat" — darth's followers that duck follows
   // "darth '<>' duckthecat" — darth's followers that follow duck
@@ -23,92 +23,68 @@ else {
 
   async.parallel([
     function(callback){
-      T.get(user1 + '/ids',
-            { screen_name: args[2], count: 5000 },
-            function(err, data, response) {
-              if (err) { return callback(err); }
-              if (!simple){
-                console.log('remaining ' +
-                            user1 +
-                            ' requests: ' +
-                            response.headers['x-rate-limit-remaining']);
-              }
-              var user1Ids = data.ids;
-              // console.log('initial # of ids: ' + user1Ids.length);
+      var user1opts = { screen_name: args[2], count: 5000 };
 
-              // user1Ids = user1Ids.toString();
+      T.get(user1 + '/ids', user1opts, function(err,data,response) {
+        if (err) return callback(err);
+        if (!simple){
+          console.log('remaining ' +
+                      user1 + ' requests: ' +
+                      response.headers['x-rate-limit-remaining']);
+        }
+        var user1Ids = data.ids;
+        var cursor = data.next_cursor_str;
+        async.whilst(
+          function(){ return cursor !== '0'; },
+          function(callback){
+            T.get(user1 + '/ids',
+                  { cursor: cursor,
+                    screen_name: args[2], count: 5000 },
+                  function(err, data, response) {
+                    if (err) return callback(err);
 
-              var cursor = data.next_cursor_str;
-              async.whilst(
-                function(){ return cursor !== '0'; },
-                function(callback){
-                  T.get(user1 + '/ids',
-                        { cursor: cursor,
-                          screen_name: args[2], count: 5000 },
-                        function(err, data, response) {
-                          if (err) { return callback(err); }
-                          // console.log('got ' +
-                          //             data.ids.length +
-                          //             ' new ids');
-                          user1Ids = user1Ids.concat(data.ids);
-                          // console.log(user1Ids);
-
-                          cursor = data.next_cursor_str;
-                          callback(null);
-                        });
-                },
-                function(err) {
-                  if (err) { return callback(err); }
-                  callback(null, user1Ids);
-                  // console.log(username + ' has ' +
-                  //             user1Ids.length +
-                  //            ' followers');
-                });
-            });
+                    user1Ids = user1Ids.concat(data.ids);
+                    cursor = data.next_cursor_str;
+                    return callback(null);
+                  });
+          },
+          function(err) {
+            if (err) { return callback(err); }
+            return callback(null, user1Ids);
+          });
+      });
     },
     function(callback){
-      T.get(user2 + '/ids',
-            { screen_name: args[4], count: 5000 },
-            function(err, data, response) {
-              if (err) { return callback(err); }
-              if (!simple){
-                console.log('remaining ' +
-                            user2 +
-                            ' requests: ' +
-                            response.headers['x-rate-limit-remaining']);
-              }
-              var user2Ids = data.ids;
-              // console.log('initial # of ids: ' + user1Ids.length);
+      var user2opts = { screen_name: args[4], count: 5000 };
+      T.get(user2 + '/ids', user2opts, function(err,data,response) {
+        if (err) return callback(err);
 
-              // user1Ids = user1Ids.toString();
+        if (!simple){
+          console.log('remaining ' +
+                      user2 + ' requests: ' +
+                      response.headers['x-rate-limit-remaining']);
+        }
+        var user2Ids = data.ids;
+        var cursor = data.next_cursor_str;
+        async.whilst(
+          function(){ return cursor !== '0'; },
+          function(callback){
+            var opts = { cursor: cursor,
+                         screen_name: args[4],
+                         count: 5000 };
+            T.get(user2 + '/ids', opts, function(err,data,response) {
+              if (err) return callback(err);
 
-              var cursor = data.next_cursor_str;
-              async.whilst(
-                function(){ return cursor !== '0'; },
-                function(callback){
-                  var opts = { cursor: cursor,
-                               screen_name: args[4],
-                               count: 5000 };
-                  T.get(user2 + '/ids',opts,function(err, data, response) {
-                    if (err) { return callback(err); }
-                    // console.log('got ' +
-                    //             data.ids.length +
-                    //             ' new ids');
-                    user2Ids = user2Ids.concat(data.ids);
-                    // console.log(user1Ids);
-
-                    cursor = data.next_cursor_str;
-                    callback(null);
-                  });
-                },
-                function(err) {
-                  if (err) { return callback(err); }
-                  callback(null, user2Ids);
-                  // console.log(username + ' has ' +
-                  //             user1Ids.length +
-                  //            ' followers');
-                });
+              user2Ids = user2Ids.concat(data.ids);
+              cursor = data.next_cursor_str;
+              return callback(null);
             });
+          },
+          function(err) {
+            if (err) return callback(err);
+            return callback(null, user2Ids);
+          });
+      });
     }
   ],function(err, results){
     if (err) {
@@ -135,7 +111,7 @@ else {
                   ' is following' : ' is followed by');
       console.log(output1 + ' ' + n + ' people that ' + output2);
     }
-    // console.log(mutuals);
+
     async.whilst(
       function(){ return mutuals.length; },
       function(callback){
@@ -146,10 +122,8 @@ else {
           lookups += ',' + mutuals.pop();
         }
         lookups = lookups.slice(1);
-        // console.log('');
-        // console.log('lookups:');
-        // console.log(lookups);
-        T.post('users/lookup',{ user_id: lookups },function(err, data, res) {
+
+        T.post('users/lookup',{ user_id: lookups }, function(err,data,res) {
           if(err) {
             console.error('users/lookup error:');
             return callback(err);
@@ -161,16 +135,15 @@ else {
             }
             else {
               console.log(data[k].name +
-                          ' (@' +
-                          data[k].screen_name +
-                          ')');
+                          ' (@' + data[k].screen_name + ')');
             }
           }
-          callback(null);
+          return callback(null);
         });
       },
       function(err){
-        if (err) { return console.error(err); }
+        if (err) return console.error(err);
+        return true;
       }
     );
   });
