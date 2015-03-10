@@ -1,0 +1,177 @@
+#!/usr/bin/env node
+
+var Twit = require('twit');
+var async = require('async');
+
+var T = new Twit(require('./secrets.js').twitter);
+
+var args = process.argv;
+if (args.length < 4) {
+  console.error('Error [mutual]: Bad # of arguments');
+  console.log("Usage: `mutual darth '<>' duckthecat [--simple]`");
+}
+else {
+  var simple = false;
+  if (args[5]) { simple = true; }
+
+  // "darth '<<' duckthecat" — darth's followers that duck follows
+  // "darth '<>' duckthecat" — darth's followers that follow duck
+  // "darth '>>' duckthecat" — duck's followers that darth follows
+  // "darth '><' duckthecat" — people that darth follows that duck follows
+  var user1 = (args[3].charAt(0) === '>' ? 'friends' : 'followers');
+  var user2 = (args[3].charAt(1) === '<' ? 'friends' : 'followers');
+
+  async.parallel([
+    function(callback){
+      T.get(user1 + '/ids',
+            { screen_name: args[2], count: 5000 },
+            function(err, data, response) {
+              if (err) { return callback(err); }
+              if (!simple){
+                console.log('remaining ' +
+                            user1 +
+                            ' requests: ' +
+                            response.headers['x-rate-limit-remaining']);
+              }
+              var user1Ids = data.ids;
+              // console.log('initial # of ids: ' + user1Ids.length);
+
+              // user1Ids = user1Ids.toString();
+
+              var cursor = data.next_cursor_str;
+              async.whilst(
+                function(){ return cursor !== '0'; },
+                function(callback){
+                  T.get(user1 + '/ids',
+                        { cursor: cursor,
+                          screen_name: args[2], count: 5000 },
+                        function(err, data, response) {
+                          if (err) { return callback(err); }
+                          // console.log('got ' +
+                          //             data.ids.length +
+                          //             ' new ids');
+                          user1Ids = user1Ids.concat(data.ids);
+                          // console.log(user1Ids);
+
+                          cursor = data.next_cursor_str;
+                          callback(null);
+                        });
+                },
+                function(err) {
+                  if (err) { return callback(err); }
+                  callback(null, user1Ids);
+                  // console.log(username + ' has ' +
+                  //             user1Ids.length +
+                  //            ' followers');
+                });
+            });
+    },
+    function(callback){
+      T.get(user2 + '/ids',
+            { screen_name: args[4], count: 5000 },
+            function(err, data, response) {
+              if (err) { return callback(err); }
+              if (!simple){
+                console.log('remaining ' +
+                            user2 +
+                            ' requests: ' +
+                            response.headers['x-rate-limit-remaining']);
+              }
+              var user2Ids = data.ids;
+              // console.log('initial # of ids: ' + user1Ids.length);
+
+              // user1Ids = user1Ids.toString();
+
+              var cursor = data.next_cursor_str;
+              async.whilst(
+                function(){ return cursor !== '0'; },
+                function(callback){
+                  var opts = { cursor: cursor,
+                               screen_name: args[4],
+                               count: 5000 };
+                  T.get(user2 + '/ids',opts,function(err, data, response) {
+                    if (err) { return callback(err); }
+                    // console.log('got ' +
+                    //             data.ids.length +
+                    //             ' new ids');
+                    user2Ids = user2Ids.concat(data.ids);
+                    // console.log(user1Ids);
+
+                    cursor = data.next_cursor_str;
+                    callback(null);
+                  });
+                },
+                function(err) {
+                  if (err) { return callback(err); }
+                  callback(null, user2Ids);
+                  // console.log(username + ' has ' +
+                  //             user1Ids.length +
+                  //            ' followers');
+                });
+            });
+    }
+  ],function(err, results){
+    if (err) {
+      return console.error(err);
+    }
+    var all = results[0].concat(results[1]);
+    // http://stackoverflow.com/questions/840781/easiest-way-to-find-duplicate-values-in-a-javascript-array
+    var sorted = all.sort();
+    var i = all.length;
+    var mutuals = [];
+    while (i--) {
+      if (sorted[i + 1] === sorted[i]) {
+        mutuals.push(sorted[i]);
+      }
+    }
+
+    if (!simple){
+      var n = mutuals.length;
+      var output1 = '@' + args[2];
+      output1 += (user1 === 'friends' ?
+                  ' is following' : ' is followed by');
+      var output2 = '@' + args[4];
+      output2 += (user2 === 'friends' ?
+                  ' is following' : ' is followed by');
+      console.log(output1 + ' ' + n + ' people that ' + output2);
+    }
+    // console.log(mutuals);
+    async.whilst(
+      function(){ return mutuals.length; },
+      function(callback){
+        var lookups = '';
+        var lookupLimit = (mutuals.length < 100 ?
+                           mutuals.length : 100 );
+        while (lookupLimit--) {
+          lookups += ',' + mutuals.pop();
+        }
+        lookups = lookups.slice(1);
+        // console.log('');
+        // console.log('lookups:');
+        // console.log(lookups);
+        T.post('users/lookup',{ user_id: lookups },function(err, data, res) {
+          if(err) {
+            console.error('users/lookup error:');
+            return callback(err);
+          }
+          var k = data.length;
+          while (k--) {
+            if (simple){
+              console.log(data[k].screen_name);
+            }
+            else {
+              console.log(data[k].name +
+                          ' (@' +
+                          data[k].screen_name +
+                          ')');
+            }
+          }
+          callback(null);
+        });
+      },
+      function(err){
+        if (err) { return console.error(err); }
+      }
+    );
+  });
+}
