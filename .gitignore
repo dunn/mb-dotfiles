@@ -28,3 +28,6 @@ Thumbs.db
 .mutt/gmail
 .mutt/umail
 .msmtprc
+bin/node/sandbox
+bin/node/node_modules
+bin/node/secrets.js
