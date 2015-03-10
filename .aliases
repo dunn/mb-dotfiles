@@ -109,6 +109,9 @@ alias plain='pbpaste | pbcopy'
 # Trim new lines and copy to clipboard
 alias c="tr -d '\n' | pbcopy"
 
+# brew install youtube-dl
+alias yt='youtube-dl -i'
+
 # brew install surfraw
 alias ddg='sr duckduckgo -j'
 
