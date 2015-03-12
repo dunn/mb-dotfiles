@@ -16,6 +16,7 @@ brew install hub
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
 brew install gnu-sed
+brew install gawk
 
 # Install Bash 4.
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
@@ -53,7 +54,6 @@ brew install ack
 brew install cheat
 brew install editorconfig
 brew install entr
-brew install gawk
 brew install heroku-toolbelt
 brew install htmlcompressor
 brew reinstall imagemagick --with-x11 --with-webp
