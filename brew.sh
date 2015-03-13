@@ -57,6 +57,8 @@ brew install entr
 brew install heroku-toolbelt
 brew install htmlcompressor
 brew reinstall imagemagick --with-x11 --with-webp
+brew reinstall node --with-openssl --without-icu4c
+brew install nvm
 brew install pandoc
 brew install pandoc-citeproc
 brew install pngquant
@@ -73,10 +75,6 @@ brew install urlview
 brew install w3m
 brew install youtube-dl
 brew install zopfli
-
-# Install Node.js
-brew reinstall node --with-openssl --without-icu4c
-brew install nvm
 
 # Remove outdated versions from the cellar.
 brew cleanup
