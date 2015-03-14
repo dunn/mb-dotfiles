@@ -25,14 +25,23 @@ mhc() {
 
 # `which` but follow symlinks
 where() {
-  start=$(pwd)
-  info=$(ls -l "$(which "$1")")
-  first=$(dirname "$(echo $info | awk '{ print $9; }')")
-  cd "$first"
-  second=$(dirname "$(echo $info | awk '{ print $11; }')")
-  cd "$second"
-  echo "$(pwd)/$1"
-  cd "$start"
+  if [[ $(which "$1") != "" ]]; then
+    start=$(pwd)
+    info=$(ls -l "$(which "$1")")
+    first=$(dirname "$(echo $info | awk '{ print $9; }')")
+    cd "$first"
+    second=$(dirname "$(echo $info | awk '{ print $11; }')")
+    cd "$second"
+    echo "$(pwd)/$1"
+    cd "$start"
+  else
+    is_alias=$(alias | grep "$1")
+    if [[ "$is_alias" != "" ]]; then
+      echo "$is_alias" | sed 's:alias\ ::g'
+    else
+      return 1
+    fi
+  fi
 }
 
 # Change working directory to the top-most Finder window location
