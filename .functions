@@ -23,6 +23,18 @@ mhc() {
   pandoc -f markdown -t html5 --smart "$1" | pbcopy
 }
 
+# `which` but follow symlinks
+where() {
+  start=$(pwd)
+  info=$(ls -l "$(which "$1")")
+  first=$(dirname "$(echo $info | awk '{ print $9; }')")
+  cd "$first"
+  second=$(dirname "$(echo $info | awk '{ print $11; }')")
+  cd "$second"
+  echo "$(pwd)/$1"
+  cd "$start"
+}
+
 # Change working directory to the top-most Finder window location
 cdf() { # short for `cdfinder`
   cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
