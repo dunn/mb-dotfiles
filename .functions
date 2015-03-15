@@ -35,7 +35,7 @@ where() {
     echo "$(pwd)/$1"
     cd "$start"
   else
-    is_alias=$(alias | grep "$1")
+    is_alias=$(alias | grep "alias\ $1=")
     if [[ "$is_alias" != "" ]]; then
       echo "$is_alias" | sed 's:alias\ ::g'
     else
