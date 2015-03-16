@@ -11,8 +11,7 @@ if (args.length < 4) {
   console.log("Usage: `mutual darth '<>' duckthecat [--simple]`");
 }
 else {
-  var simple = false;
-  if (args[5]) simple = true;
+  var simple = !!args[5];
 
   // "darth '<<' duckthecat" — darth's followers that duck follows
   // "darth '<>' duckthecat" — darth's followers that follow duck
