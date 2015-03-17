@@ -22,7 +22,8 @@ brew install gawk
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
 brew install bash
-brew install bash-completion
+brew tap homebrew/versions
+brew install bash-completion2
 
 # Install emacs
 brew reinstall emacs --with-x
