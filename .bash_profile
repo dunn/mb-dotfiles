@@ -30,9 +30,9 @@ for option in autocd globstar; do
 	shopt -s "$option" 2> /dev/null;
 done;
 
-# brew install bash-completion
-if which brew > /dev/null && [[ -f "$(brew --prefix)/etc/bash_completion" ]]; then
-	. "$(brew --prefix)/etc/bash_completion";
+# brew install bash-completion2
+if which brew > /dev/null && [[ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]]; then
+	. "$(brew --prefix)/share/bash-completion/bash_completion";
 elif [[ -f /etc/bash_completion ]]; then
 	. /etc/bash_completion;
 fi;
