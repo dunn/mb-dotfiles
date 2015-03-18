@@ -26,7 +26,7 @@ brew tap homebrew/versions
 brew install bash-completion2
 
 # Install emacs
-brew reinstall emacs --with-x
+brew reinstall emacs --with-x11
 brew reinstall aspell --with-lang-en
 
 # Install wget with IRI support.
