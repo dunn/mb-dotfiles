@@ -84,9 +84,15 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 
 # DEV
 # ===
-alias emcas='emacs' # i can't type
+alias emac="emacsclient -t -a emacs"
+alias emacs="emacsclient -c -a emacs"
+alias emcas=emacs # i can't type
+alias semac="sudo emacsclient -t -a emacs"
+alias semacs="sudo emacsclient -c -a emacs"
+alias fleemacs="emacsclient -e '(save-buffers-kill-emacs)'"
+
 alias git=hub
-alias gd='git diff'
+alias gd="git diff"
 
 # JavaScriptCore REPL
 jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";

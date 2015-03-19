@@ -17,13 +17,12 @@
   '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
 
 ;; appearance
-(set-frame-font "Consolas-18")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/emacs-color-theme-solarized")
+(load-theme 'solarized t)
+
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 (blink-cursor-mode 0)
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/emacs-color-theme-solarized")
-(load-theme 'solarized t)
 
 ;; http://ergoemacs.org/emacs/emacs_make_modern.html
 (global-linum-mode 1)
@@ -176,11 +175,11 @@
 
 ;; org-mode
 ;; The following lines are always needed.  Choose your own keys.
-      (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-	(global-set-key "\C-cl" 'org-store-link)
-	(global-set-key "\C-cc" 'org-capture)
-	(global-set-key "\C-ca" 'org-agenda)
-	(global-set-key "\C-cb" 'org-iswitchb)
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
 (add-hook 'org-mode-hook 'turn-on-flyspell 'append)
 
 ;; case handling
@@ -213,6 +212,7 @@
           "culpa qui officia deserunt mollit anim id est laborum."))
 
 (defun shruggie ()
+  "Insert him."
   (interactive)
   (insert "¯\\_(ツ)_/¯"))
 
@@ -237,13 +237,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#fdf6e3" :foreground "#657b83" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 160 :width normal :foundry "monotype" :family "Consolas"))))
  '(js2-error ((t (:foreground "#dc322f"))))
  '(js2-external-variable ((t (:foreground "#cb4b16"))))
  '(js2-function-call ((t (:inherit default :foreground "#6c71c4"))))
  '(js2-function-param ((t (:foreground "#d33682" :slant italic))))
  '(js2-instance-member ((t (:foreground "#d33682"))))
  '(js2-jsdoc-html-tag-delimiter ((t (:foreground "#859900"))))
- '(js2-jsdoc-html-tag-name ((t (:foreground "#b58900"))))
-  )
+ '(js2-jsdoc-html-tag-name ((t (:foreground "#b58900")))))
+
 (provide 'emacs)
 ;;; .emacs.el ends here
