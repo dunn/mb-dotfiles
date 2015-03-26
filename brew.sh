@@ -31,9 +31,8 @@ brew reinstall aspell --with-lang-en
 
 # Install wget with IRI support.
 brew reinstall wget --with-iri
-
 # Install curl with sftp support, necessary for git-ftp
-brew reinstall curl --with-libssh2 --with-openssl
+brew reinstall curl --with-libssh2 --with-openssl --with-libidn
 
 # Install MAMP stuff
 brew reinstall mysql --enable-local-infile
@@ -57,7 +56,7 @@ brew install entr
 brew install heroku-toolbelt
 brew install htmlcompressor
 brew reinstall imagemagick --with-x11 --with-webp
-brew reinstall node --with-openssl --without-icu4c
+brew reinstall node --with-openssl
 brew install nvm
 brew install pandoc
 brew install pandoc-citeproc
