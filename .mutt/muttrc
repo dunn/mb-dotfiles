@@ -11,13 +11,14 @@ folder-hook ~/Mail/umail/* source ~/.mutt/umail
 # List the available mailboxes:
 mailboxes = "$HOME/Mail/gmail/ALL" "$HOME/Mail/gmail/sent" "$HOME/Mail/umail/ALL" "$HOME/Mail/umail/sent"
 
+# less-style paging
+bind pager b previous-page
+
 # https://heipei.net/2009/09/10/mutt-threading-like-a-pro/
 set sort="reverse-date"
 set strict_threads="yes"
 set sort_browser="reverse-date"
 set sort_aux="last-date-received"
-# bind index - collapse-thread
-# bind index _ collapse-all
 
 # http://stevelosh.com/blog/2012/10/the-homely-mutt/
 bind index R group-reply
