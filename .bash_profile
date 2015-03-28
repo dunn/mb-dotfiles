@@ -37,6 +37,10 @@ elif [[ -f /etc/bash_completion ]]; then
 	. /etc/bash_completion;
 fi;
 
+if [[ -f "$(brew --repository)/Library/Contributions/brew_bash_completion.sh" ]]; then
+  . "$(brew --repository)/Library/Contributions/brew_bash_completion.sh"
+fi
+
 # brew install awscli
 complete -C aws_completer aws
 
