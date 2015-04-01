@@ -23,7 +23,7 @@ mhc() {
   pandoc -f markdown -t html5 --smart "$1" | pbcopy
 }
 
-# `which` but follow symlinks
+# `which` but follow symlinks and check aliases and functions
 where() {
   if [[ $(which "$1") != "" ]]; then
     start=$(pwd)
@@ -36,8 +36,11 @@ where() {
     cd "$start"
   else
     is_alias=$(alias | grep "alias\ $1=")
+    is_func=$(declare -F | grep "\ $1$")
     if [[ "$is_alias" != "" ]]; then
       echo "$is_alias" | sed 's:alias\ ::g'
+    elif [[ "$is_func" != "" ]]; then
+      ${is_func}
     else
       return 1
     fi
