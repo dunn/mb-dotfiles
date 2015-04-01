@@ -36,6 +36,9 @@
   st = status
   them = merge -s recursive -X theirs
 
+  # Print last commit time for file
+  last = log -n 1 --pretty=format:%cd --date=local --
+
   # View abbreviated SHA, description, and history graph of the latest 20 commits
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
