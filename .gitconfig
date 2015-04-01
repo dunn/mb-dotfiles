@@ -9,9 +9,11 @@
   # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
   trustctime = false
 
-  # Treat spaces before tabs and all kinds of trailing whitespace as an error
+  # Treat spaces before tabs and all kinds of trailing whitespace as
+  # an error
   # [default] trailing-space: looks for spaces at the end of a line
-  # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+  # [default] space-before-tab: looks for spaces before tabs at the
+  # beginning of a line
   whitespace = space-before-tab,trailing-space
 
 [apply]
@@ -39,16 +41,19 @@
   # Print last commit time for file
   last = log -n 1 --pretty=format:%cd --date=local --
 
-  # View abbreviated SHA, description, and history graph of the latest 20 commits
+  # View abbreviated SHA, description, and history graph of the latest
+  # 20 commits
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
   # Show the diff between the latest commit and the current state
   d = !"git diff-index --quiet HEAD -- || git diff --patch-with-stat"
 
-  # `git di $number` shows the diff between the state `$number` revisions ago and the current state
+  # `git di $number` shows the diff between the state `$number`
+  # revisions ago and the current state
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
-  # Pull in remote changes for the current repository and all its submodules
+  # Pull in remote changes for the current repository and all its
+  # submodules
   p = !"git pull; git submodule foreach git pull origin master"
 
   # Clone a repository including all submodules
@@ -79,5 +84,6 @@
   dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
 [merge]
-  # Include summaries of merged commits in newly created merge commit messages
+  # Include summaries of merged commits in newly created merge commit
+  # messages
   log = true
