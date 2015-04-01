@@ -92,7 +92,7 @@ alias semacs="sudo emacsclient -c -a emacs"
 alias fleemacs="emacsclient -e '(save-buffers-kill-emacs)'"
 
 alias git=hub
-alias gd="git diff"
+alias gd="git diff --no-index --"
 
 # brew install hugo
 alias hs='hugo server -w -v'
