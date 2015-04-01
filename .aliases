@@ -50,6 +50,7 @@ alias sudo='sudo '
 # http://furbo.org/2014/09/03/the-terminal/
 alias con="tail -40 -f /var/log/system.log"
 
+alias binfo='brew info --github'
 # brew install coreutils
 alias rm='grm'
 # otherwise $(base64 --version) is DEBUG
