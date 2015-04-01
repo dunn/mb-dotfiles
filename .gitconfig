@@ -25,15 +25,16 @@
   default = simple
 
 [alias]
-  change = log -1 -p --color
-  ready = diff --cached --color
   bare = config --bool core.bare true
-  st = status
+  cam = commit -am
+  change = log -1 -p --color
   chp = cherry-pick
   cm = commit -m
-  cam = commit -am
-  them = merge -s recursive -X theirs
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
   lag = log --pretty=oneline --color
+  ready = diff --cached --color
+  st = status
+  them = merge -s recursive -X theirs
 
   # View abbreviated SHA, description, and history graph of the latest 20 commits
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
