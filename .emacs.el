@@ -3,7 +3,7 @@
 ;; package initializations will need to be deactivated until installed
 
 ;;; Code:
-;; import PATH etc; necessarily since emacs starts as a daemon before
+;; import PATH etc; necessary since emacs starts as a daemon before
 ;; .bash_profile is run
 (setenv "PATH" "/Users/cat/bin:/usr/local/opt/go/libexec/bin:/usr/local/opt/php56/bin:/usr/local/bin:~/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/cat/bin:/usr/local/opt/go/libexec/bin:/usr/local/opt/php56/bin:~/.cabal/bin")
 (setq exec-path (append exec-path '("/Users/cat/bin:/usr/local/opt/go/libexec/bin:/usr/local/opt/php56/bin:/usr/local/bin:~/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/cat/bin:/usr/local/opt/go/libexec/bin:/usr/local/opt/php56/bin:~/.cabal/bin")))
