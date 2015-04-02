@@ -19,6 +19,8 @@
 (package-initialize)
 (add-to-list 'package-archives
   '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
+;; This is gonna make starting emacs slow as ass unless you do emacs
+;; --daemon just once at startup
 (package-refresh-contents)
 
 ;; Solarized theme
