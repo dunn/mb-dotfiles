@@ -51,8 +51,6 @@ alias sudo='sudo '
 alias con="tail -40 -f /var/log/system.log"
 
 alias binfo='brew info --github'
-# brew install coreutils
-alias rm='grm'
 # otherwise $(base64 --version) is DEBUG
 alias base64='gbase64'
 # brew install gnu-sed
