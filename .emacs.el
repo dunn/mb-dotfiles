@@ -53,10 +53,19 @@
 ;; Tabs (no)
 (setq-default indent-tabs-mode nil)
 
+(require 'ido)
+(ido-mode t)
+
 ;; Auto fill mode
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'tex-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+
+;; editorconfig
+(if (not (package-installed-p 'editorconfig))
+    (progn
+      (package-install 'editorconfig)))
+(load "editorconfig")
 
 ;; Flycheck
 (if (not (package-installed-p 'flycheck))
