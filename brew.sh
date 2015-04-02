@@ -35,7 +35,7 @@ brew reinstall wget --with-iri
 brew reinstall curl --with-libssh2 --with-openssl --with-libidn
 
 # Install MAMP stuff
-brew reinstall mysql --enable-local-infile
+brew reinstall mysql --with-local-infile
 brew tap homebrew/apache
 brew reinstall httpd24 --with-homebrew-openssl
 brew tap homebrew/php
