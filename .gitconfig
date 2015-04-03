@@ -5,10 +5,6 @@
 [core]
   excludesfile = /Users/cat/.gitignore
 
-  # Make `git rebase` safer on OS X
-  # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
-  trustctime = false
-
   # Treat spaces before tabs and all kinds of trailing whitespace as
   # an error
   # [default] trailing-space: looks for spaces at the end of a line
@@ -19,9 +15,6 @@
 [apply]
   # Detect whitespace errors when applying a patch
   whitespace = fix
-
-[credential]
-  helper = osxkeychain
 
 [push]
   default = simple
