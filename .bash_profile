@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-export PATH="$HOME/bin:$(brew --prefix go)/libexec/bin:$(brew --prefix homebrew/php/php56)/bin:/usr/local/bin:~/.cabal/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.linuxbrew/bin:bin/.linuxbrew/sbin:~/.cabal/bin:$PATH"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{bash_prompt,exports,aliases,functions,extra}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 
