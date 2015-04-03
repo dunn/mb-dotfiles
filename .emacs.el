@@ -23,11 +23,12 @@
 ;; --daemon just once at startup
 (package-refresh-contents)
 
+;; currently exploding
 ;; Solarized theme
-(if (not (package-installed-p 'color-theme-sanityinc-solarized))
-    (progn
-      (package-install 'color-theme-sanityinc-solarized)))
-(load-theme 'sanityinc-solarized-dark t)
+;; (if (not (package-installed-p 'color-theme-sanityinc-solarized))
+;;     (progn
+;;       (package-install 'color-theme-sanityinc-solarized)))
+;; (load-theme 'sanityinc-solarized-light t)
 
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
