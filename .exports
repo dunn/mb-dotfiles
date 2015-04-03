@@ -3,6 +3,8 @@
 export EDITOR="emacsclient -t -a emacs";
 export ALTERNATE_EDITOR=""
 
+export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:/lib/x86_64-linux-gnu/:$LD_LIBRARY_PATH"
+
 # Prefer US English and use UTF-8.
 export LANG="en_US.UTF-8";
 export LC_ALL="en_US.UTF-8";
@@ -22,9 +24,6 @@ export LESS_TERMCAP_md="$SOLAR_BLUE";
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="less -X";
 
-# Always enable colored `grep` output.
-export GREP_OPTIONS="--color=auto";
-
 # EMAIL
 # ====
 export MAILCONF="$HOME/.mutt/"
@@ -36,15 +35,7 @@ export GPG_TTY
 # ====
 export RUBYOPT=rubygems
 
-# JAVA
-# ====
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
-
 # nvm
 # ===
 export NVM_DIR=~/.nvm
 source "$(brew --prefix nvm)/nvm.sh"
-
-# TeX
-# ===
-export BIBINPUTS='$HOME/Dropbox/texmf/bibtex/bib'
