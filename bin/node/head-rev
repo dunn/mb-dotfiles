@@ -7,11 +7,11 @@ var branch = args[1] ? args[1] : 'master';
 
 var url = 'https://api.github.com/repos/' +
       repo + '/git/refs/heads/' + branch;
-var node = process.version;
+
 var query = {
   url: url,
   headers: {
-    'User-Agent': 'request (node ' + node + ')'
+    'User-Agent': 'request (node ' + process.version + ')'
   }
 };
 request(query, function(err,response,body){
