@@ -19,15 +19,15 @@
 (package-initialize)
 (add-to-list 'package-archives
   '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
-;; This is gonna make starting emacs slow as ass unless you do emacs
-;; --daemon just once at startup
+;; This makes starting emacs slow as ass unless you do emacs --daemon
+;; at startup
 (package-refresh-contents)
 
 ;; Solarized theme
-(if (not (package-installed-p 'color-theme-sanityinc-solarized))
+(if (not (package-installed-p 'solarized-theme))
     (progn
-      (package-install 'color-theme-sanityinc-solarized)))
-(load-theme 'sanityinc-solarized-dark t)
+      (package-install 'solarized-theme)))
+(load-theme 'solarized-dark t)
 
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
@@ -276,7 +276,8 @@
  '(menu-bar-mode t)
  '(perl-indent-level 2)
  '(require-final-newline t)
- '(scss-compile-at-save nil))
+ '(scss-compile-at-save nil)
+ '(x-stretch-cursor t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
