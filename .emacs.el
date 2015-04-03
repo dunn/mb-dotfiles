@@ -32,12 +32,10 @@
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 
 ;; Solarized theme
-;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
-(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/emacs-color-theme-solarized")
-;; `t` is important: http://stackoverflow.com/a/8547861
-(load-theme 'solarized t)
-(setq solarized-termcolors 256)
-(add-to-list 'default-frame-alist '(background-mode . dark))
+(if (not (package-installed-p 'solarized-theme))
+    (progn
+      (package-install 'solarized-theme)))
+(load-theme 'solarized-dark t)
 
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
@@ -285,6 +283,37 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 (add-hook 'org-mode-hook 'turn-on-flyspell 'append)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(css-indent-offset 2)
+ '(frame-background-mode nil)
+ '(js2-basic-offset 2)
+ '(markdown-enable-math t)
+ '(menu-bar-mode t)
+ '(perl-indent-level 2)
+ '(require-final-newline t)
+ '(scss-compile-at-save nil)
+ '(x-stretch-cursor t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 160 :width normal :foundry "monotype" :family "Consolas"))))
+ '(js2-error ((t (:foreground "#dc322f"))))
+ '(js2-external-variable ((t (:foreground "#cb4b16"))))
+ '(js2-function-call ((t (:inherit default :foreground "#6c71c4"))))
+ '(js2-function-param ((t (:foreground "#d33682" :slant italic))))
+ '(js2-instance-member ((t (:foreground "#d33682"))))
+ '(js2-jsdoc-html-tag-delimiter ((t (:foreground "#859900"))))
+ '(js2-jsdoc-html-tag-name ((t (:foreground "#b58900")))))
 
 (provide 'emacs)
 ;;; .emacs.el ends here
