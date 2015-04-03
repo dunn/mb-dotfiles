@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
+if [[ $(uname -s) == "Darwin" ]]; then
+  export PATH="/usr/local/bin:/usr/local/sbin:/usr/texbin:$PATH"
+else
+  export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
+fi
 
 export PATH="$HOME/bin:$(brew --prefix go)/libexec/bin:$PATH"
 
