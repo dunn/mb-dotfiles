@@ -51,10 +51,6 @@ alias sudo='sudo '
 alias con="tail -40 -f /var/log/system.log"
 
 alias binfo='brew info --github'
-# otherwise $(base64 --version) is DEBUG
-alias base64='gbase64'
-# brew install gnu-sed
-alias sed='gsed'
 
 # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
 # alias plistbuddy="/usr/libexec/PlistBuddy"
