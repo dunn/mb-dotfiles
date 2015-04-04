@@ -11,7 +11,6 @@ alias .....="cd ../../../.."
 alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias ds="cd ~/Desktop"
-alias scren="cd ~/Dropbox/Screenshots"
 
 # SYSTEM
 # ======
@@ -47,13 +46,7 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-# http://furbo.org/2014/09/03/the-terminal/
-alias con="tail -40 -f /var/log/system.log"
-
 alias binfo='brew info --github'
-
-# PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
-# alias plistbuddy="/usr/libexec/PlistBuddy"
 
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
@@ -92,11 +85,6 @@ alias gd="git diff --no-index --"
 # brew install hugo
 alias hs='hugo server -w -v'
 
-# JavaScriptCore REPL
-jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
-[ -e "${jscbin}" ] && alias jsc="${jscbin}";
-unset jscbin;
-
 alias crush='compass compile -e production --force'
 alias miniml='htmlcompressor -t html -r ./ -o ./ && htmlcompressor -t xml -r ./ -o ./'
 
@@ -108,10 +96,6 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 
 alias dater='date "+%Y-%m-%d"'
 alias now='date "+%Y-%m-%d-%H%M%S"'
-
-alias plain='pbpaste | pbcopy'
-# Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
 
 # brew install newsbeuter
 alias nb='newsbeuter'
@@ -132,9 +116,4 @@ alias jaml="ruby -ryaml -rjson -e 'puts YAML.dump(JSON.parse(STDIN.read))'"
 # http://stackoverflow.com/a/9741470
 # http://stackoverflow.com/questions/1250079/escaping-single-quotes-within-single-quoted-strings
 alias jimmy='echo "$(pbpaste | jaml)" "$(echo $'"'"'\n'"'"'---)" | pbcopy'
-alias acorn='open -a /Applications/Acorn.app'
 alias pngrind='pngquant -s 1 -v *.png --ext .png -f'
-
-# Merge PDF files
-# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
