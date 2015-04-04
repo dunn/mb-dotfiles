@@ -5,8 +5,8 @@
 ;;; Code:
 ;; import PATH etc; necessary since emacs starts as a daemon before
 ;; .bash_profile is run
-(setenv "PATH" "/Users/cat/bin:/usr/local/opt/go/libexec/bin:/usr/local/opt/php56/bin:/usr/local/bin:~/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/cat/bin:/usr/local/opt/go/libexec/bin:/usr/local/opt/php56/bin:~/.cabal/bin")
-(setq exec-path (append exec-path '("/Users/cat/bin:/usr/local/opt/go/libexec/bin:/usr/local/opt/php56/bin:/usr/local/bin:~/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/cat/bin:/usr/local/opt/go/libexec/bin:/usr/local/opt/php56/bin:~/.cabal/bin")))
+(setenv "PATH" "/home/alix/bin:/home/alix/.linuxbrew/bin:/home/alix/.linuxbrew/sbin:~/.cabal/bin:/home/alix/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games")
+(setq exec-path (append exec-path '("/home/alix/bin:/home/alix/.linuxbrew/bin:/home/alix/.linuxbrew/sbin:~/.cabal/bin:/home/alix/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games")))
 
 ;; https://github.com/magnars/.emacs.d/blob/master/init.el
 (setq inhibit-startup-message t)
