@@ -45,9 +45,6 @@ if [[ -f "$(brew --repository)/Library/Contributions/brew_bash_completion.sh" ]]
   . "$(brew --repository)/Library/Contributions/brew_bash_completion.sh"
 fi
 
-# brew install awscli
-complete -C aws_completer aws
-
 # brew install autojump
 [[ -s "$(brew --prefix)/etc/profile.d/autojump.sh" ]] && . "$(brew --prefix)/etc/profile.d/autojump.sh"
 
