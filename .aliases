@@ -91,7 +91,7 @@ alias semacs="sudo emacsclient -c -a emacs"
 alias fleemacs="emacsclient -e '(save-buffers-kill-emacs)'"
 
 alias git=hub
-alias gd="git diff --no-index --"
+alias gdiff="git diff --no-index --"
 
 # brew install hugo
 alias hs='hugo server -w -v'
@@ -103,6 +103,10 @@ unset jscbin;
 
 alias crush='compass compile -e production --force'
 alias miniml='htmlcompressor -t html -r ./ -o ./ && htmlcompressor -t xml -r ./ -o ./'
+
+alias shsm="shasum -a 256"
+alias audt="brew audit --strict"
+alias bug="brew update && brew upgrade"
 
 # MISC
 # ====
@@ -127,9 +131,8 @@ alias ddg='sr duckduckgo -j'
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-alias bug='brew update && brew upgrade'
-alias pandork='pbpaste | pandoc -f markdown -t html5 -S | pbcopy'
-alias htmark='pbpaste | iconv -c -t UTF-8 | pandoc -f html -t markdown'
+alias pandork="pbpaste | pandoc -f markdown -t html5 -S | pbcopy"
+alias htmark="pbpaste | iconv -c -t UTF-8 | pandoc -f html -t markdown"
 
 # http://www.commandlinefu.com/commands/view/12221/convert-json-to-yaml
 alias jaml="ruby -ryaml -rjson -e 'puts YAML.dump(JSON.parse(STDIN.read))'"
