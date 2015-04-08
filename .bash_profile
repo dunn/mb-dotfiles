@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-if [[ $(uname) == "Linux" ]]; then
-  export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:~/.cabal/bin:$PATH"
-else
-  export PATH="$HOME/bin:/usr/local/bin:usr/local/sbin:~/.cabal/bin:$PATH"
-fi
+export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:~/.cabal/bin:$PATH"
+
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$(brew --prefix go)/libexec/bin:$PATH"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
