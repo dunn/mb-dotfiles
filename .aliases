@@ -46,6 +46,15 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+<<<<<<< HEAD
+=======
+# brew install thefuck
+alias fuck='thefuck $(fc -ln -1)'
+
+# pip install thefuck
+alias fuck='$(thefuck $(fc -ln -1))'
+
+>>>>>>> 0d4628e... functions: fuck and bunk
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
