@@ -43,9 +43,6 @@ if [[ -f "$(brew --repository)/Library/Contributions/brew_bash_completion.sh" ]]
   . "$(brew --repository)/Library/Contributions/brew_bash_completion.sh"
 fi
 
-# brew isntall fzf
-[ -f ~/.fzf.bash ] && . ~/.fzf.bash
-
 # brew install awscli
 complete -C aws_completer aws
 
