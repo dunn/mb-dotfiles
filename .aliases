@@ -48,6 +48,9 @@ alias sudo='sudo '
 
 alias binfo='brew info --github'
 
+# pip install thefuck
+alias fuck='$(thefuck $(fc -ln -1))'
+
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
