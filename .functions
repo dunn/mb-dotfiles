@@ -45,6 +45,12 @@ where() {
   fi
 }
 
+bunk() {
+  for line in "$@"; do
+    history -d "$line"
+  done
+}
+
 # Change working directory to the top-most Finder window location
 # short for `cdfinder`
 cdf() {

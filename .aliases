@@ -59,6 +59,9 @@ alias sed='gsed'
 # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
 # alias plistbuddy="/usr/libexec/PlistBuddy"
 
+# pip install thefuck
+alias fuck='$(thefuck $(fc -ln -1))'
+
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
