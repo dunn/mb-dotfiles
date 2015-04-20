@@ -238,6 +238,11 @@
       (package-install 'go-mode)))
 (require 'go-mode-autoloads)
 
+; Olivetti
+(if (not (package-installed-p 'olivetti))
+    (progn
+      (package-install 'olivetti)))
+
 ;; textmate minor mode
 ;; (add-to-list 'load-path "~/.emacs.d/vendor/textmate.el")
 ;; (require 'textmate)
