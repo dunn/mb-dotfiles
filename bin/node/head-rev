@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+
 var request = require('request');
 
 var args = process.argv.slice(2);
 var repo = args[0];
-var branch = args[1] ? args[1] : 'master';
+var branch = args[1] || 'master';
 
 var url = 'https://api.github.com/repos/' +
       repo + '/git/refs/heads/' + branch;
@@ -17,5 +18,9 @@ var query = {
 request(query, function(err,response,body){
   if (err) return console.error(err);
   var data = JSON.parse(body);
+  if (!data.object) {
+    return console.error(
+      new Error('No repository at ' + repo));
+  }
   return console.log(data.object.sha);
 });
