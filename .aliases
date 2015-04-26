@@ -93,6 +93,8 @@ alias crush='compass compile -e production --force'
 alias miniml='htmlcompressor -t html -r ./ -o ./ && htmlcompressor -t xml -r ./ -o ./'
 
 alias shsm="shasum -a 256"
+
+alias brwe="brew"
 alias bi="brew reinstall -fs -v"
 alias audt="brew audit --strict"
 alias bug="brew update && brew upgrade"
