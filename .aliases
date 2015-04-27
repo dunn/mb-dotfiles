@@ -96,7 +96,7 @@ alias shsm="shasum -a 256"
 alias brwe="brew"
 alias bi="brew reinstall -fs -v"
 alias audt="brew audit --strict"
-alias bug="brew update && brew upgrade"
+alias bug="brew update && brew upgrade --all"
 
 # MISC
 # ====
