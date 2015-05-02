@@ -14,6 +14,9 @@
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
 
+;; shell access
+(global-set-key (kbd "C-z") 'shell)
+
 ;; Do the packaging dance
 (require 'package)
 (package-initialize)
@@ -23,7 +26,9 @@
 ;; at startup
 (package-refresh-contents)
 
-;; currently exploding
+;; Homebrew packages
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
+
 ;; Solarized theme
 (if (not (package-installed-p 'solarized-theme))
     (progn
@@ -62,6 +67,11 @@
 (add-hook 'tex-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
 
+;; magit
+;; brew install magit
+(require 'magit)
+(global-set-key (kbd "C-x C-m") 'magit-status)
+
 ;; editorconfig
 (if (not (package-installed-p 'editorconfig))
     (progn
@@ -80,7 +90,6 @@
       (package-install 'smex)))
 (setq mac-option-modifier 'meta)
 (global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "C-x C-m") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-x C-M") 'smex-major-mode-commands)
 ;; This is your old M-x.
