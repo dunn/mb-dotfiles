@@ -75,6 +75,7 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 
 # DEV
 # ===
+alias gomacs='$(which emacs) --daemon'
 alias emac="emacsclient -t -a emacs"
 alias emacs="emacsclient -c -a emacs"
 alias emcas=emacs # i can't type
