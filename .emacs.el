@@ -1,6 +1,7 @@
 ;;; package --- emacs configuration
 ;;; Commentary:
-;; package initializations will need to be deactivated until installed
+;; Have emacs --daemon run at startup; otherwise the package
+;; initialization will slow every launch
 
 ;;; Code:
 ;; import PATH etc; necessary since emacs starts as a daemon before
@@ -70,7 +71,7 @@
 ;; magit
 ;; brew install magit
 (require 'magit)
-(global-set-key (kbd "C-x C-m") 'magit-status)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; editorconfig
 (if (not (package-installed-p 'editorconfig))
