@@ -2,7 +2,7 @@
 
 export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
 
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$(brew --prefix go)/libexec/bin:$PATH"
+export PATH="$HOME/bin:$(brew --prefix go)/libexec/bin:$PATH"
 
 . "$HOME/.bash_prompt"
 . "$HOME/.exports"
