@@ -2,7 +2,7 @@
 
 export PATH="/usr/local/sbin:/usr/local/bin:~/.cabal/bin:$PATH"
 
-export PATH="$HOME/bin:$(brew --prefix go)/libexec/bin:$(brew --prefix homebrew/php/php56)/bin:$PATH"
+export PATH="$HOME/bin:$(brew --prefix go)/libexec/bin:$PATH"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
