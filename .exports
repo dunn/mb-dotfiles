@@ -25,6 +25,8 @@ export MANPAGER="less -X";
 # Always enable colored `grep` output.
 export GREP_OPTIONS="--color=auto";
 
+export HOMEBREW_DEVELOPER=1
+
 # EMAIL
 # ====
 export MAILCONF="$HOME/.mutt/"

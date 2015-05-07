@@ -160,6 +160,13 @@
   (interactive)
   (insert "¯\\_(ツ)_/¯"))
 
+(defun autotools ()
+  "For Homebrew HEAD builds."
+  (interactive)
+  (insert "    depends_on \"automake\" => :build"
+          "    depends_on \"autoconf\" => :build"
+          "    depends_on \"libtool\" => :build"))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MODES ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
