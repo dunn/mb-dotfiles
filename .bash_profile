@@ -5,8 +5,10 @@ export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$(brew --prefix go)/libexec/bin:$PATH"
 
 # Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{bash_prompt,exports,aliases,functions,brew}; do
-  . "$file";
+	[ -r "$file" ] && [ -f "$file" ] && . "$file";
 done;
 unset file;
 
