@@ -5,10 +5,8 @@ export PATH="/usr/local/sbin:/usr/local/bin:~/.cabal/bin:$PATH"
 export PATH="$HOME/bin:$(brew --prefix go)/libexec/bin:$PATH"
 
 # Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{bash_prompt,exports,aliases,functions,extra,brew}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 
