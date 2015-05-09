@@ -7,7 +7,7 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:$(brew --prefix go)/libex
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.{bash_prompt,exports,aliases,functions,extra,brew}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -34,9 +34,9 @@ done;
 
 # brew install bash-completion2
 if which brew > /dev/null && [[ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]]; then
-	. "$(brew --prefix)/share/bash-completion/bash_completion";
+    . "$(brew --prefix)/share/bash-completion/bash_completion";
 elif [[ -f /etc/bash_completion ]]; then
-	. /etc/bash_completion;
+    . /etc/bash_completion;
 fi;
 
 if [[ -f "$(brew --repository)/Library/Contributions/brew_bash_completion.sh" ]]; then
