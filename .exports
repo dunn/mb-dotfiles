@@ -31,8 +31,6 @@ export LESS_TERMCAP_md="$SOLAR_BLUE"
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="less -X"
 
-export HOMEBREW_DEVELOPER=1
-
 # EMAIL
 # ====
 export MAILCONF="$HOME/.mutt/"
