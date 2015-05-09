@@ -19,7 +19,7 @@ install() {
   brew update
 
   # Upgrade any already-installed formulae.
-  brew upgrade
+  brew upgrade --all
 
   # If it isn't already installed
   brew reinstall git --with-persistent-https --with-brewed-openssl --with-pcre --with-brewed-curl
