@@ -163,8 +163,8 @@
 (defun autotools ()
   "For Homebrew HEAD builds."
   (interactive)
-  (insert "    depends_on \"automake\" => :build"
-          "    depends_on \"autoconf\" => :build"
+  (insert "    depends_on \"automake\" => :build\n"
+          "    depends_on \"autoconf\" => :build\n"
           "    depends_on \"libtool\" => :build"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
