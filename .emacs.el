@@ -72,6 +72,7 @@
 ;; brew install magit
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
+(setq magit-last-seen-setup-instructions "1.4.0")
 
 ;; editorconfig
 (if (not (package-installed-p 'editorconfig))
@@ -293,8 +294,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(css-indent-offset 2)
+  '(custom-safe-themes
+     (quote
+       ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(frame-background-mode nil)
  '(js2-basic-offset 2)
+ '(magit-use-overlays nil)
  '(markdown-enable-math t)
  '(menu-bar-mode t)
  '(perl-indent-level 2)
