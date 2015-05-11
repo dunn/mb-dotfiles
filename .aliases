@@ -110,6 +110,9 @@ alias miniml='htmlcompressor -t html -r ./ -o ./ && htmlcompressor -t xml -r ./ 
 
 # MISC
 # ====
+# make sure gpg-agent is running in the same shell session as mutt
+# see https://lists.gnupg.org/pipermail/gnupg-users/2007-May/031024.html
+alias mutt='eval $(gpg-agent --daemon) && $(which mutt)'
 
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
