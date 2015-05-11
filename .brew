@@ -7,6 +7,7 @@ alias brwe="brew"
 alias audt="brew audit --strict"
 alias style="brew style --fix"
 alias bug="brew update && brew upgrade --all"
+alias using="brew uses --installed --recursive"
 
 bi() {
   brew remove "$1"
