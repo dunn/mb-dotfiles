@@ -169,3 +169,7 @@ o() {
     open "$@";
   fi;
 }
+
+termy() {
+  curl -LA honk https://iterm2.com/nightly/latest -o ~/Downloads/iterm.zip
+}
