@@ -59,7 +59,7 @@ alias sed='gsed'
 # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
 # alias plistbuddy="/usr/libexec/PlistBuddy"
 
-# pip install thefuck
+# brew install thefuck
 alias fuck='$(thefuck $(fc -ln -1))'
 
 # Intuitive map function
