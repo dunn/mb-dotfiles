@@ -48,7 +48,7 @@ alias sudo='sudo '
 
 alias binfo='brew info --github'
 
-# pip install thefuck
+# brew install thefuck
 alias fuck='$(thefuck $(fc -ln -1))'
 
 # Intuitive map function
