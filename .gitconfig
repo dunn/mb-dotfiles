@@ -79,6 +79,10 @@
   # a.k.a. ‘delete merged’
   dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
+  # to use instead of stash
+  # see https://codingkilledthecat.wordpress.com/2012/04/27/git-stash-pop-considered-harmful/
+  save = !sh -c 'export PREV=$(git symbolic-ref HEAD|cut -d/ -f3-) && git checkout -b "$1" && git commit -am "$1" && git checkout "$PREV"' -
+
 [merge]
   # Include summaries of merged commits in newly created merge commit
   # messages
