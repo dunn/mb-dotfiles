@@ -49,7 +49,7 @@ alias sudo='sudo '
 alias binfo='brew info --github'
 
 # brew install thefuck
-alias fuck='$(thefuck $(fc -ln -1))'
+alias fuck='eval $(thefuck $(fc -ln -1))'
 
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
