@@ -28,7 +28,7 @@ where() {
   is_alias=$(alias | grep "alias\ $1=")
   is_func=$(declare -F | grep "\ $1$")
   if [[ "$is_alias" != "" ]]; then
-    echo "$is_alias" | sed 's:alias\ ::g'
+    echo "${is_alias//alias\ /}"
   fi
   if [[ "$is_func" != "" ]]; then
     ${is_func}
@@ -36,9 +36,9 @@ where() {
   if [[ $(which "$1") != "" ]]; then
     start=$(pwd)
     info=$(ls -l "$(which "$1")")
-    first=$(dirname "$(echo $info | awk '{ print $9; }')")
+    first=$(dirname "$(echo "$info" | awk '{ print $9; }')")
     cd "$first"
-    second=$(dirname "$(echo $info | awk '{ print $11; }')")
+    second=$(dirname "$(echo "$info" | awk '{ print $11; }')")
     cd "$second"
     echo "$(pwd)/$1"
     cd "$start"
@@ -147,13 +147,14 @@ fs() {
   if [[ -n "$@" ]]; then
     du $arg -- "$@";
   else
-    du $arg .[^.]* *;
+    du $arg .[^.]* ./*;
   fi;
 }
 
 # Create a data URL from a file
 dataurl() {
-  local mimeType=$(file -b --mime-type "$1");
+  local mimeType
+  mimeType=$(file -b --mime-type "$1");
   if [[ $mimeType == text/* ]]; then
     mimeType="${mimeType};charset=utf-8";
   fi
