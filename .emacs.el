@@ -28,6 +28,7 @@
 (package-refresh-contents)
 
 ;; Homebrew packages
+(add-to-list 'load-path "/usr/local/bin")
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 
 ;; Solarized theme
@@ -121,7 +122,6 @@
 
 ;; Spelling
 (setq-default ispell-program-name "aspell")
-(add-to-list 'load-path "/usr/local/bin")
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
