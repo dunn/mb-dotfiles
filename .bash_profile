@@ -29,14 +29,14 @@ set -C
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
 for option in autocd globstar; do
-    shopt -s "$option" 2> /dev/null;
+  shopt -s "$option" 2> /dev/null;
 done;
 
 # brew install bash-completion2
 if which brew > /dev/null && [[ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]]; then
-    . "$(brew --prefix)/share/bash-completion/bash_completion";
+  . "$(brew --prefix)/share/bash-completion/bash_completion";
 elif [[ -f /etc/bash_completion ]]; then
-    . /etc/bash_completion;
+  . /etc/bash_completion;
 fi;
 
 if [[ -f "$(brew --repository)/Library/Contributions/brew_bash_completion.sh" ]]; then
