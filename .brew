@@ -31,7 +31,7 @@ brm() {
   done
 }
 
-_brew_install() {
+brew_install() {
   # Install command-line tools using Homebrew.
   # Make sure we’re using the latest Homebrew.
   brew update
@@ -109,6 +109,3 @@ _brew_install() {
   # Remove outdated versions from the cellar.
   brew cleanup
 }
-if [[ "$1" == "install" ]]; then
-  install;
-fi
