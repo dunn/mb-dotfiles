@@ -19,7 +19,19 @@ bi() {
   brew install --verbose --build-from-source "$@"
 }
 
-install() {
+brm() {
+  for app in "$@"; do
+    using=$(using "$app")
+    if [[ "$using" == "" ]]; then
+      brew remove "$app"
+    else
+      echo "$(tput setaf 166) $app is being used by:$(tput sgr0)"
+      echo "$using"
+    fi
+  done
+}
+
+_brew_install() {
   # Install command-line tools using Homebrew.
   # Make sure we’re using the latest Homebrew.
   brew update
