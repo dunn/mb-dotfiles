@@ -261,11 +261,6 @@
     (progn
       (package-install 'olivetti)))
 
-;; textmate minor mode
-;; (add-to-list 'load-path "~/.emacs.d/vendor/textmate.el")
-;; (require 'textmate)
-;; (textmate-mode)
-
 ;; ;; Set to the location of your Org files on your local system
 ;; (setq org-directory "~/org")
 ;; ;; Set to the name of the file where new notes will be stored
