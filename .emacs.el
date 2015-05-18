@@ -73,9 +73,8 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 ;; editorconfig
-(if (not (package-installed-p 'editorconfig))
-    (progn
-      (package-install 'editorconfig)))
+;; version from MELPA (stable) is buggy; using HEAD for now
+(add-to-list 'load-path "~/.emacs.d/vendor/editorconfig-emacs")
 (load "editorconfig")
 
 ;; Flycheck
