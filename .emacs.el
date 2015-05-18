@@ -15,9 +15,6 @@
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
 
-;; shell access
-(global-set-key (kbd "C-z") 'shell)
-
 ;; Do the packaging dance
 (require 'package)
 (package-initialize)
