@@ -24,11 +24,12 @@
 ;; at startup
 (package-refresh-contents)
 
-;; Homebrew packages
+;; Homebrew executables and lisp files
 (add-to-list 'load-path "/usr/local/bin")
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 
 ;; Solarized theme
+;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
 (add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/emacs-color-theme-solarized")
 (load-theme 'solarized)
 (setq solarized-termcolors 256)
