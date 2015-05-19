@@ -29,10 +29,10 @@
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 
 ;; Solarized theme
-(if (not (package-installed-p 'solarized-theme))
-    (progn
-      (package-install 'solarized-theme)))
-(load-theme 'solarized-dark t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/emacs-color-theme-solarized")
+(load-theme 'solarized)
+(setq solarized-termcolors 256)
+(add-to-list 'default-frame-alist '(background-mode . dark))
 
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
@@ -287,7 +287,7 @@
  '(css-indent-offset 2)
   '(custom-safe-themes
      (quote
-       ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+       ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(frame-background-mode nil)
  '(js2-basic-offset 2)
  '(magit-use-overlays nil)
