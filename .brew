@@ -8,6 +8,19 @@ alias audt="brew audit --strict"
 alias style="brew style --fix"
 alias using="brew uses --installed --recursive"
 
+brewp() {
+  for f in "$@"; do
+    brew home "$f" && brew info --github "$f" && brew search --debian "$f"
+  done
+}
+alias brwep="brewp"
+
+bo() {
+  for f in "$@"; do
+    open $(brew --prefix "$f")
+  done
+}
+
 bug() {
   brew update
   echo "$(tput setaf 64)--- OUTDATED: ---$(tput sgr0)"
@@ -16,7 +29,7 @@ bug() {
 
 bi() {
   brew remove "$1"
-  brew install --verbose --build-from-source "$@"
+  brew install --verbose --build-from-source "$1"
 }
 
 brm() {
