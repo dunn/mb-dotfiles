@@ -37,8 +37,10 @@ export GREP_OPTIONS="--color=auto";
 # ====
 export MAILCONF="$HOME/.mutt/"
 export MAIL="$HOME/Mail/"
-export GPG_TTY=$(tty)
-export GPG_AGENT_INFO=$HOME/.gnupg/S.gpg-agent
+GPG_TTY=$(tty)
+export "$GPG_TTY"
+# http://archlinux.2023198.n4.nabble.com/mutt-and-gnupg-td4702501.html
+export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent"
 
 # RUBY
 # ====
