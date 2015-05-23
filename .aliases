@@ -92,7 +92,6 @@ alias emacs="emacsclient -c -a emacs"
 alias emcas=emacs # i can't type
 alias semac="sudo emacsclient -t -a emacs"
 alias semacs="sudo emacsclient -c -a emacs"
-alias fleemacs="emacsclient -e '(save-buffers-kill-emacs)'"
 
 alias git=hub
 alias gdiff="git diff --no-index --"
