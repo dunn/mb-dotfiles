@@ -31,3 +31,10 @@ Thumbs.db
 bin/node/sandbox
 bin/node/node_modules
 bin/node/secrets.js
+.emacs.d/ac-comphist.dat
+.emacs.d/elpa/
+.emacs.d/games/
+.emacs.d/tramp
+.emacs.d/url/
+.emacs.d/var/
+.emacs.d/vendor/
