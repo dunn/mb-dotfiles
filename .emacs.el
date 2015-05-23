@@ -31,7 +31,7 @@
 ;; Solarized theme
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
 (add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/emacs-color-theme-solarized")
-(load-theme 'solarized)
+(load-theme 'solarized t)
 (setq solarized-termcolors 256)
 (add-to-list 'default-frame-alist '(background-mode . dark))
 
@@ -286,7 +286,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(css-indent-offset 2)
- '(custom-safe-themes t)
  '(frame-background-mode nil)
  '(js2-basic-offset 2)
  '(magit-use-overlays nil)
