@@ -7,6 +7,7 @@ alias brwe="brew"
 alias audt="brew audit --strict"
 alias style="brew style --fix"
 alias using="brew uses --installed --recursive"
+alias bua="brew upgrade --all"
 
 brewp() {
   for f in "$@"; do
