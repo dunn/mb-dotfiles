@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PATH="/usr/local/sbin:/usr/local/bin:~/.cabal/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/texbin:$PATH"
 
 export PATH="$HOME/bin:$(brew --prefix go)/libexec/bin:$PATH"
 
