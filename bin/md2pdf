@@ -10,8 +10,7 @@ open=0
 input=""
 shortname=""
 
-if [[ "$1" == "o" || "$1" == "-o" ]]
-then
+if [[ "$1" == "o" || "$1" == "-o" ]]; then
   open="1"
   input="$2"
   shortname=$(echo "$2" | sed 's:\(\.[^\.]*\)$::g')

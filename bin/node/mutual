@@ -36,16 +36,18 @@ else {
         async.whilst(
           function(){ return cursor !== '0'; },
           function(callback){
-            T.get(user1 + '/ids',
-                  { cursor: cursor,
-                    screen_name: args[2], count: 5000 },
-                  function(err, data, response) {
-                    if (err) return callback(err);
+            var getUser1Opts = {
+              cursor: cursor,
+              screen_name: args[2],
+              count: 5000
+            };
+            T.get(user1 + '/ids', getUser1Opts, function(err, data, response) {
+              if (err) return callback(err);
 
-                    user1Ids = user1Ids.concat(data.ids);
-                    cursor = data.next_cursor_str;
-                    return callback(null);
-                  });
+              user1Ids = user1Ids.concat(data.ids);
+              cursor = data.next_cursor_str;
+              return callback(null);
+            });
           },
           function(err) {
             if (err) { return callback(err); }
@@ -68,10 +70,12 @@ else {
         async.whilst(
           function(){ return cursor !== '0'; },
           function(callback){
-            var opts = { cursor: cursor,
-                         screen_name: args[4],
-                         count: 5000 };
-            T.get(user2 + '/ids', opts, function(err,data,response) {
+            var getUser2Opts = {
+              cursor: cursor,
+              screen_name: args[4],
+              count: 5000
+            };
+            T.get(user2 + '/ids', getUser2Opts, function(err,data,response) {
               if (err) return callback(err);
 
               user2Ids = user2Ids.concat(data.ids);
