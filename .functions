@@ -170,3 +170,22 @@ o() {
     open "$@";
   fi;
 }
+
+termy() {
+  curl -LA honk https://iterm2.com/nightly/latest -o ~/Downloads/iterm.zip
+}
+
+mkredirect() {
+  cat <<EOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>This page has been moved to $1</title>
+  <meta http-equiv="refresh" content="0;url=$1">
+</head>
+<body>
+</body>
+</html>
+EOF
+}
