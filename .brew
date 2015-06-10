@@ -18,7 +18,7 @@ alias brwep="brewp"
 
 bo() {
   for f in "$@"; do
-    open $(brew --prefix "$f")
+    open "$(brew --prefix "$f")"
   done
 }
 
