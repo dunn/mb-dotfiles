@@ -15,6 +15,9 @@ alias ds="cd ~/Desktop"
 # SYSTEM
 # ======
 
+# this doesn't "stick" anymore
+alias faster="defaults write NSGlobalDomain KeyRepeat -int 0"
+
 # https://github.com/bfontaine/Dotfiles/blob/master/.bashrc_osx
 alias rm="safe-rm"
 
