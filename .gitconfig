@@ -30,6 +30,7 @@
   followTags = true
 
 [alias]
+  m = checkout master
   bare = config --bool core.bare true
   cam = commit -am
   change = log -1 -p --color
