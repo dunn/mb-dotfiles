@@ -4,8 +4,6 @@ export EDITOR="emacsclient -t -a emacs"
 
 export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:/lib/x86_64-linux-gnu/:$LD_LIBRARY_PATH"
 
-export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:/lib/x86_64-linux-gnu/:$LD_LIBRARY_PATH"
-
 # Prefer US English and use UTF-8.
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
@@ -18,7 +16,7 @@ export HISTCONTROL="ignoreboth"
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 # After each command, append to the history file and reread it.
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r";
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # upstream 9d30bd673c72ed1cadb2720fe4fb44a8ce915a2b
 # Enable persistent REPL history for `node`.
@@ -33,6 +31,7 @@ export LESS_TERMCAP_md="$SOLAR_BLUE"
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="less -X"
 
+<<<<<<< variant A
 # brew install dunn/emacs/e2ansi
 export "LESSOPEN=|emacs --batch -l /usr/local/bin/e2ansi-cat %s"
 export "LESS=-R"
@@ -41,6 +40,8 @@ export "MORE=-R"
 # Always enable colored `grep` output.
 export GREP_OPTIONS="--color=auto"
 
+>>>>>>> variant B
+======= end
 # EMAIL
 # ====
 export MAILCONF="$HOME/.mutt/"
@@ -53,3 +54,11 @@ export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent"
 # RUBY
 # ====
 export RUBYOPT=rubygems
+<<<<<<< variant A
+>>>>>>> variant B
+
+# nvm
+# ===
+export NVM_DIR=~/.nvm
+source "$(brew --prefix nvm)/nvm.sh"
+======= end
