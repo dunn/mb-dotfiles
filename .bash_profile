@@ -8,7 +8,7 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:$(brew --prefix go)/libex
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{bash_prompt,exports,aliases,functions,extra,brew}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
+  [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 

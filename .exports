@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export EDITOR="emacsclient -t -a emacs";
+export EDITOR="emacsclient -t -a emacs"
 
 export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:/lib/x86_64-linux-gnu/:$LD_LIBRARY_PATH"
 
@@ -16,7 +16,7 @@ export HISTCONTROL="ignoreboth"
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 # After each command, append to the history file and reread it.
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r";
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # upstream 9d30bd673c72ed1cadb2720fe4fb44a8ce915a2b
 # Enable persistent REPL history for `node`.
@@ -31,12 +31,6 @@ export LESS_TERMCAP_md="$SOLAR_BLUE"
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="less -X"
 
-<<<<<<< HEAD
-=======
-# Always enable colored `grep` output.
-export GREP_OPTIONS="--color=auto"
-
->>>>>>> f2ba57e... exports: cleanup
 # EMAIL
 # ====
 export MAILCONF="$HOME/.mutt/"
@@ -54,10 +48,3 @@ export RUBYOPT=rubygems
 # ===
 export NVM_DIR=~/.nvm
 source "$(brew --prefix nvm)/nvm.sh"
-<<<<<<< HEAD
-=======
-
-# TeX
-# ===
-export BIBINPUTS="$HOME/Dropbox/texmf/bibtex/bib"
->>>>>>> f2ba57e... exports: cleanup
