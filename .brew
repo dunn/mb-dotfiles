@@ -53,7 +53,7 @@ brew_install() {
   # Upgrade any already-installed formulae.
   brew upgrade --all
 
-  # If it isn't already installed
+  brew reinstall tcl-tk --without-tk
   brew reinstall git --with-persistent-https --with-brewed-openssl --with-pcre --with-brewed-curl
   brew install hub
 
@@ -71,7 +71,7 @@ brew_install() {
   brew install bash-completion2
 
   # Install emacs
-  brew reinstall emacs --with-x11 --with-imagemagick
+  brew install emacs
   brew reinstall aspell --with-lang-en
 
   # Install wget with IRI support.
@@ -100,8 +100,6 @@ brew_install() {
   brew install entr
   brew install heroku-toolbelt
   brew install htmlcompressor
-  brew reinstall imagemagick --with-x11 --with-webp
-  brew reinstall node --with-openssl
   brew install nvm
   brew install pandoc
   brew install pandoc-citeproc
