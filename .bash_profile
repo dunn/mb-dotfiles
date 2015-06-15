@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:~/.cabal/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
 
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$(brew --prefix go)/libexec/bin:$PATH"
 
