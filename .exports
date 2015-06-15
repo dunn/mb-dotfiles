@@ -43,8 +43,3 @@ export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent"
 # RUBY
 # ====
 export RUBYOPT=rubygems
-
-# nvm
-# ===
-export NVM_DIR=~/.nvm
-source "$(brew --prefix nvm)/nvm.sh"
