@@ -49,8 +49,6 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-alias binfo='brew info --github'
-
 # brew install thefuck
 alias fuck='thefuck $(fc -ln -1)'
 
