@@ -19,9 +19,6 @@ alias scren="cd ~/Dropbox/Screenshots"
 # this doesn't "stick" anymore
 alias faster="defaults write NSGlobalDomain KeyRepeat -int 0"
 
-# https://github.com/bfontaine/Dotfiles/blob/master/.bashrc_osx
-alias rm="safe-rm"
-
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
   colorflag="--color"
