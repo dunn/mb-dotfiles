@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export HOMEBREW_DEVELOPER=1
+export HOMEBREW_INSTALL_BADGE="☕️ 🐸"
 
 alias shsm="shasum -a 256"
 alias brwe="brew"
