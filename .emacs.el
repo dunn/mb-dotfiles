@@ -174,6 +174,21 @@
 ;; MODES ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; org-mode
+;; (if (not (package-installed-p 'org))
+;;     (progn
+;;       (package-install 'org)))
+
+;; using the beta version
+(add-to-list 'load-path "~/.emacs.d/vendor/org-mode/lisp")
+;; The following lines are always needed.  Choose your own keys.
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+(add-hook 'org-mode-hook 'turn-on-flyspell 'append)
+
 ;; table mode
 (require 'table)
 (add-hook 'text-mode-hook 'table-recognize)
@@ -274,18 +289,6 @@
 ;; (setq org-mobile-inbox-for-pull "~/org/flagged.org")
 ;; ;; Set to <your Dropbox root directory>/MobileOrg.
 ;; (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
-
-;; org-mode
-(if (not (package-installed-p 'org))
-    (progn
-      (package-install 'org)))
-;; The following lines are always needed.  Choose your own keys.
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(add-hook 'org-mode-hook 'turn-on-flyspell 'append)
 
 (provide 'emacs)
 ;;; .emacs.el ends here
