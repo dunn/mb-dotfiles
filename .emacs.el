@@ -181,8 +181,6 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 (add-hook 'org-mode-hook 'turn-on-flyspell 'append)
-;; for building magit docs
-(require 'ox-texinfo+)
 
 ;; table mode
 (require 'table)
