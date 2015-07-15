@@ -171,8 +171,14 @@ o() {
   fi;
 }
 
-termy() {
-  curl -LA honk https://iterm2.com/nightly/latest -o ~/Downloads/iterm.zip
+grev() {
+  back=""
+  if [[ "$1" != "" ]]; then
+    back="~$1"
+  fi
+  revision=$(git rev-parse HEAD"$back")
+  echo "$revision"
+  echo "$revision" | tr -d '\n' | pbcopy
 }
 
 mkredirect() {
