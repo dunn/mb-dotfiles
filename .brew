@@ -13,6 +13,8 @@ alias homebrew="cd $(brew --prefix)/Library"
 
 brewp() {
   for f in "$@"; do
+    # strip out tap prefixes
+    f="$(echo "$f" | sed 's:.*/\([^/]*\)$:\1:')"
     brew home "$f" && brew info --github "$f" && brew search --debian "$f"
   done
 }
