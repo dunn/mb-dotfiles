@@ -50,7 +50,6 @@ alias sudo='sudo '
 # http://furbo.org/2014/09/03/the-terminal/
 alias con="tail -40 -f /var/log/system.log"
 
-alias binfo='brew info --github'
 # otherwise $(base64 --version) is DEBUG
 alias base64='gbase64'
 # brew install gnu-sed

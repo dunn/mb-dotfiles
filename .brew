@@ -9,7 +9,8 @@ alias audt="brew audit --strict"
 alias style="brew style --fix"
 alias using="brew uses --installed --recursive"
 alias bua="brew upgrade --all"
-alias homebrew="cd $(brew --prefix)/Library"
+alias homebrew='cd $(brew --prefix)/Library'
+alias binfo="brew info --github"
 
 brewp() {
   for f in "$@"; do
