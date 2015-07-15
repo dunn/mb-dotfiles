@@ -10,6 +10,7 @@ alias using="brew uses --installed --recursive"
 alias bua="brew upgrade --all"
 alias homebrew='cd $(brew --prefix)/Library'
 alias binfo="brew info --github"
+<<<<<<< bed9e52dee81df1bc75a56c01c6a9ef207f1bc31
 
 shsm() {
   shsm=$(shasum -a 256 "$1" | sed 's:\ .*::g')
@@ -23,6 +24,8 @@ dshm() {
   echo "$gzsha"
   echo "$gzsha" | pbcopy
 }
+=======
+>>>>>>> brew: binfo
 
 brewp() {
   for f in "$@"; do
