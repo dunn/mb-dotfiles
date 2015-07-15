@@ -38,3 +38,4 @@ bin/node/secrets.js
 .emacs.d/url/
 .emacs.d/var/
 .emacs.d/vendor/
+.emacs.d/.cask
