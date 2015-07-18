@@ -79,8 +79,7 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 ;; editorconfig
-;; version from MELPA (stable) is buggy; using HEAD for now
-(add-to-list 'load-path "~/.emacs.d/vendor/editorconfig-emacs")
+;; version from MELPA (stable) is buggy; using HEAD from dunn/emacs
 (load "editorconfig")
 
 ;; Flycheck
