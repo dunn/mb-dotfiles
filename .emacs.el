@@ -80,6 +80,7 @@
 
 ;; editorconfig
 ;; version from MELPA (stable) is buggy; using HEAD from dunn/emacs
+(add-to-list 'load-path "/usr/local/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig-emacs")
 (load "editorconfig")
 
 ;; Flycheck
@@ -173,7 +174,7 @@
 ;; MODES ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; org-mode (installed from dunn/whatever homebrew tap)
+;; org-mode (installed from dunn/emacs homebrew tap)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
