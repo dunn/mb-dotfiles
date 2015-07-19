@@ -33,7 +33,7 @@
 
 ;; Solarized theme
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
-(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/emacs-color-theme-solarized")
+(add-to-list 'custom-theme-load-path "/usr/local/share/emacs/site-lisp/solarized")
 ;; `t` is important: http://stackoverflow.com/a/8547861
 (load-theme 'solarized t)
 (setq solarized-termcolors 256)
