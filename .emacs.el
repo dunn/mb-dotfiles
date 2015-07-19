@@ -217,9 +217,9 @@
                ac-source-html-attribute)))
 
 ;; Markdown mode
-(if (not (package-installed-p 'markdown-mode))
-    (progn
-      (package-install 'markdown-mode)))
+;; installed from dunn/emacs --with-markdown-plus
+(require 'markdown-mode)
+(require 'markdown-mode+)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.mdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
