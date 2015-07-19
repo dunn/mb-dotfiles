@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+alias ebug='$(which emacs) --debug-init'
 alias gomacs='$(which emacs) --debug-init --daemon'
 alias emac="emacsclient -t -a emacs"
 alias emacs="emacsclient -c -a emacs"
