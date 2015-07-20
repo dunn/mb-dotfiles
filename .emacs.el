@@ -80,7 +80,7 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 ;; editorconfig
-;; version from MELPA (stable) is buggy; using HEAD from dunn/emacs
+;; needs its hand held with a special load-path
 (add-to-list 'load-path "/usr/local/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig-emacs")
 (load "editorconfig")
 
