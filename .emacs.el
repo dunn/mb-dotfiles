@@ -28,8 +28,8 @@
 (package-refresh-contents)
 
 ;; Homebrew executables and lisp files
-(add-to-list 'load-path "/usr/local/bin")
-(let ((default-directory "/usr/local/share/emacs/site-lisp"))
+(add-to-list 'load-path "/usr/local/bin/")
+(let ((default-directory "/usr/local/share/emacs/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
 
 ;; Solarized theme
