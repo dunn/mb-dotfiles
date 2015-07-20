@@ -187,9 +187,6 @@
 (add-hook 'mail-mode-hook 'turn-on-auto-fill)
 
 ;; Web mode
-(if (not (package-installed-p 'web-mode))
-    (progn
-      (package-install 'web-mode)))
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -220,9 +217,7 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
 ;; Fountain mode
-(if (not (package-installed-p 'fountain-mode))
-    (progn
-      (package-install 'fountain-mode)))
+(require 'fountain-mode)
 (add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
 
 ;; SCSS mode
@@ -233,18 +228,14 @@
 (add-to-list 'auto-mode-alist '("\\.sass$" . scss-mode))
 
 ;; Rainbow mode
-(if (not (package-installed-p 'rainbow-mode))
-    (progn
-      (package-install 'rainbow-mode)))
+(require 'rainbow-mode)
 (add-hook 'scss-mode-hook 'scss-rainbow-hook)
 (defun scss-rainbow-hook ()
   "Colorize color strings."
   (rainbow-mode 1))
 
 ;; PHP mode
-(if (not (package-installed-p 'php-mode))
-    (progn
-      (package-install 'php-mode)))
+(require 'php-mode)
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
 ;; JS mode
