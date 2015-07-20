@@ -176,9 +176,7 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
 ;; HTML autocomplete
-(if (not (package-installed-p 'ac-html))
-    (progn
-      (package-install 'ac-html)))
+(require 'ac-html)
 (add-hook 'html-mode-hook 'ac-html-enable)
 (add-to-list 'web-mode-ac-sources-alist
   '("html" . (
@@ -200,9 +198,7 @@
 (add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
 
 ;; SCSS mode
-(if (not (package-installed-p 'scss-mode))
-    (progn
-      (package-install 'scss-mode)))
+(require 'scss-mode)
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 (add-to-list 'auto-mode-alist '("\\.sass$" . scss-mode))
 
@@ -218,9 +214,7 @@
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
 ;; JS mode
-(if (not (package-installed-p 'js2-mode))
-    (progn
-      (package-install 'js2-mode)))
+(require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
