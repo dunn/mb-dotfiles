@@ -4,11 +4,15 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/texbin:$PATH"
 
 export PATH="$HOME/bin:$(brew --prefix go)/libexec/bin:$PATH"
 
-# Load the shell dotfiles, and then some:
-for file in ~/.{bash_prompt,exports,aliases,functions,extra,brew,emacs}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
+. "$HOME/.bash_prompt"
+. "$HOME/.exports"
+. "$HOME/.aliases"
+. "$HOME/.functions"
+. "$HOME/.brew"
+# symlink the contents of ./emacs into your home folder, not the
+# directory itself
+. "$HOME/.emacs"
+[[ -r "$HOME/.extra" ]] && . "$HOME/.extra"
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
