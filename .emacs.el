@@ -246,21 +246,11 @@
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
 
-;; Go mode
-(if (not (package-installed-p 'go-mode))
-    (progn
-      (package-install 'go-mode)))
-(require 'go-mode-autoloads)
-
 ; Olivetti
 (if (not (package-installed-p 'olivetti))
     (progn
       (package-install 'olivetti)))
 
-(if (not (package-installed-p 'cmake-mode))
-    (progn
-      (package-install 'cmake-mode)))
-(require 'cmake-mode)
 ;; Flycheck
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
