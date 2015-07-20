@@ -29,7 +29,8 @@
 
 ;; Homebrew executables and lisp files
 (add-to-list 'load-path "/usr/local/bin")
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
+(let ((default-directory "/usr/local/share/emacs/site-lisp"))
+  (normal-top-level-add-subdirs-to-load-path))
 
 ;; Solarized theme
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
