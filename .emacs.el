@@ -18,15 +18,6 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
-;; Do the packaging dance
-(require 'package)
-(package-initialize)
-(add-to-list 'package-archives
-  '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
-;; This makes starting emacs slow as ass unless you do emacs --daemon
-;; at startup
-(package-refresh-contents)
-
 ;; Homebrew executables and lisp files
 (add-to-list 'load-path "/usr/local/bin/")
 (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
@@ -85,9 +76,7 @@
 (load "editorconfig")
 
 ;; Better Meta
-(if (not (package-installed-p 'smex))
-    (progn
-      (package-install 'smex)))
+(require 'smex)
 (setq mac-option-modifier 'meta)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
@@ -218,11 +207,6 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
-
-; Olivetti
-(if (not (package-installed-p 'olivetti))
-    (progn
-      (package-install 'olivetti)))
 
 ;; Flycheck
 (require 'flycheck)
