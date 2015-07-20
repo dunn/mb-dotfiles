@@ -84,12 +84,6 @@
 (add-to-list 'load-path "/usr/local/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig-emacs")
 (load "editorconfig")
 
-;; Flycheck
-(if (not (package-installed-p 'flycheck))
-    (progn
-      (package-install 'flycheck)))
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
 ;; Better Meta
 (if (not (package-installed-p 'smex))
     (progn
@@ -276,6 +270,9 @@
     (progn
       (package-install 'cmake-mode)))
 (require 'cmake-mode)
+;; Flycheck
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; ;; Set to the location of your Org files on your local system
 ;; (setq org-directory "~/org")
