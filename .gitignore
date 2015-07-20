@@ -24,7 +24,6 @@ Thumbs.db
 .Trashes
 
 # machine-specific dotstuff
-Brewfile
 .extra
 .mutt/gmail
 .mutt/umail
@@ -32,11 +31,11 @@ Brewfile
 bin/node/sandbox
 bin/node/node_modules
 bin/node/secrets.js
-.emacs.d/ac-comphist.dat
-.emacs.d/elpa/
-.emacs.d/games/
-.emacs.d/tramp
-.emacs.d/url/
-.emacs.d/var/
-.emacs.d/vendor/
-.emacs.d/.cask
+emacs/.emacs.d/ac-comphist.dat
+emacs/.emacs.d/elpa/
+emacs/.emacs.d/games/
+emacs/.emacs.d/tramp
+emacs/.emacs.d/url/
+emacs/.emacs.d/var/
+emacs/.emacs.d/vendor/
+emacs/.emacs.d/.cask
