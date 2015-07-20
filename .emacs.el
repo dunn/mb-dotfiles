@@ -96,27 +96,6 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 (setq smex-show-unbound-commands t)
 
-;; Multiple cursors
-;; https://github.com/kjhealy/emacs-starter-kit/blob/master/starter-kit-bindings.org
-;; When you have an active region that spans multiple lines, the
-;; following will add a cursor to each line:
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C-S-c C-e") 'mc/edit-ends-of-lines)
-(global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
-;; When you want to add multiple cursors not based on continuous
-;; lines, but based on keywords in the buffer, use:
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-;; Rectangular region mode
-(global-set-key (kbd "H-SPC") 'set-rectangular-region-anchor)
-;; Mark more like this
-(global-set-key (kbd "H-a") 'mc/mark-all-like-this)
-(global-set-key (kbd "H-p") 'mc/mark-previous-like-this)
-(global-set-key (kbd "H-n") 'mc/mark-next-like-this)
-(global-set-key (kbd "H-S-n") 'mc/mark-more-like-this-extended)
-(global-set-key (kbd "H-S-a") 'mc/mark-all-in-region)
-
 ;; Spelling
 (setq-default ispell-program-name "aspell")
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
