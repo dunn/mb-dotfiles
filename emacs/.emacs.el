@@ -43,6 +43,9 @@
 (global-set-key "\C-c;"      'comment-region)
 (global-set-key "\C-c:"      'uncomment-region)
 
+;; select all
+(global-set-key "\C-x\C-a" 'mark-whole-buffer)
+
 ;; Kill whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -129,7 +132,7 @@
 (defun autotools ()
   "For Homebrew HEAD builds."
   (interactive)
-  (insert "    depends_on \"automake\" => :build\n"
+  (insert "depends_on \"automake\" => :build\n"
           "    depends_on \"autoconf\" => :build\n"
           "    depends_on \"libtool\" => :build"))
 
