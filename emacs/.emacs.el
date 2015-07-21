@@ -223,5 +223,4 @@
 ;; ;; Set to <your Dropbox root directory>/MobileOrg.
 ;; (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
-(provide 'emacs)
 ;;; .emacs.el ends here
