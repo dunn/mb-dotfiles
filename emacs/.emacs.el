@@ -218,4 +218,6 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 
+(require 'browse-kill-ring)
+
 ;;; .emacs.el ends here
