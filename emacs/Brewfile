@@ -1,24 +1,24 @@
 tap 'dunn/emacs'
 brew 'magit'
-brew 'dunn/emacs/popup'
-brew 'dunn/emacs/auto-complete'
-brew 'dunn/emacs/dash'
-brew 'dunn/emacs/web-completion-data'
 brew 'dunn/emacs/ac-html'
+brew 'dunn/emacs/auto-complete'
 brew 'dunn/emacs/color-theme-solarized', args: ['HEAD']
+brew 'dunn/emacs/dash'
 brew 'dunn/emacs/editorconfig-emacs', args: ['HEAD']
 brew 'dunn/emacs/epl', args: ['HEAD']
-brew 'dunn/emacs/let-alist'
-brew 'dunn/emacs/pkg-info'
 brew 'dunn/emacs/flycheck'
-brew 'dunn/emacs/s'
 brew 'dunn/emacs/fountain-mode'
 brew 'dunn/emacs/js2-mode'
+brew 'dunn/emacs/let-alist'
 brew 'dunn/emacs/markdown-mode', args: ['with-markdown-plus', 'HEAD']
 brew 'dunn/emacs/org-mode'
 brew 'dunn/emacs/php-mode'
+brew 'dunn/emacs/pkg-info'
+brew 'dunn/emacs/popup'
 brew 'dunn/emacs/rainbow-mode'
+brew 'dunn/emacs/s'
 brew 'dunn/emacs/scss-mode', args: ['HEAD']
 brew 'dunn/emacs/smex'
-brew 'dunn/emacs/web-mode'
 brew 'dunn/emacs/undo-tree'
+brew 'dunn/emacs/web-completion-data'
+brew 'dunn/emacs/web-mode'
