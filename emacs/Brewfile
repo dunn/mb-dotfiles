@@ -21,3 +21,4 @@ brew 'dunn/emacs/rainbow-mode'
 brew 'dunn/emacs/scss-mode', args: ['HEAD']
 brew 'dunn/emacs/smex'
 brew 'dunn/emacs/web-mode'
+brew 'dunn/emacs/undo-tree'
