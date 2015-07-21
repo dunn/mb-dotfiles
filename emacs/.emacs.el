@@ -40,8 +40,8 @@
 (column-number-mode 1)
 
 ;; Commenting
-(global-set-key "\C-c;"      'comment-region)
-(global-set-key "\C-c:"      'uncomment-region)
+(global-set-key "\C-c;" 'comment-region)
+(global-set-key "\C-c:" 'uncomment-region)
 
 ;; select all
 (global-set-key "\C-x\C-a" 'mark-whole-buffer)
