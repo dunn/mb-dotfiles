@@ -45,6 +45,7 @@
 
 ;; select all
 (global-set-key "\C-x\C-a" 'mark-whole-buffer)
+(global-unset-key "\C-xh")
 
 ;; Kill whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
