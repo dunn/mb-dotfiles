@@ -1,7 +1,5 @@
 ;;; package --- emacs configuration
 ;;; Commentary:
-;; Have emacs --daemon run at startup; otherwise the package
-;; initialization will slow every launch
 
 ;;; Code:
 ;; import PATH etc; necessary since emacs starts as a daemon before
