@@ -36,7 +36,7 @@ bug() {
 bi() {
   brew remove "$1"
   brew install --only-dependencies "$1"
-  brew install --debug --verbose --build-from-source "$@"
+  brew install --verbose --build-from-source "$@"
 }
 
 brm() {
