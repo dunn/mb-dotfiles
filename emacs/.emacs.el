@@ -237,7 +237,4 @@
 (set-face-attribute 'anzu-mode-line nil
   :foreground "#586e75" :weight 'bold)
 
-(require 'pandoc-mode)
-(add-hook 'markdown-mode-hook 'pandoc-mode)
-
 ;;; .emacs.el ends here

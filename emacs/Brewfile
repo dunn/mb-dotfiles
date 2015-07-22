@@ -15,7 +15,6 @@ brew 'dunn/emacs/js2-mode'
 brew 'dunn/emacs/let-alist'
 brew 'dunn/emacs/markdown-mode', args: ['with-markdown-plus', 'HEAD']
 brew 'dunn/emacs/org-mode'
-brew 'dunn/emacs/pandoc-mode'
 brew 'dunn/emacs/php-mode'
 brew 'dunn/emacs/pkg-info'
 brew 'dunn/emacs/popup'
