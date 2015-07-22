@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 alias ebug='$(which emacs) --debug-init'
-alias gomacs='$(which emacs) --debug-init --daemon'
+alias gomacs='$(which emacs) --daemon'
 alias emac="emacsclient -t -a emacs"
 alias emacs="emacsclient -c -a emacs"
 alias emcas=emacs # i can't type
