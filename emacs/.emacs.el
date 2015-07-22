@@ -156,6 +156,17 @@
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 (add-hook 'mail-mode-hook 'turn-on-auto-fill)
 
+;; git-modes
+(require 'gitattributes-mode)
+(require 'gitconfig-mode)
+(require 'gitignore-mode)
+(add-to-list 'auto-mode-alist '("^\\.gitattributes$" . gitattributes-mode))
+(add-to-list 'auto-mode-alist '("^\\.gitconfig$" . gitconfig-mode))
+(add-to-list 'auto-mode-alist '("^\\.gitignore$" . gitignore-mode))
+(add-to-list 'auto-mode-alist '("\\.git\/info\/attributes$" . gitignore-mode))
+(add-to-list 'auto-mode-alist '("\\.git\/config$" . gitignore-mode))
+(add-to-list 'auto-mode-alist '("\\.git\/info\/exclude$" . gitignore-mode))
+
 ;; Web mode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
