@@ -1,6 +1,7 @@
 tap 'dunn/emacs'
 brew 'magit'
 brew 'dunn/emacs/ac-html'
+brew 'dunn/emacs/anzu-mode'
 brew 'dunn/emacs/auto-complete'
 brew 'dunn/emacs/browse-kill-ring'
 brew 'dunn/emacs/color-theme-solarized', args: ['HEAD']
