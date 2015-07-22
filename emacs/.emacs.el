@@ -237,4 +237,6 @@
 (set-face-attribute 'anzu-mode-line nil
   :foreground "#586e75" :weight 'bold)
 
+(require 'achievements)
+
 ;;; .emacs.el ends here
