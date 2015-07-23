@@ -244,4 +244,7 @@
 (add-to-list 'unkillable-scratch "\*.*\*")
 (setq unkillable-scratch-behavior 'bury)
 
+(require 'which-key)
+(which-key-mode)
+
 ;;; .emacs.el ends here
