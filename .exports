@@ -30,6 +30,11 @@ export LESS_TERMCAP_md="$SOLAR_BLUE"
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="less -X"
 
+# brew install dunn/emacs/e2ansi
+export "LESSOPEN=|emacs --batch -l /usr/local/bin/e2ansi-cat %s"
+export "LESS=-R"
+export "MORE=-R"
+
 # Always enable colored `grep` output.
 export GREP_OPTIONS="--color=auto"
 
