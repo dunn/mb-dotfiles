@@ -247,4 +247,9 @@
 (require 'which-key)
 (which-key-mode)
 
+(require 'git-messenger)
+(setq git-messenger:show-detail t)
+(global-set-key (kbd "C-x v p") 'git-messenger:popup-message)
+(define-key git-messenger-map (kbd "w") 'git-messenger:copy-message)
+
 ;;; .emacs.el ends here
