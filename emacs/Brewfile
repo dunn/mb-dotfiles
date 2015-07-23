@@ -1,5 +1,5 @@
-tap 'dunn/emacs'
 brew 'magit'
+tap 'dunn/emacs'
 brew 'dunn/emacs/ac-html'
 brew 'dunn/emacs/achievements'
 brew 'dunn/emacs/anzu-mode'
