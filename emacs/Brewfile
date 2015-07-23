@@ -24,5 +24,6 @@ brew 'dunn/emacs/s'
 brew 'dunn/emacs/scss-mode', args: ['HEAD']
 brew 'dunn/emacs/smex'
 brew 'dunn/emacs/undo-tree'
+brew 'dunn/emacs/unkillable-scratch'
 brew 'dunn/emacs/web-completion-data'
 brew 'dunn/emacs/web-mode'
