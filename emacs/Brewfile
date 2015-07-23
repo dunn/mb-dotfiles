@@ -11,6 +11,7 @@ brew 'dunn/emacs/editorconfig-emacs', args: ['HEAD']
 brew 'dunn/emacs/epl', args: ['HEAD']
 brew 'dunn/emacs/flycheck'
 brew 'dunn/emacs/fountain-mode'
+brew 'dunn/emacs/git-messenger'
 brew 'dunn/emacs/git-modes'
 brew 'dunn/emacs/js2-mode'
 brew 'dunn/emacs/let-alist'
