@@ -49,6 +49,8 @@
 ;; KEYBINDINGS
 ;;;;;;;;;;;;;;;;
 
+(setq mac-option-modifier 'meta)
+
 ;; mimic my tmux bindings, sort of
 (define-key key-translation-map "\C-j" "\C-x")
 (global-set-key "\M-o" 'other-window)
@@ -116,15 +118,6 @@
 ;; needs its hand held with a special load-path
 (add-to-list 'load-path "/usr/local/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig-emacs")
 (load "editorconfig")
-
-(require 'smex)
-(setq mac-option-modifier 'meta)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-x C-M") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-(setq smex-show-unbound-commands t)
 
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -227,6 +220,8 @@
 (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
 (require 'helm-config)
+(global-set-key (kbd "M-x") 'helm-M-x)
+
 (require 'emoji-cheat-sheet-plus)
 (global-set-key (kbd "C-c e") 'emoji-cheat-sheet-plus-insert)
 
