@@ -42,6 +42,9 @@
   st = status
   them = merge -s recursive -X theirs
 
+  # fill out a shallow clone of a repository
+  unshallow = fetch --unshallow
+
   # Print last commit time for file
   last = log -n 1 --pretty=format:%cd --date=local --
 
@@ -90,6 +93,10 @@
   # to use instead of stash
   # see https://codingkilledthecat.wordpress.com/2012/04/27/git-stash-pop-considered-harmful/
   save = !sh -c 'export PREV=$(git symbolic-ref HEAD|cut -d/ -f3-) && git checkout -b "$1" && git commit -am "$1" && git checkout "$PREV"' -
+
+  # check out github pull requests by number
+  # https://github.com/thoughtbot/guides/tree/master/protocol/open-source#accepting-a-github-pull-request
+  co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
 
 [merge]
   # Include summaries of merged commits in newly created merge commit
