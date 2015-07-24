@@ -226,6 +226,11 @@
 (global-aggressive-indent-mode 1)
 (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
+
+;;;;;;;;;;;;;;;
+;; FUNCTIONS
+;;;;;;;;;;;;;;;
+
 ;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
 (defun unfill-paragraph ()
   "Take a multi-line paragraph and make it into a single line of text."
@@ -234,10 +239,6 @@
     (fill-paragraph nil)))
 ;; Handy key definition
 (define-key global-map "\M-Q" 'unfill-paragraph)
-
-;;;;;;;;;;;;;;;
-;; FUNCTIONS
-;;;;;;;;;;;;;;;
 
 (defun lorem ()
   "Insert a lorem ipsum."
