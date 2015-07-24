@@ -226,10 +226,6 @@
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; branching undo
-(require 'undo-tree)
-(global-undo-tree-mode)
-
 (require 'browse-kill-ring)
 
 (require 'anzu)
