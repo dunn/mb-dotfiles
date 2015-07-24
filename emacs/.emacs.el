@@ -226,6 +226,9 @@
 (global-aggressive-indent-mode 1)
 (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
+(require 'helm-config)
+(require 'emoji-cheat-sheet-plus)
+(global-set-key (kbd "C-c e") 'emoji-cheat-sheet-plus-insert)
 
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
