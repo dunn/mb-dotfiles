@@ -9,6 +9,7 @@ brew 'dunn/emacs/auto-complete'
 brew 'dunn/emacs/browse-kill-ring'
 brew 'dunn/emacs/color-theme-solarized', args: ['HEAD']
 brew 'dunn/emacs/dash'
+brew 'dunn/emacs/debbugs'
 brew 'dunn/emacs/e2ansi'
 brew 'dunn/emacs/editorconfig-emacs', args: ['HEAD']
 brew 'dunn/emoji-cheat-sheet-plus'

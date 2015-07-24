@@ -230,6 +230,11 @@
 (require 'emoji-cheat-sheet-plus)
 (global-set-key (kbd "C-c e") 'emoji-cheat-sheet-plus-insert)
 
+(require 'debbugs-org)
+(autoload 'debbugs-org "debbugs-org" "" 'interactive)
+(autoload 'debbugs-org-search "debbugs-org" "" 'interactive)
+(autoload 'debbugs-org-bugs "debbugs-org" "" 'interactive)
+
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
 ;;;;;;;;;;;;;;;
