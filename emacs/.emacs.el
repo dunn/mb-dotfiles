@@ -43,11 +43,14 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
+;; allow 'y' or 'n' instead of 'yes' or 'no'
+;; http://www.cs.berkeley.edu/~prmohan/emacs/
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;;;;;;;;;;;;;;;;
 ;; KEYBINDINGS
 ;;;;;;;;;;;;;;;;
+;; some inspiration from https://masteringemacs.org/article/my-emacs-keybindings
 
 (setq mac-option-modifier 'meta)
 
@@ -100,8 +103,12 @@
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 (add-hook 'mail-mode-hook 'turn-on-auto-fill)
 
-;; From Hombrew
-;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; HOMEBREW FORMULAE
+;; brew tap homebrew/bundle
+;; brew tap dunn/emacs
+;; brew bundle --file=emacs/Brewfile
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
 (add-to-list 'custom-theme-load-path "/usr/local/share/emacs/site-lisp/solarized")
@@ -115,7 +122,7 @@
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
-;; needs its hand held with a special load-path
+;; editorconfig needs its hand held with a special load-path
 (add-to-list 'load-path "/usr/local/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig-emacs")
 (load "editorconfig")
 
@@ -132,7 +139,6 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (add-hook 'org-mode-hook 'turn-on-flyspell 'append)
 
-;; git-modes
 (require 'gitattributes-mode)
 (require 'gitconfig-mode)
 (require 'gitignore-mode)
@@ -143,7 +149,6 @@
 (add-to-list 'auto-mode-alist '("\\.git\/config$" . gitignore-mode))
 (add-to-list 'auto-mode-alist '("\\.git\/info\/exclude$" . gitignore-mode))
 
-;; Web mode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
