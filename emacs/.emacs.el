@@ -43,6 +43,8 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;;;;;;;;;;;;;;;;
 ;; KEYBINDINGS
 ;;;;;;;;;;;;;;;;
