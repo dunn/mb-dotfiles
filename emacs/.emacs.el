@@ -21,29 +21,11 @@
 (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
 
-;; Solarized theme
-;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
-(add-to-list 'custom-theme-load-path "/usr/local/share/emacs/site-lisp/solarized")
-;; `t` is important: http://stackoverflow.com/a/8547861
-(load-theme 'solarized t)
-(setq solarized-termcolors 256)
-(add-to-list 'default-frame-alist '(background-mode . dark))
-
-(define-key global-map (kbd "C-+") 'text-scale-increase)
-(define-key global-map (kbd "C--") 'text-scale-decrease)
 (blink-cursor-mode 0)
 
 ;; http://ergoemacs.org/emacs/emacs_make_modern.html
 (global-linum-mode 1)
 (column-number-mode 1)
-
-;; Commenting
-(global-set-key "\C-c;" 'comment-region)
-(global-set-key "\C-c:" 'uncomment-region)
-
-;; select all
-(global-set-key "\C-x\C-a" 'mark-whole-buffer)
-(global-unset-key "\C-xh")
 
 ;; Kill whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -57,6 +39,29 @@
 ;; Tabs (no)
 (setq-default indent-tabs-mode nil)
 
+;; case handling
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+
+;;;;;;;;;;;;;;;;
+;; KEYBINDINGS
+;;;;;;;;;;;;;;;;
+
+(global-set-key "\C-x\C-a" 'mark-whole-buffer)
+(global-unset-key "\C-xh")
+
+(global-set-key "\M-o" 'other-window)
+
+(define-key global-map (kbd "C-+") 'text-scale-increase)
+(define-key global-map (kbd "C--") 'text-scale-decrease)
+
+(global-set-key "\C-c;" 'comment-region)
+(global-set-key "\C-c:" 'uncomment-region)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; MODES ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (require 'ido)
 (ido-mode t)
 
@@ -65,88 +70,11 @@
 (add-hook 'tex-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
 
-;; magit
-;; brew install magit
-(require 'magit)
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
-(setq magit-last-seen-setup-instructions "1.4.0")
-
-;; editorconfig
-;; needs its hand held with a special load-path
-(add-to-list 'load-path "/usr/local/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig-emacs")
-(load "editorconfig")
-
-;; Better Meta
-(require 'smex)
-(setq mac-option-modifier 'meta)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-x C-M") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-(setq smex-show-unbound-commands t)
-
-;; Spelling
-(setq-default ispell-program-name "aspell")
-(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
-(autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
-(autoload 'tex-mode-flyspell-verify "flyspell" "" t)
-
-;; case handling
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
-
 ;; word count
 (autoload 'word-count-mode "word-count"
   "Minor mode to count words."
   t nil)
 (global-set-key "\M-+" 'word-count-mode)
-
-;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
-(defun unfill-paragraph ()
-  "Take a multi-line paragraph and make it into a single line of text."
-  (interactive)
-  (let ((fill-column (point-max)))
-    (fill-paragraph nil)))
-;; Handy key definition
-(define-key global-map "\M-Q" 'unfill-paragraph)
-
-(defun lorem ()
-  "Insert a lorem ipsum."
-  (interactive)
-  (insert "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do "
-          "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
-          "ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut "
-          "aliquip ex ea commodo consequat. Duis aute irure dolor in "
-          "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla "
-          "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
-          "culpa qui officia deserunt mollit anim id est laborum."))
-
-(defun shruggie ()
-  "Insert him."
-  (interactive)
-  (insert "¯\\_(ツ)_/¯"))
-
-(defun autotools ()
-  "For Homebrew HEAD builds."
-  (interactive)
-  (insert "depends_on \"automake\" => :build\n"
-          "    depends_on \"autoconf\" => :build\n"
-          "    depends_on \"libtool\" => :build"))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; MODES ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; org-mode (installed from dunn/emacs homebrew tap)
-(require 'org)
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(add-hook 'org-mode-hook 'turn-on-flyspell 'append)
 
 ;; table mode
 (require 'table)
@@ -156,6 +84,47 @@
 ;; Mail mode
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 (add-hook 'mail-mode-hook 'turn-on-auto-fill)
+
+;; From Hombrew
+;;;;;;;;;;;;;;;
+
+;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
+(add-to-list 'custom-theme-load-path "/usr/local/share/emacs/site-lisp/solarized")
+;; `t` is important: http://stackoverflow.com/a/8547861
+(load-theme 'solarized t)
+(setq solarized-termcolors 256)
+(add-to-list 'default-frame-alist '(background-mode . dark))
+
+(setq-default ispell-program-name "aspell")
+(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
+(autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
+(autoload 'tex-mode-flyspell-verify "flyspell" "" t)
+
+;; needs its hand held with a special load-path
+(add-to-list 'load-path "/usr/local/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig-emacs")
+(load "editorconfig")
+
+(require 'smex)
+(setq mac-option-modifier 'meta)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-x C-M") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+(setq smex-show-unbound-commands t)
+
+(require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+(setq magit-last-seen-setup-instructions "1.4.0")
+
+(require 'org)
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+(add-hook 'org-mode-hook 'turn-on-flyspell 'append)
 
 ;; git-modes
 (require 'gitattributes-mode)
@@ -188,41 +157,34 @@
                ac-source-html-tag
                ac-source-html-attribute)))
 
-;; Markdown mode
-;; installed from dunn/emacs --with-markdown-plus
+;; installed --with-markdown-plus
 (require 'markdown-mode)
 (require 'markdown-mode+)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.mdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
-;; Fountain mode
 (require 'fountain-mode)
 (add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
 
-;; SCSS mode
 (require 'scss-mode)
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 (add-to-list 'auto-mode-alist '("\\.sass$" . scss-mode))
 
-;; Rainbow mode
 (require 'rainbow-mode)
 (add-hook 'scss-mode-hook 'scss-rainbow-hook)
 (defun scss-rainbow-hook ()
   "Colorize color strings."
   (rainbow-mode 1))
 
-;; PHP mode
 (require 'php-mode)
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
-;; JS mode
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
 
-;; Flycheck
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
@@ -250,5 +212,41 @@
 (require 'aggressive-indent)
 (global-aggressive-indent-mode 1)
 (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
+
+;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
+(defun unfill-paragraph ()
+  "Take a multi-line paragraph and make it into a single line of text."
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+;; Handy key definition
+(define-key global-map "\M-Q" 'unfill-paragraph)
+
+;;;;;;;;;;;;;;;
+;; FUNCTIONS
+;;;;;;;;;;;;;;;
+
+(defun lorem ()
+  "Insert a lorem ipsum."
+  (interactive)
+  (insert "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do "
+    "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
+    "ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut "
+    "aliquip ex ea commodo consequat. Duis aute irure dolor in "
+    "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla "
+    "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
+    "culpa qui officia deserunt mollit anim id est laborum."))
+
+(defun shruggie ()
+  "Insert him."
+  (interactive)
+  (insert "¯\\_(ツ)_/¯"))
+
+(defun autotools ()
+  "For Homebrew HEAD builds."
+  (interactive)
+  (insert "depends_on \"automake\" => :build\n"
+    "    depends_on \"autoconf\" => :build\n"
+    "    depends_on \"libtool\" => :build"))
 
 ;;; .emacs.el ends here
