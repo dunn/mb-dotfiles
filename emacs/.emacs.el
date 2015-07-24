@@ -47,16 +47,27 @@
 ;; KEYBINDINGS
 ;;;;;;;;;;;;;;;;
 
+;; mimic my tmux bindings, sort of
+(define-key key-translation-map "\C-j" "\C-x")
+(global-set-key "\M-o" 'other-window)
+(global-set-key "\C-xj" 'other-window)
+(global-set-key "\C-x;" 'other-window)
+
 (global-set-key "\C-x\C-a" 'mark-whole-buffer)
 (global-unset-key "\C-xh")
 
-(global-set-key "\M-o" 'other-window)
+(global-set-key "\C-xk" 'kill-this-buffer)
+(global-set-key "\C-x\C-k" 'kill-buffer)
 
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 
 (global-set-key "\C-c;" 'comment-region)
 (global-set-key "\C-c:" 'uncomment-region)
+
+(global-set-key "\C-cz" 'shell)
+
+(global-set-key "\C-x\C-b" 'ibuffer)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MODES ;;;;;;;;;;;;;;;;;;;;;;;;;;;
