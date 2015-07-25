@@ -24,6 +24,12 @@ dshm() {
   echo "$gzsha" | pbcopy
 }
 
+shsm() {
+  shsm=$(shasum -a 256 "$1" | sed 's:\ .*::g')
+  echo "$shsm"
+  echo "$shsm" | pbcopy
+}
+
 brewp() {
   for f in "$@"; do
     brew home "$f" && \
