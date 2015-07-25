@@ -3,7 +3,6 @@
 export HOMEBREW_DEVELOPER=1
 export HOMEBREW_INSTALL_BADGE="☕️ 🐸"
 
-alias shsm="shasum -a 256"
 alias brwe="brew"
 alias audt="brew audit --strict --online"
 alias style="brew style --fix"
@@ -11,6 +10,12 @@ alias using="brew uses --installed --recursive"
 alias bua="brew upgrade --all"
 alias homebrew='cd $(brew --prefix)/Library'
 alias binfo="brew info --github"
+
+shsm() {
+  shsm=$(shasum -a 256 "$1" | sed 's:\ .*::g')
+  echo "$shsm"
+  echo "$shsm" | pbcopy
+}
 
 brewp() {
   for f in "$@"; do
