@@ -26,6 +26,7 @@ brew 'dunn/emacs/php-mode'
 brew 'dunn/emacs/pkg-info'
 brew 'dunn/emacs/popup'
 brew 'dunn/emacs/rainbow-mode'
+brew 'dunn/emacs/register-list'
 brew 'dunn/emacs/s'
 brew 'dunn/emacs/scss-mode', args: ['HEAD']
 brew 'dunn/emacs/unkillable-scratch'

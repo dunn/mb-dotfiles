@@ -235,6 +235,9 @@
 (autoload 'debbugs-org-search "debbugs-org" "" 'interactive)
 (autoload 'debbugs-org-bugs "debbugs-org" "" 'interactive)
 
+(require 'register-list)
+(global-set-key "\C-cr" 'register-list)
+
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
 ;;;;;;;;;;;;;;;
