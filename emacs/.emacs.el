@@ -205,7 +205,6 @@
 
 (require 'unkillable-scratch)
 (unkillable-scratch 1)
-(add-to-list 'unkillable-scratch "\*.*\*")
 (setq unkillable-scratch-behavior 'bury)
 
 (require 'which-key)
