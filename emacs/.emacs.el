@@ -122,7 +122,8 @@
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
-;; editorconfig needs its hand held with a special load-path
+;; editorconfig needs its hand held with a special exec-path and load-path
+(setq exec-path (append exec-path '("/usr/local/opt/editorconfig/bin")))
 (add-to-list 'load-path "/usr/local/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig-emacs")
 (load "editorconfig")
 
