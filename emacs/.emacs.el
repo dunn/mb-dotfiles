@@ -76,6 +76,10 @@
 
 (global-set-key "\C-x\C-b" 'ibuffer)
 
+
+;; mimic native Mac OS behavior
+(global-set-key "\M-_" 'mdash)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MODES ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -268,6 +272,11 @@
   "Insert him."
   (interactive)
   (insert "¯\\_(ツ)_/¯"))
+
+(defun mdash ()
+  "Insert a dang mdash ok."
+  (interactive)
+  (insert "—"))
 
 (defun autotools ()
   "For Homebrew HEAD builds."
