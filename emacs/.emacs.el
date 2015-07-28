@@ -239,6 +239,9 @@
 (global-set-key "\C-s" 'swiper-helm)
 (global-set-key "\C-r" 'swiper-helm)
 
+(require 'typo)
+(add-hook 'markdown-mode-hook 'typo-mode)
+
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
 ;;;;;;;;;;;;;;;
