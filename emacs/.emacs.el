@@ -221,10 +221,6 @@
 (add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
 (add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))
 
-(require 'aggressive-indent)
-(global-aggressive-indent-mode 1)
-(add-to-list 'aggressive-indent-excluded-modes 'html-mode)
-
 (require 'helm-config)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
