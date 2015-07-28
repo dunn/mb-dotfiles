@@ -76,6 +76,8 @@
 
 (global-set-key "\C-x\C-b" 'ibuffer)
 
+;; see below
+(global-set-key "\C-c\C-s" 'shruggie)
 
 ;; mimic native Mac OS behavior
 (global-set-key "\M-_" 'mdash)
@@ -240,9 +242,6 @@
 (require 'swiper-helm)
 (global-set-key "\C-s" 'swiper-helm)
 (global-set-key "\C-r" 'swiper-helm)
-
-;; see below
-(global-set-key "\C-c\C-s" 'shruggie)
 
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
