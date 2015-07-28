@@ -74,6 +74,9 @@
   # Amend the currently staged files to the latest commit
   amend = commit --amend --reuse-message=HEAD
 
+  # find when a file was deleted, rip to it 👼
+  rip = log --diff-filter=D --
+
   # Find branches containing commit
   fb = "!f() { git branch -a --contains $1; }; f"
 
