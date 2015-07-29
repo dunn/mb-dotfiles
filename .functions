@@ -38,6 +38,8 @@ where() {
     info=$(ls -l "$(which "$1")")
     first=$(dirname "$(echo "$info" | awk '{ print $9; }')")
     cd "$first"
+    # if the file isn't a symlink, and so there's no second path listed,
+    # `dirname` helpfully returns '.' so `cd $second` executes harmlessly
     second=$(dirname "$(echo "$info" | awk '{ print $11; }')")
     cd "$second"
     echo "$(pwd)/$1"
