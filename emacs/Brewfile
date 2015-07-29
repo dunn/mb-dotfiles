@@ -5,7 +5,6 @@ brew 'dunn/emacs/achievements'
 brew 'dunn/emacs/applescript-mode'
 brew 'dunn/emacs/auto-complete'
 brew 'dunn/emacs/browse-kill-ring'
-brew 'dunn/emacs/color-theme-solarized', args: ['HEAD']
 brew 'dunn/emacs/dash'
 brew 'dunn/emacs/debbugs'
 brew 'dunn/emacs/e2ansi'
@@ -27,6 +26,7 @@ brew 'dunn/emacs/rainbow-mode'
 brew 'dunn/emacs/register-list'
 brew 'dunn/emacs/s'
 brew 'dunn/emacs/scss-mode', args: ['HEAD']
+brew 'dunn/emacs/solarized-emacs', args: ['HEAD']
 brew 'dunn/emacs/swiper', args: ['with-helm']
 brew 'dunn/emacs/typo-mode'
 brew 'dunn/emacs/unkillable-scratch'
