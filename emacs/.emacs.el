@@ -77,7 +77,7 @@
 (global-set-key "\C-x\C-b" 'ibuffer)
 
 ;; see below
-(global-set-key "\C-c\C-s" 'shruggie)
+(global-set-key "\C-cs" 'shruggie)
 
 ;; mimic native Mac OS behavior
 (global-set-key "\M-_" 'mdash)
