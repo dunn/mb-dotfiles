@@ -73,8 +73,8 @@
 (global-set-key "\C-c:" 'uncomment-region)
 
 (global-set-key "\C-cz" 'shell)
-
 (global-set-key "\C-x\C-b" 'ibuffer)
+(global-set-key "\C-co" 'browse-url-at-point)
 
 ;; see below
 (global-set-key "\C-cs" 'shruggie)
