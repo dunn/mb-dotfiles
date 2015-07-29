@@ -239,6 +239,9 @@
 (require 'typo)
 (add-hook 'markdown-mode-hook 'typo-mode)
 (add-hook 'mail-mode-hook 'typo-mode)
+;; typo-mode turns backticks into single left quotes in Markdown, so
+;; we need another way to quickly make code fences:
+(global-set-key "\C-c`" 'code-fence)
 
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\.yml$" . yaml-mode))
@@ -277,6 +280,15 @@
   "Insert a dang mdash ok."
   (interactive)
   (insert "—"))
+
+(defun code-fence ()
+  "Insert backticks to create a Markdown code block, \
+then set point to the end of the first set of backticks \
+so the code type can be specified."
+  (interactive)
+  (push-mark)
+  (insert "```\n\n```")
+  (goto-char (- (point) 5)))
 
 (defun autotools ()
   "For Homebrew HEAD builds."
