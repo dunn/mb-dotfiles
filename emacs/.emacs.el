@@ -238,6 +238,7 @@
 
 (require 'typo)
 (add-hook 'markdown-mode-hook 'typo-mode)
+(add-hook 'mail-mode-hook 'typo-mode)
 
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
