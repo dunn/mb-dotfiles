@@ -72,7 +72,7 @@ prompt_git() {
 
     # Combine the branch name and state information
     if [[ $git_state ]]; then
-        git_info="$git_info${SOLAR_CYAN}[$git_state${SOLAR_CYAN}]"
+        git_info="$git_info${SOLAR_ORANGE}[$git_state${SOLAR_ORANGE}]${RESET}"
     fi
 
     # You know you’re on `gh-pages`, right? *Right*?
@@ -85,19 +85,19 @@ prompt_git() {
         style_branch="${SOLAR_RED}"
     fi
 
-    printf "${SOLAR_WHITE} on ${style_branch}${git_info}"
+    printf "${RESET}${BOLD} on ${RESET}${SOLAR_YELLOW}${style_branch}${git_info}"
 }
 
 PS1="\[\033]0;\w\007\]"
-PS1+="\[$BOLD\]\u\[$RESET\]"
-PS1+="\[$SOLAR_WHITE\] in"
-PS1+="\[$SOLAR_CYAN\] \h"
-PS1+="\[$SOLAR_WHITE\] at"
-PS1+="\[$SOLAR_BLUE\] \w"
+PS1+="\[$SOLAR_ORANGE\]\u\[$RESET\]"
+PS1+="\[$BOLD\] in\[$RESET\]"
+PS1+="\[$SOLAR_YELLOW\] \h\[$RESET\]"
+PS1+="\[$BOLD\] at\[$RESET\]"
+PS1+="\[$SOLAR_RED\] \w"
 PS1+="\$(prompt_git)"
 PS1+="\[$RESET\]"
 PS1+="\n"
-PS1+="🐙  "
+PS1+="🔥  "
 export PS1;
 
 PS2="\[$SOLAR_WHITE\]→ \[$RESET\]";
