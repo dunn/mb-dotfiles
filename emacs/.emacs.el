@@ -214,9 +214,6 @@
 (unkillable-scratch 1)
 (setq unkillable-scratch-behavior 'bury)
 
-(require 'which-key)
-(which-key-mode)
-
 (require 'applescript-mode)
 (add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
 (add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))
