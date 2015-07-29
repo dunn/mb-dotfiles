@@ -121,7 +121,7 @@
 ;; `t` is important: http://stackoverflow.com/a/8547861
 (load-theme 'solarized t)
 (setq solarized-termcolors 256)
-(add-to-list 'default-frame-alist '(background-mode . dark))
+(setq frame-background-mode 'light)
 
 (setq-default ispell-program-name "aspell")
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
