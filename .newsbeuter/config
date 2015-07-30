@@ -32,10 +32,11 @@ bind-key K prev-feed
 # your terminal emulator to use the Solarized palette.
 # See <http://ethanschoonover.com/solarized/> for more information.
 
-color background          default   default
-color listnormal          default   default
-color listfocus           color234  color241
-color listnormal_unread   blue      default
-color listfocus_unread    color234  blue
-color info                white     color235
-color article             default   default
+##### location            foreground background
+color background          default    default
+color listnormal          color241   default
+color listfocus           color254   color235
+color listnormal_unread   blue       default
+color listfocus_unread    blue       color235
+color info                white      color235
+color article             default    default
