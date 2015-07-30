@@ -35,8 +35,8 @@ bind-key K prev-feed
 ##### location            foreground background
 color background          default    default
 color listnormal          color241   default
-color listfocus           color254   color235
+color listfocus           default    color230
 color listnormal_unread   blue       default
-color listfocus_unread    blue       color235
+color listfocus_unread    blue       color230
 color info                white      color235
 color article             default    default
