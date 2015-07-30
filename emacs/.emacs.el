@@ -287,8 +287,8 @@ then set point to the end of the first set of backticks \
 so the code type can be specified."
   (interactive)
   (push-mark)
-  (insert "```\n\n```")
-  (goto-char (- (point) 5)))
+  (insert "```\n```")
+  (goto-char (- (point) 4)))
 
 (defun autotools ()
   "For Homebrew HEAD builds."
