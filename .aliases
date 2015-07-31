@@ -73,6 +73,7 @@ alias headers="curl -IL"
 # DEV
 # ===
 alias gdiff="git diff --no-index --"
+alias rb="git rebase -i origin/master"
 
 # brew install hugo
 alias hs='hugo server -w -v'
