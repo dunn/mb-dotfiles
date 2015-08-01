@@ -82,6 +82,11 @@
 ;; mimic native Mac OS behavior
 (global-set-key "\M-_" 'mdash)
 
+;; I also accidentally set column instead of opening a file
+;; https://www.gnu.org/software/emacs/manual/html_node/eintr/Keybindings.html#Keybindings
+(global-unset-key "\C-xf")
+(define-key key-translation-map "\C-xf" "\C-x\C-f")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MODES ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
