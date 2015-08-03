@@ -17,7 +17,7 @@ brew 'homebrew/emacs/git-modes'
 brew 'homebrew/emacs/helm'
 brew 'homebrew/emacs/js2-mode'
 brew 'homebrew/emacs/let-alist'
-brew 'homebrew/emacs/markdown-mode', args: ['with-markdown-plus', 'HEAD']
+brew 'homebrew/emacs/markdown-mode', args: ['with-plus', 'with-toc', 'HEAD']
 brew 'homebrew/emacs/org-mode'
 brew 'homebrew/emacs/php-mode'
 brew 'homebrew/emacs/pkg-info'
