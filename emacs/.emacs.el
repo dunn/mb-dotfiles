@@ -135,7 +135,7 @@
 
 ;; editorconfig needs its hand held with a special exec-path and load-path
 (setq exec-path (append exec-path '("/usr/local/opt/editorconfig/bin")))
-(add-to-list 'load-path "/usr/local/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig-emacs")
+(add-to-list 'load-path "/usr/local/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig")
 (load "editorconfig")
 
 (require 'magit)
