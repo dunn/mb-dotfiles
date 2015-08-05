@@ -170,24 +170,10 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-;; auto-complete
-(require 'ac-html)
-(add-hook 'html-mode-hook 'ac-html-enable)
-(add-to-list 'web-mode-ac-sources-alist
-  '("html" . (
-               ;; attribute-value better to be first
-               ac-source-html-attribute-value
-               ac-source-html-tag
-               ac-source-html-attribute)))
-(require 'ac-js2)
-(add-hook 'js2-mode-hook 'ac-js2-setup-auto-complete-mode)
-
-;; installed --with-markdown-plus
-(require 'markdown-mode)
-(require 'markdown-mode+)
-(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.mdown$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(require 'company-emoji)
+(add-hook 'markdown-mode-hook 'company-emoji-init)
+(add-hook 'mail-mode-hook 'company-emoji-init)
+(add-hook 'text-mode-hook 'company-emoji-init)
 
 (require 'fountain-mode)
 (add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
