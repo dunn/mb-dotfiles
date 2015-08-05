@@ -205,6 +205,9 @@
 
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(require 'flycheck-package)
+(eval-after-load 'flycheck
+  '(flycheck-package-setup))
 
 (require 'browse-kill-ring)
 
