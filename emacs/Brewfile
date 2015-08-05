@@ -1,9 +1,8 @@
 brew 'magit'
 tap 'homebrew/emacs'
-brew 'homebrew/emacs/ac-html'
 brew 'homebrew/emacs/achievements', args: ['HEAD']
 brew 'homebrew/emacs/applescript-mode'
-brew 'homebrew/emacs/auto-complete'
+brew 'homebrew/emacs/auto-complete', args: ['with-html', 'with-js2']
 brew 'homebrew/emacs/browse-kill-ring'
 brew 'homebrew/emacs/dash'
 brew 'homebrew/emacs/debbugs'

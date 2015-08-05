@@ -170,7 +170,7 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-;; HTML autocomplete
+;; auto-complete
 (require 'ac-html)
 (add-hook 'html-mode-hook 'ac-html-enable)
 (add-to-list 'web-mode-ac-sources-alist
@@ -179,6 +179,8 @@
                ac-source-html-attribute-value
                ac-source-html-tag
                ac-source-html-attribute)))
+(require 'ac-js2)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
 
 ;; installed --with-markdown-plus
 (require 'markdown-mode)
