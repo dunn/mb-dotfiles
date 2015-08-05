@@ -180,7 +180,7 @@
                ac-source-html-tag
                ac-source-html-attribute)))
 (require 'ac-js2)
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+(add-hook 'js2-mode-hook 'ac-js2-setup-auto-complete-mode)
 
 ;; installed --with-markdown-plus
 (require 'markdown-mode)
