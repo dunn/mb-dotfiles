@@ -18,7 +18,10 @@ shsm() {
 
 brewp() {
   for f in "$@"; do
-    brew home "$f" && brew info --github "$f" && brew search --debian "$f"
+    brew home "$f" && \
+      brew info --github "$f" && \
+      # strip out tap prefixes
+      brew search --debian "$(echo "$f" | sed 's:.*/\([^/]*\)$:\1:')"
   done
 }
 alias brwep="brewp"
