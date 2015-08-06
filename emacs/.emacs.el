@@ -181,6 +181,7 @@
 (add-hook 'markdown-mode-hook 'company-emoji-init)
 (add-hook 'mail-mode-hook 'company-emoji-init)
 (add-hook 'text-mode-hook 'company-emoji-init)
+(add-to-list 'auto-mode-alist '("^COMMIT_EDITMSG$" . 'company-emoji-init))
 
 (require 'fountain-mode)
 (add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
