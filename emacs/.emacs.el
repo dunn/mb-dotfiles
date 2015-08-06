@@ -177,11 +177,13 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
+(add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/emoji")
 (require 'company-emoji)
-(add-hook 'markdown-mode-hook 'company-emoji-init)
-(add-hook 'mail-mode-hook 'company-emoji-init)
-(add-hook 'text-mode-hook 'company-emoji-init)
-(add-to-list 'auto-mode-alist '("^COMMIT_EDITMSG$" . 'company-emoji-init))
+(add-hook 'markdown-mode-hook 'company-mode)
+(add-hook 'mail-mode-hook 'company-mode)
+(add-hook 'text-mode-hook 'company-mode)
+(add-to-list 'auto-mode-alist '("^COMMIT_EDITMSG$" . 'company-mode))
+(add-hook 'company-mode-hook 'company-emoji-init)
 
 (require 'fountain-mode)
 (add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
