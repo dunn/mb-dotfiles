@@ -17,6 +17,13 @@ shsm() {
   echo "$shsm" | pbcopy
 }
 
+dshm() {
+  local gzsha
+  gzsha=$(curl -L "$1" | ack -o "^\ [^\ ]{64}(?=\ )" | head -n1 | tr -d ' ')
+  echo "$gzsha"
+  echo "$gzsha" | pbcopy
+}
+
 brewp() {
   for f in "$@"; do
     brew home "$f" && \
