@@ -4,8 +4,8 @@
 ;;; Code:
 ;; import PATH etc; necessary since emacs starts as a daemon before
 ;; .bash_profile is run
-(setenv "PATH" "/Users/cat/bin:/usr/local/opt/go/libexec/bin:/usr/local/sbin:/usr/local/bin:~/.cabal/bin::/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin")
-(setq exec-path (append exec-path '("/Users/cat/bin:/usr/local/opt/go/libexec/bin:/usr/local/sbin:/usr/local/bin:~/.cabal/bin::/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin")))
+(setenv "PATH" "/home/honker/bin:/home/honker/.linuxbrew/opt/go/libexec/bin:/home/honker/.linuxbrew/sbin:/home/honker/.linuxbrew/bin:~/.cabal/bin::/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin")
+(setq exec-path (append exec-path '("/home/honker/bin:/home/honker/.linuxbrew/opt/go/libexec/bin:/home/honker/.linuxbrew/sbin:/home/honker/.linuxbrew/bin:~/.cabal/bin::/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin")))
 
 ;; https://github.com/magnars/.emacs.d/blob/master/init.el
 (setq inhibit-startup-message t)
@@ -17,8 +17,8 @@
 (load custom-file)
 
 ;; Homebrew executables and lisp files
-(add-to-list 'load-path "/usr/local/bin/")
-(let ((default-directory "/usr/local/share/emacs/site-lisp/"))
+(add-to-list 'load-path "/home/honker/.linuxbrew/bin/")
+(let ((default-directory "/home/honker/.linuxbrew/share/emacs/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
 
 (blink-cursor-mode 0)
@@ -134,7 +134,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
-(add-to-list 'custom-theme-load-path "/usr/local/share/emacs/site-lisp/solarized")
+(add-to-list 'custom-theme-load-path "/home/honker/.linuxbrew/share/emacs/site-lisp/solarized")
 ;; `t` is important: http://stackoverflow.com/a/8547861
 (load-theme 'solarized t)
 (setq solarized-termcolors 256)
@@ -146,8 +146,8 @@
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
 ;; editorconfig needs its hand held with a special exec-path and load-path
-(setq exec-path (append exec-path '("/usr/local/opt/editorconfig/bin")))
-(add-to-list 'load-path "/usr/local/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig")
+(setq exec-path (append exec-path '("/home/honker/.linuxbrew/opt/editorconfig/bin")))
+(add-to-list 'load-path "/home/honker/.linuxbrew/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig")
 (load "editorconfig")
 
 ;; installed --with-toc
@@ -189,7 +189,6 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-(add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/emoji")
 (require 'company-emoji)
 (add-hook 'markdown-mode-hook 'company-mode)
 (add-hook 'mail-mode-hook 'company-mode)
@@ -316,11 +315,13 @@ clipboard.  This function is only meant to be assigned to \
 'interprogram-cut-function'"
   ;; http://www.emacswiki.org/emacs/ExecuteExternalCommand
   (start-process "copy-to-clipboard" "*Messages*" "~/bin/copy.sh" text))
-(setq interprogram-cut-function 'pipe-to-pbcopy)
 
 (defun get-pbpaste ()
   "Execute `pbpaste`.  This function is meant to be assigned to 'interprogram-paste-function'."
   (shell-command-to-string "pbpaste"))
-(setq interprogram-paste-function 'get-pbpaste)
+
+(if (eq system-type 'darwin)
+  (setq interprogram-cut-function 'pipe-to-pbcopy)
+  (setq interprogram-paste-function 'get-pbpaste))
 
 ;;; .emacs.el ends here
