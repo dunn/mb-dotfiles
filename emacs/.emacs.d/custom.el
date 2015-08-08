@@ -3,6 +3,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+  '(company-emoji-aliases
+     (quote
+       ((:man-woman-boy: . ":family:")
+         (:woman-kiss-man: . ":couplekiss:")
+         (:woman_man_holding_hands: . ":couple:")
+         (:woman-heart-man: . ":couple_with_heart:")
+         (:oop: . ":speak_no_evil:"))))
  '(css-indent-offset 2)
  '(frame-background-mode nil)
  '(js2-basic-offset 2)
@@ -18,7 +25,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 160 :width normal :foundry "monotype" :family "Consolas"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 160 :width normal :foundry "monotype" :family "PT Mono"))))
  '(js2-error ((t (:foreground "#dc322f"))))
  '(js2-external-variable ((t (:foreground "#cb4b16"))))
  '(js2-function-call ((t (:inherit default :foreground "#6c71c4"))))
