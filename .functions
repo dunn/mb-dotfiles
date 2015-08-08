@@ -99,18 +99,6 @@ pdftail() {
   pdftotext "$pdf" - | tail "$tail_opt"
 }
 
-revv() {
-  git status > /dev/null 2>&1
-  repocheck="$?"
-  if [[ "$repocheck" -gt 0 ]]; then
-    echo "Error [revv]: $repocheck"
-    return "$repocheck"
-  fi
-  revision=$(git rev-parse -q --verify HEAD )
-  echo "$revision"
-  echo "$revision" | tr -d '\n' | pbcopy
-}
-
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 targz() {
   local tmpFile="${*%/}.tar";
@@ -174,6 +162,12 @@ o() {
 }
 
 grev() {
+  git status > /dev/null 2>&1
+  repocheck="$?"
+  if [[ "$repocheck" -gt 0 ]]; then
+    echo "Error [revv]: $repocheck"
+    return "$repocheck"
+  fi
   back=""
   if [[ "$1" != "" ]]; then
     back="~$1"
