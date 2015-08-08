@@ -39,3 +39,4 @@ bin/node/secrets.js
 .emacs.d/var/
 .emacs.d/vendor/
 .emacs.d/.cask
+.emacs.d/ido.last
