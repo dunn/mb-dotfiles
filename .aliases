@@ -99,12 +99,7 @@ alias ddg='sr duckduckgo -j'
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-alias pandork="pbpaste | pandoc -f markdown -t html5 -S | pbcopy"
-alias htmark="pbpaste | iconv -c -t UTF-8 | pandoc -f html -t markdown"
-
 # http://www.commandlinefu.com/commands/view/12221/convert-json-to-yaml
 alias jaml="ruby -ryaml -rjson -e 'puts YAML.dump(JSON.parse(STDIN.read))'"
-# http://stackoverflow.com/a/9741470
-# http://stackoverflow.com/questions/1250079/escaping-single-quotes-within-single-quoted-strings
-alias jimmy='echo "$(pbpaste | jaml)" "$(echo $'"'"'\n'"'"'---)" | pbcopy'
+
 alias pngrind='pngquant -s 1 -v *.png --ext .png -f'

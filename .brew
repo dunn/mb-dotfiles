@@ -14,20 +14,17 @@ alias binfo="brew info --github"
 shsm() {
   shsm=$(shasum -a 256 "$1" | sed 's:\ .*::g')
   echo "$shsm"
-  echo "$shsm" | pbcopy
 }
 
 dshm() {
   local gzsha
   gzsha=$(curl -L "$1" | ack -o "^\ [^\ ]{64}(?=\ )" | head -n1 | tr -d ' ' | tr -d '\n')
   echo "$gzsha"
-  echo "$gzsha" | pbcopy
 }
 
 shsm() {
   shsm=$(shasum -a 256 "$1" | sed 's:\ .*::g')
   echo "$shsm"
-  echo "$shsm" | pbcopy
 }
 
 brewp() {

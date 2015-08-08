@@ -310,17 +310,4 @@ so the code type can be specified."
     "    depends_on \"autoconf\" => :build\n"
     "    depends_on \"libtool\" => :build"))
 
-(defun pipe-to-pbcopy (text)
-  "Execute ../bin/copy.sh on TEXT, which copies it to the Mac OS \
-clipboard.  This function is only meant to be assigned to \
-'interprogram-cut-function'"
-  ;; http://www.emacswiki.org/emacs/ExecuteExternalCommand
-  (start-process "copy-to-clipboard" "*Messages*" "~/bin/copy.sh" text))
-(setq interprogram-cut-function 'pipe-to-pbcopy)
-
-(defun get-pbpaste ()
-  "Execute `pbpaste`.  This function is meant to be assigned to 'interprogram-paste-function'."
-  (shell-command-to-string "pbpaste"))
-(setq interprogram-paste-function 'get-pbpaste)
-
 ;;; .emacs.el ends here

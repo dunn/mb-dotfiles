@@ -5,24 +5,6 @@ cdm() {
   mkdir -p "$1" && cd "$1";
 }
 
-# copy file contents to clipboard
-eat() {
-  if [[ ! -f "$1" ]]; then
-    echo "Give me a real file to eat."
-    return 1
-  fi
-  pbcopy < "$1"
-}
-
-# brew install pandoc
-mhc() {
-  if [[ ! -f "$1" ]]; then
-    echo "That's not a file."
-    return 1
-  fi
-  pandoc -f markdown -t html5 --smart "$1" | pbcopy
-}
-
 # `which` but follow symlinks and check aliases and functions
 where() {
   is_alias=$(alias | grep "alias\ $1=")
@@ -174,7 +156,6 @@ grev() {
   fi
   revision=$(git rev-parse HEAD"$back")
   echo "$revision"
-  echo "$revision" | tr -d '\n' | pbcopy
 }
 
 mkredirect() {
