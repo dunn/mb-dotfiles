@@ -6,8 +6,6 @@ else
   export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
 fi
 
-export PATH="$HOME/bin:$(brew --prefix go)/libexec/bin:$PATH"
-
 . "$HOME/.bash_prompt"
 . "$HOME/.exports"
 . "$HOME/.aliases"
