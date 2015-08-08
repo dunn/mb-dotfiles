@@ -19,9 +19,9 @@ shsm() {
 
 dshm() {
   local gzsha
-  gzsha=$(curl -L "$1" | ack -o "^\ [^\ ]{64}(?=\ )" | head -n1 | tr -d ' ' | tr -d '\n')
+  gzsha=$(curl -L "$1" | ack -o "^\ [^\ ]{64}(?=\ )" | head -n1 | tr -d ' ')
   echo "$gzsha"
-  echo "$gzsha" | pbcopy
+  echo "$gzsha" | tr -d '\n' | pbcopy
 }
 
 brewp() {
