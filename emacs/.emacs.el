@@ -260,6 +260,21 @@
 (add-to-list 'auto-mode-alist '("\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\.yaml$" . yaml-mode))
 
+(require 'circe)
+(setq my-credentials-file "emacs/.emacs.d/.circe")
+(defun my-nickserv-password (_)
+  "Keep password out of backtraces.
+See https://github.com/jorgenschaefer/circe/wiki/Configuration"
+  (with-temp-buffer
+    (insert-file-contents-literally my-credentials-file)
+    (plist-get (read (buffer-string)) :nickserv-password)))
+
+(setq circe-network-options
+  '(("Freenode"
+      :nick "dunndunndunn"
+      :channels ("#machomebrew")
+      :nickserv-password my-nickserv-password)))
+
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
 ;;;;;;;;;;;;;;;

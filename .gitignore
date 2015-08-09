@@ -40,3 +40,4 @@ emacs/.emacs.d/var/
 emacs/.emacs.d/vendor/
 emacs/.emacs.d/.cask
 emacs/.emacs.d/.achievements
+emacs/.emacs.d/.circe
