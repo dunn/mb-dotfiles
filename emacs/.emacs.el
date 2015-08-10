@@ -191,9 +191,11 @@
 
 (add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/emoji")
 (require 'company-emoji)
+(global-set-key "\C-xm" 'company-complete)
 (add-hook 'markdown-mode-hook 'company-mode)
 (add-hook 'mail-mode-hook 'company-mode)
 (add-hook 'text-mode-hook 'company-mode)
+(add-hook 'circe-channel-mode-hook 'company-mode)
 (add-to-list 'auto-mode-alist '("^COMMIT_EDITMSG$" . 'company-mode))
 (add-hook 'company-mode-hook 'company-emoji-init)
 
