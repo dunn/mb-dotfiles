@@ -10,6 +10,7 @@
          (:woman_man_holding_hands: . ":couple:")
          (:woman-heart-man: . ":couple_with_heart:")
          (:oop: . ":speak_no_evil:"))))
+ '(company-emoji-insert-unicode t)
  '(css-indent-offset 2)
  '(frame-background-mode nil)
  '(js2-basic-offset 2)
