@@ -275,6 +275,9 @@ See https://github.com/jorgenschaefer/circe/wiki/Configuration"
       :channels ("#machomebrew")
       :nickserv-password my-nickserv-password)))
 
+(require 'pandoc-mode)
+(add-hook 'markdown-mode-hook 'pandoc-mode)
+
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
 ;;;;;;;;;;;;;;;
