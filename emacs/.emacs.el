@@ -263,7 +263,7 @@
 (add-to-list 'auto-mode-alist '("\.yaml$" . yaml-mode))
 
 (require 'circe)
-(setq my-credentials-file "emacs/.emacs.d/.circe")
+(setq my-credentials-file "/Users/cat/.emacs.d/.circe")
 (defun my-nickserv-password (_)
   "Keep password out of backtraces.
 See https://github.com/jorgenschaefer/circe/wiki/Configuration"
