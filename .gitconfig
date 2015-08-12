@@ -34,7 +34,7 @@
   chp = cherry-pick
   cm = commit -m
   hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-  lag = log --pretty=oneline --color
+  lag = --no-pager log --pretty=oneline --color
   ready = diff --cached --color
   st = status
   them = merge -s recursive -X theirs
