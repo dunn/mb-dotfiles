@@ -45,23 +45,12 @@
   # Print last commit time for file
   last = log -n 1 --pretty=format:%cd --date=local --
 
-  # View abbreviated SHA, description, and history graph of the latest
-  # 20 commits
-  l = log --pretty=oneline -n 20 --graph --abbrev-commit
-
   # Show the diff between the latest commit and the current state
   d = !"git diff-index --quiet HEAD -- || git diff --patch-with-stat"
 
   # `git di $number` shows the diff between the state `$number`
   # revisions ago and the current state
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
-
-  # Pull in remote changes for the current repository and all its
-  # submodules
-  p = !"git pull; git submodule foreach git pull origin master"
-
-  # Clone a repository including all submodules
-  c = clone --recursive
 
   # Show verbose output about tags, branches or remotes
   tags = tag -l
