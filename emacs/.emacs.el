@@ -323,13 +323,6 @@ so the code type can be specified."
   (insert "```\n```")
   (goto-char (- (point) 4)))
 
-(defun autotools ()
-  "For Homebrew HEAD builds."
-  (interactive)
-  (insert "depends_on \"automake\" => :build\n"
-    "    depends_on \"autoconf\" => :build\n"
-    "    depends_on \"libtool\" => :build"))
-
 (defun pipe-to-pbcopy (text)
   "Execute ../bin/copy.sh on TEXT, which copies it to the Mac OS \
 clipboard.  This function is only meant to be assigned to \
