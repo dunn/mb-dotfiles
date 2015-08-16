@@ -140,7 +140,7 @@
 (setq solarized-termcolors 256)
 (setq frame-background-mode 'light)
 
-(setq-default ispell-program-name "aspell")
+(setq-default ispell-program-name "/usr/local/bin/aspell")
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
