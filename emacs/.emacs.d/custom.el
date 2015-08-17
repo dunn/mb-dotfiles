@@ -17,6 +17,7 @@
  '(company-emoji-insert-unicode t)
  '(css-indent-offset 2)
  '(frame-background-mode nil)
+ '(homebrew-poet-executable "/usr/local/bin/poet")
  '(js2-basic-offset 2)
  '(magit-use-overlays nil)
  '(markdown-enable-math t)
