@@ -90,7 +90,7 @@
 
 ;; see below
 (global-set-key "\C-cs" 'shruggie)
-(global-set-key "\C-ck" 'kbd)
+(global-set-key "\C-ck" 'insert-kbd)
 
 ;; mimic native Mac OS behavior
 (global-set-key "\M-_" 'mdash)
@@ -324,7 +324,7 @@ so the code type can be specified."
   (insert "```\n```")
   (goto-char (- (point) 4)))
 
-(defun kbd ()
+(defun insert-kbd ()
   "Insert <kbd></kbd> then set point in the middle."
   (interactive)
   (push-mark)
