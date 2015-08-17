@@ -6,6 +6,7 @@ export HOMEBREW_INSTALL_BADGE="☕️ 🐸"
 
 alias brwe="brew"
 alias audt="brew audit --strict --online"
+alias btest="brew test -v --sandbox"
 alias style="brew style --fix"
 alias using="brew uses --installed --recursive"
 alias bua="brew upgrade --all"
