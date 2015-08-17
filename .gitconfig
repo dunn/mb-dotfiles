@@ -46,7 +46,7 @@
   last = log -n 1 --pretty=format:%cd --date=local --
 
   # Show the diff between the latest commit and the current state
-  d = !"git --no-pager diff-index --quiet HEAD -- || git --no-pager diff --patch-with-stat"
+  d = !"git diff-index --quiet HEAD -- || git diff --patch-with-stat"
 
   # `git di $number` shows the diff between the state `$number`
   # revisions ago and the current state

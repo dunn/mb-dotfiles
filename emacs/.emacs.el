@@ -281,10 +281,6 @@ See https://github.com/jorgenschaefer/circe/wiki/Configuration"
 (add-to-list 'auto-mode-alist '("^COMMIT_EDITMSG$" . 'company-mode))
 (add-hook 'company-mode-hook 'company-emoji-init)
 
-(add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/homebrew-mode")
-(require 'homebrew-mode)
-(homebrew-mode-default-hooks)
-
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
 ;;;;;;;;;;;;;;;
