@@ -90,6 +90,7 @@
 
 ;; see below
 (global-set-key "\C-cs" 'shruggie)
+(global-set-key "\C-ck" 'kbd)
 
 ;; mimic native Mac OS behavior
 (global-set-key "\M-_" 'mdash)
@@ -322,6 +323,13 @@ so the code type can be specified."
   (push-mark)
   (insert "```\n```")
   (goto-char (- (point) 4)))
+
+(defun kbd ()
+  "Insert <kbd></kbd> then set point in the middle."
+  (interactive)
+  (push-mark)
+  (insert "<kbd></kbd>")
+  (goto-char (- (point) 6)))
 
 (defun pipe-to-pbcopy (text)
   "Execute ../bin/copy.sh on TEXT, which copies it to the Mac OS \
