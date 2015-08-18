@@ -84,13 +84,13 @@
 (global-set-key "\C-c;" 'comment-region)
 (global-set-key "\C-c:" 'uncomment-region)
 
-(global-set-key "\C-cz" 'shell)
 (global-set-key "\C-x\C-b" 'ibuffer)
 (global-set-key "\C-co" 'browse-url-at-point)
 
 ;; see below
 (global-set-key "\C-cs" 'shruggie)
 (global-set-key "\C-ck" 'insert-kbd)
+(global-set-key "\C-cz" 'new-shell)
 
 ;; mimic native Mac OS behavior
 (global-set-key "\M-_" 'mdash)
@@ -334,6 +334,15 @@ so the code type can be specified."
   (push-mark)
   (insert "<kbd></kbd>")
   (goto-char (- (point) 6)))
+
+(defun new-shell ()
+  "Open a shell window.  If there are no other windows, \
+create one; otherwise use `other-window'."
+  (interactive)
+  (if (= 1 (length (window-list)))
+      (select-window (split-window-sensibly))
+    (other-window 1))
+  (shell))
 
 (defun pipe-to-pbcopy (text)
   "Execute ../bin/copy.sh on TEXT, which copies it to the Mac OS \
