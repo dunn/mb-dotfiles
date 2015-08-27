@@ -91,6 +91,7 @@
 (global-set-key "\C-cs" 'shruggie)
 (global-set-key "\C-ck" 'insert-kbd)
 (global-set-key "\C-cz" 'new-shell)
+(define-key global-map "\M-Q" 'unfill-paragraph)
 
 ;; mimic native Mac OS behavior
 (global-set-key "\M-_" 'mdash)
@@ -295,8 +296,6 @@ See https://github.com/jorgenschaefer/circe/wiki/Configuration"
   (interactive)
   (let ((fill-column (point-max)))
     (fill-paragraph nil)))
-;; Handy key definition
-(define-key global-map "\M-Q" 'unfill-paragraph)
 
 (defun lorem ()
   "Insert a lorem ipsum."
