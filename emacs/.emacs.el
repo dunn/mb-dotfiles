@@ -128,6 +128,9 @@
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 (add-hook 'mail-mode-hook 'turn-on-auto-fill)
 
+;; Makefiles
+(add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; HOMEBREW FORMULAE
 ;; brew tap homebrew/bundle
