@@ -28,6 +28,7 @@ dshm() {
 
 brewp() {
   for f in "$@"; do
+    f="$(echo $f | sed 's: (installed)::g')"
     brew home "$f" && \
       brew info --github "$f" && \
       # strip out tap prefixes
