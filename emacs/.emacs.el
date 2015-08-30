@@ -284,6 +284,8 @@ See https://github.com/jorgenschaefer/circe/wiki/Configuration"
 (require 'company-emoji)
 (add-to-list 'company-backends 'company-emoji)
 
+(autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
+(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 
 (add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/homebrew-mode")
 (require 'homebrew-mode)
