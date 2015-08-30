@@ -87,6 +87,8 @@
 (global-set-key "\C-x\C-b" 'ibuffer)
 (global-set-key "\C-co" 'browse-url-at-point)
 
+(global-set-key "\C-xm" 'company-complete)
+
 ;; see below
 (global-set-key "\C-cs" 'shruggie)
 (global-set-key "\C-ck" 'insert-kbd)
@@ -275,15 +277,13 @@ See https://github.com/jorgenschaefer/circe/wiki/Configuration"
 (require 'pandoc-mode)
 (add-hook 'markdown-mode-hook 'pandoc-mode)
 
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+
 (add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/emoji")
 (require 'company-emoji)
-(global-set-key "\C-xm" 'company-complete)
-(add-hook 'markdown-mode-hook 'company-mode)
-(add-hook 'mail-mode-hook 'company-mode)
-(add-hook 'text-mode-hook 'company-mode)
-(add-hook 'circe-channel-mode-hook 'company-mode)
-(add-to-list 'auto-mode-alist '("^COMMIT_EDITMSG$" . 'company-mode))
-(add-hook 'company-mode-hook 'company-emoji-init)
+(add-to-list 'company-backends 'company-emoji)
+
 
 (add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/homebrew-mode")
 (require 'homebrew-mode)
