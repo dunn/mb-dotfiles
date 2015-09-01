@@ -211,8 +211,8 @@
   "Colorize color strings."
   (rainbow-mode 1))
 
-(require 'php-mode)
-(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+;; (require 'php-mode)
+;; (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
