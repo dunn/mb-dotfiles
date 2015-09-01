@@ -87,9 +87,11 @@
 (global-set-key "\C-x\C-b" 'ibuffer)
 (global-set-key "\C-co" 'browse-url-at-point)
 
-(global-set-key "\C-xm" 'company-complete)
+;; I never want `ido-list-directory'
+(global-set-key "\C-x\C-d" 'ido-dired)
 
 ;; see below
+(global-set-key "\C-xm" 'company-complete)
 (global-set-key "\C-cs" 'shruggie)
 (global-set-key "\C-ck" 'insert-kbd)
 (global-set-key "\C-cz" 'new-shell)
