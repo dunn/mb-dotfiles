@@ -4,6 +4,7 @@ brew 'magit', args: ['HEAD']
 brew 'homebrew/emacs/achievements', args: ['HEAD']
 brew 'homebrew/emacs/applescript-mode'
 brew 'homebrew/emacs/async-emacs'
+brew 'homebrew/emacs/anzu-mode'
 brew 'homebrew/emacs/browse-kill-ring'
 brew 'homebrew/emacs/circe'
 brew 'homebrew/emacs/company-mode', args: ['with-emoji', 'HEAD']
