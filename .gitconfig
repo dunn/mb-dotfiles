@@ -90,6 +90,9 @@
   # make patch of last commit
   mp = format-patch HEAD~1..HEAD
 
+  # see change made by commit
+  look = !git --no-pager diff $1~1..$1
+
 [merge]
   # Include summaries of merged commits in newly created merge commit
   # messages
