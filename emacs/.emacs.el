@@ -237,6 +237,9 @@
 (add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
 (add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))
 
+(require 'helm-config)
+(global-set-key (kbd "M-x") 'helm-M-x)
+
 (require 'debbugs-org)
 (autoload 'debbugs-org "debbugs-org" "" 'interactive)
 (autoload 'debbugs-org-search "debbugs-org" "" 'interactive)
@@ -245,10 +248,9 @@
 (require 'register-list)
 (global-set-key "\C-cr" 'register-list)
 
-(require 'smex)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-x C-M") 'smex-major-mode-commands)
+(require 'swiper-helm)
+(global-set-key "\C-s" 'swiper-helm)
+(global-set-key "\C-r" 'swiper-helm)
 
 (require 'typo)
 (add-hook 'markdown-mode-hook 'typo-mode)

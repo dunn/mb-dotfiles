@@ -13,6 +13,7 @@ brew 'homebrew/emacs/epl', args: ['HEAD']
 brew 'homebrew/emacs/flycheck', args: ['with-package']
 brew 'homebrew/emacs/fountain-mode'
 brew 'homebrew/emacs/git-modes'
+brew 'homebrew/emacs/helm'
 brew 'homebrew/emacs/inf-ruby'
 brew 'homebrew/emacs/js2-mode'
 brew 'homebrew/emacs/let-alist'
@@ -26,8 +27,8 @@ brew 'homebrew/emacs/rainbow-mode'
 brew 'homebrew/emacs/register-list'
 brew 'homebrew/emacs/s'
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
-brew 'homebrew/emacs/smex'
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']
+brew 'homebrew/emacs/swiper', args: ['with-helm']
 brew 'homebrew/emacs/typo-mode'
 brew 'homebrew/emacs/unkillable-scratch'
 brew 'homebrew/emacs/web-completion-data'
