@@ -38,7 +38,7 @@ brew 'homebrew/emacs/register-list'
 brew 'homebrew/emacs/s'
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']
-brew 'homebrew/emacs/swiper', args: ['with-helm']
+brew 'homebrew/emacs/swiper', args: ['with-helm', 'HEAD']
 brew 'homebrew/emacs/typo-mode'
 brew 'homebrew/emacs/unkillable-scratch'
 brew 'homebrew/emacs/web-completion-data'
