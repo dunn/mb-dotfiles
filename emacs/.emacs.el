@@ -248,10 +248,6 @@
 (require 'register-list)
 (global-set-key "\C-cr" 'register-list)
 
-(require 'swiper-helm)
-(global-set-key "\C-s" 'swiper-helm)
-(global-set-key "\C-r" 'swiper-helm)
-
 (require 'typo)
 (add-hook 'markdown-mode-hook 'typo-mode)
 (add-hook 'mail-mode-hook 'typo-mode)
