@@ -2,10 +2,6 @@
 ;;; Commentary:
 
 ;;; Code:
-;; import PATH etc; necessary since emacs starts as a daemon before
-;; .bash_profile is run
-(setenv "PATH" "/Users/cat/bin:/usr/local/opt/go/libexec/bin:/usr/local/sbin:/usr/local/bin:~/.cabal/bin::/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin")
-(setq exec-path (append exec-path '("/Users/cat/bin:/usr/local/opt/go/libexec/bin:/usr/local/sbin:/usr/local/bin:~/.cabal/bin::/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin")))
 
 ;; https://github.com/magnars/.emacs.d/blob/master/init.el
 (setq inhibit-startup-message t)
@@ -17,8 +13,8 @@
 (load custom-file)
 
 ;; Homebrew executables and lisp files
-(add-to-list 'load-path "/usr/local/bin/")
-(let ((default-directory "/usr/local/share/emacs/site-lisp/"))
+(add-to-list 'load-path "~/.linuxbrew/bin/")
+(let ((default-directory "~/.linuxbrew/share/emacs/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
 
 (blink-cursor-mode 0)
@@ -84,12 +80,18 @@
 (global-set-key "\C-c;" 'comment-region)
 (global-set-key "\C-c:" 'uncomment-region)
 
-(global-set-key "\C-cz" 'shell)
 (global-set-key "\C-x\C-b" 'ibuffer)
 (global-set-key "\C-co" 'browse-url-at-point)
 
+;; I never want `ido-list-directory'
+(global-set-key "\C-x\C-d" 'ido-dired)
+
 ;; see below
+(global-set-key "\C-xm" 'company-complete)
 (global-set-key "\C-cs" 'shruggie)
+(global-set-key "\C-ck" 'insert-kbd)
+(global-set-key "\C-cz" 'new-shell)
+(define-key global-map "\M-Q" 'unfill-paragraph)
 
 ;; mimic native Mac OS behavior
 (global-set-key "\M-_" 'mdash)
@@ -126,6 +128,9 @@
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 (add-hook 'mail-mode-hook 'turn-on-auto-fill)
 
+;; Makefiles
+(add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; HOMEBREW FORMULAE
 ;; brew tap homebrew/bundle
@@ -134,20 +139,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
-(add-to-list 'custom-theme-load-path "/usr/local/share/emacs/site-lisp/solarized")
+(add-to-list 'custom-theme-load-path "~/.linuxbrew/share/emacs/site-lisp/solarized")
 ;; `t` is important: http://stackoverflow.com/a/8547861
 (load-theme 'solarized t)
 (setq solarized-termcolors 256)
 (setq frame-background-mode 'light)
 
-(setq-default ispell-program-name "aspell")
+(setq-default ispell-program-name "~/.linuxbrew/bin/aspell")
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
 ;; editorconfig needs its hand held with a special exec-path and load-path
-(setq exec-path (append exec-path '("/usr/local/opt/editorconfig/bin")))
-(add-to-list 'load-path "/usr/local/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig")
+(setq exec-path (append exec-path '("~/.linuxbrew/opt/editorconfig/bin")))
+(add-to-list 'load-path "~/.linuxbrew/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig")
 (load "editorconfig")
 
 ;; installed --with-toc
@@ -189,14 +194,6 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-(add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/emoji")
-(require 'company-emoji)
-(add-hook 'markdown-mode-hook 'company-mode)
-(add-hook 'mail-mode-hook 'company-mode)
-(add-hook 'text-mode-hook 'company-mode)
-(add-to-list 'auto-mode-alist '("^COMMIT_EDITMSG$" . 'company-mode))
-(add-hook 'company-mode-hook 'company-emoji-init)
-
 (require 'fountain-mode)
 (add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
 
@@ -210,8 +207,8 @@
   "Colorize color strings."
   (rainbow-mode 1))
 
-(require 'php-mode)
-(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+;; (require 'php-mode)
+;; (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
@@ -226,6 +223,11 @@
 
 (require 'browse-kill-ring)
 
+(require 'anzu)
+(global-anzu-mode +1)
+(set-face-attribute 'anzu-mode-line nil
+  :foreground "#586e75" :weight 'bold)
+
 (require 'achievements)
 
 (require 'unkillable-scratch)
@@ -236,6 +238,9 @@
 (add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
 (add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))
 
+(require 'helm-config)
+(global-set-key (kbd "M-x") 'helm-M-x)
+
 (require 'debbugs-org)
 (autoload 'debbugs-org "debbugs-org" "" 'interactive)
 (autoload 'debbugs-org-search "debbugs-org" "" 'interactive)
@@ -243,11 +248,6 @@
 
 (require 'register-list)
 (global-set-key "\C-cr" 'register-list)
-
-(require 'smex)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-x C-M") 'smex-major-mode-commands)
 
 (require 'typo)
 (add-hook 'markdown-mode-hook 'typo-mode)
@@ -260,6 +260,38 @@
 (add-to-list 'auto-mode-alist '("\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\.yaml$" . yaml-mode))
 
+(require 'circe)
+(setq my-credentials-file "/Users/cat/.emacs.d/.circe")
+(defun my-nickserv-password (_)
+  "Keep password out of backtraces.
+See https://github.com/jorgenschaefer/circe/wiki/Configuration"
+  (with-temp-buffer
+    (insert-file-contents-literally my-credentials-file)
+    (plist-get (read (buffer-string)) :nickserv-password)))
+
+(setq circe-network-options
+  '(("Freenode"
+      :nick "dunndunndunn"
+      :channels ("#machomebrew")
+      :nickserv-password my-nickserv-password)))
+
+(require 'pandoc-mode)
+(add-hook 'markdown-mode-hook 'pandoc-mode)
+
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/emoji")
+(require 'company-emoji)
+(add-to-list 'company-backends 'company-emoji)
+
+(autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
+(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
+
+(add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/homebrew-mode")
+(require 'homebrew-mode)
+(global-homebrew-mode)
+
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
 ;;;;;;;;;;;;;;;
@@ -270,8 +302,6 @@
   (interactive)
   (let ((fill-column (point-max)))
     (fill-paragraph nil)))
-;; Handy key definition
-(define-key global-map "\M-Q" 'unfill-paragraph)
 
 (defun lorem ()
   "Insert a lorem ipsum."
@@ -303,11 +333,35 @@ so the code type can be specified."
   (insert "```\n```")
   (goto-char (- (point) 4)))
 
-(defun autotools ()
-  "For Homebrew HEAD builds."
+(defun insert-kbd ()
+  "Insert <kbd></kbd> then set point in the middle."
   (interactive)
-  (insert "depends_on \"automake\" => :build\n"
-    "    depends_on \"autoconf\" => :build\n"
-    "    depends_on \"libtool\" => :build"))
+  (push-mark)
+  (insert "<kbd></kbd>")
+  (goto-char (- (point) 6)))
+
+(defun new-shell ()
+  "Open a shell window.  If there are no other windows, \
+create one; otherwise use `other-window'."
+  (interactive)
+  (if (= 1 (length (window-list)))
+      (select-window (split-window-sensibly))
+    (other-window 1))
+  (shell))
+
+(defun pipe-to-pbcopy (text)
+  "Execute ../bin/copy.sh on TEXT, which copies it to the Mac OS \
+clipboard.  This function is only meant to be assigned to \
+'interprogram-cut-function'"
+  ;; http://www.emacswiki.org/emacs/ExecuteExternalCommand
+  (start-process "copy-to-clipboard" "*Messages*" "~/bin/copy.sh" text))
+(if (eq system-type 'darwin)
+  (setq interprogram-cut-function 'pipe-to-pbcopy))
+
+(defun get-pbpaste ()
+  "Execute `pbpaste`.  This function is meant to be assigned to 'interprogram-paste-function'."
+  (shell-command-to-string "pbpaste"))
+(if (eq system-type 'darwin)
+  (setq interprogram-paste-function 'get-pbpaste))
 
 ;;; .emacs.el ends here
