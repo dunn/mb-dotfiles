@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+export HOMEBREW_VERBOSE=1
+export HOMEBREW_DEVELOPER=1
+export HOMEBREW_INSTALL_BADGE="☕️ 🐸"
+
+alias brwe="brew"
+alias audt="brew audit --strict --online"
+alias btest="brew test -v --sandbox"
+alias style="brew style --fix"
+alias using="brew uses --installed --recursive"
+alias bua="brew upgrade --all"
+alias homebrew='cd $(brew --prefix)/Library'
+alias binfo="brew info --github"
+
+shsm() {
+  shsm=$(shasum -a 256 "$1" | sed 's:\ .*::g')
+  echo "$shsm"
+  echo "$shsm" | pbcopy
+}
+
+dshm() {
+  local gzsha
+  gzsha=$(curl -L "$1" | ack -o "^\ [^\ ]{64}(?=\ )" | head -n1 | tr -d ' ')
+  echo "$gzsha"
+  echo "$gzsha" | tr -d '\n' | pbcopy
+}
+
+brewp() {
+  for f in "$@"; do
+    f="$(echo $f | sed 's: (installed)::g')"
+    brew home "$f" && \
+      brew info --github "$f" && \
+      # strip out tap prefixes
+      brew search --debian "$(echo "$f" | sed 's:.*/\([^/]*\)$:\1:')"
+  done
+}
+alias brwep="brewp"
+
+bo() {
+  for f in "$@"; do
+    open "$(brew --prefix "$f")"
+  done
+}
+
+bug() {
+  brew update
+  echo "$(tput setaf 64)--- OUTDATED: ---$(tput sgr0)"
+  brew outdated
+}
+
+bi() {
+  brew remove "$1"
+  brew install --only-dependencies "$1"
+  brew install --verbose --build-from-source "$@"
+}
+
+brm() {
+  for app in "$@"; do
+    using=$(using "$app")
+    if [[ "$using" == "" ]]; then
+      brew remove "$app"
+    else
+      echo "$(tput setaf 166) $app is being used by:$(tput sgr0)"
+      echo "$using"
+    fi
+  done
+}

@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+## Location of Pandoc support files.
+PREFIX="$HOME/.pandoc"
+
+## Location of your working bibliography file
+BIB="$HOME/Dropbox/texmf/bibtex/bib/everything.bib"
+
+open=0
+input=""
+shortname=""
+
+if [[ "$1" == "o" || "$1" == "-o" ]]; then
+  open="1"
+  input="$2"
+  shortname=$(echo "$2" | sed 's:\(\.[^\.]*\)$::g')
+else
+  input="$1"
+  shortname=$(echo "$1" | sed 's:\(\.[^\.]*\)$::g')
+fi
+
+rm -f "$shortname".pdf
+
+pandoc -f markdown+yaml_metadata_block \
+       -t latex -s -S --latex-engine=pdflatex \
+       --template="$PREFIX"/garamond.tex \
+       --natbib --bibliography="$BIB" \
+       -o "$shortname".tex "$input"
+
+pdflatex "$shortname".tex
+bibtex "$shortname".aux
+pdflatex "$shortname".tex
+pdflatex "$shortname".tex
+
+if [[ "$open" == "1" ]]; then
+  open "$shortname".pdf
+fi

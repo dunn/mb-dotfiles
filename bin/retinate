@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+SOURCE="$2"
+ORIGINAL_SCALE="$1"
+EXTENSION=$(echo "$SOURCE" | ag -o "\.[a-z]+$")
+# http://hints.macworld.com/article.php?story=20031124140353993
+ORIGINAL_W=$(sips -g pixelWidth "$SOURCE" | ag -o "pixelWidth:\ [0-9]+" | sed 's:[^0-9]::g')
+ORIGINAL_H=$(sips -g pixelHeight "$SOURCE" | ag -o "pixelHeight:\ [0-9]+" | sed 's:[^0-9]::g')
+FILENAME=$(echo "$SOURCE" | sed "s:_*[0-9]*\.[a-zA-Z]*$::")
+
+if [[ "$ORIGINAL_SCALE" -lt 2 ]]; then
+  echo "---I'm not going to inflate 1x into 3x"
+  exit 1
+else
+  # make 1x
+  width1x=$(( ORIGINAL_W / ORIGINAL_SCALE ))
+  height1x=$(( ORIGINAL_H / ORIGINAL_SCALE ))
+  convert -resize "$width1x"x"$height1x" "$SOURCE" "$FILENAME"_"$width1x"x"$height1x""$EXTENSION"
+  diff=$(( ORIGINAL_SCALE - 1))
+  while [[ $diff -gt 1 ]]; do
+    width=$(( width1x * diff ))
+    height=$(( height1x * diff ))
+    convert -resize "$width"x"$height" "$SOURCE" "$FILENAME"_"$width"x"$height""$EXTENSION"
+    (( diff-- ))
+  done
+fi

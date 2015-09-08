@@ -1,0 +1,24 @@
+# http://stevelosh.com/blog/2012/10/the-homely-mutt/
+
+# Office-type documents
+application/msword; ~/bin/view_attachment.sh %s "-" '/Applications/Pages.app'
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/bin/view_attachment.sh %s "-" '/Applications/Pages.app'
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/bin/view_attachment.sh %s "-" '/Applications/Numbers.app'
+application/vnd.oasis.opendocument.text; ~/bin/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+
+# Images
+image/jpg; ~/bin/view_attachment.sh %s jpg
+image/jpeg; ~/bin/view_attachment.sh %s jpg
+image/pjpeg; ~/bin/view_attachment.sh %s jpg
+image/png; ~/bin/view_attachment.sh %s png
+image/gif; ~/bin/view_attachment.sh %s gif
+
+# PDFs
+application/pdf; ~/bin/view_attachment.sh %s pdf
+
+# HTML
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+# text/html; ~/bin/view_attachment.sh %s html
+
+# Unidentified files
+application/octet-stream; ~/bin/view_attachment.sh %s "-"

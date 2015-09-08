@@ -1,5 +1,15 @@
-# Compiled Python files
-*.pyc
+# SASS
+*.sass-cache
+
+# emacs
+*~
+\#*\#
+.\#*
+
+# TeX
+*.aux
+*.bbl
+*.blg
 
 # Folder view configuration files
 .DS_Store
@@ -12,3 +22,23 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+# machine-specific dotstuff
+.extra
+.mutt/gmail
+.mutt/umail
+.msmtprc
+bin/node/sandbox
+bin/node/node_modules
+bin/node/secrets.js
+emacs/.emacs.d/ac-comphist.dat
+emacs/.emacs.d/elpa/
+emacs/.emacs.d/games/
+emacs/.emacs.d/tramp
+emacs/.emacs.d/url/
+emacs/.emacs.d/var/
+emacs/.emacs.d/vendor/
+emacs/.emacs.d/.cask
+emacs/.emacs.d/.achievements
+emacs/.emacs.d/ido.last
+emacs/.emacs.d/.circe

@@ -1,0 +1,80 @@
+set mbox_type=Maildir
+set sendmail="/usr/local/bin/msmtp"
+# set trash="$HOME/Mail/trash/"
+
+# http://curvedthoughts.com/blog/email-using-getmail-msmtp-mutt/
+# Load options for the first account by default:
+source ~/.mutt/gmail
+# Run appropriate script on folder change:
+folder-hook ~/Mail/gmail/* source ~/.mutt/gmail
+folder-hook ~/Mail/umail/* source ~/.mutt/umail
+# List the available mailboxes:
+mailboxes = "$HOME/Mail/gmail/ALL" "$HOME/Mail/gmail/sent" "$HOME/Mail/umail/ALL" "$HOME/Mail/umail/sent"
+
+# less-style paging
+bind pager b previous-page
+
+# https://heipei.net/2009/09/10/mutt-threading-like-a-pro/
+set sort="reverse-date"
+set strict_threads="yes"
+set sort_browser="reverse-date"
+set sort_aux="last-date-received"
+
+# http://stevelosh.com/blog/2012/10/the-homely-mutt/
+bind index R group-reply
+macro index G "<shell-escape>getmail --rcfile=gmailrc --rcfile=umailrc<enter>" "run offlineimap to sync all mail"
+
+# http://hints.macworld.com/article.php?story=20041024163030501
+set query_command="/usr/local/bin/lbdbq '%s'"
+
+# gpgme
+# http://henrytodd.org/notes/2014/simpler-gnupg-mutt-config-with-gpgme/
+set crypt_use_gpgme=yes
+set crypt_autosign=no
+set crypt_verify_sig=yes
+set crypt_replysign=yes
+set crypt_replyencrypt=yes
+set crypt_replysignencrypted=yes
+my_hdr X-PGP-Key: http://pgp.mit.edu/pks/lookup?op=get&search=0xFCEC4680ECF924D9
+
+# http://curvedthoughts.com/blog/email-using-getmail-msmtp-mutt/
+set pager_stop=yes
+set wrap=80              # Number of characters before wrapping enabled
+set smart_wrap=yes       # Do not split words
+set implicit_autoview      # View html email
+auto_view text/html        # View html automatically
+# alternative_order text/plain text/enriched text/html # save html for last
+macro pager \cb <pipe-entry>'cat > /tmp/mutt_mail.html; open /tmp/mutt_mail.html'<enter> 'open email in safari'
+macro pager \cu <pipe-entry>'urlview'<enter> 'open urlview'
+
+# http://stevelosh.com/blog/2012/10/the-homely-mutt/
+set sig_dashes                       # dashes before sig
+set edit_headers                     # show headers when composing
+set forward_format="Fwd: %s"         # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set forward_quote                    # include message in forwards
+
+# Colors -- object foreground background
+# http://www.mutt.org/doc/manual/manual.html#toc3.7
+color index blue default ~N        # New
+color index color61 default ~T     # Tagged
+color index red default ~D         # Deleted
+color index green default ~F       # Flagged
+
+color attachment green default     # MIME attachments
+color bold default default         # Highlight bold patterns in body
+color error red default            # Errors
+color hdrdefault cyan default      # Default header lines
+# color indicator color234 color244  # Actual message
+color markers cyan default         # "+" at beginning of wrapped lines
+# color message color235 default     # Info messages
+# color normal default default       # Normal text
+color quoted color245 default      # Quoted text
+# color search green default         # Search matches
+# color signature default default    # Signature
+# color tilde color240 default       # "~" at bottom of msg
+# color tree default default         # Thread arrows
+# color underline default default    # Highlight underlined patterns in body
