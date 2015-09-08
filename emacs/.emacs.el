@@ -143,13 +143,6 @@
 ;; brew bundle --file=emacs/Brewfile
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
-(add-to-list 'custom-theme-load-path (concat --homebrew-prefix "share/emacs/site-lisp/solarized"))
-;; `t` is important: http://stackoverflow.com/a/8547861
-(load-theme 'solarized t)
-(setq solarized-termcolors 256)
-(setq frame-background-mode 'light)
-
 (setq-default ispell-program-name (concat --homebrew-prefix "bin/aspell"))
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
@@ -370,5 +363,20 @@ clipboard.  This function is only meant to be assigned to \
   (shell-command-to-string "pbpaste"))
 (if (eq system-type 'darwin)
   (setq interprogram-paste-function 'get-pbpaste))
+
+;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
+(add-to-list 'custom-theme-load-path (concat --homebrew-prefix "share/emacs/site-lisp/solarized"))
+(setq solarized-termcolors 256)
+(setq frame-background-mode 'light)
+;; `t` is important: http://stackoverflow.com/a/8547861
+(load-theme 'solarized t)
+
+(defun fuck-you ()
+  "Because this just doesn't work in Terminal."
+  (interactive)
+  (setq solarized-termcolors 256)
+  (setq frame-background-mode 'light)
+  ;; `t` is important: http://stackoverflow.com/a/8547861
+  (load-theme 'solarized t))
 
 ;;; .emacs.el ends here
