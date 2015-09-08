@@ -1,7 +1,9 @@
-tap 'homebrew/emacs'
-brew 'emacs', args: ['with-x11', 'HEAD']
+brew 'bzip2'
+brew 'cmake', args: ['without-docs']
+brew 'editorconfig', args: ['HEAD']
 brew 'magit', args: ['HEAD']
-brew 'homebrew/emacs/achievements', args: ['HEAD']
+
+tap 'homebrew/emacs'
 brew 'homebrew/emacs/applescript-mode'
 brew 'homebrew/emacs/async-emacs'
 brew 'homebrew/emacs/anzu-mode'
@@ -18,8 +20,6 @@ brew 'homebrew/emacs/f'
 brew 'homebrew/emacs/flycheck', args: ['with-package']
 brew 'homebrew/emacs/fountain-mode'
 brew 'homebrew/emacs/git-modes'
-brew 'homebrew/emacs/go-mode'
-brew 'homebrew/emacs/haskell-mode'
 brew 'homebrew/emacs/helm'
 brew 'homebrew/emacs/inf-ruby'
 brew 'homebrew/emacs/js2-mode'
@@ -27,7 +27,6 @@ brew 'homebrew/emacs/keyfreq'
 brew 'homebrew/emacs/let-alist'
 brew 'homebrew/emacs/markdown-mode', args: ['with-toc', 'HEAD']
 brew 'homebrew/emacs/names'
-brew 'homebrew/emacs/olivetti'
 brew 'homebrew/emacs/org-mode'
 brew 'homebrew/emacs/php-mode'
 brew 'homebrew/emacs/pkg-info'
