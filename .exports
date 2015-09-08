@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
 if [[ $(uname -s) == "Darwin" ]]; then
-  export DARWIN=1
-else
   export DARWIN=0
+else
+  export DARWIN=1
 fi
 
 export EDITOR="emacsclient -t -a emacs"
 
-if [[ ! $DARWIN ]]; then
+if [[ ! $(test $DARWIN) ]]; then
   export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:/lib/x86_64-linux-gnu/:$LD_LIBRARY_PATH"
 fi
 
-if [[ $DARWIN ]]; then
+if [[ $(test $DARWIN) ]]; then
   # set in iTerm, but make this explicit
   export TERM=xterm-256color
 fi
@@ -56,7 +56,7 @@ export GREP_OPTIONS="--color=auto"
 # ====
 export RUBYOPT=rubygems
 
-if [[ $DARWIN ]]; then
+if [[ $(test $DARWIN) ]]; then
   # EMAIL
   # ====
   export MAILCONF="$HOME/.mutt/"

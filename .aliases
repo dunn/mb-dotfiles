@@ -47,7 +47,7 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-if [[ $DARWIN ]]; then
+if [[ $(test $DARWIN) ]]; then
   # http://furbo.org/2014/09/03/the-terminal/
   alias con="tail -40 -f /var/log/system.log"
 
@@ -85,7 +85,7 @@ alias headers="curl -IL"
 
 # DEV
 # ===
-if [[ $DARWIN ]]; then
+if [[ $(test $DARWIN) ]]; then
   alias git=hub
   alias pandork="pbpaste | pandoc -f markdown -t html5 -S | pbcopy"
   alias htmark="pbpaste | iconv -c -t UTF-8 | pandoc -f html -t markdown"
