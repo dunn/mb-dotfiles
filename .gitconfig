@@ -170,3 +170,6 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+[user]
+	name = Alex Dunn
+	email = dunn.alex@gmail.com
