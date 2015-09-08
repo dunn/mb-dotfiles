@@ -12,9 +12,13 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+(if (eq system-type 'darwin)
+  (setq --homebrew-prefix "/usr/local/")
+  (setq --homebrew-prefix "~/.linuxbrew/"))
+
 ;; Homebrew executables and lisp files
-(add-to-list 'load-path "~/.linuxbrew/bin/")
-(let ((default-directory "~/.linuxbrew/share/emacs/site-lisp/"))
+(add-to-list 'load-path (concat --homebrew-prefix "bin/"))
+(let ((default-directory (concat --homebrew-prefix "share/emacs/site-lisp/")))
   (normal-top-level-add-subdirs-to-load-path))
 
 (blink-cursor-mode 0)
@@ -140,20 +144,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
-(add-to-list 'custom-theme-load-path "~/.linuxbrew/share/emacs/site-lisp/solarized")
+(add-to-list 'custom-theme-load-path (concat --homebrew-prefix "share/emacs/site-lisp/solarized"))
 ;; `t` is important: http://stackoverflow.com/a/8547861
 (load-theme 'solarized t)
 (setq solarized-termcolors 256)
 (setq frame-background-mode 'light)
 
-(setq-default ispell-program-name "~/.linuxbrew/bin/aspell")
+(setq-default ispell-program-name (concat --homebrew-prefix "bin/aspell"))
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
 ;; editorconfig needs its hand held with a special exec-path and load-path
-(setq exec-path (append exec-path '("~/.linuxbrew/opt/editorconfig/bin")))
-(add-to-list 'load-path "~/.linuxbrew/opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig")
+(setq exec-path (append exec-path '((concat --homebrew-prefix "opt/editorconfig/bin"))))
+(add-to-list 'load-path (concat --homebrew-prefix "opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig"))
 (load "editorconfig")
 
 ;; installed --with-toc
