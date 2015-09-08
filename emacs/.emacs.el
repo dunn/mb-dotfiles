@@ -55,10 +55,10 @@
     (set-fontset-font t 'symbol (font-spec :family "Apple Color Emoji") frame 'prepend)
     (set-fontset-font t 'symbol (font-spec :family "Symbola") frame 'prepend)))
 ;; For when emacs is started with Emacs.app
-;; (--set-emoji-font nil)
+(--set-emoji-font nil)
 ;; Hook for when a cocoa frame is created with emacsclient
 ;; see https://www.gnu.org/software/emacs/manual/html_node/elisp/Creating-Frames.html
-;; (add-hook 'after-make-frame-functions '--set-emoji-font)
+(add-hook 'after-make-frame-functions '--set-emoji-font)
 
 ;;;;;;;;;;;;;;;;
 ;; KEYBINDINGS
