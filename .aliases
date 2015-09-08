@@ -14,6 +14,7 @@ alias ds="cd ~/Desktop"
 
 # SYSTEM
 # ======
+alias tmux="tmux -2"
 
 # this doesn't "stick" anymore
 alias faster="defaults write NSGlobalDomain KeyRepeat -int 0"
@@ -46,6 +47,25 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+if [[ $DARWIN ]]; then
+  # http://furbo.org/2014/09/03/the-terminal/
+  alias con="tail -40 -f /var/log/system.log"
+
+  # otherwise $(base64 --version) is DEBUG
+  alias base64='gbase64'
+  # brew install gnu-sed
+  alias sed='gsed'
+
+  # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
+  alias plistbuddy="/usr/libexec/PlistBuddy"
+
+  # brew install thefuck
+  alias fuck='thefuck $(fc -ln -1)'
+
+  # Recursively delete `.DS_Store` files
+  alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+fi
+
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
@@ -54,9 +74,6 @@ alias map="xargs -n1"
 # Reload the shell (i.e. invoke as a login shell)
 alias reload='exec $SHELL -l'
 
-# Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
 # NETWORK
 # =======
 # IP addresses
@@ -64,14 +81,16 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
-# View HTTP traffic
-# alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-# alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-
 alias headers="curl -IL"
 
 # DEV
 # ===
+if [[ $DARWIN ]]; then
+  alias git=hub
+  alias pandork="pbpaste | pandoc -f markdown -t html5 -S | pbcopy"
+  alias htmark="pbpaste | iconv -c -t UTF-8 | pandoc -f html -t markdown"
+fi
+
 alias gdiff="git diff --no-index --"
 alias rb="git rebase -i origin/master"
 

@@ -1,6 +1,6 @@
 set mbox_type=Maildir
 set sendmail="/usr/local/bin/msmtp"
-set trash="$HOME/Mail/trash/"
+# set trash="$HOME/Mail/trash/"
 
 # http://curvedthoughts.com/blog/email-using-getmail-msmtp-mutt/
 # Load options for the first account by default:

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if [[ $(uname -s) == "Darwin" ]]; then
-  export PATH="/usr/local/bin:/usr/local/sbin:/usr/texbin:$PATH"
+if [[ $DARWIN ]]; then
+  export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/texbin:$PATH"
 else
   export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH"
 fi

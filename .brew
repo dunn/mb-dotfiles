@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+export HOMEBREW_VERBOSE=1
 export HOMEBREW_DEVELOPER=1
 export HOMEBREW_INSTALL_BADGE="☕️ 🐸"
 
 alias brwe="brew"
 alias audt="brew audit --strict --online"
+alias btest="brew test -v --sandbox"
 alias style="brew style --fix"
 alias using="brew uses --installed --recursive"
 alias bua="brew upgrade --all"
@@ -14,21 +16,19 @@ alias binfo="brew info --github"
 shsm() {
   shsm=$(shasum -a 256 "$1" | sed 's:\ .*::g')
   echo "$shsm"
+  echo "$shsm" | pbcopy
 }
 
 dshm() {
   local gzsha
-  gzsha=$(curl -L "$1" | ack -o "^\ [^\ ]{64}(?=\ )" | head -n1 | tr -d ' ' | tr -d '\n')
+  gzsha=$(curl -L "$1" | ack -o "^\ [^\ ]{64}(?=\ )" | head -n1 | tr -d ' ')
   echo "$gzsha"
-}
-
-shsm() {
-  shsm=$(shasum -a 256 "$1" | sed 's:\ .*::g')
-  echo "$shsm"
+  echo "$gzsha" | tr -d '\n' | pbcopy
 }
 
 brewp() {
   for f in "$@"; do
+    f="$(echo $f | sed 's: (installed)::g')"
     brew home "$f" && \
       brew info --github "$f" && \
       # strip out tap prefixes

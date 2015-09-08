@@ -156,21 +156,7 @@ grev() {
   fi
   revision=$(git rev-parse HEAD"$back")
   echo "$revision"
-}
-
-mkredirect() {
-  cat <<EOF
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>This page has been moved to $1</title>
-  <meta http-equiv="refresh" content="0;url=$1">
-</head>
-<body>
-</body>
-</html>
-EOF
+  echo "$revision" | tr -d '\n' | pbcopy
 }
 
 mkredirect() {

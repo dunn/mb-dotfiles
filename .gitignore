@@ -41,3 +41,4 @@ emacs/.emacs.d/vendor/
 emacs/.emacs.d/.cask
 emacs/.emacs.d/.achievements
 emacs/.emacs.d/ido.last
+emacs/.emacs.d/.circe

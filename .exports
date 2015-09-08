@@ -1,8 +1,21 @@
 #!/usr/bin/env bash
 
+if [[ $(uname -s) == "Darwin" ]]; then
+  export DARWIN=1
+else
+  export DARWIN=0
+fi
+
 export EDITOR="emacsclient -t -a emacs"
 
-export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:/lib/x86_64-linux-gnu/:$LD_LIBRARY_PATH"
+if [[ ! $DARWIN ]]; then
+  export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:/lib/x86_64-linux-gnu/:$LD_LIBRARY_PATH"
+fi
+
+if [[ $DARWIN ]]; then
+  # set in iTerm, but make this explicit
+  export TERM=xterm-256color
+fi
 
 # Prefer US English and use UTF-8.
 export LANG="en_US.UTF-8"
@@ -39,15 +52,30 @@ export "MORE=-R"
 # Always enable colored `grep` output.
 export GREP_OPTIONS="--color=auto"
 
-# EMAIL
-# ====
-export MAILCONF="$HOME/.mutt/"
-export MAIL="$HOME/Mail/"
-GPG_TTY=$(tty)
-export GPG_TTY
-# http://archlinux.2023198.n4.nabble.com/mutt-and-gnupg-td4702501.html
-export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent"
-
 # RUBY
 # ====
 export RUBYOPT=rubygems
+
+if [[ $DARWIN ]]; then
+  # EMAIL
+  # ====
+  export MAILCONF="$HOME/.mutt/"
+  export MAIL="$HOME/Mail/"
+  GPG_TTY=$(tty)
+  export GPG_TTY
+  # http://archlinux.2023198.n4.nabble.com/mutt-and-gnupg-td4702501.html
+  export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent"
+
+  # JAVA
+  # ====
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
+
+  # nvm
+  # ===
+  export NVM_DIR=~/.nvm
+  source "$(brew --prefix nvm)/nvm.sh"
+
+  # TeX
+  # ===
+  export BIBINPUTS="$HOME/Dropbox/texmf/bibtex/bib"
+fi

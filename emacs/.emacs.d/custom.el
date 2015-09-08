@@ -3,6 +3,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(circe-default-nick "dunndunndunn")
+ '(circe-default-part-message "ᕕ( ᐛ )ᕗ")
+ '(circe-default-quit-message "ᕕ( ᐛ )ᕗ")
+ '(circe-default-user "cat")
   '(company-emoji-aliases
      (quote
        ((:man-woman-boy: . ":family:")
@@ -10,8 +14,12 @@
          (:woman_man_holding_hands: . ":couple:")
          (:woman-heart-man: . ":couple_with_heart:")
          (:oop: . ":speak_no_evil:"))))
+ '(company-emoji-insert-unicode t)
  '(css-indent-offset 2)
  '(frame-background-mode nil)
+ '(global-homebrew-mode t)
+ '(homebrew-default-args (quote ("-v" "-s" "--sandbox")))
+ '(homebrew-poet-executable "/usr/local/bin/poet")
  '(js2-basic-offset 2)
  '(magit-use-overlays nil)
  '(markdown-enable-math t)

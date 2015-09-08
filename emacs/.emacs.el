@@ -275,22 +275,25 @@ See https://github.com/jorgenschaefer/circe/wiki/Configuration"
       :channels ("#machomebrew")
       :nickserv-password my-nickserv-password)))
 
-;; (require 'pandoc-mode)
-;; (add-hook 'markdown-mode-hook 'pandoc-mode)
+(if (eq system-type 'darwin)
+  (require 'pandoc-mode)
+  (add-hook 'markdown-mode-hook 'pandoc-mode))
 
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 
-(add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/emoji")
+(if (eq system-type 'darwin)
+  (add-to-list 'load-path "~/Dropbox/projects/lisp/emoji"))
 (require 'company-emoji)
 (add-to-list 'company-backends 'company-emoji)
 
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 
-;; (add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/homebrew-mode")
-;; (require 'homebrew-mode)
-;; (global-homebrew-mode)
+(if (eq system-type 'darwin)
+  (add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/homebrew-mode")
+  (require 'homebrew-mode)
+  (global-homebrew-mode))
 
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
@@ -372,7 +375,7 @@ clipboard.  This function is only meant to be assigned to \
 (load-theme 'solarized t)
 
 (defun fuck-you ()
-  "Because this just doesn't work in Terminal."
+  "Because this just doesn't work in Debian Terminal."
   (interactive)
   (setq solarized-termcolors 256)
   (setq frame-background-mode 'light)
