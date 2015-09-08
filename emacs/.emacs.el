@@ -233,7 +233,9 @@
 (set-face-attribute 'anzu-mode-line nil
   :foreground "#586e75" :weight 'bold)
 
-(require 'achievements)
+;; Having trouble compiling hg on Linux
+(if (eq system-type 'darwin)
+  (require 'achievements))
 
 (require 'unkillable-scratch)
 (unkillable-scratch 1)
