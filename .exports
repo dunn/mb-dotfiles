@@ -1,5 +1,19 @@
-# Make vim the default editor.
-export EDITOR='vim';
+#!/usr/bin/env bash
+
+export EDITOR="emacsclient -t -a emacs"
+
+if [[ ! $(uname -s) == "Darwin" ]]; then
+  export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:/lib/x86_64-linux-gnu/:$LD_LIBRARY_PATH"
+fi
+
+if [[ $(uname -s) == "Darwin" ]]; then
+  # set in iTerm, but make this explicit
+  export TERM=xterm-256color
+fi
+
+# Prefer US English and use UTF-8.
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 
 # Enable persistent REPL history for `node`.
 NODE_REPL_HISTORY_FILE=~/.node_history;
@@ -7,20 +21,60 @@ NODE_REPL_HISTORY_FILE=~/.node_history;
 NODE_REPL_HISTORY_SIZE='32768';
 
 # Increase Bash history size. Allow 32³ entries; the default is 500.
-export HISTSIZE='32768';
-export HISTFILESIZE="${HISTSIZE}";
+export HISTSIZE="32768"
+export HISTFILESIZE="${HISTSIZE}"
 # Omit duplicates and commands that begin with a space from history.
-export HISTCONTROL='ignoreboth';
+export HISTCONTROL="ignoreboth"
+# Make some commands not show up in history
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
+# After each command, append to the history file and reread it.
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
-# Prefer US English and use UTF-8.
-export LANG='en_US.UTF-8';
-export LC_ALL='en_US.UTF-8';
+# upstream 9d30bd673c72ed1cadb2720fe4fb44a8ce915a2b
+# Enable persistent REPL history for `node`.
+export NODE_REPL_HISTORY_FILE=~/.node_history
+# Allow 32³ entries; the default is 1000.
+export NODE_REPL_HISTORY_SIZE=32768
 
 # Highlight section titles in manual pages.
-export LESS_TERMCAP_md="${yellow}";
+SOLAR_BLUE=$(tput setaf 33)
+export LESS_TERMCAP_md="$SOLAR_BLUE"
 
 # Don’t clear the screen after quitting a manual page.
-export MANPAGER='less -X';
+export MANPAGER="less -X"
+
+# brew install dunn/emacs/e2ansi
+export "LESSOPEN=|emacs --batch -l /usr/local/bin/e2ansi-cat %s"
+export "LESS=-R"
+export "MORE=-R"
 
 # Always enable colored `grep` output.
-export GREP_OPTIONS='--color=auto';
+export GREP_OPTIONS="--color=auto"
+
+# RUBY
+# ====
+export RUBYOPT=rubygems
+
+if [[ $(uname -s) == "Darwin" ]]; then
+  # EMAIL
+  # ====
+  export MAILCONF="$HOME/.mutt/"
+  export MAIL="$HOME/Mail/"
+  GPG_TTY=$(tty)
+  export GPG_TTY
+  # http://archlinux.2023198.n4.nabble.com/mutt-and-gnupg-td4702501.html
+  export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent"
+
+  # JAVA
+  # ====
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
+
+  # nvm
+  # ===
+  export NVM_DIR=~/.nvm
+  source "$(brew --prefix nvm)/nvm.sh"
+
+  # TeX
+  # ===
+  export BIBINPUTS="$HOME/Dropbox/texmf/bibtex/bib"
+fi

@@ -1,0 +1,32 @@
+\documentclass[11pt]{letter}
+\usepackage{geometry}
+\geometry{letterpaper}
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=black,linkcolor=black]{hyperref}
+\usepackage{url}
+
+\signature{$author$}
+$if(from)$
+\address{$from$}
+$else$
+\address{666 Hell Street \\ Horror Town, FL 99999}
+$endif$
+\begin{document}
+\begin{letter}
+$if(to)$
+{$to$}
+$else$
+{The White House \\ 1 White House Road \\ San Francisco CA 94109 USA}
+$endif$
+\opening{To Whom it May Concern,}
+
+$body$
+
+\closing{Sincerely,}
+% \ps{}
+\end{letter}
+\end{document}
