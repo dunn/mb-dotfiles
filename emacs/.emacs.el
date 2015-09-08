@@ -51,10 +51,10 @@
     (set-fontset-font t 'symbol (font-spec :family "Apple Color Emoji") frame 'prepend)
     (set-fontset-font t 'symbol (font-spec :family "Symbola") frame 'prepend)))
 ;; For when emacs is started with Emacs.app
-(--set-emoji-font nil)
+;; (--set-emoji-font nil)
 ;; Hook for when a cocoa frame is created with emacsclient
 ;; see https://www.gnu.org/software/emacs/manual/html_node/elisp/Creating-Frames.html
-(add-hook 'after-make-frame-functions '--set-emoji-font)
+;; (add-hook 'after-make-frame-functions '--set-emoji-font)
 
 ;;;;;;;;;;;;;;;;
 ;; KEYBINDINGS
@@ -276,8 +276,8 @@ See https://github.com/jorgenschaefer/circe/wiki/Configuration"
       :channels ("#machomebrew")
       :nickserv-password my-nickserv-password)))
 
-(require 'pandoc-mode)
-(add-hook 'markdown-mode-hook 'pandoc-mode)
+;; (require 'pandoc-mode)
+;; (add-hook 'markdown-mode-hook 'pandoc-mode)
 
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -289,9 +289,9 @@ See https://github.com/jorgenschaefer/circe/wiki/Configuration"
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 
-(add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/homebrew-mode")
-(require 'homebrew-mode)
-(global-homebrew-mode)
+;; (add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/homebrew-mode")
+;; (require 'homebrew-mode)
+;; (global-homebrew-mode)
 
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
