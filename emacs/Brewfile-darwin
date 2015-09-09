@@ -1,5 +1,5 @@
 brew 'editorconfig', args: ['HEAD']
-brew 'emacs', args: ['with-x11', 'HEAD']
+brew 'emacs', args: ['with-gnutls', 'with-librsvg', 'with-cocoa', 'HEAD']
 brew 'magit', args: ['HEAD']
 
 tap 'homebrew/emacs'
@@ -23,6 +23,7 @@ brew 'homebrew/emacs/git-modes'
 brew 'homebrew/emacs/go-mode'
 brew 'homebrew/emacs/haskell-mode'
 brew 'homebrew/emacs/helm'
+brew 'homebrew/emacs/hydra-emacs'
 brew 'homebrew/emacs/inf-ruby'
 brew 'homebrew/emacs/js2-mode'
 brew 'homebrew/emacs/keyfreq'
@@ -31,6 +32,7 @@ brew 'homebrew/emacs/markdown-mode', args: ['with-toc', 'HEAD']
 brew 'homebrew/emacs/names'
 brew 'homebrew/emacs/olivetti'
 brew 'homebrew/emacs/org-mode'
+brew 'homebrew/emacs/pandoc-mode'
 brew 'homebrew/emacs/php-mode'
 brew 'homebrew/emacs/pkg-info'
 brew 'homebrew/emacs/popup'
