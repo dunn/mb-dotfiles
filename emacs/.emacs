@@ -8,4 +8,4 @@ alias emcas=emcs
 alias emca=emac
 alias semac="sudo emacsclient -t -a emacs"
 alias semacs="sudo emacsclient -c -a emacs"
-alias boop='emacs . &'
+alias boop='emacsclient -c . &'
