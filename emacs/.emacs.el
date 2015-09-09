@@ -370,10 +370,18 @@ clipboard.  This function is only meant to be assigned to \
 
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
 (add-to-list 'custom-theme-load-path (concat --homebrew-prefix "share/emacs/site-lisp/solarized"))
-(setq solarized-termcolors 256)
-(setq frame-background-mode 'light)
-;; `t` is important: http://stackoverflow.com/a/8547861
-(load-theme 'solarized t)
+
+;; no, I don't know why
+(if (eq system-type 'darwin)
+  (progn
+    ;; `t` is important: http://stackoverflow.com/a/8547861
+    (load-theme 'solarized t)
+    (setq solarized-termcolors 256)
+    (setq frame-background-mode 'light))
+  (progn
+    (setq solarized-termcolors 256)
+    (setq frame-background-mode 'light))
+    (load-theme 'solarized t))
 
 (defun fuck-you ()
   "Because this just doesn't work in Debian Terminal."
