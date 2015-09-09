@@ -24,7 +24,7 @@
 (blink-cursor-mode 0)
 
 ;; http://ergoemacs.org/emacs/emacs_make_modern.html
-;; (global-linum-mode 1)
+(global-linum-mode 1)
 (column-number-mode 1)
 
 ;; Kill whitespace
