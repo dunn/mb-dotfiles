@@ -26,6 +26,9 @@
   # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
 
+[hub]
+  protocol = https
+
 [alias]
   m = checkout master
   bare = config --bool core.bare true
