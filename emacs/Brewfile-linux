@@ -21,6 +21,7 @@ brew 'homebrew/emacs/flycheck', args: ['with-package']
 brew 'homebrew/emacs/fountain-mode'
 brew 'homebrew/emacs/git-modes'
 brew 'homebrew/emacs/helm'
+brew 'homebrew/emacs/homebrew-mode'
 brew 'homebrew/emacs/inf-ruby'
 brew 'homebrew/emacs/js2-mode'
 brew 'homebrew/emacs/keyfreq'

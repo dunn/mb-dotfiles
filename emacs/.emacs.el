@@ -293,10 +293,9 @@ See https://github.com/jorgenschaefer/circe/wiki/Configuration"
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 
 (if (eq system-type 'darwin)
-  (progn
-    (add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/homebrew-mode")
-    (require 'homebrew-mode)
-    (global-homebrew-mode)))
+  (add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/homebrew-mode"))
+(require 'homebrew-mode)
+(global-homebrew-mode)
 
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
