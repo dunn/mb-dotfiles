@@ -160,10 +160,12 @@
 (add-to-list 'auto-mode-alist '("\\.mdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
-(require 'magit)
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
-(setq magit-last-seen-setup-instructions "1.4.0")
+;; requires a newer version of Emacs than is provided by Debian
+(if (eq system-type 'darwin)
+  (require 'magit)
+  (global-set-key (kbd "C-x g") 'magit-status)
+  (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+  (setq magit-last-seen-setup-instructions "1.4.0"))
 
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
