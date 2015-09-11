@@ -381,7 +381,7 @@ clipboard.  This function is only meant to be assigned to \
     (setq frame-background-mode 'light))
   (progn
     (setq solarized-termcolors 256)
-    (setq frame-background-mode 'light))
+    (setq frame-background-mode 'light)
     (load-theme 'solarized t))
 
 (defun fuck-you ()
