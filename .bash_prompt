@@ -97,7 +97,11 @@ PS1+="\[$SOLAR_RED\] \w"
 PS1+="\$(prompt_git)"
 PS1+="\[$RESET\]"
 PS1+="\n"
-PS1+="🔥  "
+if [[ $(uname -s) == "Darwin" ]]; then
+  PS1+="🍎  "
+else
+  PS1+="🐉  "
+fi
 export PS1;
 
 PS2="\[$SOLAR_WHITE\]→ \[$RESET\]";
