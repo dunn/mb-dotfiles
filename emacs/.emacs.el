@@ -382,7 +382,7 @@ clipboard.  This function is only meant to be assigned to \
   (progn
     (setq solarized-termcolors 256)
     (setq frame-background-mode 'light)
-    (load-theme 'solarized t))
+    (load-theme 'solarized t)))
 
 (defun fuck-you ()
   "Because this just doesn't work in Debian Terminal."
