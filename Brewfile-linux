@@ -3,9 +3,7 @@ brew 'cmake', args: ['without-docs']
 brew 'editorconfig', args: ['HEAD']
 brew 'emacs', args: ['with-gnutls', 'with-librsvg', 'with-cocoa', 'HEAD']
 brew 'magit', args: ['HEAD']
-brew 'reattach-to-user-namespace'
 brew 'tmux'
-brew 'tmux-mem-cpu-load'
 
 tap 'homebrew/emacs'
 brew 'homebrew/emacs/applescript-mode'
