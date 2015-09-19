@@ -69,7 +69,7 @@
 
 ;; mimic my tmux bindings, sort of
 (define-key key-translation-map "\C-j" "\C-x")
-(global-set-key (kbd "<C-tab>") 'other-window)
+(global-set-key "\M-o" 'other-window)
 (global-set-key "\C-xj" 'other-window)
 (global-set-key "\C-x;" 'other-window)
 
