@@ -9,7 +9,7 @@ source ~/.mutt/gmail
 folder-hook ~/Mail/gmail/* source ~/.mutt/gmail
 folder-hook ~/Mail/umail/* source ~/.mutt/umail
 # List the available mailboxes:
-mailboxes = "$HOME/Mail/gmail/ALL" "$HOME/Mail/gmail/sent" "$HOME/Mail/umail/ALL" "$HOME/Mail/umail/sent"
+mailboxes = "$HOME/Mail/gmail/inbox" "$HOME/Mail/gmail/sent" "$HOME/Mail/gmail/ALL" "$HOME/Mail/umail/inbox" "$HOME/Mail/umail/sent" "$HOME/Mail/umail/ALL"
 
 # less-style paging
 bind pager b previous-page
