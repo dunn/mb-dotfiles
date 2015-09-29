@@ -51,6 +51,10 @@ export "MORE=-R"
 # Always enable colored `grep` output.
 export GREP_OPTIONS="--color=auto"
 
+# PERL
+# ====
+export PERL5LIB="$HOME/perl5/:$PERL5LIB"
+
 # RUBY
 # ====
 export RUBYOPT=rubygems
