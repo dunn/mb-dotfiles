@@ -93,6 +93,7 @@ fi
 
 alias gdiff="git diff --no-index --"
 alias rb="git rebase -i origin/master"
+alias rbc='git rebase -i origin/$(git rev-parse --abbrev-ref HEAD)'
 
 # brew install hugo
 alias hs='hugo server -w -v'
