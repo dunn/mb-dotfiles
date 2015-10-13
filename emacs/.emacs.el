@@ -137,12 +137,6 @@
 ;; Makefiles
 (add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
 
-;; I don't like templates
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . ruby-mode))
-(add-hook 'find-file-hook '--erb-toggle)
-(add-hook 'before-save-hook '--erb-toggle)
-(add-hook 'after-save-hook '--erb-toggle)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; HOMEBREW FORMULAE
 ;; brew tap homebrew/bundle
@@ -198,6 +192,7 @@
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
@@ -534,21 +529,5 @@ Only difference is it always replaces."
 		 (display-buffer (current-buffer)))))
       (delete-file error-file))
     exit-status))
-
-(defun --erb-toggle ()
-  "Make it easier to write ERB templates correctly."
-  (interactive)
-  (if (string-match-p "\.erb$" (buffer-file-name (current-buffer)))
-    (progn
-      (goto-char (point-min))
-      (if (string-match "^[<%]" (buffer-substring 1 3))
-        (progn
-          (goto-char (point-min))
-          (flush-lines "^[<%]"))
-        ;; else
-        (progn
-          (insert "<%=\n")
-          (goto-char (point-max))
-          (insert "%>"))))))
 
 ;;; .emacs.el ends here
