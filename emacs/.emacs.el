@@ -91,6 +91,9 @@
 (global-set-key "\C-x\C-b" 'ibuffer)
 (global-set-key "\C-co" 'browse-url-at-point)
 
+(global-set-key "\C-cp" 'get-pbpaste)
+(global-set-key "\C-ce" 'shell-command-replace-region)
+
 ;; I never want `ido-list-directory'
 (global-set-key "\C-x\C-d" 'ido-dired)
 
@@ -100,7 +103,6 @@
 (global-set-key "\C-ck" 'insert-kbd)
 (global-set-key "\C-cz" 'new-shell)
 (define-key global-map "\M-Q" 'unfill-paragraph)
-(global-set-key "\C-cp" 'shell-command-replace-region)
 
 ;; mimic native Mac OS behavior
 (global-set-key "\M-_" 'mdash)
@@ -370,10 +372,9 @@ clipboard.  This function is only meant to be assigned to \
   (setq interprogram-cut-function 'pipe-to-pbcopy))
 
 (defun get-pbpaste ()
-  "Execute `pbpaste`.  This function is meant to be assigned to 'interprogram-paste-function'."
-  (shell-command-to-string "pbpaste"))
-(if (eq system-type 'darwin)
-  (setq interprogram-paste-function 'get-pbpaste))
+  "Execute `pbpaste`."
+  (interactive)
+  (insert (shell-command-to-string "pbpaste")))
 
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
 (add-to-list 'custom-theme-load-path (concat --homebrew-prefix "share/emacs/site-lisp/solarized"))
