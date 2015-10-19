@@ -47,6 +47,9 @@
 ;; http://www.cs.berkeley.edu/~prmohan/emacs/
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; tramp is always fucking up
+(setq tramp-verbose 6)
+
 ;; fix emoji support in cocoa-mode
 ;; https://github.com/dunn/company-emoji/issues/2#issue-99494790
 (defun --set-emoji-font (frame)
