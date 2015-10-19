@@ -20,6 +20,8 @@
  '(global-homebrew-mode t)
  '(homebrew-default-args (quote ("-v" "-s" "--sandbox")))
  '(homebrew-poet-executable "/usr/local/bin/poet")
+ '(indent-tabs-mode nil)
+ '(js-indent-level 2)
  '(js2-basic-offset 2)
  '(magit-use-overlays nil)
  '(markdown-enable-math t)
@@ -27,6 +29,12 @@
  '(perl-indent-level 2)
  '(require-final-newline t)
  '(scss-compile-at-save nil)
+ '(web-mode-attr-indent-offset 2)
+ '(web-mode-code-indent-offset 2)
+ '(web-mode-css-indent-offset 2)
+ '(web-mode-enable-auto-indentation nil)
+ '(web-mode-markup-indent-offset 2)
+ '(web-mode-sql-indent-offset 2)
  '(x-stretch-cursor t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -40,4 +48,5 @@
  '(js2-function-param ((t (:foreground "#d33682" :slant italic))))
  '(js2-instance-member ((t (:foreground "#d33682"))))
  '(js2-jsdoc-html-tag-delimiter ((t (:foreground "#859900"))))
- '(js2-jsdoc-html-tag-name ((t (:foreground "#b58900")))))
+ '(js2-jsdoc-html-tag-name ((t (:foreground "#b58900"))))
+ '(web-mode-symbol-face ((t (:foreground "#d33682")))))
