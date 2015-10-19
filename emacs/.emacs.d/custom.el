@@ -29,6 +29,7 @@
  '(perl-indent-level 2)
  '(require-final-newline t)
  '(scss-compile-at-save nil)
+ '(sh-indentation 2)
  '(web-mode-attr-indent-offset 2)
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
