@@ -73,11 +73,6 @@ if [[ $(uname -s) == "Darwin" ]]; then
   # ====
   export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
 
-  # nvm
-  # ===
-  export NVM_DIR=~/.nvm
-  source "$(brew --prefix nvm)/nvm.sh"
-
   # TeX
   # ===
   export BIBINPUTS="$HOME/Dropbox/texmf/bibtex/bib"
