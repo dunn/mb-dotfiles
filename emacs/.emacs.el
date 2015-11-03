@@ -281,6 +281,9 @@ See https://github.com/jorgenschaefer/circe/wiki/Configuration"
   (require 'pandoc-mode)
   (add-hook 'markdown-mode-hook 'pandoc-mode))
 
+(require 'beacon)
+(beacon-mode 1)
+
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 
