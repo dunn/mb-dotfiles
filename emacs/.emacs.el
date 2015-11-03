@@ -248,11 +248,6 @@
 (require 'helm-config)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
-(require 'debbugs-org)
-(autoload 'debbugs-org "debbugs-org" "" 'interactive)
-(autoload 'debbugs-org-search "debbugs-org" "" 'interactive)
-(autoload 'debbugs-org-bugs "debbugs-org" "" 'interactive)
-
 (require 'register-list)
 (global-set-key "\C-cr" 'register-list)
 
