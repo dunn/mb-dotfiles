@@ -154,10 +154,7 @@
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
 (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
-;; editorconfig needs its hand held with a special exec-path and load-path
-(setq exec-path (append exec-path '((concat --homebrew-prefix "opt/editorconfig/bin"))))
-(add-to-list 'load-path (concat --homebrew-prefix "opt/editorconfig-emacs/share/emacs/site-lisp/editorconfig"))
-(load "editorconfig")
+(require 'editorconfig)
 
 ;; installed --with-toc
 (require 'markdown-mode)
