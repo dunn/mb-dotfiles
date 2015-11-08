@@ -13,7 +13,7 @@
 (load custom-file)
 
 (if (eq system-type 'darwin)
-  (setq --homebrew-prefix "/usr/local/")
+    (setq --homebrew-prefix "/usr/local/")
   (setq --homebrew-prefix "~/.linuxbrew/"))
 
 ;; Homebrew executables and lisp files
@@ -33,9 +33,6 @@
 ;; Add new lines automatically
 (setq next-line-add-newlines t)
 
-;; Faster redrawing
-(setq redisplay-dont-pause nil)
-
 ;; Tabs (no)
 (setq-default indent-tabs-mode nil)
 
@@ -46,9 +43,6 @@
 ;; allow 'y' or 'n' instead of 'yes' or 'no'
 ;; http://www.cs.berkeley.edu/~prmohan/emacs/
 (fset 'yes-or-no-p 'y-or-n-p)
-
-;; tramp is always fucking up
-(setq tramp-verbose 6)
 
 ;; fix emoji support in cocoa-mode
 ;; https://github.com/dunn/company-emoji/issues/2#issue-99494790
@@ -68,6 +62,7 @@
 ;;;;;;;;;;;;;;;;
 ;; some inspiration from https://masteringemacs.org/article/my-emacs-keybindings
 
+;; requires matching change in iTerm key profile
 (setq mac-option-modifier 'meta)
 
 ;; mimic my tmux bindings, sort of
@@ -92,12 +87,9 @@
 (global-set-key "\C-co" 'browse-url-at-point)
 
 (global-set-key "\C-cp" 'get-pbpaste)
-(global-set-key "\C-ce" 'shell-command-replace-region)
+(global-set-key "\C-cr" 'shell-command-replace-region)
 
-;; I never want `ido-list-directory'
-(global-set-key "\C-x\C-d" 'ido-dired)
-
-;; see below
+;; bindings for custom functions defined below
 (global-set-key "\C-xm" 'company-complete)
 (global-set-key "\C-cs" 'shruggie)
 (global-set-key "\C-ck" 'insert-kbd)
@@ -116,19 +108,10 @@
 ;; MODES ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(require 'ido)
-(ido-mode t)
-
 ;; Auto fill mode
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'tex-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
-
-;; word count
-(autoload 'word-count-mode "word-count"
-  "Minor mode to count words."
-  t nil)
-(global-set-key "\M-+" 'word-count-mode)
 
 ;; table mode
 (require 'table)
@@ -138,23 +121,42 @@
 ;; Mail mode
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 (add-hook 'mail-mode-hook 'turn-on-auto-fill)
+;; to prevent mutt.rb from opening in mail-mode
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 
 ;; Makefiles
 (add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; HOMEBREW FORMULAE
 ;; brew tap homebrew/bundle
-;; brew tap dunn/emacs
-;; brew bundle --file=emacs/Brewfile
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; brew bundle --file=../Brewfile-darwin (or Brewfile-linux as the case may be)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq-default ispell-program-name (concat --homebrew-prefix "bin/aspell"))
-(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
-(autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
-(autoload 'tex-mode-flyspell-verify "flyspell" "" t)
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
 
-(require 'editorconfig)
+(if (eq system-type 'darwin)
+  (add-to-list 'load-path "~/Dropbox/projects/lisp/emoji"))
+(require 'company-emoji)
+(add-to-list 'company-backends 'company-emoji)
+
+(require 'swiper)
+(global-set-key "\C-s" 'swiper)
+(global-set-key "\C-r" 'swiper)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq magit-completing-read-function 'ivy-completing-read)
+
+(require 'counsel)
+(global-set-key "\M-x" 'counsel-M-x)
+(global-set-key "\C-cl" 'counsel-locate)
+
+(require 'org)
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(add-hook 'org-mode-hook 'turn-on-flyspell 'append)
 
 ;; installed --with-toc
 (require 'markdown-mode)
@@ -170,14 +172,6 @@
     (global-set-key (kbd "C-x g") 'magit-status)
     (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
     (setq magit-last-seen-setup-instructions "1.4.0")))
-
-(require 'org)
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(add-hook 'org-mode-hook 'turn-on-flyspell 'append)
 
 (require 'gitattributes-mode)
 (require 'gitconfig-mode)
@@ -198,9 +192,6 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-(require 'fountain-mode)
-(add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
-
 (require 'scss-mode)
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 (add-to-list 'auto-mode-alist '("\\.sass$" . scss-mode))
@@ -220,36 +211,26 @@
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
 
+(require 'applescript-mode)
+(add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
+(add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))
+
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\.yml$" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\.yaml$" . yaml-mode))
+
+(require 'editorconfig)
+
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (require 'flycheck-package)
 (eval-after-load 'flycheck
   '(flycheck-package-setup))
 
-(require 'browse-kill-ring)
-
-(require 'anzu)
-(global-anzu-mode +1)
-(set-face-attribute 'anzu-mode-line nil
-  :foreground "#586e75" :weight 'bold)
-
-;; Having trouble compiling hg on Linux
-(if (eq system-type 'darwin)
-  (require 'achievements))
-
-(require 'unkillable-scratch)
-(unkillable-scratch 1)
-(setq unkillable-scratch-behavior 'bury)
-
-(require 'applescript-mode)
-(add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
-(add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))
-
-(require 'helm-config)
-(global-set-key (kbd "M-x") 'helm-M-x)
-
-(require 'register-list)
-(global-set-key "\C-cr" 'register-list)
+(setq-default ispell-program-name (concat --homebrew-prefix "bin/aspell"))
+(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
+(autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
+(autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
 (require 'typo)
 (add-hook 'markdown-mode-hook 'typo-mode)
@@ -258,24 +239,18 @@
 ;; we need another way to quickly make code fences:
 (global-set-key "\C-c`" 'code-fence)
 
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\.yml$" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\.yaml$" . yaml-mode))
+(require 'fountain-mode)
+(add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
 
-(require 'circe)
-(setq my-credentials-file "/Users/cat/.emacs.d/.circe")
-(defun my-nickserv-password (_)
-  "Keep password out of backtraces.
-See https://github.com/jorgenschaefer/circe/wiki/Configuration"
-  (with-temp-buffer
-    (insert-file-contents-literally my-credentials-file)
-    (plist-get (read (buffer-string)) :nickserv-password)))
+(require 'browse-kill-ring)
 
-(setq circe-network-options
-  '(("Freenode"
-      :nick "dunndunndunn"
-      :channels ("#machomebrew")
-      :nickserv-password my-nickserv-password)))
+;; Having trouble compiling Mercurial on Linux
+(if (eq system-type 'darwin)
+  (require 'achievements))
+
+(require 'unkillable-scratch)
+(unkillable-scratch 1)
+(setq unkillable-scratch-behavior 'bury)
 
 (if (eq system-type 'darwin)
   (require 'pandoc-mode)
@@ -283,14 +258,6 @@ See https://github.com/jorgenschaefer/circe/wiki/Configuration"
 
 (require 'beacon)
 (beacon-mode 1)
-
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-
-(if (eq system-type 'darwin)
-  (add-to-list 'load-path "~/Dropbox/projects/lisp/emoji"))
-(require 'company-emoji)
-(add-to-list 'company-backends 'company-emoji)
 
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)

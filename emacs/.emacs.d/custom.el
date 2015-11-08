@@ -7,13 +7,13 @@
  '(circe-default-part-message "ᕕ( ᐛ )ᕗ")
  '(circe-default-quit-message "ᕕ( ᐛ )ᕗ")
  '(circe-default-user "cat")
-  '(company-emoji-aliases
-     (quote
-       ((:man-woman-boy: . ":family:")
-         (:woman-kiss-man: . ":couplekiss:")
-         (:woman_man_holding_hands: . ":couple:")
-         (:woman-heart-man: . ":couple_with_heart:")
-         (:oop: . ":speak_no_evil:"))))
+ '(company-emoji-aliases
+   (quote
+    ((:man-woman-boy: . ":family:")
+     (:woman-kiss-man: . ":couplekiss:")
+     (:woman_man_holding_hands: . ":couple:")
+     (:woman-heart-man: . ":couple_with_heart:")
+     (:oop: . ":speak_no_evil:"))))
  '(company-emoji-insert-unicode t)
  '(css-indent-offset 2)
  '(frame-background-mode nil)
@@ -30,6 +30,7 @@
  '(require-final-newline t)
  '(scss-compile-at-save nil)
  '(sh-indentation 2)
+ '(tramp-verbose 6)
  '(web-mode-attr-indent-offset 2)
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
