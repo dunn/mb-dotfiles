@@ -158,6 +158,9 @@
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-hook 'org-mode-hook 'turn-on-flyspell 'append)
 
+(require 'ag)
+(global-set-key "\C-cf" 'ag)
+
 ;; installed --with-toc
 (require 'markdown-mode)
 (require 'markdown-toc)

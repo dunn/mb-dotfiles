@@ -8,6 +8,7 @@ brew 'tmux-mem-cpu-load'
 tap 'homebrew/emacs'
 brew 'homebrew/emacs/achievements', args: ['HEAD']
 brew 'homebrew/emacs/applescript-mode'
+brew 'homebrew/emacs/ag-emacs'
 brew 'homebrew/emacs/beacon-mode'
 brew 'homebrew/emacs/browse-kill-ring'
 brew 'homebrew/emacs/company-mode', args: ['with-emoji', 'HEAD']
