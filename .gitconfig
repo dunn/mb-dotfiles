@@ -100,3 +100,5 @@
 
   # see change made by commit
   look = !git --no-pager diff $1~1..$1
+[status]
+	submoduleSummary = true
