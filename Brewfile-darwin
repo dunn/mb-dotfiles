@@ -16,6 +16,7 @@ brew 'homebrew/emacs/editorconfig-emacs', args: ['HEAD']
 brew 'homebrew/emacs/epl', args: ['HEAD']
 brew 'homebrew/emacs/flycheck', args: ['with-package']
 brew 'homebrew/emacs/fountain-mode'
+brew 'homebrew/emacs/gist-emacs'
 brew 'homebrew/emacs/git-modes'
 brew 'homebrew/emacs/js2-mode'
 brew 'homebrew/emacs/markdown-mode', args: ['with-toc', 'HEAD']

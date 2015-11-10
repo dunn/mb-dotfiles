@@ -255,6 +255,8 @@
   (require 'pandoc-mode)
   (add-hook 'markdown-mode-hook 'pandoc-mode))
 
+(require 'gist)
+
 (require 'beacon)
 (beacon-mode 1)
 
