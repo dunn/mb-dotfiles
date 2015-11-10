@@ -20,6 +20,8 @@
      (:oop: . ":speak_no_evil:")
      (:middle-finger: . ":reversed-hand-with-middle-finger-extended:"))))
  '(company-emoji-insert-unicode t)
+ '(company-idle-delay 0.3)
+ '(company-minimum-prefix-length 2)
  '(css-indent-offset 2)
  '(frame-background-mode nil)
  '(global-homebrew-mode t)
