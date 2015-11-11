@@ -24,7 +24,6 @@
 (blink-cursor-mode 0)
 
 ;; http://ergoemacs.org/emacs/emacs_make_modern.html
-(global-linum-mode 1)
 (column-number-mode 1)
 
 ;; Kill whitespace
@@ -261,6 +260,9 @@
 
 (require 'beacon)
 (beacon-mode 1)
+
+(require 'nlinum)
+(global-nlinum-mode 1)
 
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)

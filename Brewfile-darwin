@@ -20,6 +20,7 @@ brew 'homebrew/emacs/gist-emacs'
 brew 'homebrew/emacs/git-modes'
 brew 'homebrew/emacs/js2-mode'
 brew 'homebrew/emacs/markdown-mode', args: ['with-toc', 'HEAD']
+brew 'homebrew/emacs/nlinum'
 brew 'homebrew/emacs/org-mode'
 brew 'homebrew/emacs/pandoc-mode'
 brew 'homebrew/emacs/php-mode', args: ['HEAD']
