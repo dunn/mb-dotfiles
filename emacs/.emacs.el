@@ -219,6 +219,9 @@
 (add-to-list 'auto-mode-alist '("\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\.yaml$" . yaml-mode))
 
+(require 'pdf-tools)
+(add-to-list 'auto-mode-alist '("\.pdf$" . pdf-view-mode))
+
 (require 'editorconfig)
 
 (require 'flycheck)

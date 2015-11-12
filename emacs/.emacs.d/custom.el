@@ -33,6 +33,7 @@
  '(magit-use-overlays nil)
  '(markdown-enable-math t)
  '(menu-bar-mode t)
+ '(pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
  '(perl-indent-level 2)
  '(require-final-newline t)
  '(scss-compile-at-save nil)

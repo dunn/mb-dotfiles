@@ -23,6 +23,7 @@ brew 'homebrew/emacs/markdown-mode', args: ['with-toc', 'HEAD']
 brew 'homebrew/emacs/nlinum'
 brew 'homebrew/emacs/org-mode'
 brew 'homebrew/emacs/pandoc-mode'
+brew 'homebrew/emacs/pdf-tools'
 brew 'homebrew/emacs/php-mode', args: ['HEAD']
 brew 'homebrew/emacs/rainbow-mode'
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
