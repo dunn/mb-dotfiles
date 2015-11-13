@@ -230,6 +230,9 @@
 (eval-after-load 'flycheck
   '(flycheck-package-setup))
 
+(require 'diff-hl)
+(global-diff-hl-mode)
+
 (setq-default ispell-program-name (concat --homebrew-prefix "bin/aspell"))
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
 (autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
