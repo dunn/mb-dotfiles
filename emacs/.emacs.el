@@ -231,9 +231,14 @@
 
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+;;
 (require 'flycheck-package)
 (eval-after-load 'flycheck
   '(flycheck-package-setup))
+;;
+(require 'flycheck-cask)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
 
 (require 'rubocop)
 (add-hook 'ruby-mode-hook 'rubocop-mode)
