@@ -1,6 +1,5 @@
 brew 'editorconfig', args: ['HEAD']
-brew 'emacs', args: ['with-librsvg', 'with-cocoa', 'with-imagemagick', 'HEAD']
-brew 'magit'
+brew 'emacs', args: ['devel', 'with-gnutls', 'with-librsvg', 'with-cocoa', 'with-imagemagick']
 brew 'reattach-to-user-namespace'
 brew 'tmux'
 brew 'tmux-mem-cpu-load'
@@ -20,6 +19,7 @@ brew 'homebrew/emacs/fountain-mode'
 brew 'homebrew/emacs/gist-emacs'
 brew 'homebrew/emacs/git-modes'
 brew 'homebrew/emacs/js2-mode'
+brew 'homebrew/emacs/magit'
 brew 'homebrew/emacs/markdown-mode', args: ['with-toc', 'HEAD']
 brew 'homebrew/emacs/nlinum'
 brew 'homebrew/emacs/org-mode'
