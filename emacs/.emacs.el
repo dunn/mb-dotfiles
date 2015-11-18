@@ -278,10 +278,6 @@
 (unkillable-scratch 1)
 (setq unkillable-scratch-behavior 'bury)
 
-(if (eq system-type 'darwin)
-  (require 'pandoc-mode)
-  (add-hook 'markdown-mode-hook 'pandoc-mode))
-
 (require 'gist)
 
 (require 'beacon)
@@ -289,6 +285,14 @@
 
 (require 'nlinum)
 (global-nlinum-mode 1)
+
+(require 'elfeed)
+(global-set-key (kbd "C-c w") 'elfeed)
+(load "/Users/cat/.emacs.d/elfeeds.el")
+
+(if (eq system-type 'darwin)
+  (require 'pandoc-mode)
+  (add-hook 'markdown-mode-hook 'pandoc-mode))
 
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)

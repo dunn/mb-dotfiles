@@ -35,6 +35,7 @@ emacs/.emacs.d/.achievements
 emacs/.emacs.d/.cask
 emacs/.emacs.d/.circe
 emacs/.emacs.d/ac-comphist.dat
+emacs/.emacs.d/elfeeds.el
 emacs/.emacs.d/elpa/
 emacs/.emacs.d/games/
 emacs/.emacs.d/ido.last
