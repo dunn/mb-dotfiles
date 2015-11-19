@@ -287,8 +287,9 @@
 (global-nlinum-mode 1)
 
 (require 'elfeed)
+(setf url-queue-timeout 10)
 (global-set-key (kbd "C-c w") 'elfeed)
-(load "/Users/cat/.emacs.d/elfeeds.el")
+(load "~/.emacs.d/elfeeds.el")
 
 (if (eq system-type 'darwin)
   (require 'pandoc-mode)
@@ -298,7 +299,7 @@
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 
 (if (eq system-type 'darwin)
-  (add-to-list 'load-path "/Users/cat/Dropbox/projects/lisp/homebrew-mode"))
+  (add-to-list 'load-path "~/Dropbox/projects/lisp/homebrew-mode"))
 (require 'homebrew-mode)
 (global-homebrew-mode)
 
