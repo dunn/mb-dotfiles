@@ -1,6 +1,7 @@
 brew 'editorconfig', args: ['HEAD']
 brew 'emacs', args: ['devel', 'with-gnutls', 'with-librsvg', 'with-cocoa', 'with-imagemagick']
 brew 'reattach-to-user-namespace'
+brew 'ruby'
 brew 'tmux'
 brew 'tmux-mem-cpu-load'
 
@@ -27,6 +28,8 @@ brew 'homebrew/emacs/pandoc-mode'
 brew 'homebrew/emacs/pdf-tools'
 brew 'homebrew/emacs/php-mode', args: ['HEAD']
 brew 'homebrew/emacs/rainbow-mode'
+brew 'homebrew/emacs/robe', args: ['HEAD']
+brew 'homebrew/emacs/rubocop-emacs'
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']
 brew 'homebrew/emacs/swiper', args: ['HEAD']

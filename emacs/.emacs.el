@@ -235,6 +235,16 @@
 (eval-after-load 'flycheck
   '(flycheck-package-setup))
 
+(require 'rubocop)
+(add-hook 'ruby-mode-hook 'rubocop-mode)
+(require 'ruby-electric)
+(add-hook 'ruby-mode-hook 'ruby-electric-mode)
+
+(require 'robe)
+(add-hook 'ruby-mode-hook 'robe-mode)
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
+
 (require 'diff-hl)
 (global-diff-hl-mode)
 
