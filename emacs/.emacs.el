@@ -241,8 +241,6 @@
 
 (require 'rubocop)
 (add-hook 'ruby-mode-hook 'rubocop-mode)
-(require 'ruby-electric)
-(add-hook 'ruby-mode-hook 'ruby-electric-mode)
 
 (require 'robe)
 (add-hook 'ruby-mode-hook 'robe-mode)

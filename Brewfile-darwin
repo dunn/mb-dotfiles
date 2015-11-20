@@ -1,7 +1,6 @@
 brew 'editorconfig', args: ['HEAD']
 brew 'emacs', args: ['devel', 'with-gnutls', 'with-librsvg', 'with-cocoa', 'with-imagemagick']
 brew 'reattach-to-user-namespace'
-brew 'ruby'
 brew 'tmux'
 brew 'tmux-mem-cpu-load'
 
