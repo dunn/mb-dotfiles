@@ -32,6 +32,7 @@ brew 'homebrew/emacs/rainbow-mode'
 brew 'homebrew/emacs/robe', args: ['HEAD']
 brew 'homebrew/emacs/rubocop-emacs'
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
+brew 'homebrew/emacs/shell-pop'
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']
 brew 'homebrew/emacs/swiper', args: ['HEAD']
 brew 'homebrew/emacs/typo-mode'

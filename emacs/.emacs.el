@@ -97,7 +97,6 @@
 (global-set-key "\C-xm" 'company-complete)
 (global-set-key "\C-cs" 'shruggie)
 (global-set-key "\C-ck" 'insert-kbd)
-(global-set-key "\C-cz" 'new-shell)
 (define-key global-map "\M-Q" 'unfill-paragraph)
 
 ;; mimic native Mac OS behavior
@@ -270,6 +269,8 @@
 
 (require 'browse-kill-ring)
 
+(require 'shell-pop)
+
 ;; Having trouble compiling Mercurial on Linux
 (if (eq system-type 'darwin)
   (require 'achievements))
@@ -350,15 +351,6 @@ so the code type can be specified."
   (push-mark)
   (insert "<kbd></kbd>")
   (goto-char (- (point) 6)))
-
-(defun new-shell ()
-  "Open a shell window.  If there are no other windows, \
-create one; otherwise use `other-window'."
-  (interactive)
-  (if (= 1 (length (window-list)))
-      (select-window (split-window-sensibly))
-    (other-window 1))
-  (shell))
 
 (defun pipe-to-pbcopy (text)
   "Execute ../bin/copy.sh on TEXT, which copies it to the Mac OS \

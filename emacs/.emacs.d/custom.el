@@ -38,6 +38,7 @@
  '(require-final-newline t)
  '(scss-compile-at-save nil)
  '(sh-indentation 2)
+ '(shell-pop-universal-key "C-c z")
  '(tls-checktrust t)
  '(tramp-verbose 6)
  '(web-mode-attr-indent-offset 2)
