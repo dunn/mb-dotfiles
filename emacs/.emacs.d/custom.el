@@ -36,6 +36,7 @@
  '(pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
  '(perl-indent-level 2)
  '(require-final-newline t)
+ '(robe-completing-read-func (quote ivy-completing-read))
  '(scss-compile-at-save nil)
  '(sh-indentation 2)
  '(tls-checktrust t)
