@@ -7,10 +7,6 @@
    (quote
     ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--hidden" "--")))
  '(ag-highlight-search t)
- '(circe-default-nick "dunndunndunn")
- '(circe-default-part-message "ᕕ( ᐛ )ᕗ")
- '(circe-default-quit-message "ᕕ( ᐛ )ᕗ")
- '(circe-default-user "cat")
  '(company-emoji-aliases
    (quote
     ((:man-woman-boy: . ":family:")
@@ -38,7 +34,6 @@
  '(require-final-newline t)
  '(scss-compile-at-save nil)
  '(sh-indentation 2)
- '(shell-pop-universal-key "C-c z")
  '(tls-checktrust t)
  '(tramp-verbose 6)
  '(web-mode-attr-indent-offset 2)

@@ -5,11 +5,9 @@ brew 'tmux'
 brew 'tmux-mem-cpu-load'
 
 tap 'homebrew/emacs'
-brew 'homebrew/emacs/achievements', args: ['HEAD']
 brew 'homebrew/emacs/applescript-mode'
 brew 'homebrew/emacs/ag-emacs'
 brew 'homebrew/emacs/beacon-mode'
-brew 'homebrew/emacs/browse-kill-ring'
 brew 'homebrew/emacs/company-mode', args: ['with-emoji', 'HEAD']
 brew 'homebrew/emacs/diff-hl'
 brew 'homebrew/emacs/elfeed'
@@ -25,14 +23,11 @@ brew 'homebrew/emacs/magit'
 brew 'homebrew/emacs/markdown-mode', args: ['with-toc', 'HEAD']
 brew 'homebrew/emacs/nlinum'
 brew 'homebrew/emacs/org-mode'
-brew 'homebrew/emacs/pandoc-mode'
 brew 'homebrew/emacs/pdf-tools'
-brew 'homebrew/emacs/php-mode', args: ['HEAD']
 brew 'homebrew/emacs/rainbow-mode'
 brew 'homebrew/emacs/robe', args: ['HEAD']
 brew 'homebrew/emacs/rubocop-emacs'
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
-brew 'homebrew/emacs/shell-pop'
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']
 brew 'homebrew/emacs/swiper', args: ['HEAD']
 brew 'homebrew/emacs/typo-mode'

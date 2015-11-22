@@ -17,37 +17,126 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+;; Homebrew executables and lisp files
+;;
+;; brew tap homebrew/bundle
+;; brew bundle --file=../Brewfile-darwin (or Brewfile-linux as the case may be)
 (if (eq system-type 'darwin)
     (setq --homebrew-prefix "/usr/local/")
   (setq --homebrew-prefix "~/.linuxbrew/"))
-
-;; Homebrew executables and lisp files
 (add-to-list 'load-path (concat --homebrew-prefix "bin/"))
 (let ((default-directory (concat --homebrew-prefix "share/emacs/site-lisp/")))
   (normal-top-level-add-subdirs-to-load-path))
 
+;;;;;;;;;;;;;;;;
+;; Keybindings
+;;;;;;;;;;;;;;;;
+;; some inspiration from https://masteringemacs.org/article/my-emacs-keybindings
+;;
+;; Requires matching change in iTerm key profile
+(setq mac-option-modifier 'meta)
+;;
+;; Mimic native Mac OS behavior
+(global-set-key "\M-_" 'mdash)
+;;
+;; Mimic my tmux bindings, sort of
+(define-key key-translation-map "\C-j" "\C-x")
+(global-set-key "\M-o" 'other-window)
+(global-set-key "\C-xj" 'other-window)
+(global-set-key "\C-x;" 'other-window)
+;;
+(global-set-key "\C-x\C-a" 'mark-whole-buffer)
+(global-unset-key "\C-xh")
+(global-set-key "\C-xk" 'kill-this-buffer)
+(global-set-key "\C-x\C-k" 'kill-buffer)
+;;
+(global-set-key "\C-c;" 'comment-region)
+(global-set-key "\C-c:" 'uncomment-region)
+;;
+(global-set-key "\C-x\C-b" 'ibuffer)
+(global-set-key "\C-co" 'browse-url-at-point)
+(global-set-key "\C-cp" 'get-pbpaste)
+(global-set-key "\C-cr" 'shell-command-replace-region)
+;;
+;; bindings for custom functions defined below
+(global-set-key "\C-ck" 'insert-kbd)
+(global-set-key "\C-cs" 'shruggie)
+(global-set-key "\C-cz" 'new-shell)
+(global-set-key "\C-xm" 'company-complete)
+(define-key global-map "\M-Q" 'unfill-paragraph)
+;;
+;; I also accidentally set column instead of opening a file
+;; https://www.gnu.org/software/emacs/manual/html_node/eintr/Keybindings.html#Keybindings
+(global-unset-key "\C-xf")
+(define-key key-translation-map "\C-xf" "\C-x\C-f")
+
+;;;;;;;;;;;;;;;;;;;
+;; General settings
+;;;;;;;;;;;;;;;;;;;
+;;
 (blink-cursor-mode 0)
-
-;; http://ergoemacs.org/emacs/emacs_make_modern.html
-(column-number-mode 1)
-
-;; Kill whitespace
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; Add new lines automatically
-(setq next-line-add-newlines t)
-
-;; Tabs (no)
-(setq-default indent-tabs-mode nil)
-
-;; case handling
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
-
+;;
+;; http://ergoemacs.org/emacs/emacs_make_modern.html
+(column-number-mode 1)
+;;
+;; Kill whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;;
+;; Add new lines automatically
+(setq next-line-add-newlines t)
+;;
+;; Tabs (no)
+(setq-default indent-tabs-mode nil)
+;;
 ;; allow 'y' or 'n' instead of 'yes' or 'no'
 ;; http://www.cs.berkeley.edu/~prmohan/emacs/
 (fset 'yes-or-no-p 'y-or-n-p)
+;;
+(require 'unkillable-scratch)
+(unkillable-scratch 1)
+(setq unkillable-scratch-behavior 'bury)
 
+;;
+;; Navigation and search
+;;
+(require 'swiper)
+(global-set-key "\C-s" 'swiper)
+(global-set-key "\C-r" 'swiper)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+;;
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq magit-completing-read-function 'ivy-completing-read)
+;;
+(require 'counsel)
+(global-set-key "\M-x" 'counsel-M-x)
+(global-set-key "\C-cl" 'counsel-locate)
+;;
+(require 'ag)
+(global-set-key "\C-cf" 'ag)
+;;
+(require 'diff-hl)
+(global-diff-hl-mode)
+;;
+(require 'beacon)
+(beacon-mode 1)
+;;
+(require 'nlinum)
+(global-nlinum-mode 1)
+
+;;
+;; Auto-completion
+;;
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+;;
+(if (eq system-type 'darwin)
+  (add-to-list 'load-path "~/Dropbox/projects/lisp/emoji"))
+(require 'company-emoji)
+(add-to-list 'company-backends 'company-emoji)
+;;
 ;; fix emoji support in cocoa-mode
 ;; https://github.com/dunn/company-emoji/issues/2#issue-99494790
 (defun --set-emoji-font (frame)
@@ -61,116 +150,34 @@
 ;; see https://www.gnu.org/software/emacs/manual/html_node/elisp/Creating-Frames.html
 (add-hook 'after-make-frame-functions '--set-emoji-font)
 
-;;;;;;;;;;;;;;;;
-;; KEYBINDINGS
-;;;;;;;;;;;;;;;;
-;; some inspiration from https://masteringemacs.org/article/my-emacs-keybindings
+;;
+;; Spellchecking
+;;
+;; brew install aspell
+(setq-default ispell-program-name (concat --homebrew-prefix "bin/aspell"))
+(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
+(autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
+(autoload 'tex-mode-flyspell-verify "flyspell" "" t)
 
-;; requires matching change in iTerm key profile
-(setq mac-option-modifier 'meta)
+;;
+;; Code style
+;;
+(require 'editorconfig)
+;;
+;; brew install flycheck --with-package --with-cask
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+;;
+(require 'flycheck-package)
+(eval-after-load 'flycheck
+  '(flycheck-package-setup))
+(require 'flycheck-cask)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
 
-;; mimic my tmux bindings, sort of
-(define-key key-translation-map "\C-j" "\C-x")
-(global-set-key "\M-o" 'other-window)
-(global-set-key "\C-xj" 'other-window)
-(global-set-key "\C-x;" 'other-window)
-
-(global-set-key "\C-x\C-a" 'mark-whole-buffer)
-(global-unset-key "\C-xh")
-
-(global-set-key "\C-xk" 'kill-this-buffer)
-(global-set-key "\C-x\C-k" 'kill-buffer)
-
-(define-key global-map (kbd "C-+") 'text-scale-increase)
-(define-key global-map (kbd "C--") 'text-scale-decrease)
-
-(global-set-key "\C-c;" 'comment-region)
-(global-set-key "\C-c:" 'uncomment-region)
-
-(global-set-key "\C-x\C-b" 'ibuffer)
-(global-set-key "\C-co" 'browse-url-at-point)
-
-(global-set-key "\C-cp" 'get-pbpaste)
-(global-set-key "\C-cr" 'shell-command-replace-region)
-
-;; bindings for custom functions defined below
-(global-set-key "\C-xm" 'company-complete)
-(global-set-key "\C-cs" 'shruggie)
-(global-set-key "\C-ck" 'insert-kbd)
-(define-key global-map "\M-Q" 'unfill-paragraph)
-
-;; mimic native Mac OS behavior
-(global-set-key "\M-_" 'mdash)
-
-;; I also accidentally set column instead of opening a file
-;; https://www.gnu.org/software/emacs/manual/html_node/eintr/Keybindings.html#Keybindings
-(global-unset-key "\C-xf")
-(define-key key-translation-map "\C-xf" "\C-x\C-f")
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; MODES ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; Auto fill mode
-;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
-(add-hook 'tex-mode-hook 'turn-on-auto-fill)
-(add-hook 'markdown-mode-hook 'turn-on-auto-fill)
-
-;; table mode
-(require 'table)
-(add-hook 'text-mode-hook 'table-recognize)
-(add-hook 'markdown-mode-hook 'table-recognize)
-
-;; Mail mode
-(add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
-(add-hook 'mail-mode-hook 'turn-on-auto-fill)
-;; to prevent mutt.rb from opening in mail-mode
-(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-
-;; Makefiles
-(add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; HOMEBREW FORMULAE
-;; brew tap homebrew/bundle
-;; brew bundle --file=../Brewfile-darwin (or Brewfile-linux as the case may be)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-
-(if (eq system-type 'darwin)
-  (add-to-list 'load-path "~/Dropbox/projects/lisp/emoji"))
-(require 'company-emoji)
-(add-to-list 'company-backends 'company-emoji)
-
-(require 'swiper)
-(global-set-key "\C-s" 'swiper)
-(global-set-key "\C-r" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq magit-completing-read-function 'ivy-completing-read)
-
-(require 'counsel)
-(global-set-key "\M-x" 'counsel-M-x)
-(global-set-key "\C-cl" 'counsel-locate)
-
-(require 'org)
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(add-hook 'org-mode-hook 'turn-on-flyspell 'append)
-
-(require 'ag)
-(global-set-key "\C-cf" 'ag)
-
-;; installed --with-toc
-(require 'markdown-mode)
-(require 'markdown-toc)
-(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.mdown$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
-
+;;
+;; Git
+;;
 ;; requires a newer version of Emacs than is provided by Debian
 (if (eq system-type 'darwin)
   (progn
@@ -178,7 +185,7 @@
     (global-set-key (kbd "C-x g") 'magit-status)
     (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
     (setq magit-last-seen-setup-instructions "1.4.0")))
-
+;;
 (require 'gitattributes-mode)
 (require 'gitconfig-mode)
 (require 'gitignore-mode)
@@ -188,123 +195,136 @@
 (add-to-list 'auto-mode-alist '("\\.git\/info\/attributes$" . gitignore-mode))
 (add-to-list 'auto-mode-alist '("\\.git\/config$" . gitignore-mode))
 (add-to-list 'auto-mode-alist '("\\.git\/info\/exclude$" . gitignore-mode))
+;; Don't know where else to put this
+(require 'gist)
 
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode))
-
-(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-
-(require 'scss-mode)
-(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
-(add-to-list 'auto-mode-alist '("\\.sass$" . scss-mode))
-
-(require 'rainbow-mode)
-(add-hook 'scss-mode-hook 'scss-rainbow-hook)
-(defun scss-rainbow-hook ()
-  "Colorize color strings."
-  (rainbow-mode 1))
-
-(require 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
-(add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
-
-(require 'applescript-mode)
-(add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
-(add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))
-
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\.yml$" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\.yaml$" . yaml-mode))
-
-(require 'pdf-tools)
-(add-to-list 'auto-mode-alist '("\.pdf$" . pdf-view-mode))
-
-(require 'editorconfig)
-
-(require 'flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
 ;;
-(require 'flycheck-package)
-(eval-after-load 'flycheck
-  '(flycheck-package-setup))
+;; RSS
 ;;
-(require 'flycheck-cask)
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
+(require 'elfeed)
+(setf url-queue-timeout 10)
+(global-set-key (kbd "C-c w") 'elfeed)
+(load "~/.emacs.d/elfeeds.el")
 
-(require 'rubocop)
-(add-hook 'ruby-mode-hook 'rubocop-mode)
-
-(require 'robe)
-(add-hook 'ruby-mode-hook 'robe-mode)
-(eval-after-load 'company
-  '(push 'company-robe company-backends))
-
-(require 'elisp-slime-nav)
-(dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
-  (add-hook hook 'elisp-slime-nav-mode))
-
-(require 'diff-hl)
-(global-diff-hl-mode)
-
-(setq-default ispell-program-name (concat --homebrew-prefix "bin/aspell"))
-(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
-(autoload 'flyspell-delay-command "flyspell" "Delay on command." t)
-(autoload 'tex-mode-flyspell-verify "flyspell" "" t)
-
+;;;;;;;;;;;;;;;;;;;
+;; Language support
+;;;;;;;;;;;;;;;;;;;
+;;
+;; Plain text, Markdown, LaTeX, Org, Mail, Fountain
+;;
+;; brew install markdown-mode --with-toc
+(require 'markdown-mode)
+(require 'markdown-toc)
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.mdown$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+;;
 (require 'typo)
 (add-hook 'markdown-mode-hook 'typo-mode)
 (add-hook 'mail-mode-hook 'typo-mode)
 ;; typo-mode turns backticks into single left quotes in Markdown, so
 ;; we need another way to quickly make code fences:
 (global-set-key "\C-c`" 'code-fence)
-
+;;
+(add-hook 'tex-mode-hook 'turn-on-auto-fill)
+(add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+;;
+(require 'table)
+(add-hook 'text-mode-hook 'table-recognize)
+(add-hook 'markdown-mode-hook 'table-recognize)
+;;
+(require 'org)
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(add-hook 'org-mode-hook 'turn-on-flyspell 'append)
+;;
+(add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
+(add-hook 'mail-mode-hook 'turn-on-auto-fill)
+;;
 (require 'fountain-mode)
 (add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
 
-(require 'browse-kill-ring)
+;;
+;; HTML, CSS/SASS, JS
+;;
+(require 'web-mode)
+;; php-mode doesn't work with Emacs 25 yet:
+;; https://github.com/ejmr/php-mode/issues/279
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+;;
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
+(add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
+;;
+(require 'scss-mode)
+(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
+(add-to-list 'auto-mode-alist '("\\.sass$" . scss-mode))
+;;
+(require 'rainbow-mode)
+(add-hook 'scss-mode-hook 'scss-rainbow-hook)
+(defun scss-rainbow-hook ()
+  "Colorize color strings."
+  (rainbow-mode 1))
 
-(require 'shell-pop)
-
-;; Having trouble compiling Mercurial on Linux
-(if (eq system-type 'darwin)
-  (require 'achievements))
-
-(require 'unkillable-scratch)
-(unkillable-scratch 1)
-(setq unkillable-scratch-behavior 'bury)
-
-(require 'gist)
-
-(require 'beacon)
-(beacon-mode 1)
-
-(require 'nlinum)
-(global-nlinum-mode 1)
-
-(require 'elfeed)
-(setf url-queue-timeout 10)
-(global-set-key (kbd "C-c w") 'elfeed)
-(load "~/.emacs.d/elfeeds.el")
-
-(if (eq system-type 'darwin)
-  (require 'pandoc-mode)
-  (add-hook 'markdown-mode-hook 'pandoc-mode))
-
+;;
+;; Ruby
+;;
+(require 'rubocop)
+(add-hook 'ruby-mode-hook 'rubocop-mode)
+;;
+(require 'robe)
+(add-hook 'ruby-mode-hook 'robe-mode)
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
+;; to prevent mutt.rb from opening in mail-mode
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+;;
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
-
+;;
 (if (eq system-type 'darwin)
   (add-to-list 'load-path "~/Dropbox/projects/lisp/homebrew-mode"))
 (require 'homebrew-mode)
 (global-homebrew-mode)
+
+;;
+;; Applescript
+;;
+(require 'applescript-mode)
+(add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
+(add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))
+
+;;
+;; Emacs lisp
+;;
+(require 'elisp-slime-nav)
+(dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+  (add-hook hook 'elisp-slime-nav-mode))
+
+;;
+;; Make
+;;
+(add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
+
+;;
+;; YAML
+;;
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\.yml$" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\.yaml$" . yaml-mode))
+
+;;
+;; PDFs
+;;
+(require 'pdf-tools)
+(add-to-list 'auto-mode-alist '("\.pdf$" . pdf-view-mode))
 
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
@@ -371,7 +391,16 @@ clipboard.  This function is only meant to be assigned to \
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
 (add-to-list 'custom-theme-load-path (concat --homebrew-prefix "share/emacs/site-lisp/solarized-emacs"))
 
-;; no, I don't know why
+(defun new-shell ()
+  "Open a shell window.  If there are no other windows, \
+create one; otherwise use `other-window'."
+  (interactive)
+  (if (= 1 (length (window-list)))
+      (select-window (split-window-sensibly))
+    (other-window 1))
+  (shell))
+
+;; No, I don't know why the order needs to be different
 (if (eq system-type 'darwin)
   (progn
     ;; `t` is important: http://stackoverflow.com/a/8547861
