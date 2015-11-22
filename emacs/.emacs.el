@@ -9,11 +9,6 @@
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
 
-;; https://glyph.twistedmatrix.com/2015/11/editor-malware.html
-(setq tls-program '("gnutls-cli --x509cafile ~/Mail/cert/all.pem -p %p %h"))
-(setq gnutls-verify-error t)
-(setq gnutls-trustfiles '("~Mail/cert/all.pem"))
-
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
