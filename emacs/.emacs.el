@@ -9,9 +9,9 @@
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
 
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
+(setq --melpa (getenv "MELPA"))
 
+;;
 ;; Homebrew executables and lisp files
 ;;
 ;; brew tap homebrew/bundle
@@ -20,8 +20,33 @@
     (setq --homebrew-prefix "/usr/local/")
   (setq --homebrew-prefix "~/.linuxbrew/"))
 (add-to-list 'load-path (concat --homebrew-prefix "bin/"))
-(let ((default-directory (concat --homebrew-prefix "share/emacs/site-lisp/")))
-  (normal-top-level-add-subdirs-to-load-path))
+
+;;
+;; Package manager
+;;
+(if --melpa
+    (progn
+      (require 'package)
+      (package-initialize)
+      (add-to-list 'package-archives
+                   '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+      (package-refresh-contents))
+  (let ((default-directory (concat --homebrew-prefix "share/emacs/site-lisp/")))
+    (normal-top-level-add-subdirs-to-load-path)))
+;;
+(defun require-package (package)
+  "Install PACKAGE with package.el if in melpa mode, otherwise \
+assume it's installed and `require' it."
+  (if --melpa
+      (unless (package-installed-p package)
+        (package-install package)))
+  (require package))
+
+;;
+;; Customizations
+;;
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
 
 ;;;;;;;;;;;;;;;;
 ;; Keybindings
@@ -89,14 +114,14 @@
 ;; http://www.cs.berkeley.edu/~prmohan/emacs/
 (fset 'yes-or-no-p 'y-or-n-p)
 ;;
-(require 'unkillable-scratch)
+(require-package 'unkillable-scratch)
 (unkillable-scratch 1)
 (setq unkillable-scratch-behavior 'bury)
 
 ;;
 ;; Navigation and search
 ;;
-(require 'swiper)
+(require-package 'swiper)
 (global-set-key "\C-s" 'swiper)
 (global-set-key "\C-r" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
@@ -105,31 +130,31 @@
 (setq ivy-use-virtual-buffers t)
 (setq magit-completing-read-function 'ivy-completing-read)
 ;;
-(require 'counsel)
+(require-package 'counsel)
 (global-set-key "\M-x" 'counsel-M-x)
 (global-set-key "\C-cl" 'counsel-locate)
 ;;
-(require 'ag)
+(require-package 'ag)
 (global-set-key "\C-cf" 'ag)
 ;;
-(require 'diff-hl)
+(require-package 'diff-hl)
 (global-diff-hl-mode)
 ;;
-(require 'beacon)
+(require-package 'beacon)
 (beacon-mode 1)
 ;;
-(require 'nlinum)
+(require-package 'nlinum)
 (global-nlinum-mode 1)
 
 ;;
 ;; Auto-completion
 ;;
-(require 'company)
+(require-package 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 ;;
 (if (eq system-type 'darwin)
   (add-to-list 'load-path "~/Dropbox/projects/lisp/emoji"))
-(require 'company-emoji)
+(require-package 'company-emoji)
 (add-to-list 'company-backends 'company-emoji)
 ;;
 ;; fix emoji support in cocoa-mode
@@ -157,16 +182,16 @@
 ;;
 ;; Code style
 ;;
-(require 'editorconfig)
+(require-package 'editorconfig)
 ;;
 ;; brew install flycheck --with-package --with-cask
-(require 'flycheck)
+(require-package 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;;
-(require 'flycheck-package)
+(require-package 'flycheck-package)
 (eval-after-load 'flycheck
   '(flycheck-package-setup))
-(require 'flycheck-cask)
+(require-package 'flycheck-cask)
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
 
@@ -176,14 +201,14 @@
 ;; requires a newer version of Emacs than is provided by Debian
 (if (eq system-type 'darwin)
   (progn
-    (require 'magit)
+    (require-package 'magit)
     (global-set-key (kbd "C-x g") 'magit-status)
     (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
     (setq magit-last-seen-setup-instructions "1.4.0")))
 ;;
-(require 'gitattributes-mode)
-(require 'gitconfig-mode)
-(require 'gitignore-mode)
+(require-package 'gitattributes-mode)
+(require-package 'gitconfig-mode)
+(require-package 'gitignore-mode)
 (add-to-list 'auto-mode-alist '("^\\.gitattributes$" . gitattributes-mode))
 (add-to-list 'auto-mode-alist '("^\\.gitconfig$" . gitconfig-mode))
 (add-to-list 'auto-mode-alist '("^\\.gitignore$" . gitignore-mode))
@@ -191,12 +216,12 @@
 (add-to-list 'auto-mode-alist '("\\.git\/config$" . gitignore-mode))
 (add-to-list 'auto-mode-alist '("\\.git\/info\/exclude$" . gitignore-mode))
 ;; Don't know where else to put this
-(require 'gist)
+(require-package 'gist)
 
 ;;
 ;; RSS
 ;;
-(require 'elfeed)
+(require-package 'elfeed)
 (setf url-queue-timeout 10)
 (global-set-key (kbd "C-c w") 'elfeed)
 (load "~/.emacs.d/elfeeds.el")
@@ -208,13 +233,13 @@
 ;; Plain text, Markdown, LaTeX, Org, Mail, Fountain
 ;;
 ;; brew install markdown-mode --with-toc
-(require 'markdown-mode)
-(require 'markdown-toc)
+(require-package 'markdown-mode)
+(require-package 'markdown-toc)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.mdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 ;;
-(require 'typo)
+(require-package 'typo)
 (add-hook 'markdown-mode-hook 'typo-mode)
 (add-hook 'mail-mode-hook 'typo-mode)
 ;; typo-mode turns backticks into single left quotes in Markdown, so
@@ -224,24 +249,24 @@
 (add-hook 'tex-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
 ;;
-(require 'table)
+(require-package 'table)
 (add-hook 'text-mode-hook 'table-recognize)
 (add-hook 'markdown-mode-hook 'table-recognize)
 ;;
-(require 'org)
+(require-package 'org)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-hook 'org-mode-hook 'turn-on-flyspell 'append)
 ;;
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 (add-hook 'mail-mode-hook 'turn-on-auto-fill)
 ;;
-(require 'fountain-mode)
+(require-package 'fountain-mode)
 (add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
 
 ;;
 ;; HTML, CSS/SASS, JS
 ;;
-(require 'web-mode)
+(require-package 'web-mode)
 ;; php-mode doesn't work with Emacs 25 yet:
 ;; https://github.com/ejmr/php-mode/issues/279
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
@@ -253,16 +278,16 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 ;;
-(require 'js2-mode)
+(require-package 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
 ;;
-(require 'scss-mode)
+(require-package 'scss-mode)
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 (add-to-list 'auto-mode-alist '("\\.sass$" . scss-mode))
 ;;
-(require 'rainbow-mode)
+(require-package 'rainbow-mode)
 (add-hook 'scss-mode-hook 'scss-rainbow-hook)
 (defun scss-rainbow-hook ()
   "Colorize color strings."
@@ -271,10 +296,12 @@
 ;;
 ;; Ruby
 ;;
-(require 'rubocop)
-(add-hook 'ruby-mode-hook 'rubocop-mode)
+(unless --melpa
+  (progn
+    (require-package 'rubocop)
+    (add-hook 'ruby-mode-hook 'rubocop-mode)))
 ;;
-(require 'robe)
+(require-package 'robe)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (eval-after-load 'company
   '(push 'company-robe company-backends))
@@ -286,20 +313,22 @@
 ;;
 (if (eq system-type 'darwin)
   (add-to-list 'load-path "~/Dropbox/projects/lisp/homebrew-mode"))
-(require 'homebrew-mode)
+(require-package 'homebrew-mode)
 (global-homebrew-mode)
 
 ;;
 ;; Applescript
 ;;
-(require 'applescript-mode)
-(add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
-(add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))
+(unless --melpa
+  (progn
+    (require-package 'applescript-mode)
+    (add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
+    (add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))))
 
 ;;
 ;; Emacs lisp
 ;;
-(require 'elisp-slime-nav)
+(require-package 'elisp-slime-nav)
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
   (add-hook hook 'elisp-slime-nav-mode))
 
@@ -311,14 +340,14 @@
 ;;
 ;; YAML
 ;;
-(require 'yaml-mode)
+(require-package 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\.yaml$" . yaml-mode))
 
 ;;
 ;; PDFs
 ;;
-(require 'pdf-tools)
+(require-package 'pdf-tools)
 (add-to-list 'auto-mode-alist '("\.pdf$" . pdf-view-mode))
 
 ;;;;;;;;;;;;;;;
