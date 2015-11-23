@@ -27,7 +27,7 @@ brew 'homebrew/emacs/org-mode'
 brew 'homebrew/emacs/pdf-tools'
 brew 'homebrew/emacs/rainbow-mode'
 brew 'homebrew/emacs/robe', args: ['HEAD']
-brew 'homebrew/emacs/rubocop-emacs', ['HEAD']
+brew 'homebrew/emacs/rubocop-emacs', args: ['HEAD']
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']
 brew 'homebrew/emacs/swiper', args: ['HEAD']
