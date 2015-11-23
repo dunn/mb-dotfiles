@@ -53,8 +53,11 @@ assume it's installed and `require' it."
 ;;
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
 (add-to-list 'custom-theme-load-path (concat --homebrew-prefix "share/emacs/site-lisp/solarized-emacs"))
-
-(setq frame-background-mode 'dark)
+;;
+(require-package 'exec-path-from-shell)
+(if (equal "winter" (exec-path-from-shell-getenv "SEASON"))
+  (setq frame-background-mode 'dark)
+  (setq frame-background-mode 'light))
 ;; `t` is important: http://stackoverflow.com/a/8547861
 (load-theme 'solarized t)
 

@@ -72,7 +72,11 @@ prompt_git() {
 
   # Combine the branch name and state information
   if [[ $git_state ]]; then
-    git_info="$git_info${SOLAR_ORANGE}[$git_state${SOLAR_ORANGE}]${RESET}"
+    if [[ "$SEASON" == "winter" ]]; then
+      git_info="$git_info${SOLAR_CYAN}[$git_state${SOLAR_CYAN}]${RESET}"
+    elif [[ "$SEASON" == "summer" ]]; then
+      git_info="$git_info${SOLAR_ORANGE}[$git_state${SOLAR_ORANGE}]${RESET}"
+    fi
   fi
 
   # You know you’re on `gh-pages`, right? *Right*?
@@ -85,22 +89,43 @@ prompt_git() {
     style_branch="${SOLAR_RED}"
   fi
 
-  printf "${RESET}${BOLD} on ${RESET}${SOLAR_YELLOW}${style_branch}${git_info}"
+  if [[ "$SEASON" == "winter" ]]; then
+    printf "${RESET}${SOLAR_WHITE} on ${RESET}${style_branch}${git_info}"
+  elif [[ "$SEASON" == "summer" ]]; then
+    printf "${RESET}${BOLD} on ${RESET}${SOLAR_YELLOW}${style_branch}${git_info}"
+  fi
 }
 
+# TODO: what is this
 PS1="\[\033]0;\w\007\]"
-PS1+="\[$SOLAR_ORANGE\]\u\[$RESET\]"
-PS1+="\[$BOLD\] in\[$RESET\]"
-PS1+="\[$SOLAR_YELLOW\] \h\[$RESET\]"
-PS1+="\[$BOLD\] at\[$RESET\]"
-PS1+="\[$SOLAR_RED\] \w"
-PS1+="\$(prompt_git)"
-PS1+="\[$RESET\]"
-PS1+="\n"
-if [[ $(uname -s) == "Darwin" ]]; then
-  PS1+="🌰  "
-else
-  PS1+="🔨  "
+if [[ "$SEASON" == "winter" ]]; then
+  PS1+="\[$BOLD\]\u\[$RESET\]"
+  PS1+="\[$SOLAR_WHITE\] in\[$RESET\]"
+  PS1+="\[$SOLAR_CYAN\] \h\[$RESET\]"
+  PS1+="\[$SOLAR_WHITE\] at\[$RESET\]"
+  PS1+="\[$SOLAR_BLUE\] \w"
+  PS1+="\$(prompt_git)"
+  PS1+="\[$RESET\]"
+  PS1+="\n"
+  if [[ $(uname -s) == "Darwin" ]]; then
+    PS1+="❄️  "
+  else
+    PS1+="⛄  "
+  fi
+elif [[ "$SEASON" == "summer" ]]; then
+  PS1+="\[$SOLAR_ORANGE\]\u\[$RESET\]"
+  PS1+="\[$BOLD\] in\[$RESET\]"
+  PS1+="\[$SOLAR_YELLOW\] \h\[$RESET\]"
+  PS1+="\[$BOLD\] at\[$RESET\]"
+  PS1+="\[$SOLAR_RED\] \w"
+  PS1+="\$(prompt_git)"
+  PS1+="\[$RESET\]"
+  PS1+="\n"
+  if [[ $(uname -s) == "Darwin" ]]; then
+    PS1+="🔥  "
+  else
+    PS1+="🌞  "
+  fi
 fi
 export PS1;
 
