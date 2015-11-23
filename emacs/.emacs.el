@@ -85,7 +85,7 @@ assume it's installed and `require' it."
 ;;
 (global-set-key "\C-x\C-b" 'ibuffer)
 (global-set-key "\C-co" 'browse-url-at-point)
-(global-set-key "\C-cp" 'get-pbpaste)
+(global-set-key "\C-cp" 'pbpaste)
 (global-set-key "\C-cr" 'shell-command-replace-region)
 ;;
 ;; bindings for custom functions defined below
@@ -301,10 +301,7 @@ assume it's installed and `require' it."
 (add-to-list 'auto-mode-alist '("\\.sass$" . scss-mode))
 ;;
 (require-package 'rainbow-mode)
-(add-hook 'scss-mode-hook 'scss-rainbow-hook)
-(defun scss-rainbow-hook ()
-  "Colorize color strings."
-  (rainbow-mode 1))
+(add-hook 'scss-mode-hook (lambda () (rainbow-mode 1)))
 
 ;;
 ;; Ruby
@@ -420,8 +417,8 @@ clipboard.  This function is only meant to be assigned to \
 (if (eq system-type 'darwin)
   (setq interprogram-cut-function 'pipe-to-pbcopy))
 
-(defun get-pbpaste ()
-  "Execute `pbpaste`."
+(defun pbpaste ()
+  "Insert the contents of the clipboard."
   (interactive)
   (insert (shell-command-to-string "pbpaste")))
 
