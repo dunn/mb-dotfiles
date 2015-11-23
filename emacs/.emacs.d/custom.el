@@ -19,7 +19,6 @@
  '(company-idle-delay 0.3)
  '(company-minimum-prefix-length 2)
  '(css-indent-offset 2)
- '(frame-background-mode nil)
  '(global-homebrew-mode t)
  '(gnutls-trustfiles (quote ("~Mail/cert/all.pem")))
  '(gnutls-verify-error t)

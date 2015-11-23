@@ -48,6 +48,16 @@ assume it's installed and `require' it."
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+;;
+;; Color scheme
+;;
+;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
+(add-to-list 'custom-theme-load-path (concat --homebrew-prefix "share/emacs/site-lisp/solarized-emacs"))
+
+(setq frame-background-mode 'dark)
+;; `t` is important: http://stackoverflow.com/a/8547861
+(load-theme 'solarized t)
+
 ;;;;;;;;;;;;;;;;
 ;; Keybindings
 ;;;;;;;;;;;;;;;;
@@ -83,7 +93,10 @@ assume it's installed and `require' it."
 (global-set-key "\C-cs" 'shruggie)
 (global-set-key "\C-cz" 'new-shell)
 (global-set-key "\C-xm" 'company-complete)
+(global-set-key "\C-c\C-l" '--solarized-light)
+(global-set-key "\C-c\C-d" '--solarized-dark)
 (define-key global-map "\M-Q" 'unfill-paragraph)
+
 ;;
 ;; I also accidentally set column instead of opening a file
 ;; https://www.gnu.org/software/emacs/manual/html_node/eintr/Keybindings.html#Keybindings
@@ -412,9 +425,6 @@ clipboard.  This function is only meant to be assigned to \
   (interactive)
   (insert (shell-command-to-string "pbpaste")))
 
-;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
-(add-to-list 'custom-theme-load-path (concat --homebrew-prefix "share/emacs/site-lisp/solarized-emacs"))
-
 (defun new-shell ()
   "Open a shell window.  If there are no other windows, \
 create one; otherwise use `other-window'."
@@ -424,24 +434,23 @@ create one; otherwise use `other-window'."
     (other-window 1))
   (shell))
 
-;; No, I don't know why the order needs to be different
-(if (eq system-type 'darwin)
-  (progn
-    ;; `t` is important: http://stackoverflow.com/a/8547861
-    (load-theme 'solarized t)
-    (setq solarized-termcolors 256)
-    (setq frame-background-mode 'light))
-  (progn
-    (setq solarized-termcolors 256)
-    (setq frame-background-mode 'light)
-    (load-theme 'solarized t)))
+(defun --solarized-light ()
+  "Switch to the light version of Solarized."
+  (interactive)
+  (setq frame-background-mode 'light)
+  (load-theme 'solarized t))
+
+(defun --solarized-dark ()
+  "Switch to the dark version of Solarized."
+  (interactive)
+  (setq frame-background-mode 'dark)
+  (load-theme 'solarized t))
 
 (defun fuck-you ()
-  "Because this just doesn't work in Debian Terminal."
+  "Because it won't work on init with Debian Terminal."
   (interactive)
   (setq solarized-termcolors 256)
   (setq frame-background-mode 'light)
-  ;; `t` is important: http://stackoverflow.com/a/8547861
   (load-theme 'solarized t))
 
 (defun shell-command-replace-region (start end command
