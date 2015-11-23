@@ -31,9 +31,7 @@
  '(magit-use-overlays nil)
  '(markdown-enable-math t)
  '(menu-bar-mode t)
-  '(package-selected-packages
-     (quote
-       (pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
+ '(package-selected-packages (quote (js-comint)))
  '(pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
  '(perl-indent-level 2)
  '(require-final-newline t)
