@@ -14,6 +14,7 @@ brew 'homebrew/emacs/elfeed'
 brew 'homebrew/emacs/elisp-slime-nav'
 brew 'homebrew/emacs/editorconfig-emacs', args: ['HEAD']
 brew 'homebrew/emacs/epl', args: ['HEAD']
+brew 'homebrew/emacs/exec-path-from-shell'
 brew 'homebrew/emacs/flycheck', args: ['with-package', 'with-cask']
 brew 'homebrew/emacs/fountain-mode'
 brew 'homebrew/emacs/gist-emacs'
@@ -26,7 +27,7 @@ brew 'homebrew/emacs/org-mode'
 brew 'homebrew/emacs/pdf-tools'
 brew 'homebrew/emacs/rainbow-mode'
 brew 'homebrew/emacs/robe', args: ['HEAD']
-brew 'homebrew/emacs/rubocop-emacs'
+brew 'homebrew/emacs/rubocop-emacs', ['HEAD']
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']
 brew 'homebrew/emacs/swiper', args: ['HEAD']

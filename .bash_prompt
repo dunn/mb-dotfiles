@@ -108,7 +108,7 @@ if [[ "$SEASON" == "winter" ]]; then
   PS1+="\[$RESET\]"
   PS1+="\n"
   if [[ $(uname -s) == "Darwin" ]]; then
-    PS1+="❄️  "
+    PS1+="🌲  "
   else
     PS1+="⛄  "
   fi
