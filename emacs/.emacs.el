@@ -144,7 +144,6 @@ assume it's installed and `require' it."
 ;;
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
-(setq magit-completing-read-function 'ivy-completing-read)
 ;;
 (require-package 'counsel)
 (global-set-key "\M-x" 'counsel-M-x)
