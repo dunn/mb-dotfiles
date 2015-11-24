@@ -242,11 +242,23 @@ assume it's installed and `require' it."
 (global-set-key (kbd "C-c w") 'elfeed)
 (load "~/.emacs.d/elfeeds.el")
 
+;;
+;; Email
+;;
+(require-package 'notmuch)
+(require 'notmuch-address)
+(notmuch-address-message-insinuate)
+(add-hook 'notmuch-message-mode-hook 'turn-on-auto-fill)
+(add-hook 'notmuch-message-mode-hook 'typo-mode)
+(global-set-key "\C-cm" (lambda () (interactive) (notmuch-search "tag:inbox")))
+(define-key notmuch-search-mode-map "F" '--notmuch-search-flag)
+(define-key notmuch-show-mode-map "F" '--notmuch-show-flag)
+
 ;;;;;;;;;;;;;;;;;;;
 ;; Language support
 ;;;;;;;;;;;;;;;;;;;
 ;;
-;; Plain text, Markdown, LaTeX, Org, Mail, Fountain
+;; Plain text, Markdown, LaTeX, Org, Fountain
 ;;
 ;; brew install markdown-mode --with-toc
 (require-package 'markdown-mode)
@@ -257,7 +269,6 @@ assume it's installed and `require' it."
 ;;
 (require-package 'typo)
 (add-hook 'markdown-mode-hook 'typo-mode)
-(add-hook 'mail-mode-hook 'typo-mode)
 ;; typo-mode turns backticks into single left quotes in Markdown, so
 ;; we need another way to quickly make code fences:
 (global-set-key "\C-c`" 'code-fence)
@@ -272,9 +283,6 @@ assume it's installed and `require' it."
 (require-package 'org)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-hook 'org-mode-hook 'turn-on-flyspell 'append)
-;;
-(add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
-(add-hook 'mail-mode-hook 'turn-on-auto-fill)
 ;;
 (require-package 'fountain-mode)
 (add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
@@ -318,8 +326,6 @@ assume it's installed and `require' it."
 (add-hook 'ruby-mode-hook 'robe-mode)
 (eval-after-load 'company
   '(push 'company-robe company-backends))
-;; to prevent mutt.rb from opening in mail-mode
-(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 ;;
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
@@ -366,6 +372,20 @@ assume it's installed and `require' it."
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
 ;;;;;;;;;;;;;;;
+
+(defun --notmuch-search-flag ()
+  "Toggle flag on message under point."
+  (interactive)
+  (if (member "flagged" (notmuch-search-get-tags))
+      (notmuch-search-tag '("-flagged"))
+    (notmuch-search-tag '("+flagged"))))
+;;
+(defun --notmuch-show-flag ()
+  "Toggle flag on message under point."
+  (interactive)
+  (if (member "flagged" (notmuch-show-get-tags))
+      (notmuch-show-tag '("-flagged"))
+    (notmuch-show-tag '("+flagged"))))
 
 ;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
 (defun unfill-paragraph ()
