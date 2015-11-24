@@ -3,21 +3,21 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-  '(ag-arguments
-     (quote
-       ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--hidden" "--")))
+ '(ag-arguments
+   (quote
+    ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--hidden" "--")))
  '(ag-highlight-search t)
  '(as-continuation-offset 2)
  '(as-indent-offset 2)
  '(beacon-size 30)
-  '(company-emoji-aliases
-     (quote
-       ((:man-woman-boy: . ":family:")
-         (:woman-kiss-man: . ":couplekiss:")
-         (:woman_man_holding_hands: . ":couple:")
-         (:woman-heart-man: . ":couple_with_heart:")
-         (:oop: . ":speak_no_evil:")
-         (:middle-finger: . ":reversed-hand-with-middle-finger-extended:"))))
+ '(company-emoji-aliases
+   (quote
+    ((:man-woman-boy: . ":family:")
+     (:woman-kiss-man: . ":couplekiss:")
+     (:woman_man_holding_hands: . ":couple:")
+     (:woman-heart-man: . ":couple_with_heart:")
+     (:oop: . ":speak_no_evil:")
+     (:middle-finger: . ":reversed-hand-with-middle-finger-extended:"))))
  '(company-emoji-insert-unicode t)
  '(company-idle-delay 0.3)
  '(company-minimum-prefix-length 2)
@@ -25,7 +25,7 @@
  '(css-indent-offset 2)
  '(global-homebrew-mode t)
  '(global-mark-ring-max 100)
- '(gnutls-trustfiles (quote ("~/Mail/cert/all.pem")))
+ '(gnutls-trustfiles (quote ("/etc/ssl/certs/system.pem")))
  '(gnutls-verify-error t)
  '(homebrew-default-args (quote ("-v" "-s" "--sandbox")))
  '(homebrew-poet-executable "/usr/local/bin/poet")
@@ -41,21 +41,21 @@
  '(message-sendmail-envelope-from (quote header))
  '(notmuch-address-command "~/bin/lbdbq_no_err")
  '(notmuch-search-oldest-first nil)
-  '(notmuch-tag-formats
-     (quote
-       (("unread"
-          (notmuch-apply-face tag
-            (quote
-              (:foreground "dark cyan"))))
-         ("flagged"
-           (notmuch-apply-face tag
-             (quote
-               (:foreground "dark red")))
-           (notmuch-tag-format-image-data tag
-             (notmuch-tag-star-icon))))))
-  '(package-selected-packages
-     (quote
-       (pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
+ '(notmuch-tag-formats
+   (quote
+    (("unread"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "dark cyan"))))
+     ("flagged"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "dark red")))
+      (notmuch-tag-format-image-data tag
+                                     (notmuch-tag-star-icon))))))
+ '(package-selected-packages
+   (quote
+    (pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
  '(pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
  '(perl-indent-level 2)
  '(require-final-newline t)
@@ -68,9 +68,9 @@
  '(standard-indent 2)
  '(tab-width 2)
  '(tls-checktrust t)
-  '(tls-program
-     (quote
-       ("gnutls-cli --x509cafile ~/Mail/cert/all.pem -p %p %h")))
+ '(tls-program
+   (quote
+    ("gnutls-cli --x509cafile /etc/ssl/certs/system.pem -p %p %h")))
  '(tramp-connection-timeout 10)
  '(tramp-verbose 6)
  '(web-mode-attr-indent-offset 2)
