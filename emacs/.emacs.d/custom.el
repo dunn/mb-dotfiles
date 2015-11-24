@@ -32,9 +32,21 @@
  '(menu-bar-mode t)
  '(notmuch-address-command "~/bin/lbdbq_no_err")
  '(notmuch-search-oldest-first nil)
- '(package-selected-packages
-   (quote
-    (pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
+  '(notmuch-tag-formats
+     (quote
+       (("unread"
+          (notmuch-apply-face tag
+            (quote
+              (:foreground "dark cyan"))))
+         ("flagged"
+           (notmuch-apply-face tag
+             (quote
+               (:foreground "dark red")))
+           (notmuch-tag-format-image-data tag
+             (notmuch-tag-star-icon))))))
+  '(package-selected-packages
+     (quote
+       (pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
  '(pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
  '(perl-indent-level 2)
  '(require-final-newline t)
@@ -67,4 +79,5 @@
  '(js2-instance-member ((t (:foreground "#d33682"))))
  '(js2-jsdoc-html-tag-delimiter ((t (:foreground "#859900"))))
  '(js2-jsdoc-html-tag-name ((t (:foreground "#b58900"))))
+ '(notmuch-crypto-part-header ((t (:foreground "DodgerBlue1"))))
  '(web-mode-symbol-face ((t (:foreground "#d33682")))))

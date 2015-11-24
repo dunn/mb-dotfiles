@@ -28,6 +28,7 @@ Thumbs.db
 .mutt/gmail
 .mutt/umail
 .msmtprc
+.notmuch-config
 bin/node/sandbox
 bin/node/node_modules
 bin/node/secrets.js

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+/usr/local/bin/getmail --rcfile=gmailrc
+
+# https://notmuchmail.org/initial_tagging/
+notmuch new
+
+notmuch tag -new +sent -- tag:new and from:dunn.alex@gmail.com
+notmuch tag +emacs-devel -- tag:new and to:emacs-devel@gnu.org
+
+# retag all "new" messages "inbox" and "unread"
+notmuch tag +inbox +unread -new -- tag:new

@@ -250,9 +250,12 @@ assume it's installed and `require' it."
 (notmuch-address-message-insinuate)
 (add-hook 'notmuch-message-mode-hook 'turn-on-auto-fill)
 (add-hook 'notmuch-message-mode-hook 'typo-mode)
-(global-set-key "\C-cm" (lambda () (interactive) (notmuch-search "tag:inbox")))
+(global-set-key "\C-cn" 'notmuch)
+(global-set-key "\C-cm" (lambda () (interactive) (notmuch-search "tag:unread")))
 (define-key notmuch-search-mode-map "F" '--notmuch-search-flag)
 (define-key notmuch-show-mode-map "F" '--notmuch-show-flag)
+(define-key notmuch-search-mode-map "U" '--notmuch-search-read)
+(define-key notmuch-show-mode-map "U" '--notmuch-show-read)
 
 ;;;;;;;;;;;;;;;;;;;
 ;; Language support
@@ -373,6 +376,7 @@ assume it's installed and `require' it."
 ;; FUNCTIONS
 ;;;;;;;;;;;;;;;
 
+;; https://notmuchmail.org/emacstips/#index5h2
 (defun --notmuch-search-flag ()
   "Toggle flag on message under point."
   (interactive)
@@ -386,6 +390,20 @@ assume it's installed and `require' it."
   (if (member "flagged" (notmuch-show-get-tags))
       (notmuch-show-tag '("-flagged"))
     (notmuch-show-tag '("+flagged"))))
+;;
+(defun --notmuch-search-read (&optional beg end)
+  "Toggle read status of message(s) from BEG to END."
+  (interactive (notmuch-search-interactive-region))
+  (if (member "unread" (notmuch-search-get-tags))
+      (notmuch-search-tag '("-unread") beg end)
+    (notmuch-search-tag '("+unread") beg end)))
+;;
+(defun --notmuch-show-read (&optional beg end)
+  "Toggle flag on message(s) from BEG to END."
+  (interactive (notmuch-search-interactive-region))
+  (if (member "unread" (notmuch-show-get-tags))
+      (notmuch-show-tag '("-unread") beg end)
+    (notmuch-show-tag '("+unread") beg end)))
 
 ;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
 (defun unfill-paragraph ()
