@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-/usr/local/bin/getmail --rcfile=gmailrc
+/usr/local/bin/getmail
 
 # https://notmuchmail.org/initial_tagging/
 notmuch new
