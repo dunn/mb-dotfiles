@@ -37,6 +37,8 @@
  '(mark-ring-max 100)
  '(markdown-enable-math t)
  '(menu-bar-mode t)
+ '(message-send-mail-function (quote message-send-mail-with-sendmail))
+ '(message-sendmail-envelope-from (quote header))
  '(notmuch-address-command "~/bin/lbdbq_no_err")
  '(notmuch-search-oldest-first nil)
   '(notmuch-tag-formats
@@ -60,6 +62,7 @@
  '(robe-completing-read-func (quote ivy-completing-read))
  '(scss-compile-at-save nil)
  '(send-mail-function (quote sendmail-send-it))
+ '(sendmail-program "/usr/local/bin/msmtp")
  '(sh-indentation 2)
  '(show-trailing-whitespace t)
  '(standard-indent 2)
