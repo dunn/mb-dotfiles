@@ -48,11 +48,12 @@
                           (quote
                            (:foreground "dark cyan"))))
      ("flagged"
+      (notmuch-tag-format-image-data tag
+                                     (notmuch-tag-star-icon)))
+     ("pay"
       (notmuch-apply-face tag
                           (quote
-                           (:foreground "dark red")))
-      (notmuch-tag-format-image-data tag
-                                     (notmuch-tag-star-icon))))))
+                           (:foreground "light green")))))))
  '(package-selected-packages
    (quote
     (pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
