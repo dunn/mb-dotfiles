@@ -237,7 +237,6 @@ assume it's installed and `require' it."
 ;; RSS
 ;;
 (require-package 'elfeed)
-(setf url-queue-timeout 10)
 (global-set-key (kbd "C-c w") 'elfeed)
 (load "~/.emacs.d/elfeeds.el")
 
