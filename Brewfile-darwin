@@ -13,7 +13,7 @@ brew 'homebrew/emacs/company-mode', args: ['with-emoji', 'HEAD']
 brew 'homebrew/emacs/diff-hl'
 brew 'homebrew/emacs/elfeed'
 brew 'homebrew/emacs/elisp-slime-nav'
-brew 'homebrew/emacs/editorconfig-emacs', args: ['HEAD']
+brew 'homebrew/emacs/editorconfig-emacs'
 brew 'homebrew/emacs/epl', args: ['HEAD']
 brew 'homebrew/emacs/exec-path-from-shell'
 brew 'homebrew/emacs/flycheck', args: ['with-package', 'with-cask']
@@ -27,8 +27,8 @@ brew 'homebrew/emacs/nlinum'
 brew 'homebrew/emacs/org-mode'
 brew 'homebrew/emacs/pdf-tools'
 brew 'homebrew/emacs/rainbow-mode'
-brew 'homebrew/emacs/robe', args: ['HEAD']
-brew 'homebrew/emacs/rubocop-emacs', args: ['HEAD']
+brew 'homebrew/emacs/robe'
+brew 'homebrew/emacs/rubocop-emacs'
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']
 brew 'homebrew/emacs/swiper', args: ['HEAD']
