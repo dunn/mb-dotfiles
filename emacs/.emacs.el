@@ -382,7 +382,8 @@ assume it's installed and `require' it."
   (interactive)
   (if (member "flagged" (notmuch-search-get-tags))
       (notmuch-search-tag '("-flagged"))
-    (notmuch-search-tag '("+flagged"))))
+    (notmuch-search-tag '("+flagged")))
+  (notmuch-search-next-thread))
 ;;
 (defun --notmuch-show-flag ()
   "Toggle flag on message under point."
@@ -396,7 +397,8 @@ assume it's installed and `require' it."
   (interactive (notmuch-search-interactive-region))
   (if (member "unread" (notmuch-search-get-tags))
       (notmuch-search-tag '("-unread") beg end)
-    (notmuch-search-tag '("+unread") beg end)))
+    (notmuch-search-tag '("+unread") beg end))
+  (notmuch-search-next-thread))
 ;;
 (defun --notmuch-show-read (&optional beg end)
   "Toggle flag on message(s) from BEG to END."
@@ -414,7 +416,9 @@ assume it's installed and `require' it."
       (notmuch-search-tag '("-spam") beg end))
     (progn
       (notmuch-search-tag '("+spam") beg end)
-      (notmuch-search-tag '("-inbox") beg end))))
+      (notmuch-search-tag '("-unread") beg end)
+      (notmuch-search-tag '("-inbox") beg end)))
+  (notmuch-search-next-thread))
 ;;
 (defun --notmuch-show-spam (&optional beg end)
   "Toggle flag on message(s) from BEG to END."
@@ -425,6 +429,7 @@ assume it's installed and `require' it."
       (notmuch-search-tag '("-spam") beg end))
     (progn
       (notmuch-search-tag '("+spam") beg end)
+      (notmuch-search-tag '("-unread") beg end)
       (notmuch-search-tag '("-inbox") beg end))))
 
 ;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
