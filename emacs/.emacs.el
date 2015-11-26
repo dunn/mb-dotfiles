@@ -254,6 +254,8 @@ assume it's installed and `require' it."
 (define-key notmuch-show-mode-map "F" '--notmuch-show-flag)
 (define-key notmuch-search-mode-map "U" '--notmuch-search-read)
 (define-key notmuch-show-mode-map "U" '--notmuch-show-read)
+(define-key notmuch-search-mode-map "S" '--notmuch-search-spam)
+(define-key notmuch-show-mode-map "S" '--notmuch-show-spam)
 
 ;;;;;;;;;;;;;;;;;;;
 ;; Language support
@@ -402,6 +404,28 @@ assume it's installed and `require' it."
   (if (member "unread" (notmuch-show-get-tags))
       (notmuch-show-tag '("-unread") beg end)
     (notmuch-show-tag '("+unread") beg end)))
+;;
+(defun --notmuch-search-spam (&optional beg end)
+  "Toggle read status of message(s) from BEG to END."
+  (interactive (notmuch-search-interactive-region))
+  (if (member "spam" (notmuch-search-get-tags))
+    (progn
+      (notmuch-search-tag '("+inbox") beg end)
+      (notmuch-search-tag '("-spam") beg end))
+    (progn
+      (notmuch-search-tag '("+spam") beg end)
+      (notmuch-search-tag '("-inbox") beg end))))
+;;
+(defun --notmuch-show-spam (&optional beg end)
+  "Toggle flag on message(s) from BEG to END."
+  (interactive (notmuch-search-interactive-region))
+  (if (member "spam" (notmuch-show-get-tags))
+    (progn
+      (notmuch-search-tag '("+inbox") beg end)
+      (notmuch-search-tag '("-spam") beg end))
+    (progn
+      (notmuch-search-tag '("+spam") beg end)
+      (notmuch-search-tag '("-inbox") beg end))))
 
 ;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
 (defun unfill-paragraph ()
