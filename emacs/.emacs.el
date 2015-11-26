@@ -462,13 +462,15 @@ clipboard.  This function is only meant to be assigned to \
   (insert (shell-command-to-string "pbpaste")))
 
 (defun new-shell ()
-  "Open a shell window.  If there are no other windows, \
-create one; otherwise use `other-window'."
+  "Open a shell window in the directory of the buffered file.
+If there are no other windows, create one; otherwise use `other-window'."
   (interactive)
-  (if (= 1 (length (window-list)))
+  (let ((bufname (or (ibuffer-buffer-file-name) "~/")))
+    (if (= 1 (length (window-list)))
       (select-window (split-window-sensibly))
-    (other-window 1))
-  (shell))
+      (other-window 1))
+    (let ((default-directory (file-name-directory bufname)))
+      (shell))))
 
 (defun --solarized-light ()
   "Switch to the light version of Solarized."
