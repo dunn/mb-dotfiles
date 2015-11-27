@@ -355,9 +355,10 @@ assume it's installed and `require' it."
   (add-hook hook 'elisp-slime-nav-mode))
 
 ;;
-;; Make
+;; Make, CMake
 ;;
 (add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
+(require-package 'cmake-mode)
 
 ;;
 ;; YAML
@@ -490,6 +491,7 @@ clipboard.  This function is only meant to be assigned to \
   (interactive)
   (insert (shell-command-to-string "pbpaste")))
 
+(require 'ibuffer)
 (defun new-shell ()
   "Open a shell window in the directory of the buffered file.
 If there are no other windows, create one; otherwise use `other-window'."
