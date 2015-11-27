@@ -74,9 +74,11 @@ assume it's installed and `require' it."
 ;;
 ;; Mimic my tmux bindings, sort of
 (define-key key-translation-map "\C-j" "\C-x")
-(global-set-key "\M-o" 'other-window)
 (global-set-key "\C-xj" 'other-window)
 (global-set-key "\C-x;" 'other-window)
+;;
+(global-set-key "\M-o" 'other-window)
+(global-set-key "\C-xo" (lambda () (interactive) (switch-to-buffer (other-buffer))))
 ;;
 (global-set-key "\C-x\C-a" 'mark-whole-buffer)
 (global-unset-key "\C-xh")
