@@ -74,6 +74,7 @@
        ("gnutls-cli --x509cafile /etc/ssl/certs/system.pem -p %p %h")))
  '(tramp-connection-timeout 10)
  '(tramp-verbose 6)
+ '(typo-language "English")
  '(url-queue-timeout 10)
  '(web-mode-attr-indent-offset 2)
  '(web-mode-code-indent-offset 2)
