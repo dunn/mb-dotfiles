@@ -85,7 +85,7 @@
 
   # Remove branches that have already been merged with master
   # a.k.a. ‘delete merged’
-  dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  dm = "!git branch --merged | grep -v 'master' | grep -v '\\*' | xargs -n 1 git branch -d"
 
   # to use instead of stash
   # see https://codingkilledthecat.wordpress.com/2012/04/27/git-stash-pop-considered-harmful/
