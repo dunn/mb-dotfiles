@@ -143,10 +143,6 @@ assume it's installed and `require' it."
 (global-set-key "\C-s" 'swiper)
 (global-set-key "\C-r" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
-;;
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-;;
 (require-package 'counsel)
 (global-set-key "\M-x" 'counsel-M-x)
 (global-set-key "\C-cl" 'counsel-locate)

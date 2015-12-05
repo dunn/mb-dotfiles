@@ -33,6 +33,8 @@
  '(homebrew-default-args (quote ("-v" "-s" "--sandbox")))
  '(homebrew-poet-executable "/usr/local/bin/poet")
  '(indent-tabs-mode nil)
+ '(ivy-mode t)
+ '(ivy-use-virtual-buffers t)
  '(js-indent-level 2)
  '(js2-basic-offset 2)
  '(magit-completing-read-function (quote ivy-completing-read))
