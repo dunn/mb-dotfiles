@@ -153,6 +153,7 @@ assume it's installed and `require' it."
 ;;
 (require-package 'ag)
 (global-set-key "\C-cf" 'ag)
+(global-set-key "\C-c\C-f" 'ag-regexp)
 ;;
 (require-package 'diff-hl)
 (global-diff-hl-mode)
