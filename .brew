@@ -32,11 +32,13 @@ dshm() {
 
 brewp() {
   for f in "$@"; do
-    f="$(echo $f | sed 's: (installed)::g')"
-    brew home "$f" && \
-      brew info --github "$f" && \
-      # strip out tap prefixes
-      brew search --debian "$(echo "$f" | sed 's:.*/\([^/]*\)$:\1:')"
+    f="$(echo $f | sed 's:(installed)::g')"
+    if [ "$f" != "" ]; then
+      brew home "$f" && \
+        brew info --github "$f" && \
+        # strip out tap prefixes
+        brew search --debian "$(echo "$f" | sed 's:.*/\([^/]*\)$:\1:')"
+    fi
   done
 }
 alias brwep="brewp"
