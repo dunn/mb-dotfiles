@@ -102,12 +102,6 @@ assume it's installed and `require' it."
 (global-set-key "\C-c\C-d" '--solarized-dark)
 (define-key global-map "\M-Q" 'unfill-paragraph)
 
-;;
-;; I also accidentally set column instead of opening a file
-;; https://www.gnu.org/software/emacs/manual/html_node/eintr/Keybindings.html#Keybindings
-(global-unset-key "\C-xf")
-(define-key key-translation-map "\C-xf" "\C-x\C-f")
-
 ;;;;;;;;;;;;;;;;;;;
 ;; General settings
 ;;;;;;;;;;;;;;;;;;;
@@ -143,8 +137,11 @@ assume it's installed and `require' it."
 (global-set-key "\C-s" 'swiper)
 (global-set-key "\C-r" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
+;;
 (require-package 'counsel)
 (global-set-key "\M-x" 'counsel-M-x)
+(global-set-key (kbd "C-x f") 'counsel-find-file)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key "\C-cl" 'counsel-locate)
 ;;
 (require-package 'ag)
