@@ -12,6 +12,7 @@ alias using="brew uses --installed --recursive"
 alias bua="brew upgrade --all"
 alias homebrew='cd $(brew --prefix)/Library'
 alias binfo="brew info --github"
+alias broo="HOMEBREW_CACHE=~/.homebrew/cache ~/.homebrew/homebrew/bin/brew"
 
 bcd() {
   cd "$(brew --prefix "$1")" || exit

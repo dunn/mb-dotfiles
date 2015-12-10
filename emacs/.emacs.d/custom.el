@@ -3,23 +3,23 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ag-arguments
-   (quote
-    ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--hidden" "--")))
+  '(ag-arguments
+     (quote
+       ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--hidden" "--")))
  '(ag-highlight-search t)
  '(ag-ignore-list (quote (".git")))
  '(as-continuation-offset 2)
  '(as-indent-offset 2)
  '(async-bytecomp-package-mode t)
  '(beacon-size 30)
- '(company-emoji-aliases
-   (quote
-    ((:man-woman-boy: . ":family:")
-     (:woman-kiss-man: . ":couplekiss:")
-     (:woman_man_holding_hands: . ":couple:")
-     (:woman-heart-man: . ":couple_with_heart:")
-     (:oop: . ":speak_no_evil:")
-     (:middle-finger: . ":reversed-hand-with-middle-finger-extended:"))))
+  '(company-emoji-aliases
+     (quote
+       ((:man-woman-boy: . ":family:")
+         (:woman-kiss-man: . ":couplekiss:")
+         (:woman_man_holding_hands: . ":couple:")
+         (:woman-heart-man: . ":couple_with_heart:")
+         (:oop: . ":speak_no_evil:")
+         (:middle-finger: . ":reversed-hand-with-middle-finger-extended:"))))
  '(company-emoji-insert-unicode t)
  '(company-idle-delay 0.3)
  '(company-minimum-prefix-length 2)
