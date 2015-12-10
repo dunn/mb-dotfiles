@@ -24,14 +24,17 @@
 ;;
 ;; Package manager
 ;;
-(if --melpa
+(let (lispdir)
+  (if --melpa
     (progn
       (require 'package)
       (package-initialize)
       (add-to-list 'package-archives
-                   '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-      (package-refresh-contents))
-  (let ((default-directory (concat --homebrew-prefix "share/emacs/site-lisp/")))
+        '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+      (package-refresh-contents)
+      (setq lispdir "~/.emacs.d/elpa/"))
+    (setq lispdir (concat --homebrew-prefix "share/emacs/site-lisp/")))
+  (let ((default-directory lispdir))
     (normal-top-level-add-subdirs-to-load-path)))
 ;;
 (defun require-package (package)
@@ -47,7 +50,6 @@ assume it's installed and `require' it."
 ;;
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
-
 ;;
 ;; Color scheme
 ;;

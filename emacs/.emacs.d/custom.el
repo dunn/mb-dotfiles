@@ -42,29 +42,31 @@
  '(mark-ring-max 100)
  '(markdown-enable-math t)
  '(menu-bar-mode t)
- '(message-hidden-headers
-   (quote
-    ("^User-Agent:" "^References:" "^Face:" "^X-Face:" "^X-Draft-From:")))
+  '(message-hidden-headers
+     (quote
+       ("^User-Agent:" "^References:" "^Face:" "^X-Face:" "^X-Draft-From:")))
  '(message-send-mail-function (quote message-send-mail-with-sendmail))
  '(message-sendmail-envelope-from (quote header))
  '(notmuch-address-command "~/bin/lbdbq_no_err")
  '(notmuch-search-oldest-first nil)
- '(notmuch-tag-formats
-   (quote
-    (("unread"
-      (notmuch-apply-face tag
-                          (quote
-                           (:foreground "dark cyan"))))
-     ("flagged"
-      (notmuch-tag-format-image-data tag
-                                     (notmuch-tag-star-icon)))
-     ("pay"
-      (notmuch-apply-face tag
-                          (quote
-                           (:foreground "light green")))))))
- '(package-selected-packages
-   (quote
-    (pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
+  '(notmuch-tag-formats
+     (quote
+       (("unread"
+          (notmuch-apply-face tag
+            (quote
+              (:foreground "dark cyan"))))
+         ("flagged"
+           (notmuch-tag-format-image-data tag
+             (notmuch-tag-star-icon)))
+         ("pay"
+           (notmuch-apply-face tag
+             (quote
+               (:foreground "light green")))))))
+ '(package-directory-list nil)
+  '(package-selected-packages
+     (quote
+       (cmake-mode notmuch pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
+ '(package-user-dir "")
  '(pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
  '(perl-indent-level 2)
  '(require-final-newline t)
