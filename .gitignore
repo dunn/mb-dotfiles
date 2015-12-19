@@ -40,6 +40,7 @@ emacs/.emacs.d/.circe
 emacs/.emacs.d/ac-comphist.dat
 emacs/.emacs.d/elfeeds.el
 emacs/.emacs.d/elpa/
+emacs/.emacs.d/erc.el
 emacs/.emacs.d/eshell
 emacs/.emacs.d/games/
 emacs/.emacs.d/ido.last

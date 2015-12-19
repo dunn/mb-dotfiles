@@ -239,6 +239,13 @@ assume it's installed and `require' it."
 (load "~/.emacs.d/elfeeds.el")
 
 ;;
+;; IRC
+;;
+(require 'erc)
+(require 'erc-services)
+(load "~/.emacs.d/erc.el")
+
+;;
 ;; Email
 ;;
 (require-package 'notmuch)
