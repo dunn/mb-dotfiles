@@ -108,10 +108,8 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 alias dater='date "+%Y-%m-%d"'
 alias now='date "+%Y-%m-%d-%H%M%S"'
 
-# brew install newsbeuter
-alias nb='newsbeuter'
 # brew install youtube-dl
-alias yt='youtube-dl -i'
+alias yt='youtube-dl -i --write-sub'
 # brew install surfraw
 alias ddg='sr duckduckgo -j'
 
