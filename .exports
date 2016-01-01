@@ -59,12 +59,9 @@ export RUBYOPT=rubygems
 if [[ $(uname -s) == "Darwin" ]]; then
   # EMAIL
   # ====
-  export MAILCONF="$HOME/.mutt/"
   export MAIL="$HOME/Mail/"
   GPG_TTY=$(tty)
   export GPG_TTY
-  # http://archlinux.2023198.n4.nabble.com/mutt-and-gnupg-td4702501.html
-  export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent"
 
   # JAVA
   # ====
