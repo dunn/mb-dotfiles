@@ -68,7 +68,7 @@ if [[ $(uname -s) == "Darwin" ]]; then
 
   # JAVA
   # ====
-  export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home
+  export JAVA_HOME=$(/usr/libexec/java_home)
 
   # TeX
   # ===
