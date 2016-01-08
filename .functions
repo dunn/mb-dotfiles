@@ -151,6 +151,10 @@ rb() {
   fi
 }
 
+gam() {
+  curl -sL "$1.patch" | git am
+}
+
 grev() {
   git status > /dev/null 2>&1
   repocheck="$?"
