@@ -103,6 +103,7 @@
  '(scss-compile-at-save nil)
  '(send-mail-function (quote sendmail-send-it))
  '(sendmail-program "/usr/local/bin/msmtp")
+ '(sh-basic-offset 2)
  '(sh-indentation 2)
  '(show-trailing-whitespace t)
  '(standard-indent 2)
