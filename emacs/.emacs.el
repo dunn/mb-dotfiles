@@ -332,6 +332,9 @@ assume it's installed and `require' it."
 ;;
 (require-package 'robe)
 (add-hook 'ruby-mode-hook 'robe-mode)
+(add-hook 'web-mode-hook (lambda ()
+                            (when (string-match "\\.erb$" buffer-file-name)
+                              (robe-mode))))
 (eval-after-load 'company
   '(push 'company-robe company-backends))
 ;;
