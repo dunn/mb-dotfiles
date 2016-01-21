@@ -139,6 +139,7 @@ assume it's installed and `require' it."
 (global-set-key "\C-s" 'swiper)
 (global-set-key "\C-r" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
+(put 'ivy-done 'disabled nil)
 ;;
 (require-package 'counsel)
 (global-set-key "\M-x" 'counsel-M-x)
