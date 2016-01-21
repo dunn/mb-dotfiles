@@ -91,7 +91,7 @@
       (notmuch-apply-face tag
                           (quote
                            (:foreground "light green")))))))
- '(notmuch-wash-wrap-lines-length 70)
+ '(notmuch-wash-wrap-lines-length 80)
  '(package-directory-list nil)
  '(package-selected-packages
    (quote
