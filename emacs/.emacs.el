@@ -147,6 +147,9 @@ assume it's installed and `require' it."
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key "\C-cl" 'counsel-locate)
 ;;
+(require-package 'neotree)
+(global-set-key "\M-n" 'neotree-toggle)
+;;
 (require-package 'ag)
 (global-set-key "\C-cf" 'ag)
 (global-set-key "\C-c\C-f" 'ag-regexp)
