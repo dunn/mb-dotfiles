@@ -325,6 +325,8 @@ assume it's installed and `require' it."
 ;;
 (require-package 'rainbow-mode)
 (add-hook 'scss-mode-hook (lambda () (rainbow-mode 1)))
+;;
+(require-package 'htmlize)
 
 ;;
 ;; Ruby

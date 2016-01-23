@@ -20,6 +20,7 @@ brew 'homebrew/emacs/flycheck', args: ['with-package', 'with-cask']
 brew 'homebrew/emacs/fountain-mode'
 brew 'homebrew/emacs/gist-emacs'
 brew 'homebrew/emacs/git-modes'
+brew 'homebrew/emacs/htmlize'
 brew 'homebrew/emacs/js2-mode'
 brew 'homebrew/emacs/magit'
 brew 'homebrew/emacs/markdown-mode', args: ['with-toc', 'HEAD']
