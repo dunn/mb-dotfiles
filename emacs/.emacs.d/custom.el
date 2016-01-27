@@ -26,9 +26,7 @@
  '(counsel-find-file-at-point t)
  '(css-indent-offset 2)
  '(current-language-environment "UTF-8")
- '(erc-autojoin-channels-alist
-   (quote
-    (("freenode.net" "#machomebrew" "#ansible" "#projecthydra"))))
+ '(erc-autojoin-channels-alist (quote (("freenode.net" "#machomebrew" "#ansible"))))
  '(erc-autojoin-mode t)
  '(erc-button-mode t)
  '(erc-fill-mode t)
