@@ -156,6 +156,7 @@ assume it's installed and `require' it."
 ;;
 (require-package 'diff-hl)
 (global-diff-hl-mode)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t)
 ;;
 (require-package 'beacon)
 (beacon-mode 1)
