@@ -147,12 +147,16 @@ assume it's installed and `require' it."
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key "\C-cl" 'counsel-locate)
 ;;
+(require-package 'neotree)
+(global-set-key "\M-n" 'neotree-toggle)
+;;
 (require-package 'ag)
 (global-set-key "\C-cf" 'ag)
 (global-set-key "\C-c\C-f" 'ag-regexp)
 ;;
 (require-package 'diff-hl)
 (global-diff-hl-mode)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t)
 ;;
 (require-package 'beacon)
 (beacon-mode 1)
@@ -322,6 +326,8 @@ assume it's installed and `require' it."
 ;;
 (require-package 'rainbow-mode)
 (add-hook 'scss-mode-hook (lambda () (rainbow-mode 1)))
+;;
+(require-package 'htmlize)
 
 ;;
 ;; Ruby
