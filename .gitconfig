@@ -16,6 +16,10 @@
   # an error
   whitespace = space-before-tab,trailing-space
 
+# https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
+[transfer]
+  fsckobjects = true
+
 [apply]
   # Detect whitespace errors when applying a patch
   whitespace = fix
