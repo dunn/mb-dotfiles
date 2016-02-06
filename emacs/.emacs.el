@@ -224,6 +224,7 @@ assume it's installed and `require' it."
     (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
     (setq magit-last-seen-setup-instructions "1.4.0")))
 ;;
+(global-set-key "\C-cc" 'vc-resolve-conflicts)
 (require-package 'gitattributes-mode)
 (require-package 'gitconfig-mode)
 (require-package 'gitignore-mode)
