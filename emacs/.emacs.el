@@ -300,6 +300,7 @@ assume it's installed and `require' it."
 ;;
 (require-package 'fountain-mode)
 (add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
+(add-hook 'fountain-mode-hook 'typo-mode)
 
 ;;
 ;; HTML, CSS/SASS, JS
