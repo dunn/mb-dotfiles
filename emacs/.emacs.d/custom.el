@@ -111,7 +111,8 @@
  '(tls-program
    (quote
     ("gnutls-cli --x509cafile /etc/ssl/certs/system.pem -p %p %h")))
- '(tramp-connection-timeout 10)
+ '(tramp-connection-timeout 5)
+ '(tramp-use-ssh-controlmaster-options nil)
  '(tramp-verbose 6)
  '(typo-language "English")
  '(url-queue-timeout 10)
