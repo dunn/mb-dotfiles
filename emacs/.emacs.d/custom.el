@@ -53,6 +53,10 @@
  '(erc-stamp-mode t)
  '(erc-track-minor-mode t)
  '(erc-track-mode t)
+ '(fountain-export-title-page-title-template "${title}
+${credit}
+${author}
+${source}")
  '(global-homebrew-mode t)
  '(global-mark-ring-max 100)
  '(gnutls-trustfiles (quote ("/etc/ssl/certs/system.pem")))
