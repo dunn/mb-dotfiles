@@ -378,6 +378,29 @@ assume it's installed and `require' it."
 (global-set-key "\C-ci" 'edebug-eval-top-level-form)
 
 ;;
+;; C
+;;
+;; See https://github.com/Sarcasm/irony-mode#configuration
+(defun --irony-mode-remap ()
+  "Replace the `completion-at-point' and `complete-symbol' bindings \
+in irony-mode's buffers by irony-mode's function"
+  (define-key irony-mode-map [remap completion-at-point]
+    'irony-completion-at-point-async)
+  (define-key irony-mode-map [remap complete-symbol]
+    'irony-completion-at-point-async))
+
+(unless --melpa
+  (progn
+    (require 'irony-cdb-libclang)
+    (require 'irony-completion)
+    (require 'irony-diagnostics)
+    (add-hook 'c++-mode-hook 'irony-mode)
+    (add-hook 'c-mode-hook 'irony-mode)
+    (add-hook 'objc-mode-hook 'irony-mode)
+
+    (add-hook 'irony-mode-hook '--irony-mode-remap)
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)))
+;;
 ;; Make, CMake
 ;;
 (add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
