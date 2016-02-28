@@ -120,13 +120,6 @@ sudo defaults write /Library/Preferences/com.apple.driver.AppleIRController Devi
 #sudo launchctl load /System/Library/LaunchDaemons/com.apple.blued.plist
 
 ###############################################################################
-# SSD-specific tweaks                                                         #
-###############################################################################
-
-# Disable local Time Machine snapshots
-sudo tmutil disablelocal
-
-###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
