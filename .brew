@@ -4,15 +4,16 @@ export HOMEBREW_VERBOSE=1
 export HOMEBREW_DEVELOPER=1
 export HOMEBREW_INSTALL_BADGE="☕️ 🐸"
 
-alias brwe="brew"
 alias audt="brew audit --strict --online"
-alias btest="brew test -v --sandbox"
-alias style="brew style --fix"
-alias using="brew uses --installed --recursive"
-alias bua="brew upgrade --all"
-alias homebrew='cd $(brew --prefix)/Library'
 alias binfo="brew info --github"
 alias broo="HOMEBREW_CACHE=~/.homebrew/cache ~/.homebrew/homebrew/bin/brew"
+alias brwe="brew"
+alias btest="brew test -v --sandbox"
+alias bu="brew update"
+alias bua="brew upgrade"
+alias homebrew='cd $(brew --prefix)/Library'
+alias style="brew style --fix"
+alias using="brew uses --installed --recursive"
 
 bcd() {
   cd "$(brew --prefix "$1")" || exit
@@ -50,15 +51,8 @@ bo() {
   done
 }
 
-bug() {
-  brew update
-  echo "$(tput setaf 64)--- OUTDATED: ---$(tput sgr0)"
-  brew outdated
-}
-
 bi() {
   brew remove "$1"
-  brew install --only-dependencies "$1"
   brew install --verbose --build-from-source "$@"
 }
 
