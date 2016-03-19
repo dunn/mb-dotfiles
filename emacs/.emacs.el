@@ -93,11 +93,11 @@ assume it's installed and `require' it."
 (global-set-key "\C-x\C-b" 'ibuffer)
 (global-set-key "\C-co" 'browse-url-at-point)
 (global-set-key "\C-cp" 'pbpaste)
-(global-set-key "\C-cr" 'shell-command-replace-region)
+(global-set-key "\C-cs" 'shell-command-replace-region)
 ;;
 ;; bindings for custom functions defined below
 (global-set-key "\C-ck" 'insert-kbd)
-(global-set-key "\C-cs" 'shruggie)
+(global-set-key "\C-cy" 'shruggie)
 (global-set-key "\C-cz" 'new-shell)
 (global-set-key "\C-xm" 'company-complete)
 (global-set-key "\C-c\C-l" '--solarized-light)
@@ -224,7 +224,7 @@ assume it's installed and `require' it."
     (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
     (setq magit-last-seen-setup-instructions "1.4.0")))
 ;;
-(global-set-key "\C-cc" 'vc-resolve-conflicts)
+(global-set-key "\C-cr" 'vc-resolve-conflicts)
 (require-package 'gitattributes-mode)
 (require-package 'gitconfig-mode)
 (require-package 'gitignore-mode)
@@ -380,6 +380,7 @@ assume it's installed and `require' it."
 ;;
 ;; C
 ;;
+(global-set-key "\C-cc" 'compile)
 ;; See https://github.com/Sarcasm/irony-mode#configuration
 (defun --irony-mode-remap ()
   "Replace the `completion-at-point' and `complete-symbol' bindings \
