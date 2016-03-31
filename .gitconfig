@@ -28,6 +28,7 @@
   protocol = https
 
 [merge]
+  conflictStyle = diff3
   # Include summaries of merged commits in newly created merge commit
   # messages
   log = true
