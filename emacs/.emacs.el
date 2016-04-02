@@ -170,8 +170,7 @@ assume it's installed and `require' it."
 (require-package 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 ;;
-(if (eq system-type 'darwin)
-  (add-to-list 'load-path "~/Dropbox/projects/lisp/emoji"))
+(add-to-list 'load-path "~/Dropbox/projects/lisp/emoji")
 (require-package 'company-emoji)
 (add-to-list 'company-backends 'company-emoji)
 ;;
@@ -274,9 +273,8 @@ assume it's installed and `require' it."
 ;;
 ;; Plain text, Markdown, LaTeX, Org, Fountain
 ;;
-;; brew install markdown-mode --with-toc
+;; brew install markdown-mode
 (require-package 'markdown-mode)
-(require-package 'markdown-toc)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.mdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
@@ -342,7 +340,7 @@ assume it's installed and `require' it."
 ;;
 (unless --melpa
   (progn
-    (require-package 'rubocop)
+    (require 'rubocop)
     (add-hook 'ruby-mode-hook 'rubocop-mode)))
 ;;
 (require-package 'robe)
@@ -356,8 +354,7 @@ assume it's installed and `require' it."
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 ;;
-(if (eq system-type 'darwin)
-  (add-to-list 'load-path "~/Dropbox/projects/lisp/homebrew-mode"))
+(add-to-list 'load-path "~/Dropbox/projects/lisp/homebrew-mode")
 (require-package 'homebrew-mode)
 (global-homebrew-mode)
 
@@ -366,7 +363,7 @@ assume it's installed and `require' it."
 ;;
 (unless --melpa
   (progn
-    (require-package 'applescript-mode)
+    (require 'applescript-mode)
     (add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
     (add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))))
 
