@@ -303,7 +303,7 @@ assume it's installed and `require' it."
 (add-hook 'fountain-mode-hook 'typo-mode)
 
 ;;
-;; HTML, CSS/SASS, JS
+;; HTML, CSS/SASS
 ;;
 (require-package 'web-mode)
 ;; php-mode doesn't work with Emacs 25 yet:
@@ -317,11 +317,6 @@ assume it's installed and `require' it."
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 ;;
-(require-package 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
-(add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
-;;
 (require-package 'scss-mode)
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 (add-to-list 'auto-mode-alist '("\\.sass$" . scss-mode))
@@ -330,6 +325,17 @@ assume it's installed and `require' it."
 (add-hook 'scss-mode-hook (lambda () (rainbow-mode 1)))
 ;;
 (require-package 'htmlize)
+
+;;
+;; JavaScript
+;;
+(require-package 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
+(add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
+
+(autoload 'tern-mode "tern.el" nil t)
+(add-hook 'js-mode-hook (lambda () (tern-mode t)))
 
 ;;
 ;; Ruby
