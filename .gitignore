@@ -25,15 +25,23 @@ Thumbs.db
 
 # machine-specific dotstuff
 .extra
+
+# email crap
 .msmtprc
 .mutt/gmail
 .mutt/umail
 .notmuch-config
 archives
+gnupg
+
+# machine-specific binstuff
 bin/check-mail
 bin/node/node_modules
 bin/node/sandbox
 bin/node/secrets.js
+
+# emacs
+.tern-port
 emacs/.emacs.d/.achievements
 emacs/.emacs.d/.cask
 emacs/.emacs.d/.circe
@@ -49,4 +57,3 @@ emacs/.emacs.d/tramp
 emacs/.emacs.d/url/
 emacs/.emacs.d/var/
 emacs/.emacs.d/vendor/
-gnupg
