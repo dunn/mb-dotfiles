@@ -145,7 +145,7 @@ o() {
 
 rb() {
   if [ "$1" = "" ]; then
-    git rebase -i origin/master
+    eval 'git rebase -i @{u}'
   else
     git rebase -i HEAD~"$1"
   fi
