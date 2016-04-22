@@ -38,7 +38,7 @@ bunk() {
 # Change working directory to the top-most Finder window location
 # short for `cdfinder`
 cdf() {
-  cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
+  cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')" || exit 1
 }
 
 # brew install entr
