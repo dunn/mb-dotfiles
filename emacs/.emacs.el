@@ -224,9 +224,7 @@ assume it's installed and `require' it."
     (setq magit-last-seen-setup-instructions "1.4.0")))
 ;;
 (global-set-key "\C-cr" 'vc-resolve-conflicts)
-(require-package 'gitattributes-mode)
-(require-package 'gitconfig-mode)
-(require-package 'gitignore-mode)
+(require-package 'git-modes)
 (add-to-list 'auto-mode-alist '("^\\.gitattributes$" . gitattributes-mode))
 (add-to-list 'auto-mode-alist '("^\\.gitconfig$" . gitconfig-mode))
 (add-to-list 'auto-mode-alist '("^\\.gitignore$" . gitignore-mode))
