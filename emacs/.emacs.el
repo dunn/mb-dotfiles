@@ -102,7 +102,8 @@ assume it's installed and `require' it."
 (global-set-key "\C-xm" 'company-complete)
 (global-set-key "\C-c\C-l" '--solarized-light)
 (global-set-key "\C-c\C-d" '--solarized-dark)
-(define-key global-map "\M-Q" 'unfill-paragraph)
+(global-set-key [remap fill-paragraph]
+                #'endless/fill-or-unfill)
 
 ;;;;;;;;;;;;;;;;;;;
 ;; General settings
@@ -482,12 +483,16 @@ in irony-mode's buffers by irony-mode's function"
       (notmuch-search-tag '("-unread") beg end)
       (notmuch-search-tag '("-inbox") beg end))))
 
-;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
-(defun unfill-paragraph ()
-  "Take a multi-line paragraph and make it into a single line of text."
+;; http://endlessparentheses.com/fill-and-unfill-paragraphs-with-a-single-key.html
+(defun endless/fill-or-unfill ()
+  "Like `fill-paragraph', but unfill if used twice."
   (interactive)
-  (let ((fill-column (point-max)))
-    (fill-paragraph nil)))
+  (let ((fill-column
+         (if (eq last-command 'endless/fill-or-unfill)
+             (progn (setq this-command nil)
+                    (point-max))
+           fill-column)))
+    (call-interactively #'fill-paragraph)))
 
 (defun lorem ()
   "Insert a lorem ipsum."
