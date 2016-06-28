@@ -215,7 +215,7 @@ assume it's installed and `require' it."
 ;; Git
 ;;
 ;; requires a newer version of Emacs than is provided by Debian
-(if (eq system-type 'darwin)
+(when (eq system-type 'darwin)
   (progn
     (require-package 'magit)
     (global-set-key (kbd "C-x g") 'magit-status)
