@@ -25,6 +25,7 @@ Thumbs.db
 
 # machine-specific dotstuff
 .extra
+.jshintrc
 
 # email crap
 .msmtprc
@@ -45,6 +46,7 @@ bin/node/secrets.js
 emacs/.emacs.d/.achievements
 emacs/.emacs.d/.cask
 emacs/.emacs.d/.circe
+emacs/.emacs.d/.mc-lists.el
 emacs/.emacs.d/ac-comphist.dat
 emacs/.emacs.d/elfeeds.el
 emacs/.emacs.d/elpa/
