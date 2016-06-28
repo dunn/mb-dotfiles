@@ -82,8 +82,6 @@ assume it's installed and `require' it."
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\C-xo" (lambda () (interactive) (switch-to-buffer (other-buffer))))
 ;;
-(global-set-key "\C-x\C-a" 'mark-whole-buffer)
-(global-unset-key "\C-xh")
 (global-set-key "\C-xk" 'kill-this-buffer)
 (global-set-key "\C-x\C-k" 'kill-buffer)
 ;;
