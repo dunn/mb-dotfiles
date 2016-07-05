@@ -147,7 +147,7 @@ assume it's installed and `require' it."
 (global-set-key "\C-cl" 'counsel-locate)
 ;;
 (require-package 'neotree)
-(global-set-key "\M-n" 'neotree-toggle)
+(global-set-key "\M-t" 'neotree-toggle)
 ;;
 (require-package 'ag)
 (global-set-key "\C-cf" 'ag)
