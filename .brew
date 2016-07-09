@@ -3,6 +3,7 @@
 export HOMEBREW_VERBOSE=1
 export HOMEBREW_DEVELOPER=1
 export HOMEBREW_INSTALL_BADGE="☕️ 🐸"
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 alias audt="brew audit --strict --online"
 alias binfo="brew info --github"
