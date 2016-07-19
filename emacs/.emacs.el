@@ -323,9 +323,10 @@ assume it's installed and `require' it."
 ;;
 (require-package 'php-mode)
 (unless --melpa
-  (eval-after-load 'company
-    '(push 'company-php company-backends)))
-
+  (add-hook 'php-mode-hook
+            (lambda ()
+              (require 'company-php)
+              (add-to-list 'company-backends 'company-ac-php-backend ))))
 ;;
 ;; JavaScript
 ;;
