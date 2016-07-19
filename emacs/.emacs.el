@@ -301,9 +301,6 @@ assume it's installed and `require' it."
 ;; HTML, CSS/SASS
 ;;
 (require-package 'web-mode)
-;; php-mode doesn't work with Emacs 25 yet:
-;; https://github.com/ejmr/php-mode/issues/279
-(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
@@ -320,6 +317,14 @@ assume it's installed and `require' it."
 (add-hook 'scss-mode-hook (lambda () (rainbow-mode 1)))
 ;;
 (require-package 'htmlize)
+
+;;
+;; PHP
+;;
+(require-package 'php-mode)
+(unless --melpa
+  (eval-after-load 'company
+    '(push 'company-php company-backends)))
 
 ;;
 ;; JavaScript
@@ -390,14 +395,19 @@ in irony-mode's buffers by irony-mode's function"
   (define-key irony-mode-map [remap complete-symbol]
     'irony-completion-at-point-async))
 
+(defun --irony-unless-php ()
+  "Turn on irony-mode unless it's PHP."
+  (unless (eql 'php-mode major-mode)
+    (irony-mode)))
+
 (unless --melpa
   (progn
     (require 'irony-cdb-libclang)
     (require 'irony-completion)
     (require 'irony-diagnostics)
-    (add-hook 'c++-mode-hook 'irony-mode)
-    (add-hook 'c-mode-hook 'irony-mode)
-    (add-hook 'objc-mode-hook 'irony-mode)
+    (add-hook 'c++-mode-hook '--irony-unless-php)
+    (add-hook 'c-mode-hook '--irony-unless-php)
+    (add-hook 'objc-mode-hook '--irony-unless-php)
 
     (add-hook 'irony-mode-hook '--irony-mode-remap)
     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)))
