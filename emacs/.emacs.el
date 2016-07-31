@@ -24,18 +24,13 @@
 ;;
 ;; Package manager
 ;;
-(let (lispdir)
-  (if --melpa
-      (progn
-        (require 'package)
-        (package-initialize)
-        (add-to-list 'package-archives
-                     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-        (package-refresh-contents)
-        (setq lispdir "~/.emacs.d/elpa/"))
-    (setq lispdir (concat --homebrew-prefix "share/emacs/site-lisp/")))
-  (let ((default-directory lispdir))
-    (normal-top-level-add-subdirs-to-load-path)))
+(when --melpa
+  (progn
+    (require 'package)
+    (package-initialize)
+    (add-to-list 'package-archives
+                 '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+    (package-refresh-contents)))
 ;;
 (defun require-package (package)
   "Install PACKAGE with package.el if in melpa mode, otherwise \
@@ -223,7 +218,9 @@ assume it's installed and `require' it."
     (setq magit-last-seen-setup-instructions "1.4.0")))
 ;;
 (global-set-key "\C-cr" 'vc-resolve-conflicts)
-(require-package 'git-modes)
+(require-package 'gitattributes-mode)
+(require-package 'gitconfig-mode)
+(require-package 'gitignore-mode)
 (add-to-list 'auto-mode-alist '("^\\.gitattributes$" . gitattributes-mode))
 (add-to-list 'auto-mode-alist '("^\\.gitconfig$" . gitconfig-mode))
 (add-to-list 'auto-mode-alist '("^\\.gitignore$" . gitignore-mode))
@@ -316,7 +313,7 @@ assume it's installed and `require' it."
 (require-package 'rainbow-mode)
 (add-hook 'scss-mode-hook (lambda () (rainbow-mode 1)))
 ;;
-(require-package 'htmlize)
+(unless --melpa (require-package 'htmlize))
 
 ;;
 ;; PHP
