@@ -132,6 +132,7 @@ assume it's installed and `require' it."
 (require-package 'swiper)
 (global-set-key "\C-s" 'swiper)
 (global-set-key "\C-r" 'swiper)
+(global-set-key (kbd "C-c u") 'swiper-all)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (put 'ivy-done 'disabled nil)
 ;;
