@@ -18,7 +18,7 @@ brew 'homebrew/emacs/elisp-slime-nav'
 brew 'homebrew/emacs/editorconfig-emacs'
 brew 'homebrew/emacs/epl'
 brew 'homebrew/emacs/exec-path-from-shell'
-brew 'homebrew/emacs/flycheck', args: ['with-package', 'with-cask']
+brew 'homebrew/emacs/flycheck', args: ['with-package']
 brew 'homebrew/emacs/fountain-mode'
 brew 'homebrew/emacs/gist-emacs'
 brew 'homebrew/emacs/git-modes'

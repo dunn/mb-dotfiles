@@ -201,9 +201,6 @@ assume it's installed and `require' it."
 (require-package 'flycheck-package)
 (eval-after-load 'flycheck
   '(flycheck-package-setup))
-(require-package 'flycheck-cask)
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
 
 ;;
 ;; Debugging
