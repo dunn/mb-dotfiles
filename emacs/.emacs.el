@@ -283,7 +283,7 @@ assume it's installed and `require' it."
 (add-hook 'tex-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
 ;;
-(require-package 'table)
+(require 'table)
 (add-hook 'text-mode-hook 'table-recognize)
 (add-hook 'markdown-mode-hook 'table-recognize)
 ;;
@@ -338,7 +338,7 @@ assume it's installed and `require' it."
 ;;
 (unless --melpa
   (progn
-    (require 'rubocop)
+    (require-package 'rubocop)
     (add-hook 'ruby-mode-hook 'rubocop-mode)))
 ;;
 (require-package 'robe)
@@ -359,9 +359,10 @@ assume it's installed and `require' it."
 ;;
 ;; Applescript
 ;;
+;; not in MELPA stable
 (unless --melpa
   (progn
-    (require 'applescript-mode)
+    (require-package 'applescript-mode)
     (add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
     (add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))))
 

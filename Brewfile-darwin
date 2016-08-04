@@ -27,18 +27,19 @@ brew 'homebrew/emacs/js2-mode'
 brew 'homebrew/emacs/magit'
 brew 'homebrew/emacs/markdown-mode'
 brew 'homebrew/emacs/nlinum'
-brew 'homebrew/emacs/neotree'
+brew 'homebrew/emacs/neotree', args: ['HEAD']
 brew 'homebrew/emacs/org-mode'
 brew 'homebrew/emacs/pdf-tools'
 brew 'homebrew/emacs/php-mode'
 brew 'homebrew/emacs/rainbow-mode'
 brew 'homebrew/emacs/realgud'
 brew 'homebrew/emacs/robe'
+brew 'homebrew/emacs/rspec-mode'
 brew 'homebrew/emacs/rubocop-emacs'
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
 brew 'homebrew/emacs/slime'
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']
-brew 'homebrew/emacs/swiper'
+brew 'homebrew/emacs/swiper', ['HEAD']
 brew 'homebrew/emacs/typo-mode'
 brew 'homebrew/emacs/unkillable-scratch'
 brew 'homebrew/emacs/web-mode'
