@@ -11,7 +11,6 @@ brew 'homebrew/emacs/ag-emacs'
 brew 'homebrew/emacs/ansible-doc'
 brew 'homebrew/emacs/beacon-mode'
 brew 'homebrew/emacs/company-mode', args: ['with-emoji', 'with-web', 'with-php']
-brew 'homebrew/emacs/debbugs'
 brew 'homebrew/emacs/diff-hl'
 brew 'homebrew/emacs/elfeed'
 brew 'homebrew/emacs/elisp-slime-nav'

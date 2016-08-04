@@ -375,7 +375,6 @@ assume it's installed and `require' it."
 (require-package 'elisp-slime-nav)
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
   (add-hook hook 'elisp-slime-nav-mode))
-(unless --melpa (require 'debbugs-gnu))
 (global-set-key "\C-ci" 'edebug-eval-top-level-form)
 
 ;;
