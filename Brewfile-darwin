@@ -40,7 +40,6 @@ brew 'homebrew/emacs/scss-mode', args: ['HEAD']
 brew 'homebrew/emacs/slime'
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']
 brew 'homebrew/emacs/swiper'
-brew 'homebrew/emacs/tern'
 brew 'homebrew/emacs/typo-mode'
 brew 'homebrew/emacs/unkillable-scratch'
 brew 'homebrew/emacs/web-mode'

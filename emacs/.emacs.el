@@ -333,9 +333,6 @@ assume it's installed and `require' it."
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
 
-(autoload 'tern-mode "tern.el" nil t)
-(add-hook 'js-mode-hook (lambda () (tern-mode t)))
-
 ;;
 ;; Ruby
 ;;
