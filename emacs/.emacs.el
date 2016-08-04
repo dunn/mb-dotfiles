@@ -95,8 +95,6 @@ assume it's installed and `require' it."
 (global-set-key "\C-xm" 'company-complete)
 (global-set-key "\C-c\C-l" '--solarized-light)
 (global-set-key "\C-c\C-d" '--solarized-dark)
-(global-set-key [remap fill-paragraph]
-                #'endless/fill-or-unfill)
 
 ;;;;;;;;;;;;;;;;;;;
 ;; General settings
@@ -494,17 +492,6 @@ in irony-mode's buffers by irony-mode's function"
       (notmuch-search-tag '("+spam") beg end)
       (notmuch-search-tag '("-unread") beg end)
       (notmuch-search-tag '("-inbox") beg end))))
-
-;; http://endlessparentheses.com/fill-and-unfill-paragraphs-with-a-single-key.html
-(defun endless/fill-or-unfill ()
-  "Like `fill-paragraph', but unfill if used twice."
-  (interactive)
-  (let ((fill-column
-         (if (eq last-command 'endless/fill-or-unfill)
-             (progn (setq this-command nil)
-                    (point-max))
-           fill-column)))
-    (call-interactively #'fill-paragraph)))
 
 (defun lorem ()
   "Insert a lorem ipsum."
