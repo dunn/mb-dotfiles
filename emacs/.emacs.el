@@ -352,6 +352,8 @@ assume it's installed and `require' it."
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 ;;
+(require-package 'rspec-mode)
+;;
 (add-to-list 'load-path "~/Dropbox/projects/elisp/homebrew-mode")
 (require-package 'homebrew-mode)
 (global-homebrew-mode)
