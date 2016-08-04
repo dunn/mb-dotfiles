@@ -208,6 +208,11 @@ assume it's installed and `require' it."
   '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
 
 ;;
+;; Debugging
+;;
+;; (require-package 'realgud)
+
+;;
 ;; Git
 ;;
 ;; requires a newer version of Emacs than is provided by Debian

@@ -33,6 +33,7 @@ brew 'homebrew/emacs/org-mode'
 brew 'homebrew/emacs/pdf-tools'
 brew 'homebrew/emacs/php-mode'
 brew 'homebrew/emacs/rainbow-mode'
+brew 'homebrew/emacs/realgud'
 brew 'homebrew/emacs/robe'
 brew 'homebrew/emacs/rubocop-emacs'
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
