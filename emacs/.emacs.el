@@ -67,7 +67,7 @@ assume it's installed and `require' it."
 (setq mac-option-modifier 'meta)
 ;;
 ;; Mimic native Mac OS behavior
-(global-set-key "\M-_" 'mdash)
+(global-set-key "\M-_" '--mdash)
 ;;
 ;; Mimic my tmux bindings, sort of
 (define-key key-translation-map "\C-j" "\C-x")
@@ -85,13 +85,13 @@ assume it's installed and `require' it."
 ;;
 (global-set-key "\C-x\C-b" 'ibuffer)
 (global-set-key "\C-co" 'browse-url-at-point)
-(global-set-key "\C-cp" 'pbpaste)
-(global-set-key "\C-cs" 'shell-command-replace-region)
+(global-set-key "\C-cp" '--pbpaste)
+(global-set-key "\C-cs" '--shell-command-replace-region)
 ;;
 ;; bindings for custom functions defined below
-(global-set-key "\C-ck" 'insert-kbd)
-(global-set-key "\C-cy" 'shruggie)
-(global-set-key "\C-cz" 'new-shell)
+(global-set-key "\C-ck" '--insert-kbd)
+(global-set-key "\C-cy" '--shruggie)
+(global-set-key "\C-cz" '--new-shell)
 (global-set-key "\C-xm" 'company-complete)
 (global-set-key "\C-c\C-l" '--solarized-light)
 (global-set-key "\C-c\C-d" '--solarized-dark)
@@ -493,7 +493,7 @@ in irony-mode's buffers by irony-mode's function"
       (notmuch-search-tag '("-unread") beg end)
       (notmuch-search-tag '("-inbox") beg end))))
 
-(defun lorem ()
+(defun --lorem ()
   "Insert a lorem ipsum."
   (interactive)
   (insert "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do "
@@ -504,17 +504,17 @@ in irony-mode's buffers by irony-mode's function"
           "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
           "culpa qui officia deserunt mollit anim id est laborum."))
 
-(defun shruggie ()
+(defun --shruggie ()
   "Insert him."
   (interactive)
   (insert "¯\\_(ツ)_/¯"))
 
-(defun mdash ()
+(defun --mdash ()
   "Insert a dang mdash ok."
   (interactive)
   (insert "—"))
 
-(defun code-fence ()
+(defun --code-fence ()
   "Insert backticks to create a Markdown code block, \
 then set point to the end of the first set of backticks \
 so the code type can be specified."
@@ -523,14 +523,14 @@ so the code type can be specified."
   (insert "```\n```")
   (goto-char (- (point) 4)))
 
-(defun insert-kbd ()
+(defun --insert-kbd ()
   "Insert <kbd></kbd> then set point in the middle."
   (interactive)
   (push-mark)
   (insert "<kbd></kbd>")
   (goto-char (- (point) 6)))
 
-(defun pipe-to-pbcopy (text)
+(defun --pipe-to-pbcopy (text)
   "Execute ../bin/copy.sh on TEXT, which copies it to the Mac OS \
 clipboard.  This function is only meant to be assigned to \
 'interprogram-cut-function'"
@@ -539,13 +539,13 @@ clipboard.  This function is only meant to be assigned to \
 (if (eq system-type 'darwin)
     (setq interprogram-cut-function 'pipe-to-pbcopy))
 
-(defun pbpaste ()
+(defun --pbpaste ()
   "Insert the contents of the clipboard."
   (interactive)
   (insert (shell-command-to-string "pbpaste")))
 
 (require 'ibuffer)
-(defun new-shell ()
+(defun --new-shell ()
   "Open a shell window in the directory of the buffered file.
 If there are no other windows, create one; otherwise use `other-window'."
   (interactive)
@@ -568,14 +568,14 @@ If there are no other windows, create one; otherwise use `other-window'."
   (setq frame-background-mode 'dark)
   (load-theme 'solarized t))
 
-(defun fuck-you ()
+(defun --fuck-you ()
   "Because it won't work on init with Debian Terminal."
   (interactive)
   (setq solarized-termcolors 256)
   (setq frame-background-mode 'light)
   (load-theme 'solarized t))
 
-(defun shell-command-replace-region (start end command
+(defun --shell-command-replace-region (start end command
                                            &optional output-buffer replace
                                            error-buffer display-error-buffer)
   "Slightly modified version of `shell-command-on-region'.
