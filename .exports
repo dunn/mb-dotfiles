@@ -11,7 +11,12 @@ if [[ $(uname -s) == "Darwin" ]]; then
   export TERM=xterm-256color
 fi
 
-export SEASON=$(tr -d '\n' < "$HOME/.config/season")
+if [[ ! -f "$HOME/.config/season" ]]; then
+  mkdir -p "$HOME/.config" 2>/dev/null
+  echo 'summer' >> "$HOME/.config/season"
+fi
+SEASON=$(tr -d '\n' < "$HOME/.config/season")
+export SEASON
 
 # Prefer US English and use UTF-8.
 export LANG="en_US.UTF-8"
