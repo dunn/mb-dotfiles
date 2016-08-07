@@ -194,7 +194,7 @@ assume it's installed and `require' it."
 ;;
 (require-package 'editorconfig)
 ;;
-;; brew install flycheck --with-package --with-cask
+(require-package 'pkg-info)
 (require-package 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;;

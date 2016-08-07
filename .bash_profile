@@ -11,7 +11,7 @@
 [[ -r "$HOME/.extra" ]] && . "$HOME/.extra"
 
 if [[ $(uname -s) == "Darwin" ]]; then
-  export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/texbin:$PATH"
+  export PATH="$HOME/bin:/usr/local/opt/node/bin:/usr/local/bin:/usr/local/sbin:/usr/texbin:$PATH"
 else
   export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH"
 fi
