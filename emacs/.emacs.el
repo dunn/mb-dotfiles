@@ -533,7 +533,7 @@ clipboard.  This function is only meant to be assigned to \
   ;; http://www.emacswiki.org/emacs/ExecuteExternalCommand
   (start-process "copy-to-clipboard" "*Messages*" "~/bin/copy.sh" text))
 (if (eq system-type 'darwin)
-    (setq interprogram-cut-function 'pipe-to-pbcopy))
+    (setq interprogram-cut-function '--pipe-to-pbcopy))
 
 (defun --pbpaste ()
   "Insert the contents of the clipboard."
