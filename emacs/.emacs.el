@@ -281,7 +281,7 @@ assume it's installed and `require' it."
 (add-hook 'markdown-mode-hook 'typo-mode)
 ;; typo-mode turns backticks into single left quotes in Markdown, so
 ;; we need another way to quickly make code fences:
-(global-set-key "\C-c`" 'code-fence)
+(global-set-key "\C-c`" '--code-fence)
 ;;
 (add-hook 'tex-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
