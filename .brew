@@ -20,6 +20,13 @@ bcd() {
   cd "$(brew --prefix "$1")" || exit
 }
 
+# https://github.com/Homebrew/brew/pull/555#issuecomment-234852629
+tcd() {
+  local tap="$1"
+  [[ "$tap" = */* ]] || tap="homebrew/$tap"
+  pushd "$(brew --repository "$tap")"
+}
+
 shsm() {
   shsm=$(shasum -a 256 "$1" | sed 's:\ .*::g')
   echo "$shsm"
