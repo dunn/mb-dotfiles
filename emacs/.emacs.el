@@ -202,6 +202,7 @@ assume it's installed and `require' it."
 ;; Debugging
 ;;
 ;; (require-package 'realgud)
+(require-package 'suggest)
 
 ;;
 ;; Git
