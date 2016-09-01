@@ -16,6 +16,10 @@ else
   export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH"
 fi
 
+if [[ -x $(which rbenv) ]]; then
+  eval "$(rbenv init -)"
+fi
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
 
