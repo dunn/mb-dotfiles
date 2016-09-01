@@ -1,6 +1,5 @@
-brew 'cmake'
 brew 'editorconfig'
-brew 'emacs', args: ['devel', 'with-mailutils', 'with-gnutls', 'with-cocoa']
+brew 'dunn/yolo/emacs-edge', args: ['with-mailutils']
 brew 'notmuch', args: ['with-emacs']
 brew 'reattach-to-user-namespace'
 brew 'tmux'
