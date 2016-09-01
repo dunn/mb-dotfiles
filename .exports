@@ -61,12 +61,19 @@ export PERL5LIB="$HOME/perl5/:$PERL5LIB"
 # ====
 export RUBYOPT=rubygems
 
+# GPG
+# ====
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+  . "${HOME}/.gpg-agent-info"
+  export GPG_AGENT_INFO
+fi
+GPG_TTY=$(tty)
+export GPG_TTY
+
 if [[ $(uname -s) == "Darwin" ]]; then
   # EMAIL
   # ====
   export MAIL="$HOME/Mail/"
-  GPG_TTY=$(tty)
-  export GPG_TTY
 
   # JAVA
   # ====
