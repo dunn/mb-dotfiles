@@ -27,7 +27,7 @@
  '(css-indent-offset 2)
  '(current-language-environment "UTF-8")
  '(elfeed-curl-program-name "/usr/local/opt/curl/bin/curl")
- '(erc-autojoin-channels-alist (quote (("freenode.net" "#machomebrew" "#ansible"))))
+ '(erc-autojoin-channels-alist (quote (("freenode.net" "#machomebrew" "#code4lib"))))
  '(erc-autojoin-mode t)
  '(erc-button-mode t)
  '(erc-fill-mode t)

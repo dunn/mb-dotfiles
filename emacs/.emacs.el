@@ -247,7 +247,6 @@ assume it's installed and `require' it."
 ;;
 (require 'erc)
 (require 'erc-services)
-(load "~/.emacs.d/erc.el")
 
 ;;
 ;; Email
