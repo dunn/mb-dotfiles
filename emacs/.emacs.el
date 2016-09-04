@@ -157,11 +157,17 @@ assume it's installed and `require' it."
 ;; Auto-completion
 ;;
 (require-package 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-;;
-(add-to-list 'load-path "~/Dropbox/projects/lisp/emoji")
+(require-package 'company-ansible)
 (require-package 'company-emoji)
+(require-package 'company-php)
+(require-package 'company-web)
+(add-to-list 'company-backends 'company-ansible)
 (add-to-list 'company-backends 'company-emoji)
+(add-to-list 'company-backends 'company-php)
+(add-to-list 'company-backends 'company-web)
+(add-hook 'after-init-hook 'global-company-mode)
+
+
 ;;
 ;; Text and fonts
 ;;
