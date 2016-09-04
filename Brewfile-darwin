@@ -38,6 +38,7 @@ brew 'homebrew/emacs/realgud'
 brew 'homebrew/emacs/robe'
 brew 'homebrew/emacs/rspec-mode'
 brew 'homebrew/emacs/rubocop-emacs'
+brew 'homebrew/emacs/ruby-tools'
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
 brew 'homebrew/emacs/slime'
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']

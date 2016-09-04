@@ -349,6 +349,7 @@ assume it's installed and `require' it."
     (require-package 'rubocop)
     (add-hook 'ruby-mode-hook 'rubocop-mode)))
 ;;
+(require-package 'ruby-tools)
 (require-package 'robe)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'web-mode-hook (lambda ()
