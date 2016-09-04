@@ -163,6 +163,9 @@ assume it's installed and `require' it."
 (require-package 'company-emoji)
 (add-to-list 'company-backends 'company-emoji)
 ;;
+;; Text and fonts
+;;
+(require-package 'list-unicode-display)
 ;; fix emoji support in cocoa-mode
 ;; https://github.com/dunn/company-emoji/issues/2#issue-99494790
 (defun --set-emoji-font (frame)
