@@ -12,7 +12,7 @@ alias brwe="brew"
 alias btest="brew test -v --sandbox"
 alias bu="brew update"
 alias bua="brew upgrade"
-alias homebrew='cd $(brew --repository)'
+alias homebrew='cd $(brew --repository)/Library'
 alias style="brew style --fix"
 alias using="brew uses --installed --recursive"
 
