@@ -69,8 +69,6 @@ assume it's installed and `require' it."
 ;; Mimic native Mac OS behavior
 (global-set-key "\M-_" '--mdash)
 ;;
-;; Mimic my tmux bindings, sort of
-(define-key key-translation-map "\C-j" "\C-x")
 (global-set-key "\C-xj" 'other-window)
 (global-set-key "\C-x;" 'other-window)
 ;;
