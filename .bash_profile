@@ -16,7 +16,7 @@ else
   export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH"
 fi
 
-if [[ -x $(which rbenv) ]]; then
+if [[ -x $(which rbenv >/dev/null 2>&1) ]]; then
   eval "$(rbenv init -)"
 fi
 
@@ -41,18 +41,18 @@ for option in autocd globstar; do
 done;
 
 # brew install bash-completion2
-if which brew > /dev/null && [[ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]]; then
+if which brew > /dev/null 2>&1 && [[ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]]; then
   . "$(brew --prefix)/share/bash-completion/bash_completion";
 elif [[ -f /etc/bash_completion ]]; then
   . /etc/bash_completion;
 fi;
 
-if [[ -f "$(brew --repository)/Library/Contributions/brew_bash_completion.sh" ]]; then
+if which brew > /dev/null 2>&1 && [[ -f "$(brew --repository)/Library/Contributions/brew_bash_completion.sh" ]]; then
   . "$(brew --repository)/Library/Contributions/brew_bash_completion.sh"
 fi
 
 # brew install autojump
-[[ -s "$(brew --prefix)/etc/profile.d/autojump.sh" ]] && . "$(brew --prefix)/etc/profile.d/autojump.sh"
+# [[ -s "$(brew --prefix)/etc/profile.d/autojump.sh" ]] && . "$(brew --prefix)/etc/profile.d/autojump.sh"
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
