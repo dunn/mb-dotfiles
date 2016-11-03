@@ -110,7 +110,7 @@ if [[ "$SEASON" == "winter" ]]; then
   if [[ $(uname -s) == "Darwin" ]]; then
     PS1+="🌲  "
   else
-    PS1+="⛄  "
+    PS1+="=> "
   fi
 elif [[ "$SEASON" == "summer" ]]; then
   PS1+="\[$SOLAR_ORANGE\]\u\[$RESET\]"
@@ -124,7 +124,7 @@ elif [[ "$SEASON" == "summer" ]]; then
   if [[ $(uname -s) == "Darwin" ]]; then
     PS1+="🔥  "
   else
-    PS1+="🌞  "
+    PS1+="=> "
   fi
 fi
 export PS1;

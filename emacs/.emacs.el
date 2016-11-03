@@ -29,15 +29,16 @@
     (require 'package)
     (package-initialize)
     (add-to-list 'package-archives
-                 '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+                 '("melpa-stable" . "https://melpa.org/packages/") t)
     (package-refresh-contents)))
 ;;
 (defun require-package (package)
   "Install PACKAGE with package.el if in melpa mode, otherwise \
 assume it's installed and `require' it."
   (if --melpa
-      (unless (package-installed-p package)
-        (package-install package)))
+      (let ((package-user-dir "~/.emacs.d/elpa"))
+        (unless (package-installed-p package)
+          (package-install package))))
   (require package))
 
 ;;
@@ -49,7 +50,7 @@ assume it's installed and `require' it."
 ;; Color scheme
 ;;
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
-(add-to-list 'custom-theme-load-path (concat --homebrew-prefix "share/emacs/site-lisp/solarized-emacs"))
+(add-to-list 'custom-theme-load-path "~/solarized")
 ;;
 (require-package 'exec-path-from-shell)
 (if (equal "winter" (exec-path-from-shell-getenv "SEASON"))
@@ -213,12 +214,11 @@ assume it's installed and `require' it."
 ;; Git
 ;;
 ;; requires a newer version of Emacs than is provided by Debian
-(when (eq system-type 'darwin)
-  (progn
-    (require-package 'magit)
-    (global-set-key (kbd "C-x g") 'magit-status)
-    (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
-    (setq magit-last-seen-setup-instructions "1.4.0")))
+(require-package 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 ;;
 (global-set-key "\C-cr" 'vc-resolve-conflicts)
 (require-package 'gitattributes-mode)
@@ -245,7 +245,7 @@ assume it's installed and `require' it."
 ;;
 (require-package 'elfeed)
 (global-set-key (kbd "C-c w") 'elfeed)
-(load "~/.emacs.d/elfeeds.el")
+;; (load "~/.emacs.d/elfeeds.el")
 
 ;;
 ;; IRC
@@ -256,7 +256,7 @@ assume it's installed and `require' it."
 ;;
 ;; Email
 ;;
-(require-package 'notmuch)
+(require 'notmuch)
 (require 'notmuch-address)
 (notmuch-address-message-insinuate)
 (add-hook 'notmuch-message-mode-hook 'turn-on-auto-fill)
@@ -315,11 +315,8 @@ assume it's installed and `require' it."
 (require-package 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 ;;
 (require-package 'scss-mode)
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
@@ -328,7 +325,7 @@ assume it's installed and `require' it."
 (require-package 'rainbow-mode)
 (add-hook 'scss-mode-hook (lambda () (rainbow-mode 1)))
 ;;
-(unless --melpa (require-package 'htmlize))
+(require-package 'htmlize)
 
 ;;
 ;; PHP
@@ -348,10 +345,8 @@ assume it's installed and `require' it."
 ;;
 ;; Ruby
 ;;
-(unless --melpa
-  (progn
-    (require-package 'rubocop)
-    (add-hook 'ruby-mode-hook 'rubocop-mode)))
+(require-package 'rubocop)
+(add-hook 'ruby-mode-hook 'rubocop-mode)
 ;;
 (require-package 'ruby-tools)
 (require-package 'robe)
@@ -385,10 +380,10 @@ assume it's installed and `require' it."
 ;;
 ;; Emacs lisp
 ;;
-(unless --melpa
-  (progn
-    (require 'slime-autoloads)
-    (setq inferior-lisp-program "/usr/local/bin/sbcl")))
+(if --melpa
+    (require-package 'slime)
+  (require 'slime-autoloads))
+(setq inferior-lisp-program "sbcl")
 (require-package 'elisp-slime-nav)
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
   (add-hook hook 'elisp-slime-nav-mode))
