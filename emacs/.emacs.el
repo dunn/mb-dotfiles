@@ -273,6 +273,8 @@ assume it's installed and `require' it."
 ;;;;;;;;;;;;;;;;;;;
 ;; Language support
 ;;;;;;;;;;;;;;;;;;;
+(unless --melpa (require 'smartparens-config))
+
 ;;
 ;; Plain text, Markdown, LaTeX, Org, Fountain
 ;;
@@ -377,16 +379,23 @@ assume it's installed and `require' it."
     (add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))))
 
 ;;
-;; Emacs lisp
+;; Lisp
 ;;
+(unless --melpa (add-hook 'lisp-mode-hook #'smartparens-mode))
 (unless --melpa
   (progn
     (require 'slime-autoloads)
     (setq inferior-lisp-program "/usr/local/bin/sbcl")))
+
+
+;;
+;; Emacs lisp
+;;
 (require-package 'elisp-slime-nav)
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
   (add-hook hook 'elisp-slime-nav-mode))
 (global-set-key "\C-ci" 'edebug-eval-top-level-form)
+(unless --melpa (add-hook 'emacs-lisp-mode-hook #'smartparens-mode))
 
 ;;
 ;; C
