@@ -276,7 +276,7 @@ assume it's installed and `require' it."
 (unless --melpa (require 'smartparens-config))
 
 ;;
-;; Plain text, Markdown, LaTeX, Org, Fountain
+;; Plain text, Markdown, LaTeX, Fountain
 ;;
 ;; brew install markdown-mode
 (require-package 'markdown-mode)
@@ -297,13 +297,19 @@ assume it's installed and `require' it."
 (add-hook 'text-mode-hook 'table-recognize)
 (add-hook 'markdown-mode-hook 'table-recognize)
 ;;
-(require-package 'org)
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(add-hook 'org-mode-hook 'turn-on-flyspell 'append)
-;;
 (require-package 'fountain-mode)
 (add-to-list 'auto-mode-alist '("\\.fountain$" . fountain-mode))
 (add-hook 'fountain-mode-hook 'typo-mode)
+
+;;
+;; Org
+;;
+(require-package 'org)
+(add-hook 'org-mode-hook 'turn-on-flyspell 'append)
+(global-set-key "\C-c\C-l" 'org-store-link)
+(global-set-key "\C-c\C-a" 'org-agenda)
+(global-set-key "\C-c\C-c" 'org-capture)
+(global-set-key "\C-c\C-b" 'org-iswitchb)
 
 ;;
 ;; HTML, CSS/SASS
