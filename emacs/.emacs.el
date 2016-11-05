@@ -157,11 +157,9 @@ assume it's installed and `require' it."
 (require-package 'company)
 (require-package 'company-ansible)
 (require-package 'company-emoji)
-(require-package 'company-php)
 (require-package 'company-web)
 (add-to-list 'company-backends 'company-ansible)
 (add-to-list 'company-backends 'company-emoji)
-(add-to-list 'company-backends 'company-ac-php-backend)
 (add-to-list 'company-backends 'company-web-html)
 (add-hook 'after-init-hook 'global-company-mode)
 
@@ -330,11 +328,7 @@ assume it's installed and `require' it."
 ;; PHP
 ;;
 (require-package 'php-mode)
-(unless --melpa
-  (add-hook 'php-mode-hook
-            (lambda ()
-              (require 'company-php)
-              (add-to-list 'company-backends 'company-ac-php-backend ))))
+
 ;;
 ;; JavaScript
 ;;
