@@ -45,7 +45,6 @@ brew 'homebrew/emacs/rubocop-emacs'
 brew 'homebrew/emacs/ruby-tools'
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
 brew 'homebrew/emacs/slime'
-brew 'homebrew/emacs/smartparens'
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']
 brew 'homebrew/emacs/suggest-emacs'
 brew 'homebrew/emacs/swiper', args: ['HEAD']
