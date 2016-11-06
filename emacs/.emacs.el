@@ -156,13 +156,13 @@ assume it's installed and `require' it."
 ;;
 (require-package 'company)
 (require-package 'company-ansible)
+(add-to-list 'load-path "~/Dropbox/projects/elisp/emoji")
 (require-package 'company-emoji)
 (require-package 'company-web)
 (add-to-list 'company-backends 'company-ansible)
 (add-to-list 'company-backends 'company-emoji)
 (add-to-list 'company-backends 'company-web-html)
 (add-hook 'after-init-hook 'global-company-mode)
-
 
 ;;
 ;; Text and fonts
