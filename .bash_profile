@@ -51,8 +51,5 @@ if which brew > /dev/null 2>&1 && [[ -f "$(brew --repository)/Library/Contributi
   . "$(brew --repository)/Library/Contributions/brew_bash_completion.sh"
 fi
 
-# brew install autojump
-# [[ -s "$(brew --prefix)/etc/profile.d/autojump.sh" ]] && . "$(brew --prefix)/etc/profile.d/autojump.sh"
-
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
