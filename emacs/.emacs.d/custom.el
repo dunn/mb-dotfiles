@@ -102,7 +102,7 @@ ${source}")
  '(package-directory-list nil)
  '(package-selected-packages
    (quote
-    (slime slime-autoloads rubocop htmlize rspec-mode ruby-tools json-mode diffview suggest pkg-info list-unicode-display company-web company-php company-ansible exec-path-from-shell ansible-doc php-mode markdown-mode flycheck company neotree swiper cmake-mode notmuch pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
+    (nix-mode company-nixos-options slime slime-autoloads rubocop htmlize rspec-mode ruby-tools json-mode diffview suggest pkg-info list-unicode-display company-web company-php company-ansible exec-path-from-shell ansible-doc php-mode markdown-mode flycheck company neotree swiper cmake-mode notmuch pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
  '(package-user-dir "")
  '(pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
  '(perl-indent-level 2)
