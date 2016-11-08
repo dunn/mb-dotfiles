@@ -2,6 +2,9 @@
 	name = Alex Dunn
 	email = dunn.alex@gmail.com
 
+[credential]
+	helper = cross
+
 [core]
   # Use custom `.gitignore` and `.gitattributes`
   excludesfile = ~/.gitignore
