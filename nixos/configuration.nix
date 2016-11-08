@@ -32,29 +32,7 @@
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
-  nixpkgs.config = {
-    allowUnfree = true;
-
-    # packageOverrides = pkgs: {
-    #   emacs25 = pkgs.emacs25.override {
-    #     withGTK2 = false;
-    #     withGTK3 = true;
-    #     withXwidgets = true;
-    #   };
-    # };
-  };
-
-  # environment.systemPackages = with pkgs; [
-  #   bashCompletion
-  #   gnupg20
-  #   gitAndTools.gitFull
-  #   gitAndTools.tig
-  #   emacs25
-  #   notmuch
-  #   silver-searcher
-  #   mpw
-  #   tmux
-  # ];
+  nixpkgs.config.allowUnfree = true;
 
   fonts = {
     enableFontDir = true;
