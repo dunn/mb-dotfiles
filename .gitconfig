@@ -1,3 +1,7 @@
+[user]
+	name = Alex Dunn
+	email = dunn.alex@gmail.com
+
 [core]
   # Use custom `.gitignore` and `.gitattributes`
   excludesfile = ~/.gitignore
