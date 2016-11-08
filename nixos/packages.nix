@@ -1,6 +1,17 @@
 with (import <nixpkgs> {});
 {
-  inherit bashCompletion gnupg20 git notmuch jdk sbcl silver-searcher tmux tig nodejs-6_x;
+  inherit bashCompletion
+          getmail
+          git
+          gnupg20
+          jdk
+          msmtp
+          nodejs-6_x
+          notmuch
+          sbcl
+          silver-searcher
+          tig
+          tmux;
 
   emacs25 = pkgs.emacs25.override {
     withGTK2 = false;
