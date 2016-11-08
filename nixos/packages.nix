@@ -11,6 +11,7 @@ with (import <nixpkgs> {});
           notmuch
           sbcl
           silver-searcher
+          slack
           tig
           tmux;
 
