@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(ag-arguments
    (quote
-    ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--hidden" "--")))
+    ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--hidden" "--all-types" "--")))
  '(ag-highlight-search t)
  '(ag-ignore-list (quote (".git")))
  '(as-continuation-offset 2)
