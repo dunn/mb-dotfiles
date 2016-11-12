@@ -160,11 +160,11 @@ assume it's installed and `require' it."
 (add-to-list 'load-path "~/Dropbox/projects/elisp/emoji")
 (require-package 'company-emoji)
 (require-package 'company-web)
-(require-package 'company-nixos-options)
+(if --melpa (require-package 'company-nixos-options))
 (add-to-list 'company-backends 'company-ansible)
 (add-to-list 'company-backends 'company-emoji)
 (add-to-list 'company-backends 'company-web-html)
-(add-to-list 'company-backends 'company-nixos-options)
+(if --melpa (add-to-list 'company-backends 'company-nixos-options))
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;;
