@@ -247,7 +247,7 @@ assume it's installed and `require' it."
 ;;
 (require-package 'elfeed)
 (global-set-key (kbd "C-c w") 'elfeed)
-;; (load "~/.emacs.d/elfeeds.el")
+(load "~/.emacs.d/elfeeds.el")
 
 ;;
 ;; IRC
