@@ -3,7 +3,7 @@
 	email = dunn.alex@gmail.com
 
 [credential]
-	helper = cross
+	helper = netrc
 
 [core]
   # Use custom `.gitignore` and `.gitattributes`
