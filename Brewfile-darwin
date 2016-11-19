@@ -1,6 +1,7 @@
 brew 'editorconfig'
 brew 'gnu-sed'
 brew 'gpg2'
+brew 'hyperspec'
 brew 'notmuch', args: ['with-emacs']
 brew 'reattach-to-user-namespace'
 brew 'tmux'

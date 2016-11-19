@@ -384,7 +384,17 @@ assume it's installed and `require' it."
 ;;
 (if --melpa
     (require-package 'slime)
-  (require 'slime-autoloads))
+  (progn
+    (require 'slime-autoloads)
+    (eval-after-load "slime"
+      '(progn
+         (setq common-lisp-hyperspec-root
+               (concat --homebrew-prefix "/share/doc/hyperspec/HyperSpec/"))
+         (setq common-lisp-hyperspec-symbol-table
+               (concat common-lisp-hyperspec-root "Data/Map_Sym.txt"))
+         (setq common-lisp-hyperspec-issuex-table
+               (concat common-lisp-hyperspec-root "Data/Map_IssX.txt"))))))
+
 (setq inferior-lisp-program "sbcl")
 (require-package 'elisp-slime-nav)
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
