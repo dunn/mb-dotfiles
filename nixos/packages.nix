@@ -3,6 +3,7 @@ with (import <nixpkgs> {});
 {
   inherit ansible2
           bashCompletion
+          firefox
           getmail
           git
           gnupg20
