@@ -46,9 +46,6 @@ export LESS_TERMCAP_md="$SOLAR_BLUE"
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="less -X"
 
-# Always enable colored `grep` output.
-export GREP_OPTIONS="--color=auto"
-
 # PERL
 # ====
 export PERL5LIB="$HOME/perl5/:$PERL5LIB"
