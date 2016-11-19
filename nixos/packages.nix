@@ -1,7 +1,8 @@
 # https://nixos.org/wiki/FAQ#How_can_I_manage_software_with_nix-env_like_with_configuration.nix.3F
 with (import <nixpkgs> {});
 {
-  inherit bashCompletion
+  inherit ansible2
+          bashCompletion
           getmail
           git
           gnupg20
