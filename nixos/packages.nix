@@ -15,7 +15,8 @@ with (import <nixpkgs> {});
           silver-searcher
           slack
           tig
-          tmux;
+          tmux
+          xclip;
 
   emacs25 = pkgs.emacs25.override {
     withGTK2 = false;
