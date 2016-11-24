@@ -16,9 +16,6 @@ alias ds="cd ~/Desktop"
 # ======
 alias tmux="tmux -2"
 
-# this doesn't "stick" anymore
-alias faster="defaults write NSGlobalDomain KeyRepeat -int 0"
-
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
   colorflag="--color"
@@ -56,12 +53,6 @@ if [[ $(uname -s) == "Darwin" ]]; then
   # brew install gnu-sed
   alias sed='gsed'
 
-  # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
-  alias plistbuddy="/usr/libexec/PlistBuddy"
-
-  # brew install thefuck
-  alias fuck='thefuck $(fc -ln -1)'
-
   # Recursively delete `.DS_Store` files
   alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 fi
@@ -81,8 +72,6 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
-alias headers="curl -IL"
-
 # DEV
 # ===
 if [[ $(uname -s) == "Darwin" ]]; then
@@ -91,7 +80,6 @@ if [[ $(uname -s) == "Darwin" ]]; then
 fi
 
 alias gdiff="git diff --no-index --"
-alias rbc='git rebase -i origin/$(git rev-parse --abbrev-ref HEAD)'
 
 # brew install hugo
 alias hs='hugo server -w -v'
@@ -101,9 +89,6 @@ alias miniml='htmlcompressor -t html -r ./ -o ./ && htmlcompressor -t xml -r ./ 
 
 # MISC
 # ====
-# Stopwatch
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
-
 alias dater='date "+%Y-%m-%d"'
 alias now='date "+%Y-%m-%d-%H%M%S"'
 
