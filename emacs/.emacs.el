@@ -29,7 +29,7 @@
     (require 'package)
     (package-initialize)
     (add-to-list 'package-archives
-                 '("melpa-stable" . "https://melpa.org/packages/") t)
+                 '("melpa" . "https://melpa.org/packages/") t)
     (package-refresh-contents)))
 ;;
 (defun require-package (package)
