@@ -16,7 +16,8 @@ with (import <nixpkgs> {});
           slack
           tig
           tmux
-          xclip;
+          xclip
+          zoom-us;
 
   emacs25 = pkgs.emacs25.override {
     withGTK2 = false;
