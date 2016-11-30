@@ -157,7 +157,6 @@ assume it's installed and `require' it."
 ;;
 (require-package 'company)
 (require-package 'company-ansible)
-(add-to-list 'load-path "~/Dropbox/projects/elisp/emoji")
 (require-package 'company-emoji)
 (require-package 'company-web)
 (if --melpa (require-package 'company-nixos-options))
@@ -365,7 +364,6 @@ assume it's installed and `require' it."
 ;;
 (require-package 'rspec-mode)
 ;;
-(add-to-list 'load-path "~/Dropbox/projects/elisp/homebrew-mode")
 (require-package 'homebrew-mode)
 (global-homebrew-mode)
 
