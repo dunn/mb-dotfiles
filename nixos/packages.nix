@@ -11,13 +11,19 @@ with (import <nixpkgs> {});
           gnumake
           gnupg20
           jdk
+          libxml2
+          libxslt
           msmtp
           nodejs-6_x
           notmuch
+          pass
+          pkgconfig
+          postgresql
           ruby
           sbcl
           silver-searcher
           slack
+          sqlite
           tig
           tmux
           xclip
