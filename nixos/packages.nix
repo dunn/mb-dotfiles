@@ -3,14 +3,18 @@ with (import <nixpkgs> {});
 {
   inherit ansible2
           bashCompletion
+          bundler
           firefox
+          gcc
           getmail
           git
+          gnumake
           gnupg20
           jdk
           msmtp
           nodejs-6_x
           notmuch
+          ruby
           sbcl
           silver-searcher
           slack
