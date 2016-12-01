@@ -271,6 +271,11 @@ assume it's installed and `require' it."
 (define-key notmuch-search-mode-map "S" '--notmuch-search-spam)
 (define-key notmuch-show-mode-map "S" '--notmuch-show-spam)
 
+;;
+;; password-store
+;;
+(require-package 'pass)
+
 ;;;;;;;;;;;;;;;;;;;
 ;; Language support
 ;;;;;;;;;;;;;;;;;;;
