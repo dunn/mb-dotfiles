@@ -474,7 +474,7 @@ in irony-mode's buffers by irony-mode's function"
   "True if there's a window below the active window, false otherwise."
   (> (frame-height) (+ 1 (nth 3 (window-edges)))))
 
-(setq --window-increment 10)
+(defvar --window-increment 10)
 
 (defun --resize-window-right ()
   "Move the frame barrier rightwards."
