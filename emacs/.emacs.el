@@ -70,9 +70,6 @@ assume it's installed and `require' it."
 ;; Mimic native Mac OS behavior
 (global-set-key "\M-_" '--mdash)
 ;;
-(global-set-key "\C-xj" 'other-window)
-(global-set-key "\C-x;" 'other-window)
-;;
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\C-xo" (lambda () (interactive) (switch-to-buffer (other-buffer))))
 ;;
@@ -94,6 +91,13 @@ assume it's installed and `require' it."
 (global-set-key "\C-xm" 'company-complete)
 (global-set-key "\C-c\C-l" '--solarized-light)
 (global-set-key "\C-c\C-d" '--solarized-dark)
+;;
+;; window resizing
+;; https://www.emacswiki.org/emacs/WindowResize
+(global-set-key "\C-cJ" '--resize-window-left)
+(global-set-key "\C-c:" '--resize-window-right)
+(global-set-key "\C-cK" '--resize-window-down)
+(global-set-key "\C-cL" '--resize-window-up)
 
 ;;;;;;;;;;;;;;;;;;;
 ;; General settings
@@ -461,6 +465,44 @@ in irony-mode's buffers by irony-mode's function"
 ;;;;;;;;;;;;;;;
 ;; FUNCTIONS
 ;;;;;;;;;;;;;;;
+
+(defun --win-to-right ()
+  "True if there's a window to the right of the active window, false otherwise."
+  (> (frame-width) (nth 2 (window-edges))))
+
+(defun --win-below ()
+  "True if there's a window below the active window, false otherwise."
+  (> (frame-height) (+ 1 (nth 3 (window-edges)))))
+
+(setq --window-increment 10)
+
+(defun --resize-window-right ()
+  "Move the frame barrier rightwards."
+  (interactive)
+  (if (--win-to-right)
+      (enlarge-window --window-increment t)
+    (shrink-window --window-increment t)))
+
+(defun --resize-window-left ()
+  "Move the frame barrier leftwards."
+  (interactive)
+  (if (--win-to-right)
+      (shrink-window --window-increment t)
+    (enlarge-window --window-increment t)))
+
+(defun --resize-window-up ()
+  "Move the frame barrier leftwards."
+  (interactive)
+  (if (--win-below)
+      (shrink-window --window-increment)
+    (enlarge-window --window-increment)))
+
+(defun --resize-window-down ()
+  "Move the frame barrier leftwards."
+  (interactive)
+  (if (--win-below)
+      (enlarge-window --window-increment)
+    (shrink-window --window-increment)))
 
 ;; https://notmuchmail.org/emacstips/#index5h2
 (defun --notmuch-search-flag ()
