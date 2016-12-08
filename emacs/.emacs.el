@@ -268,6 +268,7 @@ assume it's installed and `require' it."
 (add-hook 'notmuch-message-mode-hook 'typo-mode)
 (global-set-key "\C-cn" 'notmuch)
 (global-set-key "\C-cm" (lambda () (interactive) (notmuch-search "tag:unread")))
+(define-key message-mode-map "\C-ce" 'mml-secure-message-encrypt-pgpmime)
 (define-key notmuch-search-mode-map "F" '--notmuch-search-flag)
 (define-key notmuch-show-mode-map "F" '--notmuch-show-flag)
 (define-key notmuch-search-mode-map "U" '--notmuch-search-read)
