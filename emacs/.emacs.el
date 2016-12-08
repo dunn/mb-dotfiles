@@ -223,6 +223,8 @@ assume it's installed and `require' it."
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 (setq magit-last-seen-setup-instructions "1.4.0")
+(add-to-list 'git-commit-style-convention-checks
+             'overlong-summary-line)
 
 ;;
 (global-set-key "\C-cr" 'vc-resolve-conflicts)
