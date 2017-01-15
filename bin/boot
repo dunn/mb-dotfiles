@@ -1,0 +1,68 @@
+#!/bin/bash
+
+set -e
+
+HERE="$(dirname ${BASH_SOURCE[0]})"
+
+bins='
+check-mail
+copy.sh
+dump-tabs
+httpcompression
+lbdbq_no_err
+summer
+winter'
+
+mkdir -p ~/bin
+cd ~/bin
+
+for bin in $bins; do
+  ln -s "$HERE/$bin" ./
+done
+
+cd ~
+
+dots='
+.aliases
+.bash_profile
+.bash_prompt
+.bashrc
+.brew
+.editorconfig
+emacs/.emacs
+emacs/.emacs.el
+.eslintrc.yml
+.exports
+.functions
+.gitattributes
+.gitconfig
+.gitignore
+.hushlogin
+.inputrc
+.msmtprc
+.notmuch-config
+.wgetrc'
+
+for dot in $dots; do
+  ln -sf "$HERE/../$dot" ./
+done
+
+mkdir -p ~/.emacs.d
+
+cd ~/.emacs.d
+ln -s "$HERE/../emacs/.emacs.d/*" ./
+
+cd ~
+ln -s "$HERE/../tmux/tmux.conf" ./.tmux.conf
+
+tmuxen='
+tmux-darwin.conf
+tmuxcolors-dark.conf
+tmuxcolors-light.conf'
+
+mkdir -p ~/.tmux
+cd ~/.tmux
+
+for mux in $tmuxen; do
+  ln -s "$HERE/../tmux/$mux" "./.$mux"
+done
