@@ -50,7 +50,9 @@ assume it's installed and `require' it."
 ;; Color scheme
 ;;
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
-(add-to-list 'custom-theme-load-path "~/solarized")
+(add-to-list 'custom-theme-load-path (if --melpa
+                                         "~/solarized"
+                                       (concat --homebrew-prefix "share/emacs/site-lisp/solarized-emacs")))
 ;;
 (require-package 'exec-path-from-shell)
 (if (equal "winter" (exec-path-from-shell-getenv "SEASON"))
