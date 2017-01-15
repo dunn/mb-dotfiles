@@ -1,46 +1,56 @@
 brew 'bzip2'
 brew 'cmake', args: ['without-docs']
-brew 'editorconfig', args: ['HEAD']
-brew 'emacs', args: ['with-gnutls', 'with-librsvg', 'with-cocoa', 'HEAD']
-brew 'magit', args: ['HEAD']
+
+brew 'editorconfig'
+brew 'gpg2'
+brew 'notmuch', args: ['with-emacs']
 brew 'tmux'
+brew 'tmux-mem-cpu-load'
+
+tap 'dunn/yolo'
+brew 'dunn/yolo/emacs-edge', args: ['with-mailutils']
 
 tap 'homebrew/emacs'
 brew 'homebrew/emacs/applescript-mode'
-brew 'homebrew/emacs/async-emacs'
-brew 'homebrew/emacs/anzu-mode'
-brew 'homebrew/emacs/browse-kill-ring'
-brew 'homebrew/emacs/circe'
-brew 'homebrew/emacs/company-mode', args: ['with-emoji', 'HEAD']
-brew 'homebrew/emacs/dash'
-brew 'homebrew/emacs/debbugs'
-brew 'homebrew/emacs/e2ansi', args: ['HEAD']
-brew 'homebrew/emacs/editorconfig-emacs', args: ['HEAD']
-brew 'homebrew/emacs/epl', args: ['HEAD']
-brew 'homebrew/emacs/evil'
-brew 'homebrew/emacs/f'
+brew 'homebrew/emacs/ag-emacs'
+brew 'homebrew/emacs/ansible-doc'
+brew 'homebrew/emacs/beacon-mode'
+brew 'homebrew/emacs/company-mode', args: ['with-web', 'with-ansible', 'with-emoji']
+brew 'homebrew/emacs/diff-hl'
+brew 'homebrew/emacs/diffview'
+brew 'homebrew/emacs/elfeed'
+brew 'homebrew/emacs/elisp-slime-nav'
+brew 'homebrew/emacs/editorconfig-emacs'
+brew 'homebrew/emacs/epl'
+brew 'homebrew/emacs/exec-path-from-shell'
 brew 'homebrew/emacs/flycheck', args: ['with-package']
 brew 'homebrew/emacs/fountain-mode'
+brew 'homebrew/emacs/gist-emacs'
 brew 'homebrew/emacs/git-modes'
-brew 'homebrew/emacs/helm'
+brew 'homebrew/emacs/htmlize'
 brew 'homebrew/emacs/homebrew-mode'
-brew 'homebrew/emacs/inf-ruby'
+brew 'homebrew/emacs/irony-mode'
+brew 'homebrew/emacs/json-mode'
 brew 'homebrew/emacs/js2-mode'
-brew 'homebrew/emacs/keyfreq'
-brew 'homebrew/emacs/let-alist'
-brew 'homebrew/emacs/markdown-mode', args: ['with-toc', 'HEAD']
-brew 'homebrew/emacs/names'
+brew 'homebrew/emacs/list-unicode-display'
+brew 'homebrew/emacs/magit'
+brew 'homebrew/emacs/markdown-mode'
+brew 'homebrew/emacs/nlinum'
+brew 'homebrew/emacs/neotree', args: ['HEAD']
 brew 'homebrew/emacs/org-mode'
+brew 'homebrew/emacs/pdf-tools'
 brew 'homebrew/emacs/php-mode'
-brew 'homebrew/emacs/pkg-info'
-brew 'homebrew/emacs/popup'
 brew 'homebrew/emacs/rainbow-mode'
-brew 'homebrew/emacs/register-list'
-brew 'homebrew/emacs/s'
+brew 'homebrew/emacs/robe'
+brew 'homebrew/emacs/rspec-mode'
+brew 'homebrew/emacs/rubocop-emacs'
+brew 'homebrew/emacs/ruby-tools'
 brew 'homebrew/emacs/scss-mode', args: ['HEAD']
+brew 'homebrew/emacs/slime'
 brew 'homebrew/emacs/solarized-emacs', args: ['HEAD']
+brew 'homebrew/emacs/suggest-emacs'
+brew 'homebrew/emacs/swiper', args: ['HEAD']
 brew 'homebrew/emacs/typo-mode'
 brew 'homebrew/emacs/unkillable-scratch'
-brew 'homebrew/emacs/web-completion-data'
 brew 'homebrew/emacs/web-mode'
 brew 'homebrew/emacs/yaml-mode'
