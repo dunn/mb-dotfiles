@@ -39,8 +39,6 @@ emacs/.emacs.el
 .gitignore
 .hushlogin
 .inputrc
-.msmtprc
-.notmuch-config
 .wgetrc'
 
 for dot in $dots; do
