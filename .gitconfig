@@ -95,10 +95,6 @@
   # a.k.a. ‘delete merged’
   dm = "!git branch --merged | grep -v 'master' | grep -v '\\*' | xargs -n 1 git branch -d"
 
-  # to use instead of stash
-  # see https://codingkilledthecat.wordpress.com/2012/04/27/git-stash-pop-considered-harmful/
-  save = !sh -c 'export PREV=$(git symbolic-ref HEAD|cut -d/ -f3-) && git checkout -b "$1" && git commit -am "$1" && git checkout "$PREV"' -
-
   # check out github pull requests by number
   # https://github.com/thoughtbot/guides/tree/master/protocol/open-source#accepting-a-github-pull-request
   co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
