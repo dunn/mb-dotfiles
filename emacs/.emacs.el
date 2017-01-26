@@ -78,8 +78,8 @@ assume it's installed and `require' it."
 (global-set-key "\C-xk" 'kill-this-buffer)
 (global-set-key "\C-x\C-k" 'kill-buffer)
 ;;
-(global-set-key "\C-c;" 'comment-region)
-(global-set-key "\C-c:" 'uncomment-region)
+(global-set-key "\C-x;" 'comment-region)
+(global-set-key "\C-x:" 'uncomment-region)
 ;;
 (global-set-key "\C-x\C-b" 'ibuffer)
 (global-set-key "\C-co" 'browse-url-at-point)
