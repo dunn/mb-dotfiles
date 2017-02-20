@@ -614,7 +614,10 @@ clipboard.  This function is only meant to be assigned to \
 (defun --pbpaste ()
   "Insert the contents of the clipboard."
   (interactive)
-  (insert (shell-command-to-string "pbpaste")))
+  (insert (shell-command-to-string
+           (if (eq system-type 'darwin)
+               "pbpaste"
+             "xclip -o"))))
 
 (require 'ibuffer)
 (defun --new-shell ()
