@@ -3,6 +3,7 @@ brew 'cmake', args: ['without-docs']
 
 brew 'editorconfig'
 brew 'gpg2'
+brew 'xapian', args: ['with-python']
 brew 'notmuch', args: ['with-emacs']
 brew 'tmux'
 brew 'tmux-mem-cpu-load'
