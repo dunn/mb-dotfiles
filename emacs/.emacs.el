@@ -240,8 +240,6 @@ assume it's installed and `require' it."
 (add-to-list 'auto-mode-alist '("\\.git\/config$" . gitignore-mode))
 (add-to-list 'auto-mode-alist '("\\.git\/info\/exclude$" . gitignore-mode))
 ;;
-(require-package 'gist)
-;;
 (require-package 'diff-hl)
 (global-diff-hl-mode)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t)
@@ -422,31 +420,7 @@ assume it's installed and `require' it."
 ;; C
 ;;
 (global-set-key "\C-cc" 'compile)
-;; See https://github.com/Sarcasm/irony-mode#configuration
-(defun --irony-mode-remap ()
-  "Replace the `completion-at-point' and `complete-symbol' bindings \
-in irony-mode's buffers by irony-mode's function"
-  (define-key irony-mode-map [remap completion-at-point]
-    'irony-completion-at-point-async)
-  (define-key irony-mode-map [remap complete-symbol]
-    'irony-completion-at-point-async))
 
-(defun --irony-unless-php ()
-  "Turn on irony-mode unless it's PHP."
-  (unless (eql 'php-mode major-mode)
-    (irony-mode)))
-
-(unless --melpa
-  (progn
-    (require 'irony-cdb-libclang)
-    (require 'irony-completion)
-    (require 'irony-diagnostics)
-    (add-hook 'c++-mode-hook '--irony-unless-php)
-    (add-hook 'c-mode-hook '--irony-unless-php)
-    (add-hook 'objc-mode-hook '--irony-unless-php)
-
-    (add-hook 'irony-mode-hook '--irony-mode-remap)
-    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)))
 ;;
 ;; Make, CMake
 ;;
