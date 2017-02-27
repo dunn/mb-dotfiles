@@ -1,15 +1,13 @@
-brew 'bzip2'
-brew 'cmake', args: ['without-docs']
-
 brew 'editorconfig'
 brew 'gpg2'
 brew 'xapian', args: ['with-python']
 brew 'notmuch', args: ['with-emacs']
 brew 'tmux'
 brew 'tmux-mem-cpu-load'
+brew 'pass' args: ['HEAD']
 
 tap 'dunn/yolo'
-brew 'dunn/yolo/emacs-edge', args: ['with-mailutils']
+brew 'dunn/yolo/emacs-edge'
 
 tap 'dunn/emacs'
 brew 'dunn/emacs/applescript-mode'
@@ -26,7 +24,6 @@ brew 'dunn/emacs/epl'
 brew 'dunn/emacs/exec-path-from-shell'
 brew 'dunn/emacs/flycheck', args: ['with-package']
 brew 'dunn/emacs/fountain-mode'
-brew 'dunn/emacs/gist-emacs'
 brew 'dunn/emacs/git-modes'
 brew 'dunn/emacs/htmlize'
 brew 'dunn/emacs/homebrew-mode'
@@ -36,9 +33,11 @@ brew 'dunn/emacs/js2-mode'
 brew 'dunn/emacs/list-unicode-display'
 brew 'dunn/emacs/magit'
 brew 'dunn/emacs/markdown-mode'
+brew 'dunn/emacs/nix-mode'
 brew 'dunn/emacs/nlinum'
 brew 'dunn/emacs/neotree', args: ['HEAD']
 brew 'dunn/emacs/org-mode'
+brew 'dunn/emacs/pass-mode'
 brew 'dunn/emacs/pdf-tools'
 brew 'dunn/emacs/php-mode'
 brew 'dunn/emacs/rainbow-mode'
@@ -50,7 +49,7 @@ brew 'dunn/emacs/scss-mode', args: ['HEAD']
 brew 'dunn/emacs/slime'
 brew 'dunn/emacs/solarized-emacs', args: ['HEAD']
 brew 'dunn/emacs/suggest-emacs'
-brew 'dunn/emacs/swiper', args: ['HEAD']
+brew 'dunn/emacs/swiper'
 brew 'dunn/emacs/typo-mode'
 brew 'dunn/emacs/unkillable-scratch'
 brew 'dunn/emacs/web-mode'
