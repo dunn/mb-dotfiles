@@ -54,6 +54,10 @@ if [[ $(uname -s) == "Darwin" ]]; then
 
   # Recursively delete `.DS_Store` files
   alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+else
+  alias pbcopy="xclip -selection clipboard"
+  alias pbpaste="xclip -o"
+  alias clip=pbcopy
 fi
 
 # Intuitive map function
