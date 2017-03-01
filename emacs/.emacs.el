@@ -90,7 +90,6 @@ assume it's installed and `require' it."
 (global-set-key "\C-ck" '--insert-kbd)
 (global-set-key "\C-cy" '--shruggie)
 (global-set-key "\C-cz" '--new-shell)
-(global-set-key "\C-xm" 'company-complete)
 (global-set-key "\C-c\C-l" '--solarized-light)
 (global-set-key "\C-c\C-d" '--solarized-dark)
 ;;
@@ -171,6 +170,7 @@ assume it's installed and `require' it."
 (add-to-list 'company-backends 'company-web-html)
 (if --melpa (add-to-list 'company-backends 'company-nixos-options))
 (add-hook 'after-init-hook 'global-company-mode)
+(global-set-key "\C-xm" 'company-complete)
 
 ;;
 ;; Text and fonts
