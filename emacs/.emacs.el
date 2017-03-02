@@ -248,6 +248,15 @@ assume it's installed and `require' it."
 (add-hook 'diff-mode-hook 'diffview-current)
 
 ;;
+;; Twitter
+;;
+(require-package 'twittering-mode)
+;; https://github.com/shackra/.emacs.d/commit/c1174e97bcbe7977118c8b159367e6040fd52fe7
+(define-key twittering-mode-map (kbd "f") 'twittering-favorite)
+(define-key twittering-mode-map (kbd "r") 'twittering-native-retweet)
+(define-key twittering-mode-map (kbd "m") 'twittering-organic-retweet)
+
+;;
 ;; RSS
 ;;
 (require-package 'elfeed)
