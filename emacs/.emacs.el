@@ -591,7 +591,7 @@ clipboard.  This function is only meant to be assigned to \
   (insert (shell-command-to-string
            (if (eq system-type 'darwin)
                "pbpaste"
-             "xclip -o"))))
+             "xclip -o -selection clipboard"))))
 
 (require 'ibuffer)
 (defun --new-shell ()
