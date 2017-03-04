@@ -7,15 +7,13 @@ cdm() {
 
 # `which` but follow symlinks and check aliases and functions
 where() {
-  is_alias=$(alias | grep "alias\ $1=")
-  is_func=$(declare -F | grep "\ $1$")
+  is_alias=$(alias | grep "alias\ $1=" 2>/dev/null)
+  is_func=$(declare -F | grep "\ $1$" 2>/dev/null)
   if [[ "$is_alias" != "" ]]; then
     echo "${is_alias//alias\ /}"
-  fi
-  if [[ "$is_func" != "" ]]; then
+  elif [[ "$is_func" != "" ]]; then
     ${is_func}
-  fi
-  if [[ $(which "$1") != "" ]]; then
+  elif [[ $(which "$1") != "" ]]; then
     start=$(pwd)
     info=$(ls -l "$(which "$1")")
     first=$(dirname "$(echo "$info" | awk '{ print $9; }')")
