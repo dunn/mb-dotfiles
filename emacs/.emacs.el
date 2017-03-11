@@ -255,6 +255,7 @@ assume it's installed and `require' it."
 (define-key twittering-mode-map (kbd "f") 'twittering-favorite)
 (define-key twittering-mode-map (kbd "r") 'twittering-native-retweet)
 (define-key twittering-mode-map (kbd "m") 'twittering-organic-retweet)
+(add-hook 'twittering-edit-mode-hook 'typo-mode)
 
 ;;
 ;; RSS
