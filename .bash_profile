@@ -1,20 +1,18 @@
 #!/usr/bin/env bash
 
-. "$HOME/.exports"
-. "$HOME/.bash_prompt"
-. "$HOME/.aliases"
-. "$HOME/.functions"
-. "$HOME/.brew"
-# symlink the contents of ./emacs into your home folder, not the
-# directory itself
-. "$HOME/.emacs"
-[[ -r "$HOME/.extra" ]] && . "$HOME/.extra"
-
 if [[ $(uname -s) == "Darwin" ]]; then
   export PATH="$HOME/bin:/usr/local/opt/node/bin:/usr/local/bin:/usr/local/sbin:/usr/texbin:$PATH"
 else
   export PATH="$HOME/bin:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH"
 fi
+
+. "$HOME/.exports"
+. "$HOME/.bash_prompt"
+. "$HOME/.aliases"
+. "$HOME/.functions"
+. "$HOME/.brew"
+. "$HOME/.emacs"
+[[ -r "$HOME/.extra" ]] && . "$HOME/.extra"
 
 eval "$(rbenv init -)" 2>/dev/null
 
