@@ -137,7 +137,7 @@ ${source}")
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 130 :family "Inconsolata"))))
+ '(default ((t (:height 170 :family "Inconsolata"))))
  '(js2-error ((t (:foreground "#dc322f"))))
  '(js2-external-variable ((t (:foreground "#cb4b16"))))
  '(js2-function-call ((t (:inherit default :foreground "#6c71c4"))))
