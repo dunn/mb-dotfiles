@@ -337,10 +337,11 @@ assume it's installed and `require' it."
 ;; HTML, CSS/SASS
 ;;
 (require-package 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
 ;;
 (require-package 'scss-mode)
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
@@ -361,6 +362,7 @@ assume it's installed and `require' it."
 ;;
 (require-package 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx$" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
 ;;
