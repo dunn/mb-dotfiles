@@ -21,6 +21,10 @@
   (setq --homebrew-prefix "~/.linuxbrew/"))
 (add-to-list 'load-path (concat --homebrew-prefix "bin/"))
 
+;; Add development packages
+(let ((default-directory "~/elisp/"))
+   (normal-top-level-add-subdirs-to-load-path))
+
 ;;
 ;; Package manager
 ;;
