@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "index.js",
   "dependencies": {
-    "async": "2.1.x",
+    "async": "2.4.x",
     "request": "2.x.x",
     "twit": "2.2.x"
   },
