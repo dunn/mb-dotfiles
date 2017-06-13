@@ -228,7 +228,8 @@ assume it's installed and `require' it."
 (require-package 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
-(global-set-key (kbd "C-c h") 'magit-blame)
+(global-set-key (kbd "C-c b") 'magit-blame)
+(global-set-key (kbd "C-c h") 'magit-log-buffer-file)
 (setq magit-last-seen-setup-instructions "1.4.0")
 (add-to-list 'git-commit-style-convention-checks
              'overlong-summary-line)
