@@ -26,7 +26,7 @@ brew 'dunn/emacs/magit'
 brew 'dunn/emacs/markdown-mode'
 brew 'dunn/emacs/nix-mode'
 brew 'dunn/emacs/nlinum'
-brew 'dunn/emacs/neotree', args: ['HEAD']
+brew 'dunn/emacs/neotree'
 brew 'dunn/emacs/org-mode'
 brew 'dunn/emacs/pass-mode'
 brew 'dunn/emacs/pdf-tools'
