@@ -6,6 +6,7 @@ brew 'dunn/emacs/applescript-mode'
 brew 'dunn/emacs/ag-emacs'
 brew 'dunn/emacs/ansible-doc'
 brew 'dunn/emacs/beacon-mode'
+brew 'dunn/emacs/cider'
 brew 'dunn/emacs/company-mode', args: ['with-web', 'with-ansible', 'with-emoji']
 brew 'dunn/emacs/diff-hl'
 brew 'dunn/emacs/diffview'

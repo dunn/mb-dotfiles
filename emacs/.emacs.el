@@ -430,6 +430,11 @@ assume it's installed and `require' it."
 (global-set-key "\C-ci" 'edebug-eval-top-level-form)
 
 ;;
+;; Clojure
+;;
+(require-package 'cider)
+
+;;
 ;; Nix
 ;;
 (require-package 'nix-mode)
