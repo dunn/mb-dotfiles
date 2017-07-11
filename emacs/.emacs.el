@@ -458,8 +458,14 @@ assume it's installed and `require' it."
 (add-to-list 'auto-mode-alist '("\.yaml$" . yaml-mode))
 (require-package 'ansible-doc)
 (add-hook 'yaml-mode-hook #'ansible-doc-mode)
+
 ;;
-;; PDFs
+;; RDF
+;;
+(require-package 'omn-mode)
+
+;;
+;; PDF
 ;;
 (require-package 'pdf-tools)
 (add-to-list 'auto-mode-alist '("\.pdf$" . pdf-view-mode))
