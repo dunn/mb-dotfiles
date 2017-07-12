@@ -44,6 +44,7 @@ brew 'dunn/emacs/slime'
 brew 'dunn/emacs/solarized-emacs', args: ['HEAD']
 brew 'dunn/emacs/suggest-emacs'
 brew 'dunn/emacs/swiper'
+brew 'dunn/emacs/tawny-mode'
 brew 'dunn/emacs/twittering-mode', args: ['HEAD']
 brew 'dunn/emacs/typo-mode'
 brew 'dunn/emacs/unkillable-scratch'
