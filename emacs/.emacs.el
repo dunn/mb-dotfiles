@@ -393,6 +393,7 @@ assume it's installed and `require' it."
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 ;;
 (require-package 'rspec-mode)
+(require-package 'minitest)
 ;;
 (require-package 'homebrew-mode)
 (global-homebrew-mode)
