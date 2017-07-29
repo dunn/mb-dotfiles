@@ -25,6 +25,9 @@ shopt -s histappend;
 # http://mywiki.wooledge.org/BashGuide/Patterns
 shopt -s extglob
 
+# https://twitter.com/isislovecruft/status/891065653200924672
+shopt -u sourcepath
+
 # https://github.com/bfontaine/Dotfiles/blob/master/.bashrc#L24-L25
 # disable file overwriting with >
 set -C
