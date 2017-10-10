@@ -4,4 +4,4 @@ brew 'xapian', args: ['with-python']
 brew 'notmuch', args: ['with-emacs']
 brew 'tmux'
 brew 'tmux-mem-cpu-load'
-brew 'pass' args: ['HEAD']
+brew 'pass'
