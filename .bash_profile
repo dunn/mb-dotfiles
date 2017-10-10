@@ -28,13 +28,6 @@ shopt -s extglob
 # https://twitter.com/isislovecruft/status/891065653200924672
 shopt -u sourcepath
 
-# https://github.com/bfontaine/Dotfiles/blob/master/.bashrc#L24-L25
-# disable file overwriting with >
-set -C
-
-# Autocorrect typos in path names when using `cd`
-# shopt -s cdspell;
-
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
