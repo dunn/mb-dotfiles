@@ -18,7 +18,7 @@
 ;; brew bundle --file=../Brewfile-darwin (or Brewfile-linux as the case may be)
 (if (eq system-type 'darwin)
     (setq --homebrew-prefix "/usr/local/")
-  (setq --homebrew-prefix "~/.linuxbrew/"))
+  (setq --homebrew-prefix "/home/linuxbrew/.linuxbrew/"))
 (add-to-list 'load-path (concat --homebrew-prefix "bin/"))
 
 ;; Add development packages
