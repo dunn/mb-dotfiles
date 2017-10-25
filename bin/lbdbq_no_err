@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-/usr/local/bin/lbdbq "$@" 2>/dev/null | sed 1d | gsed 's:\t.*$::'
+lbdbq "$@" 2>/dev/null | sed 1d | sed 's:\t.*$::'
