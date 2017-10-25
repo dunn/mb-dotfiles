@@ -12,6 +12,7 @@
  '(as-indent-offset 2)
  '(async-bytecomp-package-mode t)
  '(beacon-size 30)
+ '(column-number-mode t)
  '(company-emoji-aliases
    (quote
     ((:man-woman-boy: . ":family:")
@@ -54,6 +55,7 @@
  '(erc-stamp-mode t)
  '(erc-track-minor-mode t)
  '(erc-track-mode t)
+ '(fill-column 80)
  '(fountain-export-title-page-title-template "${title}
 ${credit}
 ${author}
