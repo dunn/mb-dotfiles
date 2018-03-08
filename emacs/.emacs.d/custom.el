@@ -85,6 +85,7 @@ ${source}")
     ("^User-Agent:" "^References:" "^Face:" "^X-Face:" "^X-Draft-From:")))
  '(message-send-mail-function (quote message-send-mail-with-sendmail))
  '(message-sendmail-envelope-from (quote header))
+ '(mocha-command "node_modules/.bin/mocha")
  '(notmuch-address-command "~/bin/lbdbq_no_err")
  '(notmuch-search-oldest-first nil)
  '(notmuch-tag-formats

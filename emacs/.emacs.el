@@ -371,6 +371,9 @@ assume it's installed and `require' it."
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 (add-to-list 'interpreter-mode-alist '("iojs" . js2-mode))
 ;;
+(require-package 'mocha)
+(define-key js2-mode-map "\C-c,s" 'mocha-test-at-point)
+;;
 (require-package 'json-mode)
 
 ;;
