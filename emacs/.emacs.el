@@ -449,6 +449,11 @@ assume it's installed and `require' it."
 (global-set-key "\C-cc" 'compile)
 
 ;;
+;; Go
+;;
+(require-package 'go-mode)
+
+;;
 ;; Make, CMake
 ;;
 (add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
