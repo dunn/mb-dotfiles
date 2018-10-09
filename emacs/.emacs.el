@@ -472,6 +472,7 @@ assume it's installed and `require' it."
 ;; RDF
 ;;
 (require-package 'omn-mode)
+(require-package 'rdf-prefix)
 (require-package 'tawny-mode)
 
 ;;
