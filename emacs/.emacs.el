@@ -9,7 +9,8 @@
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
 
-(setq --melpa (getenv "MELPA"))
+(setq --melpa t)
+;; (setq --melpa (getenv "MELPA"))
 
 ;;
 ;; Homebrew executables and lisp files
