@@ -6,6 +6,7 @@
  '(ag-arguments
    (quote
     ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--hidden" "--")))
+ '(ag-group-matches nil)
  '(ag-highlight-search t)
  '(ag-ignore-list (quote (".git")))
  '(as-continuation-offset 2)
