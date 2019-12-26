@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+ulimit -n 200000
+ulimit -u 2048
+
 if [[ $(uname -s) == "Darwin" ]]; then
   export PATH="$HOME/bin:/usr/local/opt/python/libexec/bin:/usr/local/opt/node/bin:/usr/local/bin:/usr/local/sbin:/usr/local/texlive/2016/bin/x86_64-darwin:$PATH"
 else
