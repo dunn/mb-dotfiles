@@ -10,6 +10,8 @@
 (set-language-environment "UTF-8")
 
 (setq --melpa t)
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 ;; (setq --melpa (getenv "MELPA"))
 
 ;;
