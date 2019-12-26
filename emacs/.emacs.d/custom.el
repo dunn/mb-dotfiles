@@ -57,6 +57,7 @@
  '(erc-track-minor-mode t)
  '(erc-track-mode t)
  '(fill-column 80)
+ '(flycheck-emacs-lisp-package-user-dir nil)
  '(fountain-export-title-page-title-template "${title}
 ${credit}
 ${author}
@@ -102,11 +103,16 @@ ${source}")
       (notmuch-apply-face tag
                           (quote
                            (:foreground "light green")))))))
+ '(package-archives
+   (quote
+    (("gnu" . "https://elpa.gnu.org/packages/")
+     ("melpa" . "https://melpa.org/packages/"))))
  '(package-directory-list nil)
+ '(package-enable-at-startup nil)
+ '(package-gnupghome-dir "~/.emacs.d/elpa/gnupg")
  '(package-selected-packages
    (quote
-    (tawny-mode rdf-prefix omn-mode go-mode cider minitest mocha twittering-mode pass nix-mode company-nixos-options slime slime-autoloads rubocop htmlize rspec-mode ruby-tools json-mode diffview suggest pkg-info list-unicode-display company-web company-php company-ansible exec-path-from-shell ansible-doc php-mode markdown-mode flycheck company neotree swiper cmake-mode notmuch pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
- '(package-user-dir "")
+    (company-nixos-options dockerfile-mode spinner realgud tawny-mode rdf-prefix omn-mode go-mode cider minitest mocha twittering-mode pass nix-mode slime slime-autoloads rubocop htmlize rspec-mode ruby-tools json-mode diffview suggest pkg-info list-unicode-display company-web company-php company-ansible exec-path-from-shell ansible-doc php-mode markdown-mode flycheck company neotree swiper cmake-mode notmuch pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
  '(pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
  '(perl-indent-level 2)
  '(require-final-newline t)
@@ -123,9 +129,9 @@ ${source}")
  '(tls-program
    (quote
     ("gnutls-cli --x509cafile /etc/ssl/certs/system.pem -p %p %h")))
- '(tramp-connection-timeout 15 nil (tramp))
+ '(tramp-connection-timeout 15)
  '(tramp-syntax (quote default) nil (tramp))
- '(tramp-use-ssh-controlmaster-options t nil (tramp))
+ '(tramp-use-ssh-controlmaster-options t)
  '(tramp-verbose 6 nil (tramp))
  '(twittering-convert-fix-size 32)
  '(typo-language "English")

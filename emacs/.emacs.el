@@ -43,9 +43,8 @@
   "Install PACKAGE with package.el if in melpa mode, otherwise \
 assume it's installed and `require' it."
   (if --melpa
-      (let ((package-user-dir "~/.emacs.d/elpa"))
-        (unless (package-installed-p package)
-          (package-install package))))
+	    (unless (package-installed-p package)
+        (package-install package)))
   (require package))
 
 ;;
@@ -171,11 +170,9 @@ assume it's installed and `require' it."
 (require-package 'company-ansible)
 (require-package 'company-emoji)
 (require-package 'company-web)
-(if --melpa (require-package 'company-nixos-options))
 (add-to-list 'company-backends 'company-ansible)
 (add-to-list 'company-backends 'company-emoji)
 (add-to-list 'company-backends 'company-web-html)
-(if --melpa (add-to-list 'company-backends 'company-nixos-options))
 (add-hook 'after-init-hook 'global-company-mode)
 (global-set-key "\C-xm" 'company-complete)
 
@@ -221,13 +218,14 @@ assume it's installed and `require' it."
 ;;
 ;; Debugging
 ;;
-(require-package 'realgud)
+;; (require-package 'realgud)
 (require-package 'suggest)
 
 ;;
 ;; Git
 ;;
-;; requires a newer version of Emacs than is provided by Debian
+;; https://github.com/magit/magit/issues/3997
+(require 'subr-x)
 (require-package 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
