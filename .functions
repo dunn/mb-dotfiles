@@ -189,3 +189,20 @@ mkredirect() {
 </html>
 EOF
 }
+
+dork () {
+  rubyversion=$(cat "$(pwd)/.ruby-version" | tr -d '\n')
+  rubystring="ruby"
+  if [[ "$rubyversion" != "" ]]; then
+    rubystring="ruby:${rubyversion}"
+  fi
+
+  imagename=$(echo "${rubystring}" | sed 's|\:|_|')
+
+  if [[ -f "/tmp/${imagename}.cid" ]]; then
+    docker start "$(cat /tmp/${imagename}.cid)"
+    docker exec -it "$(cat /tmp/${imagename}.cid)" /bin/bash -c "$1"
+  else
+    docker run --cidfile "/tmp/${imagename}.cid" -v "$(pwd)":/app -w /app "${rubystring}" /bin/bash -c "$1"
+  fi
+}
