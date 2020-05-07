@@ -15,9 +15,6 @@ alias ds="cd ~/Desktop"
 # ======
 alias tmux="tmux -2"
 
-# nixpkgs shortcut
-alias upgrade="nix-env -iA myPackages -f '<nixpkgs>'"
-
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
   colorflag="--color"
@@ -92,6 +89,11 @@ alias hs='hugo server -w -v'
 
 alias crush='compass compile -e production --force'
 alias miniml='htmlcompressor -t html -r ./ -o ./ && htmlcompressor -t xml -r ./ -o ./'
+
+# NixOS
+# =====
+alias upgrade="nix-env -iA myPackages -f '<nixpkgs>'"
+alias nixpath="nix-build '<nixpkgs>' --no-build-output -A"
 
 # MISC
 # ====

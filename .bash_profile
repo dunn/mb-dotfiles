@@ -6,7 +6,7 @@ ulimit -u 2048
 if [[ $(uname -s) == "Darwin" ]]; then
   export PATH="$HOME/bin:/usr/local/opt/python/libexec/bin:/usr/local/opt/node/bin:/usr/local/bin:/usr/local/sbin:$HOME/.rbenv/bin:$PATH"
 else
-  export PATH="$HOME/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.linuxbrew/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.rbenv/bin:$PATH"
+  export PATH="$HOME/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$HOME/.npm-packages/bin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.rbenv/bin:$PATH"
 fi
 
 . "$HOME/.exports"
