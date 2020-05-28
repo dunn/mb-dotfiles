@@ -7,13 +7,19 @@
   home.packages = [
     pkgs.bashCompletion
     pkgs.bind
+    pkgs.bundix
     pkgs.editorconfig-core-c
     pkgs.emacs
+    pkgs.file
     pkgs.gitAndTools.pass-git-helper
     pkgs.git-secrets
     pkgs.inconsolata
     pkgs.jdk
     pkgs.jq
+    pkgs.kubectl
+    pkgs.kubernetes-helm
+    pkgs.libxml2
+    pkgs.libxslt
     pkgs.lsof
     pkgs.nodejs
     pkgs.notmuch
@@ -22,13 +28,16 @@
     pkgs.php
     pkgs.php74Packages.composer
     pkgs.pinentry
+    pkgs.postgresql
     pkgs.ruby
+    pkgs.shellcheck
     pkgs.silver-searcher
     pkgs.slack
     pkgs.source-code-pro
     pkgs.tig
     pkgs.tmux
     pkgs.xclip
+    pkgs.zlib
     pkgs.zoom-us
   ];
 
