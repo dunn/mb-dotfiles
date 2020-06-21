@@ -4,9 +4,9 @@ ulimit -n 200000
 ulimit -u 2048
 
 if [[ $(uname -s) == "Darwin" ]]; then
-  export PATH="$HOME/bin:/usr/local/opt/python/libexec/bin:/usr/local/opt/node/bin:/usr/local/bin:/usr/local/sbin:$HOME/.rbenv/bin:$PATH"
+  export PATH="$HOME/bin:/usr/local/opt/python/libexec/bin:/usr/local/opt/node/bin:$HOME/.cargo/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/texlive/2016/bin/x86_64-darwin:$PATH"
 else
-  export PATH="$HOME/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$HOME/.npm-packages/bin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.rbenv/bin:$PATH"
+  export PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/.npm-packages/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH"
 fi
 
 . "$HOME/.exports"
