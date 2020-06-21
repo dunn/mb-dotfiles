@@ -338,6 +338,7 @@ assume it's installed and `require' it."
 (global-set-key "\C-c\C-a" 'org-agenda)
 (global-set-key "\C-c\C-c" 'org-capture)
 (global-set-key "\C-c\C-b" 'org-iswitchb)
+(setq org-log-done 'time)
 
 ;;
 ;; HTML, CSS/SASS
