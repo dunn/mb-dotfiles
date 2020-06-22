@@ -111,7 +111,7 @@ ${source}")
  '(package-gnupghome-dir "~/.emacs.d/elpa/gnupg")
  '(package-selected-packages
    (quote
-    (mtg-deck-mode company-nixos-options dockerfile-mode spinner realgud tawny-mode rdf-prefix omn-mode go-mode cider minitest mocha twittering-mode pass nix-mode slime slime-autoloads rubocop htmlize rspec-mode ruby-tools json-mode diffview suggest pkg-info list-unicode-display company-web company-php company-ansible exec-path-from-shell ansible-doc php-mode markdown-mode flycheck company neotree swiper cmake-mode notmuch pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
+    (cargo flycheck-rust lsp-mode racer mtg-deck-mode company-nixos-options dockerfile-mode spinner realgud tawny-mode rdf-prefix omn-mode go-mode cider minitest mocha twittering-mode pass nix-mode slime slime-autoloads rubocop htmlize rspec-mode ruby-tools json-mode diffview suggest pkg-info list-unicode-display company-web company-php company-ansible exec-path-from-shell ansible-doc php-mode markdown-mode flycheck company neotree swiper cmake-mode notmuch pdf-tools yaml-mode elisp-slime-nav web-mode unkillable-scratch typo scss-mode robe rainbow-mode nlinum markdown-toc magit js2-mode homebrew-mode gitignore-mode gitconfig-mode gitattributes-mode gist fountain-mode flycheck-package flycheck-cask elfeed editorconfig diff-hl counsel company-emoji beacon ag)))
  '(pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
  '(perl-indent-level 2)
  '(require-final-newline t)
@@ -147,7 +147,7 @@ ${source}")
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "CYRE" :family "Inconsolata"))))
+ '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Inconsolata"))))
  '(js2-error ((t (:foreground "#dc322f"))))
  '(js2-external-variable ((t (:foreground "#cb4b16"))))
  '(js2-function-call ((t (:inherit default :foreground "#6c71c4"))))

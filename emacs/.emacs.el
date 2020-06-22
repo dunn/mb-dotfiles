@@ -457,6 +457,14 @@ assume it's installed and `require' it."
 (require-package 'go-mode)
 
 ;;
+;; Rust
+;;
+(require-package 'racer)
+;; https://github.com/flycheck/flycheck-rust#setup
+(with-eval-after-load 'rust-mode
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+
+;;
 ;; Make, CMake
 ;;
 (add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
