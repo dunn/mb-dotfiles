@@ -27,17 +27,20 @@
   # Detect whitespace errors when applying a patch
   whitespace = fix
 
-[merge]
-  conflictStyle = diff3
-  # Include summaries of merged commits in newly created merge commit
-  # messages
-  log = true
+[pull]
+  ff = only
 
 [push]
   default = simple
 
   # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
+
+[merge]
+  conflictStyle = diff3
+  # Include summaries of merged commits in newly created merge commit
+  # messages
+  log = true
 
 [alias]
   m = checkout master
