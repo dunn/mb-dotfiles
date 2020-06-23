@@ -640,6 +640,13 @@ If there are no other windows, create one; otherwise use `other-window'."
   (setq frame-background-mode 'light)
   (load-theme 'solarized t))
 
+(defun --firefox (url &optional new-window)
+  "Open the URL in firefox.exe, optionally in a NEW-WINDOW."
+  (let ((ff-path (if (getenv "WSL_DISTRO_NAME")
+                    "/mnt/c/Program\\ Files/Mozilla\\ Firefox/firefox.exe "
+                  "firefox")))
+    (shell-command (concat ff-path url))))
+
 (defun --shell-command-replace-region (start end command
                                            &optional output-buffer replace
                                            error-buffer display-error-buffer)

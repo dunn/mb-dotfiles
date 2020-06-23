@@ -13,6 +13,7 @@
  '(as-indent-offset 2)
  '(async-bytecomp-package-mode t)
  '(beacon-size 30)
+ '(browse-url-browser-function (quote --firefox))
  '(column-number-mode t)
  '(company-emoji-aliases
    (quote
