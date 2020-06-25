@@ -9,10 +9,7 @@
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
 
-(setq --melpa t)
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-
-;; (setq --melpa (getenv "MELPA"))
 
 ;;
 ;; Homebrew executables and lisp files
@@ -31,20 +28,17 @@
 ;;
 ;; Package manager
 ;;
-(when --melpa
-  (progn
-    (require 'package)
-    (package-initialize)
-    (add-to-list 'package-archives
-                 '("melpa" . "https://melpa.org/packages/") t)
-    (package-refresh-contents)))
+(require 'package)
+(package-initialize)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+(package-refresh-contents)
+
 ;;
 (defun require-package (package)
-  "Install PACKAGE with package.el if in melpa mode, otherwise \
-assume it's installed and `require' it."
-  (if --melpa
-	    (unless (package-installed-p package)
-        (package-install package)))
+  "Install PACKAGE with package.el and require it."
+  (unless (package-installed-p package)
+    (package-install package))
   (require package))
 
 ;;
@@ -56,10 +50,7 @@ assume it's installed and `require' it."
 ;; Color scheme
 ;;
 ;; https://github.com/sellout/emacs-color-theme-solarized/issues/141#issuecomment-71862293
-(add-to-list 'custom-theme-load-path (if --melpa
-                                         "~/elisp/solarized"
-                                       (concat --homebrew-prefix "share/emacs/site-lisp/solarized-emacs")))
-;;
+(add-to-list 'custom-theme-load-path "~/elisp/solarized")
 (require-package 'exec-path-from-shell)
 (if (equal "winter" (exec-path-from-shell-getenv "SEASON"))
     (setq frame-background-mode 'dark)
@@ -400,31 +391,9 @@ assume it's installed and `require' it."
 (global-homebrew-mode)
 
 ;;
-;; Applescript
-;;
-;; not in MELPA stable
-(unless --melpa
-  (progn
-    (require-package 'applescript-mode)
-    (add-to-list 'auto-mode-alist '("\.applescript$" . applescript-mode))
-    (add-to-list 'interpreter-mode-alist '("osascript" . applescript-mode))))
-
-;;
 ;; Emacs lisp
 ;;
-(if --melpa
-    (require-package 'slime)
-  (progn
-    (require 'slime-autoloads)
-    (eval-after-load "slime"
-      '(progn
-         (setq common-lisp-hyperspec-root
-               (concat --homebrew-prefix "/share/doc/hyperspec/HyperSpec/"))
-         (setq common-lisp-hyperspec-symbol-table
-               (concat common-lisp-hyperspec-root "Data/Map_Sym.txt"))
-         (setq common-lisp-hyperspec-issuex-table
-               (concat common-lisp-hyperspec-root "Data/Map_IssX.txt"))))))
-
+(require-package 'slime)
 (setq inferior-lisp-program "sbcl")
 (require-package 'elisp-slime-nav)
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
