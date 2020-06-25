@@ -455,6 +455,7 @@ assume it's installed and `require' it."
 ;; Rust
 ;;
 (require-package 'racer)
+(require-package 'flycheck-rust)
 ;; https://github.com/flycheck/flycheck-rust#setup
 (with-eval-after-load 'rust-mode
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
