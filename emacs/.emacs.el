@@ -253,6 +253,13 @@ assume it's installed and `require' it."
 (add-hook 'diff-mode-hook 'diffview-current)
 
 ;;
+;; pinentry
+;;
+(require-package 'pinentry)
+(setq epa-pinentry-mode 'loopback)
+(pinentry-start)
+
+;;
 ;; Twitter
 ;;
 (require-package 'twittering-mode)
