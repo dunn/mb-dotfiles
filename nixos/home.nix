@@ -32,6 +32,7 @@
     pkgs.postgresql
     pkgs.python3
     pkgs.ruby
+    pkgs.rustup
     pkgs.shellcheck
     pkgs.silver-searcher
     pkgs.slack
