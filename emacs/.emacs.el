@@ -260,16 +260,6 @@ assume it's installed and `require' it."
 (pinentry-start)
 
 ;;
-;; Twitter
-;;
-(require-package 'twittering-mode)
-;; https://github.com/shackra/.emacs.d/commit/c1174e97bcbe7977118c8b159367e6040fd52fe7
-(define-key twittering-mode-map (kbd "f") 'twittering-favorite)
-(define-key twittering-mode-map (kbd "r") 'twittering-native-retweet)
-(define-key twittering-mode-map (kbd "m") 'twittering-organic-retweet)
-(add-hook 'twittering-edit-mode-hook 'typo-mode)
-
-;;
 ;; RSS
 ;;
 (require-package 'elfeed)
