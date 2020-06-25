@@ -206,3 +206,12 @@ dork () {
     docker run --cidfile "/tmp/${imagename}.cid" -v "$(pwd)":/app -w /app "${rubystring}" /bin/sh -il -c "$1"
   fi
 }
+
+nixpkg-install () {
+  package="nixpkgs.${1}"
+  nix-env -iA "${package}"
+}
+
+nixpkg-uninstall () {
+  nix-env -e "${1}"
+}
