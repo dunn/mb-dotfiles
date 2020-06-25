@@ -18,6 +18,7 @@
     pkgs.jq
     pkgs.kubectl
     pkgs.kubernetes-helm
+    pkgs.k9s
     pkgs.libxml2
     pkgs.libxslt
     pkgs.lsof
@@ -29,13 +30,16 @@
     pkgs.php74Packages.composer
     pkgs.pinentry
     pkgs.postgresql
+    pkgs.python3
     pkgs.ruby
     pkgs.shellcheck
     pkgs.silver-searcher
     pkgs.slack
     pkgs.source-code-pro
+    pkgs.sqlite
     pkgs.tig
     pkgs.tmux
+    pkgs.unzip
     pkgs.xclip
     pkgs.zlib
     pkgs.zoom-us
