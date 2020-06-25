@@ -201,8 +201,8 @@ dork () {
 
   if [[ -f "/tmp/${imagename}.cid" ]]; then
     docker start "$(cat /tmp/${imagename}.cid)"
-    docker exec -it "$(cat /tmp/${imagename}.cid)" /bin/bash -c "$1"
+    docker exec -it "$(cat /tmp/${imagename}.cid)" /bin/sh -il -c "$1"
   else
-    docker run --cidfile "/tmp/${imagename}.cid" -v "$(pwd)":/app -w /app "${rubystring}" /bin/bash -c "$1"
+    docker run --cidfile "/tmp/${imagename}.cid" -v "$(pwd)":/app -w /app "${rubystring}" /bin/sh -il -c "$1"
   fi
 }
