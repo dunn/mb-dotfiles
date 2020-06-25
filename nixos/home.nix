@@ -16,9 +16,9 @@
     pkgs.inconsolata
     pkgs.jdk
     pkgs.jq
+    pkgs.k9s
     pkgs.kubectl
     pkgs.kubernetes-helm
-    pkgs.k9s
     pkgs.libxml2
     pkgs.libxslt
     pkgs.lsof
