@@ -14,8 +14,10 @@ fi
 SEASON=$(tr -d '\n' < "$HOME/.config/season")
 export SEASON
 
-export DISPLAY=localhost:0.0
-export LIBGL_ALWAYS_INDIRECT=1
+if [ "$WSL_DISTRO_NAME" ]; then
+   export DISPLAY=localhost:0.0
+   export LIBGL_ALWAYS_INDIRECT=1
+fi
 
 # Prefer US English and use UTF-8.
 export LANG="en_US.UTF-8"
