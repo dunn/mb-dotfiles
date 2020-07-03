@@ -95,6 +95,9 @@ alias miniml='htmlcompressor -t html -r ./ -o ./ && htmlcompressor -t xml -r ./ 
 alias upgrade="nix-env -iA myPackages -f '<nixpkgs>'"
 alias nixpath="nix-build '<nixpkgs>' --no-build-output -A"
 
+alias nixcorrect="nix-shell -p --run 'bundle exec rubocop --format simple --config .rubocop.yml --auto-correct'"
+alias nixtodo="nix-shell -p --run 'bundle exec rubocop --format simple --config .rubocop.yml --auto-gen-config --no-auto-gen-timestamp'"
+
 # MISC
 # ====
 alias dater='date "+%Y-%m-%d"'
