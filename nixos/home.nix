@@ -5,6 +5,7 @@
   programs.home-manager.enable = true;
 
   home.packages = [
+    pkgs.awscli
     pkgs.bashCompletion
     pkgs.bind
     pkgs.bundix
