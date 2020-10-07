@@ -93,7 +93,7 @@
 
   # Remove branches that have already been merged with master
   # a.k.a. ‘delete merged’
-  dm = "!git branch --merged | grep -v 'master' | grep -v '\\*' | xargs -n 1 git branch -d"
+  dm = "!git branch --merged | grep -v 'master' | grep -v 'main' | grep -v 'trunk' | grep -v '\\*' | xargs -n 1 git branch -d"
 
   # check out github pull requests by number
   # https://github.com/thoughtbot/guides/tree/master/protocol/open-source#accepting-a-github-pull-request
