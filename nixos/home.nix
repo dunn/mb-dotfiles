@@ -12,8 +12,10 @@
     pkgs.editorconfig-core-c
     pkgs.emacs
     pkgs.file
+    pkgs.gimp
     pkgs.gitAndTools.pass-git-helper
     pkgs.git-secrets
+    pkgs.imagemagick
     pkgs.inconsolata
     pkgs.jdk
     pkgs.jq
@@ -23,8 +25,8 @@
     pkgs.libxml2
     pkgs.libxslt
     pkgs.lsof
+    pkgs.mysql57
     pkgs.nodejs
-    pkgs.notmuch
     pkgs.openssl
     pkgs.pass
     pkgs.php
