@@ -6,7 +6,7 @@
 
   home.packages = [
     pkgs.awscli
-    pkgs.bashCompletion
+    pkgs.bash-completion
     pkgs.bind
     pkgs.bundix
     pkgs.editorconfig-core-c
@@ -28,9 +28,8 @@
     pkgs.mysql57
     pkgs.nodejs
     pkgs.openssl
+    pkgs.pandoc
     pkgs.pass
-    pkgs.php
-    pkgs.php74Packages.composer
     pkgs.pinentry
     pkgs.postgresql
     pkgs.python3
