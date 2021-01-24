@@ -1,0 +1,30 @@
+#!/bin/sh
+
+start="${1}"
+duration="${2}"
+input="${3}"
+output="${4}"
+
+# if [ "${5}" != "" ]; then
+	# sub_flags="-i \"${5}\" -c:v copy -c:s copy -map 0:0 -map 0:1 -map 1:0"
+	# subs=",subtitles=${5}:force_style='Fontsize=24'"
+# fi
+
+palette="$(pwd)/palette-tmp.png"
+filters="fps=15,scale=800:-1:flags=lanczos"
+
+palette_cmd="ffmpeg -v warning -ss \"${start}\" -t \"${duration}\" -i \"${input}\" -vf \"${filters},palettegen=stats_mode=diff\" -y \"${palette}\""
+
+echo
+echo 'Generating palette...'
+echo "${palette_cmd}"
+eval "${palette_cmd}"
+echo
+
+gif_cmd="ffmpeg -v warning -ss \"${start}\" -t \"${duration}\" -i \"${input}\" -i \"${palette}\" -lavfi \"${filters} [x]; [x][1:v] paletteuse=dither=floyd_steinberg\" -y \"${output}\""
+
+echo 'Generating GIF...'
+echo "${gif_cmd}"
+eval "${gif_cmd}"
+
+rm "${palette}"
