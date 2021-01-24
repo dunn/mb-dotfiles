@@ -28,7 +28,6 @@ Thumbs.db
 
 # machine-specific dotstuff
 .extra
-.jshintrc
 
 # email crap
 .msmtprc
