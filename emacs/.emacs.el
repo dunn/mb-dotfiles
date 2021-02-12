@@ -260,8 +260,8 @@
 ;;
 ;; IRC
 ;;
-(require 'erc)
-(require 'erc-services)
+(require-package 'circe)
+(load "~/.emacs.d/circe.el")
 
 ;;
 ;; Email
