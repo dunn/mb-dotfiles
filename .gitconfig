@@ -18,6 +18,7 @@
   # Make `git rebase` safer on macOS
   # http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
   trustctime = false
+  autocrlf = input
 
 # https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
 [transfer]
