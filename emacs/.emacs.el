@@ -290,6 +290,14 @@
 ;; Language support
 ;;;;;;;;;;;;;;;;;;;
 ;;
+;; LSP
+;;
+(require-package 'lsp-mode)
+(require-package 'lsp-ivy)
+(require-package 'lsp-ui)
+(require-package 'company-lsp)
+
+;;
 ;; Plain text, Markdown, LaTeX, Fountain
 ;;
 ;; brew install markdown-mode
@@ -425,9 +433,15 @@
 ;;
 (require-package 'racer)
 (require-package 'flycheck-rust)
+(require 'lsp-rust)
 ;; https://github.com/flycheck/flycheck-rust#setup
 (with-eval-after-load 'rust-mode
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+(setq company-tooltip-align-annotations t)
 
 ;;
 ;; Make, CMake
