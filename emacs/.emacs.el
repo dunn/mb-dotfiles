@@ -264,24 +264,6 @@
 (load "~/.emacs.d/circe.el")
 
 ;;
-;; Email
-;;
-(require 'notmuch)
-(require 'notmuch-address)
-(notmuch-address-message-insinuate)
-(add-hook 'notmuch-message-mode-hook 'turn-on-auto-fill)
-(add-hook 'notmuch-message-mode-hook 'typo-mode)
-(global-set-key "\C-cn" 'notmuch)
-(global-set-key "\C-cm" (lambda () (interactive) (notmuch-search "tag:unread")))
-(define-key message-mode-map "\C-ce" 'mml-secure-message-encrypt-pgpmime)
-(define-key notmuch-search-mode-map "F" '--notmuch-search-flag)
-(define-key notmuch-show-mode-map "F" '--notmuch-show-flag)
-(define-key notmuch-search-mode-map "U" '--notmuch-search-read)
-(define-key notmuch-show-mode-map "U" '--notmuch-show-read)
-(define-key notmuch-search-mode-map "S" '--notmuch-search-spam)
-(define-key notmuch-show-mode-map "S" '--notmuch-show-spam)
-
-;;
 ;; password-store
 ;;
 (require-package 'pass)
