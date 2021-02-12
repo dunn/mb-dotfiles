@@ -23,6 +23,10 @@
 [transfer]
   fsckobjects = true
 
+[fetch "fsck"]
+  zeroPaddedFilemode = ignore
+  badTimezone = ignore
+
 [apply]
   # Detect whitespace errors when applying a patch
   whitespace = fix
