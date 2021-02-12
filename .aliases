@@ -10,6 +10,7 @@ alias .....="cd ../../../.."
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias ds="cd ~/Desktop"
+alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 # SYSTEM
 # ======
